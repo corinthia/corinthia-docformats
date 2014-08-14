@@ -25,7 +25,7 @@ has many use cases outside of word processing, and we hope to expand it to
 support other related classes of file formats such as spreadsheets,
 presentations, and drawings.
 
-The goal of the project is to have an easy-to-integrate library that any
+The short term goal of the project is to have an easy-to-integrate library that any
 application can use to embed support for a range of different file formats, and
 use the parsing, serialisation, and conversion facilities for various purposes.
 These include editors, batch conversion tools, web publishing systems, document
@@ -33,6 +33,11 @@ analysis tools, and content management systems. By abstracting over different
 file formats and using HTML as a common intermediate format, you can just code
 your application to that, and let DocFormats take care of conversion to other
 formats.
+
+The medium term goal of the project it to have a series of end-user applications including an editor, file conversation tool. These tools are also used to how the library works.
+
+It is a high goal to cooperate with other opensource projects, have input from them as well as provide APIs for them.
+
 
 # License
 
