@@ -5,10 +5,10 @@ formats. Currently it supports .docx (part of the OOXML specification), HTML,
 and LaTeX (export-only).
 
 The design is based on on the idea of *bidirectional transformation*, in which a
-*concrete* document (the original file in it's source format) is converted into
+*concrete* document (the original file in its source format) is converted into
 an *abstract* document (in the destination format), and a modified version of
 the abstract document can then be used to update the concrete document in a
-non-destructive manner, keeping in-tact all parts of the file which are not
+non-destructive manner, keeping intact all parts of the file which are not
 supported in the abstract format by only modifying the original file, rather
 than replacing it.
 
@@ -19,7 +19,7 @@ point, and the intention is to expand this support with the ability to do the
 inverse of this, as well as work with other formats like ODF, RTF, and Markdown.
 
 DocFormats start out as part of [UX Write](http://www.uxproductivity.com), a
-word processor for the iPad that uses HTML as it's native file format, and uses
+word processor for the iPad that uses HTML as its native file format, and uses
 the library to support editing of Microsoft Word documents. However, the library
 has many use cases outside of word processing, and we hope to expand it to
 support other related classes of file formats such as spreadsheets,
@@ -44,7 +44,7 @@ getting input from them as well as providing APIs for their use.
 
 # License
 
-DocFormats is licensed under the Apache Software License version 2.0; see
+DocFormats is licensed under the Apache License version 2.0; see
 LICENSE.txt for details.
 
 # What the library can do
@@ -81,7 +81,7 @@ program.
 DocFormats has been shipping as part of UX Write on the iOS app store since
 February 2013. From this perspective, it is a stable, mature library that works
 for the most commonly-used features of .docx formats. As an open source project,
-it is completely new, and from this perspective is very much in it's early
+it is completely new, and from this perspective is very much in its early
 stages. We are currently exploring the best way to leverage the existing work
 that has been done to make it easier to integrate in other projects, as well as
 support more file formats.
