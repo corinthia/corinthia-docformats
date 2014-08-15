@@ -34,9 +34,12 @@ file formats and using HTML as a common intermediate format, you can just code
 your application to that, and let DocFormats take care of conversion to other
 formats.
 
-The medium term goal of the project it to have a series of end-user applications including an editor, file conversation tool. These tools are also used to how the library works.
+The medium term goal of the project is to have a series of end-user applications
+(separate from the library itself) including an editor and file conversion tool.
+These will serve as examples of how the libraries can be used.
 
-It is a high goal to cooperate with other opensource projects, have input from them as well as provide APIs for them.
+It is also a goal to cooperate with other open source projects, in terms of
+getting input from them as well as providing APIs for their use.
 
 
 # License
@@ -55,9 +58,10 @@ LICENSE.txt for details.
 
 # Components
 
-There are two major components, in their respective directories:
+There are three major components, in their respective directories:
 
-* DocFormats - the library itself dfutil - a driver program used for running
+* `DocFormats` - the library itself
+* `dfutil` - a driver program used for running
 * automated tests (located in the tests directory)
 
 Run dfutil without any command-line arguments to see a list of operations. Here
@@ -110,12 +114,16 @@ root. Then, anywhere on your filesystem:
 
 This will produce two binaries:
 
-* ``DocFormats/libDocFormats.a`` -- a static library
-* ``dfutil/dfutil`` -- the driver program
+* `DocFormats/libDocFormats.a` -- a static library
+* `dfutil/dfutil` -- the driver program
 
 Note that, as per standard cmake practice, you should always build separately
 from the source tree (although a separate subdirectory within the source tree is
 acceptable).
+
+To run the tests, do the following:
+
+    dfutil -test $DOCFORMATS_DIR/tests
 
 ## Building on OS X
 
