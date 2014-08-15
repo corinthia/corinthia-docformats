@@ -61,7 +61,7 @@ LICENSE.txt for details.
 There are three major components, in their respective directories:
 
 * `DocFormats` - the library itself
-* `dfutil` - a driver program used for running
+* `dfutil` - a driver program used for running [...]
 * automated tests (located in the tests directory)
 
 Run dfutil without any command-line arguments to see a list of operations. Here
@@ -88,7 +88,7 @@ support more file formats.
 
 As a library for use in your application, it should be considered pre-alpha. In
 particular, there are likely to be major changes to the API over the coming
-months, as we better define
+months, as we better define [...]
 
 # Platforms and dependencies
 
