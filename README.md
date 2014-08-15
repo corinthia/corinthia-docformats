@@ -69,7 +69,7 @@ is an example of converting a .docx file to HTML, modifying it, and then upating
 the original .docx.
 
     dfutil filename.docx filename.html
-    vi filename.xml # Make some changes
+    vi filename.html # Make some changes
     dfutil filename.html filename.docx
 
 If you examine the convertFile function in `dfutil/Commands.c`, you will see the
