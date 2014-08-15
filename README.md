@@ -140,7 +140,7 @@ This will produce DocFormats.xcodeproj, which you can then open in Xcode.
 
 Windows is not yet supported.
 
-# Furher information
+# Further information
 
 Questions/comments? Contact Peter Kelly
 <[peter@uxproductivity.com](mailto:peter@uxproductivity.com)>.
