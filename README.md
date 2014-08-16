@@ -65,8 +65,10 @@ There are three major components, in their respective directories:
 * automated tests (located in the tests directory)
 
 Run dfutil without any command-line arguments to see a list of operations. Here
-is an example of converting a .docx file to HTML, modifying it, and then upating
-the original .docx.
+is an example of converting a .docx file to HTML, modifying it, and then updating
+the original .docx. Note that it is important, due to how internal mapping works,
+that the .docx file being written is the same file as the original; using a new
+file won't work.
 
     dfutil filename.docx filename.html
     vi filename.html # Make some changes
