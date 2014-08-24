@@ -4,43 +4,7 @@ DocFormats is a library for converting between different word processing file
 formats. Currently it supports .docx (part of the OOXML specification), HTML,
 and LaTeX (export-only).
 
-The design is based on on the idea of *bidirectional transformation*, in which a
-*concrete* document (the original file in its source format) is converted into
-an *abstract* document (in the destination format), and a modified version of
-the abstract document can then be used to update the concrete document in a
-non-destructive manner, keeping intact all parts of the file which are not
-supported in the abstract format by only modifying the original file, rather
-than replacing it.
-
-At present, its primary use case is for applications which need to convert .docx
-files to HTML, modify the HTML in some way, and then update the source .docx
-file with the changes that have been made. However, this is just a starting
-point, and the intention is to expand this support with the ability to do the
-inverse of this, as well as work with other formats like ODF, RTF, and Markdown.
-
-DocFormats start out as part of [UX Write](http://www.uxproductivity.com), a
-word processor for the iPad that uses HTML as its native file format, and uses
-the library to support editing of Microsoft Word documents. However, the library
-has many use cases outside of word processing, and we hope to expand it to
-support other related classes of file formats such as spreadsheets,
-presentations, and drawings.
-
-The short term goal of the project is to have an easy-to-integrate library that any
-application can use to embed support for a range of different file formats, and
-use the parsing, serialisation, and conversion facilities for various purposes.
-These include editors, batch conversion tools, web publishing systems, document
-analysis tools, and content management systems. By abstracting over different
-file formats and using HTML as a common intermediate format, you can just code
-your application to that, and let DocFormats take care of conversion to other
-formats.
-
-The medium term goal of the project is to have a series of end-user applications
-(separate from the library itself) including an editor and file conversion tool.
-These will serve as examples of how the libraries can be used.
-
-It is also a goal to cooperate with other open source projects, in terms of
-getting input from them as well as providing APIs for their use.
-
+[details](https://github.com/uxproductivity/DocFormats/wiki/Incubator-proposal#abstract)
 
 # License
 
