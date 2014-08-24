@@ -144,5 +144,4 @@ Windows is not yet supported.
 
 # Further information
 
-Questions/comments? Contact Peter Kelly
-<[peter@uxproductivity.com](mailto:peter@uxproductivity.com)>.
+please see [mail list](https://github.com/uxproductivity/DocFormats/wiki/Talk-to-us) for contacts
