@@ -79,18 +79,10 @@ main entry points to perform these conversions, which you can call from your own
 program.
 
 # Current Status
-
 DocFormats has been shipping as part of UX Write on the iOS app store since
-February 2013. From this perspective, it is a stable, mature library that works
-for the most commonly-used features of .docx formats. As an open source project,
-it is completely new, and from this perspective is very much in its early
-stages. We are currently exploring the best way to leverage the existing work
-that has been done to make it easier to integrate in other projects, as well as
-support more file formats.
+February 2013.
 
-As a library for use in your application, it should be considered pre-alpha. In
-particular, there are likely to be major changes to the API over the coming
-months, as we better define [...]
+[detailed status](https://github.com/uxproductivity/DocFormats/wiki/Incubator-proposal#current-status)
 
 # Platforms and dependencies
 
