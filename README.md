@@ -104,43 +104,12 @@ To build DocFormats, you will need to have the following installed:
 * [zlib](http://www.zlib.net)
 
 # Build instructions
-## Building on Linux
 
-Set the DOCFORMATS_DIR environment variable to the location of the repository
-root. Then, anywhere on your filesystem:
+DocFormats currently build on Linux and OS X (mac).
 
-    mkdir build
-    cd build
-    cmake -G "Unix Makefiles" $DOCFORMATS_DIR
-    make
+For detailed instructions, please see
 
-This will produce two binaries:
-
-* `DocFormats/libDocFormats.a` -- a static library
-* `dfutil/dfutil` -- the driver program
-
-Note that, as per standard cmake practice, you should always build separately
-from the source tree (although a separate subdirectory within the source tree is
-acceptable).
-
-To run the tests, do the following:
-
-    dfutil -test $DOCFORMATS_DIR/tests
-
-## Building on OS X
-
-You can either use the instructions above for building using make, or
-alternatively generate an Xcode project:
-
-    mkdir build
-    cd build
-    cmake -G Xcode $DOCFORMATS__DIR
-
-This will produce DocFormats.xcodeproj, which you can then open in Xcode.
-
-## Building on Windows
-
-Windows is not yet supported.
+[build instructions](https://github.com/uxproductivity/DocFormats/wiki/Build-instructions)
 
 # Further information
 
