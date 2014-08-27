@@ -12,21 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_DFError_h
-#define DocFormats_DFError_h
+#include "DFCommon.h"
+#include "DFPlatform.h"
 
-#include "DFTypes.h"
+// This file contains functions that are applicable to Linux (or more generally, any non-Apple Unix platform)
 
-typedef struct DFError DFError;
+#ifndef WIN32
+#ifndef __APPLE__
 
-void DFErrorSetPosix(DFError **error, int code);
-#ifdef WIN32
-void DFErrorSetWin32(DFError **error, DWORD code);
+int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, DFError **error)
+{
+    printf("WARNING: DFGetImageDimensions is not implemented on Linux\n");
+    DFErrorFormat(error,"DFGetImageDimensions is not implemented on Linux");
+    return 0;
+}
+
 #endif
-void DFErrorVFormat(DFError **error, const char *format, va_list ap);
-void DFErrorFormat(DFError **error, const char *format, ...) ATTRIBUTE_FORMAT(printf,2,3);
-DFError *DFErrorRetain(DFError *error);
-void DFErrorRelease(DFError *error);
-const char *DFErrorMessage(DFError **error);
-
 #endif

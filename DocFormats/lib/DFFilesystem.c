@@ -18,6 +18,7 @@
 #include "DFBuffer.h"
 #include "DFError.h"
 #include "DFCharacterSet.h"
+#include "DFPlatform.h"
 #include "DFCommon.h"
 
 int DFFileExists(const char *path)
@@ -29,7 +30,7 @@ int DFFileExists(const char *path)
 int DFIsDirectory(const char *path)
 {
     struct stat statbuf;
-    return ((0 == stat(path,&statbuf)) && (((statbuf.st_mode) & S_IFMT) == S_IFDIR));
+    return ((0 == stat(path,&statbuf)) && S_ISDIR(statbuf.st_mode));
 }
 
 int DFCreateDirectory(const char *path, int intermediates, DFError **error)
@@ -40,11 +41,10 @@ int DFCreateDirectory(const char *path, int intermediates, DFError **error)
             if (pos == 0)
                 continue;
             char *partial = DFSubstring(path,0,pos);
-            if ((mkdir(partial,0777) != 0) && (errno != EEXIST)) {
-                DFErrorSetPosix(error,errno);
-                return 0;
-            }
+            int ok = DFMkdirIfAbsent(partial,error);
             free(partial);
+            if (!ok)
+                return 0;
         }
     }
     return 1;
@@ -106,7 +106,7 @@ int DFDeleteFile(const char *path, DFError **error)
     // an error will be returned.
     struct stat statbuf;
     if (0 != stat(path,&statbuf)) {
-        DFErrorSetPosix(error,statbuf.st_mode);
+        DFErrorSetPosix(error,errno);
         return 0;
     }
 
@@ -114,7 +114,7 @@ int DFDeleteFile(const char *path, DFError **error)
     if (S_ISDIR(statbuf.st_mode)) {
         const char **contents = DFContentsOfDirectory(path,1,error);
         if (contents == NULL)
-            return 0;
+            return 0;;
 
         size_t count = DFStringArrayCount(contents);
 
@@ -133,7 +133,7 @@ int DFDeleteFile(const char *path, DFError **error)
             ok = 0;
     }
     else {
-        if (!unlink(path)) {
+        if (0 != unlink(path)) {
             DFErrorSetPosix(error,errno);
             ok = 0;
         }
@@ -142,88 +142,12 @@ int DFDeleteFile(const char *path, DFError **error)
     return ok;
 }
 
-#ifdef WIN32
-
-static int addContents(const char *absPath, const char *relPath, int recursive, DFArray *array, DFError **error)
-{
-    WIN32_FIND_DATA ffd;
-    HANDLE hFind = INVALID_HANDLE_VALUE;
-    char *pattern = DFFormatString("%s/*",absPath);
-    hFind = FindFirstFile(pattern,&ffd);
-    if (hFind == INVALID_HANDLE_VALUE) {
-        DFErrorSetWin32(error);
-        free(pattern);
-        return 0;
-    }
-
-    int ok = 1;
-    do {
-        if (!strcmp(ffd.cFileName,".") || !strcmp(ffd.cFileName,".."))
-            continue;
-
-        char *absSubPath = DFAppendPathComponent(absPath,ffd.cFileName);
-        char *relSubPath = DFAppendPathComponent(relPath,ffd.cFileName);
-
-        if (relSubPath[0] == '/')
-            DFArrayAppend(array,&relSubPath[1]);
-        else
-            DFArrayAppend(array,relSubPath);
-
-        if (recursive && (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
-            ok = addContents(absSubPath,relSubPath,recursive,array,error);
-
-        free(absSubPath);
-        free(relSubPath);
-    } while (ok && (FindNextFile(hFind,&ffd) != 0));
-
-    FindClose(hFind);
-    free(pattern);
-    return ok;
-}
-
-#else
-
-static int addContents(const char *absPath, const char *relPath, int recursive, DFArray *array, DFError **error)
-{
-    DIR *dir = opendir(absPath);
-    if (dir == NULL) {
-        DFErrorFormat(error,"%s: %s",relPath,strerror(errno));
-        return 0;
-    }
-
-    struct dirent buffer;
-    struct dirent *result = NULL;
-    int ok = 1;
-    while (ok && (0 == readdir_r(dir,&buffer,&result)) && (result != NULL)) {
-        if (!strcmp(result->d_name,".") || !strcmp(result->d_name,".."))
-            continue;
-
-        char *absSubPath = DFAppendPathComponent(absPath,result->d_name);
-        char *relSubPath = DFAppendPathComponent(relPath,result->d_name);
-
-        if (relSubPath[0] == '/')
-            DFArrayAppend(array,&relSubPath[1]);
-        else
-            DFArrayAppend(array,relSubPath);
-
-        if (recursive && DFIsDirectory(absSubPath))
-            ok = addContents(absSubPath,relSubPath,recursive,array,error);
-
-        free(absSubPath);
-        free(relSubPath);
-    }
-    closedir(dir);
-    return ok;
-}
-
-#endif
-
 const char **DFContentsOfDirectory(const char *path, int recursive, DFError **error)
 {
     const char **entries = NULL;
     DFArray *array = DFArrayNew((DFCopyFunction)strdup,(DFFreeFunction)free);
 
-    if (addContents(path,"",recursive,array,error))
+    if (DFAddDirContents(path,"",recursive,array,error))
         entries = DFStringArrayFlatten(array);
 
     DFArrayRelease(array);

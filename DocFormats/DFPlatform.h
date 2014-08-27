@@ -16,7 +16,27 @@
 #define DocFormats_DFPlatform_h
 
 #include "DFError.h"
+#include "DFArray.h"
 
-int DFPlatformGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, DFError **error);
+int DFMkdirIfAbsent(const char *path, DFError **error);
+int DFAddDirContents(const char *absPath, const char *relPath, int recursive, DFArray *array, DFError **error);
+int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, DFError **error);
+
+#ifdef WIN32
+
+#define DF_ONCE_INIT INIT_ONCE_STATIC_INIT;
+typedef INIT_ONCE DFOnce;
+typedef void (*DFOnceFunction)(void);
+void DFInitOnce(DFOnce *once, DFOnceFunction fun);
+
+#else
+
+#include <pthread.h>
+#define DF_ONCE_INIT PTHREAD_ONCE_INIT;
+typedef pthread_once_t DFOnce;
+typedef void (*DFOnceFunction)(void);
+void DFInitOnce(DFOnce *once, DFOnceFunction fun);
+
+#endif
 
 #endif

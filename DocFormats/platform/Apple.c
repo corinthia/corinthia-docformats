@@ -12,14 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "DFPlatform.h"
 #include "DFCommon.h"
+#include "DFPlatform.h"
+
+// This file contains functions that are applicable to iOS and OS X
 
 #ifdef __APPLE__
 
 #include <ImageIO/ImageIO.h>
 
-int DFPlatformGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, DFError **error)
+int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, DFError **error)
 {
     CFStringRef srcPath = CFStringCreateWithBytes(kCFAllocatorDefault,(const UInt8 *)path,
                                                   strlen(path),kCFStringEncodingUTF8,0);
@@ -54,14 +56,6 @@ int DFPlatformGetImageDimensions(const char *path, unsigned int *width, unsigned
         }
         CFRelease(properties);
     }
-    return 0;
-}
-
-#else
-
-int DFPlatformGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, DFError **error)
-{
-    DFErrorFormat(error,"DFPlatformGetImageDimensions is not implemented for this platform");
     return 0;
 }
 
