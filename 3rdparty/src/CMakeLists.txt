@@ -11,7 +11,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_subdirectory(external/minizip)
-add_subdirectory(external/w3c-tidy-html5)
-add_subdirectory(src)
-add_subdirectory(unittest)
