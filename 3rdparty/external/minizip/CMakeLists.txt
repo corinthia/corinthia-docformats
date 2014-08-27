@@ -1,4 +1,4 @@
-#
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_subdirectory(external/minizip)
-add_subdirectory(external/w3c-tidy-html5)
-add_subdirectory(src)
-add_subdirectory(unittest)
+cmake_minimum_required(VERSION 2.8)
+include_directories()
+include_directories(.)
+add_library(minizip ioapi.c unzip.c zip.c)
