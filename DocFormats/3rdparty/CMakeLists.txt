@@ -17,7 +17,6 @@ add_library(minizip
     external/minizip/unzip.c
     external/minizip/zip.c)
 
-cmake_minimum_required(VERSION 2.8)
 include_directories(external/w3c-tidy-html5/include)
 include_directories(external/w3c-tidy-html5/src)
 add_library(tidy

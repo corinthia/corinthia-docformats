@@ -11,13 +11,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cmake_minimum_required(VERSION 2.8)
 add_subdirectory(3rdparty)
 include_directories(/usr/include/libxml2)
-
-IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    set(CMAKE_C_FLAGS "-std=c99 -D_GNU_SOURCE -g")
-ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 
