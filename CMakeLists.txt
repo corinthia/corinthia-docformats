@@ -13,6 +13,5 @@
 
 cmake_minimum_required(VERSION 2.8)
 project(Socrates)
-add_subdirectory(3rdparty)
 add_subdirectory(DocFormats)
-add_subdirectory(dfutil)
+add_subdirectory(consumers)

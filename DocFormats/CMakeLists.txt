@@ -12,6 +12,7 @@
 # limitations under the License.
 
 cmake_minimum_required(VERSION 2.8)
+add_subdirectory(3rdparty)
 include_directories(/usr/include/libxml2)
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
@@ -21,196 +22,201 @@ ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 
 
-include_directories(../3rdparty/external/w3c-tidy-html5/include)
-include_directories(../3rdparty/external/w3c-tidy-html5/src)
-include_directories(../3rdparty/external/minizip)
+include_directories(3rdparty/external/w3c-tidy-html5/include)
+include_directories(3rdparty/external/w3c-tidy-html5/src)
+include_directories(3rdparty/external/minizip)
 
-include_directories(.)
-include_directories(./css)
-include_directories(./html)
-include_directories(./latex)
-include_directories(./lib)
-include_directories(./names)
-include_directories(./odf)
-include_directories(./word)
-include_directories(./word/formatting)
-include_directories(./word/lenses)
-include_directories(./xml)
+include_directories(core/headers)
+include_directories(core/src/common)
+include_directories(core/src/css)
+include_directories(core/src/lib)
+include_directories(core/src/names)
+include_directories(core/src/xml)
+include_directories(filters/html/src)
+include_directories(filters/latex/src)
+include_directories(filters/odf/src/common)
+include_directories(filters/ooxml/src/common)
+include_directories(filters/ooxml/src/word)
+include_directories(filters/ooxml/src/word/formatting)
+include_directories(filters/ooxml/src/word/lenses)
 
-set(GroupRoot
-    DFBDT.c
-    DFBDT.h
-    DFClassNames.h
-    DFCommon.h
-    DFPlatform.h
-    DFTable.c
-    DFTable.h
-    DFTypes.h
-    DocFormats.h)
+set(GroupHeaders
+    core/headers/CSS.h
+    core/headers/CSSClassNames.h
+    core/headers/CSSLength.h
+    core/headers/CSSProperties.h
+    core/headers/CSSSelector.h
+    core/headers/CSSSheet.h
+    core/headers/CSSStyle.h
+    core/headers/DFArray.h
+    core/headers/DFBDT.h
+    core/headers/DFBuffer.h
+    core/headers/DFCharacterSet.h
+    core/headers/DFClassNames.h
+    core/headers/DFCommon.h
+    core/headers/DFDOM.h
+    core/headers/DFError.h
+    core/headers/DFFilesystem.h
+    core/headers/DFHashTable.h
+    core/headers/DFPlatform.h
+    core/headers/DFString.h
+    core/headers/DFTable.h
+    core/headers/DFTypes.h
+    core/headers/DFXML.h
+    core/headers/DFXMLForward.h
+    core/headers/DFZipFile.h
+    core/headers/DocFormats.h)
+
+set(GroupCommon
+    core/src/common/DFBDT.c
+    core/src/common/DFTable.c)
 
 set(GroupPlatform
-    platform/Apple.c
-    platform/Linux.c
-    platform/Unix.c
-    platform/Win32.c)
+    core/src/platform/Apple.c
+    core/src/platform/Linux.c
+    core/src/platform/Unix.c
+    core/src/platform/Win32.c)
 
 set(GroupCSS
-    css/CSS.c
-    css/CSS.h
-    css/CSSClassNames.c
-    css/CSSClassNames.h
-    css/CSSLength.c
-    css/CSSLength.h
-    css/CSSParser.c
-    css/CSSParser.h
-    css/CSSProperties.c
-    css/CSSProperties.h
-    css/CSSSelector.c
-    css/CSSSelector.h
-    css/CSSSheet.c
-    css/CSSSheet.h
-    css/CSSStyle.c
-    css/CSSStyle.h
-    css/CSSSyntax.c
-    css/CSSSyntax.h)
+    core/src/css/CSS.c
+    core/src/css/CSSClassNames.c
+    core/src/css/CSSLength.c
+    core/src/css/CSSParser.c
+    core/src/css/CSSParser.h
+    core/src/css/CSSProperties.c
+    core/src/css/CSSSelector.c
+    core/src/css/CSSSheet.c
+    core/src/css/CSSStyle.c
+    core/src/css/CSSSyntax.c
+    core/src/css/CSSSyntax.h)
 
 set(GroupHTML
-    html/DFHTDocument.c
-    html/DFHTDocument.h
-    html/DFHTML.c
-    html/DFHTML.h
-    html/DFHTMLNormalization.c
-    html/DFHTMLNormalization.h
-    html/DFHTMLTables.c
-    html/DFHTMLTables.h
-    html/DFTidyHelper.c
-    html/DFTidyHelper.h
-    html/DFTidyWrapper.c
-    html/DFTidyWrapper.h)
+    filters/html/src/DFHTDocument.c
+    filters/html/src/DFHTDocument.h
+    filters/html/src/DFHTML.c
+    filters/html/src/DFHTML.h
+    filters/html/src/DFHTMLNormalization.c
+    filters/html/src/DFHTMLNormalization.h
+    filters/html/src/DFHTMLTables.c
+    filters/html/src/DFHTMLTables.h
+    filters/html/src/DFTidyHelper.c
+    filters/html/src/DFTidyHelper.h
+    filters/html/src/DFTidyWrapper.c
+    filters/html/src/DFTidyWrapper.h)
 
 set(GroupLaTeX
-    latex/HTMLToLaTeX.c
-    latex/HTMLToLaTeX.h)
+    filters/latex/src/HTMLToLaTeX.c
+    filters/latex/src/HTMLToLaTeX.h)
 
 set(GroupLib
-    lib/DFAllocator.c
-    lib/DFAllocator.h
-    lib/DFArray.c
-    lib/DFArray.h
-    lib/DFBuffer.c
-    lib/DFBuffer.h
-    lib/DFCallback.c
-    lib/DFCallback.h
-    lib/DFCharacterSet.c
-    lib/DFCharacterSet.h
-    lib/DFError.c
-    lib/DFError.h
-    lib/DFFilesystem.c
-    lib/DFFilesystem.h
-    lib/DFHashTable.c
-    lib/DFHashTable.h
-    lib/DFString.c
-    lib/DFString.h
-    lib/DFZipFile.c
-    lib/DFZipFile.h)
+    core/src/lib/DFAllocator.c
+    core/src/lib/DFAllocator.h
+    core/src/lib/DFArray.c
+    core/src/lib/DFBuffer.c
+    core/src/lib/DFCallback.c
+    core/src/lib/DFCallback.h
+    core/src/lib/DFCharacterSet.c
+    core/src/lib/DFError.c
+    core/src/lib/DFFilesystem.c
+    core/src/lib/DFHashTable.c
+    core/src/lib/DFString.c
+    core/src/lib/DFZipFile.c)
 
 set(GroupNames
-    names/DFXMLNames.c
-    names/DFXMLNames.h
-    names/DFXMLNamespaces.c
-    names/DFXMLNamespaces.h)
+    core/src/names/DFXMLNames.c
+    core/src/names/DFXMLNames.h
+    core/src/names/DFXMLNamespaces.c
+    core/src/names/DFXMLNamespaces.h)
 
 set(GroupODF
-    odf/ODF.c
-    odf/ODF.h
-    odf/ODFManifest.c
-    odf/ODFManifest.h
-    odf/ODFPackage.c
-    odf/ODFPackage.h
-    odf/ODFSheet.c
-    odf/ODFSheet.h)
+    filters/odf/src/common/ODF.c
+    filters/odf/src/common/ODF.h
+    filters/odf/src/common/ODFManifest.c
+    filters/odf/src/common/ODFManifest.h
+    filters/odf/src/common/ODFPackage.c
+    filters/odf/src/common/ODFPackage.h
+    filters/odf/src/common/ODFSheet.c
+    filters/odf/src/common/ODFSheet.h)
 
 set(GroupWord
-    word/OPC.c
-    word/OPC.h
-    word/Word.c
-    word/Word.h
-    word/WordCaption.c
-    word/WordCaption.h
-    word/WordConverter.c
-    word/WordConverter.h
-    word/WordGC.c
-    word/WordGC.h
-    word/WordLists.c
-    word/WordLists.h
-    word/WordNotes.c
-    word/WordNotes.h
-    word/WordNumbering.c
-    word/WordNumbering.h
-    word/WordObjects.c
-    word/WordObjects.h
-    word/WordPackage.c
-    word/WordPackage.h
-    word/WordSection.c
-    word/WordSection.h
-    word/WordSettings.c
-    word/WordSettings.h
-    word/WordSheet.c
-    word/WordSheet.h
-    word/WordStyles.c
-    word/WordStyles.h
-    word/WordTheme.c
-    word/WordTheme.h
-    word/WordWhitespace.c
-    word/WordWhitespace.h)
+    filters/ooxml/src/common/OPC.c
+    filters/ooxml/src/common/OPC.h
+    filters/ooxml/src/word/Word.c
+    filters/ooxml/src/word/Word.h
+    filters/ooxml/src/word/WordCaption.c
+    filters/ooxml/src/word/WordCaption.h
+    filters/ooxml/src/word/WordConverter.c
+    filters/ooxml/src/word/WordConverter.h
+    filters/ooxml/src/word/WordGC.c
+    filters/ooxml/src/word/WordGC.h
+    filters/ooxml/src/word/WordLists.c
+    filters/ooxml/src/word/WordLists.h
+    filters/ooxml/src/word/WordNotes.c
+    filters/ooxml/src/word/WordNotes.h
+    filters/ooxml/src/word/WordNumbering.c
+    filters/ooxml/src/word/WordNumbering.h
+    filters/ooxml/src/word/WordObjects.c
+    filters/ooxml/src/word/WordObjects.h
+    filters/ooxml/src/word/WordPackage.c
+    filters/ooxml/src/word/WordPackage.h
+    filters/ooxml/src/word/WordSection.c
+    filters/ooxml/src/word/WordSection.h
+    filters/ooxml/src/word/WordSettings.c
+    filters/ooxml/src/word/WordSettings.h
+    filters/ooxml/src/word/WordSheet.c
+    filters/ooxml/src/word/WordSheet.h
+    filters/ooxml/src/word/WordStyles.c
+    filters/ooxml/src/word/WordStyles.h
+    filters/ooxml/src/word/WordTheme.c
+    filters/ooxml/src/word/WordTheme.h
+    filters/ooxml/src/word/WordWhitespace.c
+    filters/ooxml/src/word/WordWhitespace.h)
 
 set(GroupWordFormatting
-    word/formatting/WordCommonPr.c
-    word/formatting/WordCommonPr.h
-    word/formatting/WordNumPr.c
-    word/formatting/WordNumPr.h
-    word/formatting/WordPPr.c
-    word/formatting/WordPPr.h
-    word/formatting/WordRPr.c
-    word/formatting/WordRPr.h
-    word/formatting/WordTblPr.c
-    word/formatting/WordTblPr.h)
+    filters/ooxml/src/word/formatting/WordCommonPr.c
+    filters/ooxml/src/word/formatting/WordCommonPr.h
+    filters/ooxml/src/word/formatting/WordNumPr.c
+    filters/ooxml/src/word/formatting/WordNumPr.h
+    filters/ooxml/src/word/formatting/WordPPr.c
+    filters/ooxml/src/word/formatting/WordPPr.h
+    filters/ooxml/src/word/formatting/WordRPr.c
+    filters/ooxml/src/word/formatting/WordRPr.h
+    filters/ooxml/src/word/formatting/WordTblPr.c
+    filters/ooxml/src/word/formatting/WordTblPr.h)
 
 set(GroupWordLenses
-    word/lenses/WordBlockLevel.c
-    word/lenses/WordBody.c
-    word/lenses/WordBookmark.c
-    word/lenses/WordBookmark.h
-    word/lenses/WordChange.c
-    word/lenses/WordDocument.c
-    word/lenses/WordDrawing.c
-    word/lenses/WordDrawing.h
-    word/lenses/WordEquation.c
-    word/lenses/WordField.c
-    word/lenses/WordField.h
-    word/lenses/WordHyperlink.c
-    word/lenses/WordLenses.c
-    word/lenses/WordLenses.h
-    word/lenses/WordParagraph.c
-    word/lenses/WordParagraphContent.c
-    word/lenses/WordRun.c
-    word/lenses/WordRunContent.c
-    word/lenses/WordSmartTag.c
-    word/lenses/WordTable.c)
+    filters/ooxml/src/word/lenses/WordBlockLevel.c
+    filters/ooxml/src/word/lenses/WordBody.c
+    filters/ooxml/src/word/lenses/WordBookmark.c
+    filters/ooxml/src/word/lenses/WordBookmark.h
+    filters/ooxml/src/word/lenses/WordChange.c
+    filters/ooxml/src/word/lenses/WordDocument.c
+    filters/ooxml/src/word/lenses/WordDrawing.c
+    filters/ooxml/src/word/lenses/WordDrawing.h
+    filters/ooxml/src/word/lenses/WordEquation.c
+    filters/ooxml/src/word/lenses/WordField.c
+    filters/ooxml/src/word/lenses/WordField.h
+    filters/ooxml/src/word/lenses/WordHyperlink.c
+    filters/ooxml/src/word/lenses/WordLenses.c
+    filters/ooxml/src/word/lenses/WordLenses.h
+    filters/ooxml/src/word/lenses/WordParagraph.c
+    filters/ooxml/src/word/lenses/WordParagraphContent.c
+    filters/ooxml/src/word/lenses/WordRun.c
+    filters/ooxml/src/word/lenses/WordRunContent.c
+    filters/ooxml/src/word/lenses/WordSmartTag.c
+    filters/ooxml/src/word/lenses/WordTable.c)
 
 set(GroupXML
-    xml/DFDOM.c
-    xml/DFDOM.h
-    xml/DFMarkupCompatibility.c
-    xml/DFMarkupCompatibility.h
-    xml/DFNameMap.c
-    xml/DFNameMap.h
-    xml/DFXML.c
-    xml/DFXML.h
-    xml/DFXMLForward.h)
+    core/src/xml/DFDOM.c
+    core/src/xml/DFMarkupCompatibility.c
+    core/src/xml/DFMarkupCompatibility.h
+    core/src/xml/DFNameMap.c
+    core/src/xml/DFNameMap.h
+    core/src/xml/DFXML.c)
 
 add_library(DocFormats
-    ${GroupRoot}
+    ${GroupHeaders}
+    ${GroupCommon}
     ${GroupCSS}
     ${GroupHTML}
     ${GroupLaTeX}
@@ -223,15 +229,16 @@ add_library(DocFormats
     ${GroupWordLenses}
     ${GroupXML})
 
-source_group(\\ FILES ${GroupRoot})
-source_group(css FILES ${GroupCSS})
-source_group(html FILES ${GroupHTML})
-source_group(latex FILES ${GroupLaTeX})
-source_group(lib FILES ${GroupLib})
-source_group(names FILES ${GroupNames})
-source_group(odf FILES ${GroupODF})
-source_group(platform FILES ${GroupPlatform})
-source_group(word FILES ${GroupWord})
-source_group(word\\formatting FILES ${GroupWordFormatting})
-source_group(word\\lenses FILES ${GroupWordLenses})
-source_group(xml FILES ${GroupXML})
+source_group(core\\headers FILES ${GroupHeaders})
+source_group(core\\common FILES ${GroupCommon})
+source_group(core\\css FILES ${GroupCSS})
+source_group(core\\lib FILES ${GroupLib})
+source_group(core\\names FILES ${GroupNames})
+source_group(core\\platform FILES ${GroupPlatform})
+source_group(core\\xml FILES ${GroupXML})
+source_group(filters\\odf FILES ${GroupODF})
+source_group(filters\\html FILES ${GroupHTML})
+source_group(filters\\latex FILES ${GroupLaTeX})
+source_group(filters\\ooxml\\word FILES ${GroupWord})
+source_group(filters\\ooxml\\word\\formatting FILES ${GroupWordFormatting})
+source_group(filters\\ooxml\\word\\lenses FILES ${GroupWordLenses})
