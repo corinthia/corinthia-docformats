@@ -22,7 +22,7 @@ set(minizip
     external/minizip/unzip.c
     external/minizip/zip.c
    )
-source_group(3rdparty\\external\\minizip, $minizip)
+source_group(DocFormats\\3rdparty\\external\\minizip, $minizip)
 
 
 
@@ -60,7 +60,7 @@ set(tidy
     external/w3c-tidy-html5/src/utf8.c
     external/w3c-tidy-html5/src/win32tc.c
    )
-source_group(3rdparty\\external\\w3c-tidy-html5, $tidy)
+source_group(DocFormats\\3rdparty\\external\\w3c-tidy-html5, $tidy)
 
 
 ###
@@ -80,8 +80,8 @@ add_subdirectory(tests)
 ###
 ## Build module library
 ###
-add_library(minizip
-            ${minizip})
-add_library(tidy
-            ${tidy})
+add_library(3rdparty
+            ${minizip}
+            ${tidy}
+           )
 

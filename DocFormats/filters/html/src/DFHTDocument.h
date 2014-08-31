@@ -15,8 +15,7 @@
 #ifndef DocFormats_DFHTDocument_h
 #define DocFormats_DFHTDocument_h
 
-#include "tidy.h"
-#include "buffio.h"
+#include "3rdparty.h"
 #include "DFError.h"
 #include "DFBuffer.h"
 

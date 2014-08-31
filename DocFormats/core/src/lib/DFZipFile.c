@@ -13,8 +13,7 @@
 // limitations under the License.
 
 #include "DFZipFile.h"
-#include "unzip.h"
-#include "zip.h"
+#include "3rdparty.h"
 #include "DFFilesystem.h"
 #include "DFString.h"
 #include "DFCommon.h"

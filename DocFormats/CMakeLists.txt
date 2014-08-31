@@ -17,9 +17,7 @@ include_directories(/usr/include/libxml2)
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 
 
-include_directories(3rdparty/external/w3c-tidy-html5/include)
-include_directories(3rdparty/external/w3c-tidy-html5/src)
-include_directories(3rdparty/external/minizip)
+include_directories(3rdparty/headers)
 
 include_directories(core/headers)
 include_directories(core/src/common)

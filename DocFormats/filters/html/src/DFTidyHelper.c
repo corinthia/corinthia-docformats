@@ -13,8 +13,7 @@
 // limitations under the License.
 
 #include "DFTidyHelper.h"
-#include "buffio.h"
-#include "streamio.h"
+#include "3rdparty.h"
 #include "DFNameMap.h"
 #include "DFCommon.h"
 

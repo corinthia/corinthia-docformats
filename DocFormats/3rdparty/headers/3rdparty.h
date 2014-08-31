@@ -12,13 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_DFTidyHelper_h
-#define DocFormats_DFTidyHelper_h
+#include "../external/w3c-tidy-html5/include/tidy.h"
+#include "../external/w3c-tidy-html5/include/buffio.h"
+#define UTF8        4
 
-#include "DFDOM.h"
-#include "3rdparty.h"
-
-char *copyTidyNodeValue(TidyNode tnode, TidyDoc tdoc);
-DFNode *fromTidyNode(DFDocument *htmlDoc, TidyDoc tdoc, TidyNode tnode);
-
-#endif
+#include "../external/minizip/unzip.h"
+#include "../external/minizip/zip.h"

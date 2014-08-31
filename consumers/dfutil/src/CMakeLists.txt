@@ -25,7 +25,7 @@ set(SOURCES
     main.c
 )
 
-set(LIBS DocFormats tidy minizip xml2 z)
+set(LIBS DocFormats 3rdparty xml2 z)
 
 include_directories(.)
 include_directories(../../../DocFormats/core/headers)
