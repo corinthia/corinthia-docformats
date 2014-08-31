@@ -11,12 +11,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_directories()
 include_directories(external/minizip)
 add_library(minizip
     external/minizip/ioapi.c
     external/minizip/unzip.c
     external/minizip/zip.c)
 
+include_directories()
 include_directories(external/w3c-tidy-html5/include)
 include_directories(external/w3c-tidy-html5/src)
 add_library(tidy
