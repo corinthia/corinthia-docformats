@@ -12,16 +12,26 @@
 # limitations under the License.
 
 include_directories()
+
+###
+## Handle external lib "minizip"
+###
 include_directories(external/minizip)
-add_library(minizip
+set(minizip
     external/minizip/ioapi.c
     external/minizip/unzip.c
-    external/minizip/zip.c)
+    external/minizip/zip.c
+   )
+source_group(3rdparty\\external\\minizip, $minizip)
 
-include_directories()
+
+
+###
+## Handle external lib "w3c-tidy-html5"
+###
 include_directories(external/w3c-tidy-html5/include)
 include_directories(external/w3c-tidy-html5/src)
-add_library(tidy
+set(tidy
     external/w3c-tidy-html5/src/access.c
     external/w3c-tidy-html5/src/alloc.c
     external/w3c-tidy-html5/src/attrask.c
@@ -49,8 +59,29 @@ add_library(tidy
     external/w3c-tidy-html5/src/tmbstr.c
     external/w3c-tidy-html5/src/utf8.c
     external/w3c-tidy-html5/src/win32tc.c
-)
+   )
+source_group(3rdparty\\external\\w3c-tidy-html5, $tidy)
 
 
+###
+## Handle module source
+###
 add_subdirectory(src)
+
+
+
+###
+## Handle module test
+###
 add_subdirectory(tests)
+
+
+
+###
+## Build module library
+###
+add_library(minizip
+            ${minizip})
+add_library(tidy
+            ${tidy})
+
