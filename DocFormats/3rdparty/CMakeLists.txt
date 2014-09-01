@@ -12,6 +12,9 @@
 # limitations under the License.
 
 include_directories()
+source_group(DocFormats\\3rdparty\\headers, headers/*)
+
+
 
 ###
 ## Handle external lib "minizip"
