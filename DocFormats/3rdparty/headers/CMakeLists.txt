@@ -11,29 +11,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+source_group(DocFormats\\3rdparty\\headers REGULAR_EXPRESSION .*)
 
-###
-## Collect source information
-###
-add_subdirectory(headers)
-add_subdirectory(external)
-add_subdirectory(src)
-add_subdirectory(tests)
-
-
-###
-## Build module library
-###
-include_directories()
-include_directories(external/minizip)
-include_directories(external/w3c-tidy-html5/include)
-include_directories(external/w3c-tidy-html5/src)
-add_library(3rdparty
-            ${src_headers}
-            ${src_external}
-            ${src_src}
-           )
-add_library(test_3rdparty
-            ${src_tests}
-          )
+set(src_headers
+    headers/3rdparty.h
+    PARENT_SCOPE)
 

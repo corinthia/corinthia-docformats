@@ -11,3 +11,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_directories()
+
+
+set(src_src
+    src/wrapper.c
+    PARENT_SCOPE
+   )
+
+source_group(DocFormats\\3rdparty\\src REGULAR_EXPRESSION .*)
