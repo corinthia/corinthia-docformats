@@ -1,4 +1,4 @@
-
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,18 +11,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_subdirectory(common)
-add_subdirectory(platform)
-add_subdirectory(css)
-add_subdirectory(lib)
-add_subdirectory(names)
-add_subdirectory(xml)
 
-set(src_src
-    ${src_common}
-    ${src_platform}
-    ${src_css}
-    ${src_lib}
-    ${src_names}
-    ${src_xml}
-    PARENT_SCOPE)
+###
+## Collect source information
+###
+add_subdirectory(headers)
+add_subdirectory(src)
+add_subdirectory(tests)
+
+###
+## Build module library
+###
+include_directories()
+add_library(core
+            ${src_headers}
+            ${src_src}
+           )
+add_library(test_core
+            ${src_tests}
+          )
+

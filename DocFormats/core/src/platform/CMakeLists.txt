@@ -11,18 +11,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_subdirectory(common)
-add_subdirectory(platform)
-add_subdirectory(css)
-add_subdirectory(lib)
-add_subdirectory(names)
-add_subdirectory(xml)
+source_group(DocFormats\\core\\platform .*)
 
-set(src_src
-    ${src_common}
-    ${src_platform}
-    ${src_css}
-    ${src_lib}
-    ${src_names}
-    ${src_xml}
+set(src_platform
+    src/platform/Apple.c
+    src/platform/Linux.c
+    src/platform/Unix.c
+    src/platform/Win32.c
     PARENT_SCOPE)

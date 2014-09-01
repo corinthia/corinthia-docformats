@@ -11,18 +11,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_subdirectory(common)
-add_subdirectory(platform)
-add_subdirectory(css)
-add_subdirectory(lib)
-add_subdirectory(names)
-add_subdirectory(xml)
+source_group(DocFormats\\core\\lib .*)
 
-set(src_src
-    ${src_common}
-    ${src_platform}
-    ${src_css}
-    ${src_lib}
-    ${src_names}
-    ${src_xml}
+
+set(src_lib
+    src/lib/DFAllocator.c
+    src/lib/DFArray.c
+    src/lib/DFBuffer.c
+    src/lib/DFCallback.c
+    src/lib/DFCharacterSet.c
+    src/lib/DFError.c
+    src/lib/DFFilesystem.c
+    src/lib/DFHashTable.c
+    src/lib/DFString.c
+    src/lib/DFZipFile.c
     PARENT_SCOPE)

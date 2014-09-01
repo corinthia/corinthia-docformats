@@ -11,18 +11,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_subdirectory(common)
-add_subdirectory(platform)
-add_subdirectory(css)
-add_subdirectory(lib)
-add_subdirectory(names)
-add_subdirectory(xml)
+source_group(DocFormats\\core\\css .*)
 
-set(src_src
-    ${src_common}
-    ${src_platform}
-    ${src_css}
-    ${src_lib}
-    ${src_names}
-    ${src_xml}
+
+set(src_css
+    src/css/CSS.c
+    src/css/CSSClassNames.c
+    src/css/CSSLength.c
+    src/css/CSSParser.c
+    src/css/CSSProperties.c
+    src/css/CSSSelector.c
+    src/css/CSSSheet.c
+    src/css/CSSStyle.c
+    src/css/CSSSyntax.c
     PARENT_SCOPE)

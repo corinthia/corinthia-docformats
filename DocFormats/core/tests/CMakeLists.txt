@@ -11,3 +11,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+source_group(DocFormats\\3rdparty\\headers REGULAR_EXPRESSION .*)
+
+set(src_tests
+    tests/test_main.c
+    PARENT_SCOPE)
+

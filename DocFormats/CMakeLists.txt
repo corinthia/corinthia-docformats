@@ -12,6 +12,11 @@
 # limitations under the License.
 
 add_subdirectory(3rdparty)
+add_subdirectory(core)
+
+
+
+
 include_directories(/usr/include/libxml2)
 
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
@@ -20,11 +25,6 @@ set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 include_directories(3rdparty/headers)
 
 include_directories(core/headers)
-include_directories(core/src/common)
-include_directories(core/src/css)
-include_directories(core/src/lib)
-include_directories(core/src/names)
-include_directories(core/src/xml)
 include_directories(filters/html/src)
 include_directories(filters/latex/src)
 include_directories(filters/odf/src/common)
@@ -32,56 +32,6 @@ include_directories(filters/ooxml/src/common)
 include_directories(filters/ooxml/src/word)
 include_directories(filters/ooxml/src/word/formatting)
 include_directories(filters/ooxml/src/word/lenses)
-
-set(GroupHeaders
-    core/headers/CSS.h
-    core/headers/CSSClassNames.h
-    core/headers/CSSLength.h
-    core/headers/CSSProperties.h
-    core/headers/CSSSelector.h
-    core/headers/CSSSheet.h
-    core/headers/CSSStyle.h
-    core/headers/DFArray.h
-    core/headers/DFBDT.h
-    core/headers/DFBuffer.h
-    core/headers/DFCharacterSet.h
-    core/headers/DFClassNames.h
-    core/headers/DFCommon.h
-    core/headers/DFDOM.h
-    core/headers/DFError.h
-    core/headers/DFFilesystem.h
-    core/headers/DFHashTable.h
-    core/headers/DFPlatform.h
-    core/headers/DFString.h
-    core/headers/DFTable.h
-    core/headers/DFTypes.h
-    core/headers/DFXML.h
-    core/headers/DFXMLForward.h
-    core/headers/DFZipFile.h
-    core/headers/DocFormats.h)
-
-set(GroupCommon
-    core/src/common/DFBDT.c
-    core/src/common/DFTable.c)
-
-set(GroupPlatform
-    core/src/platform/Apple.c
-    core/src/platform/Linux.c
-    core/src/platform/Unix.c
-    core/src/platform/Win32.c)
-
-set(GroupCSS
-    core/src/css/CSS.c
-    core/src/css/CSSClassNames.c
-    core/src/css/CSSLength.c
-    core/src/css/CSSParser.c
-    core/src/css/CSSParser.h
-    core/src/css/CSSProperties.c
-    core/src/css/CSSSelector.c
-    core/src/css/CSSSheet.c
-    core/src/css/CSSStyle.c
-    core/src/css/CSSSyntax.c
-    core/src/css/CSSSyntax.h)
 
 set(GroupHTML
     filters/html/src/DFHTDocument.c
@@ -100,26 +50,6 @@ set(GroupHTML
 set(GroupLaTeX
     filters/latex/src/HTMLToLaTeX.c
     filters/latex/src/HTMLToLaTeX.h)
-
-set(GroupLib
-    core/src/lib/DFAllocator.c
-    core/src/lib/DFAllocator.h
-    core/src/lib/DFArray.c
-    core/src/lib/DFBuffer.c
-    core/src/lib/DFCallback.c
-    core/src/lib/DFCallback.h
-    core/src/lib/DFCharacterSet.c
-    core/src/lib/DFError.c
-    core/src/lib/DFFilesystem.c
-    core/src/lib/DFHashTable.c
-    core/src/lib/DFString.c
-    core/src/lib/DFZipFile.c)
-
-set(GroupNames
-    core/src/names/DFXMLNames.c
-    core/src/names/DFXMLNames.h
-    core/src/names/DFXMLNamespaces.c
-    core/src/names/DFXMLNamespaces.h)
 
 set(GroupODF
     filters/odf/src/common/ODF.c
@@ -199,17 +129,7 @@ set(GroupWordLenses
     filters/ooxml/src/word/lenses/WordSmartTag.c
     filters/ooxml/src/word/lenses/WordTable.c)
 
-set(GroupXML
-    core/src/xml/DFDOM.c
-    core/src/xml/DFMarkupCompatibility.c
-    core/src/xml/DFMarkupCompatibility.h
-    core/src/xml/DFNameMap.c
-    core/src/xml/DFNameMap.h
-    core/src/xml/DFXML.c)
-
 add_library(DocFormats
-    ${GroupHeaders}
-    ${GroupCommon}
     ${GroupCSS}
     ${GroupHTML}
     ${GroupLaTeX}
@@ -222,13 +142,6 @@ add_library(DocFormats
     ${GroupWordLenses}
     ${GroupXML})
 
-source_group(core\\headers FILES ${GroupHeaders})
-source_group(core\\common FILES ${GroupCommon})
-source_group(core\\css FILES ${GroupCSS})
-source_group(core\\lib FILES ${GroupLib})
-source_group(core\\names FILES ${GroupNames})
-source_group(core\\platform FILES ${GroupPlatform})
-source_group(core\\xml FILES ${GroupXML})
 source_group(filters\\odf FILES ${GroupODF})
 source_group(filters\\html FILES ${GroupHTML})
 source_group(filters\\latex FILES ${GroupLaTeX})
