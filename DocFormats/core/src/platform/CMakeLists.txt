@@ -12,10 +12,15 @@
 # limitations under the License.
 
 source_group(DocFormats\\core\\platform .*)
-
-set(src_platform
-    src/platform/Apple.c
-    src/platform/Linux.c
-    src/platform/Unix.c
-    src/platform/Win32.c
+include_directories()
+include_directories(../../forward_decl_BAD)
+add_library(obj_core_platform OBJECT
+            Apple.c
+            Linux.c
+            Unix.c
+            Win32.c
+           )
+set(obj_platform
+    $<TARGET_OBJECTS:obj_core_platform>
     PARENT_SCOPE)
+

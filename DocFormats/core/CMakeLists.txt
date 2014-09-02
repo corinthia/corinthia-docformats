@@ -13,10 +13,11 @@
 
 
 ###
-## Collect source information
+## build object files
 ###
 add_subdirectory(headers)
 add_subdirectory(src)
+return()
 add_subdirectory(tests)
 
 ###

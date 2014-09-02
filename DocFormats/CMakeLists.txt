@@ -15,7 +15,8 @@
 ## Build object files
 ###
 add_subdirectory(3rdparty)
-
+add_subdirectory(core)
+return()
 
 
 ###
@@ -31,7 +32,6 @@ add_library(test_docformats
 
 
 return()
-add_subdirectory(core)
 
 
 

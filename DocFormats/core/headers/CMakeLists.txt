@@ -13,8 +13,3 @@
 
 source_group(DocFormats\\3rdparty\\headers REGULAR_EXPRESSION .*)
 
-set(src_headers
-    headers/core_helper.h
-    headers/core_datacapsule.h
-    PARENT_SCOPE)
-

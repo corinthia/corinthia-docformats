@@ -11,8 +11,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_subdirectory(common)
+###
+## Build object files
+###
 add_subdirectory(platform)
+
+add_library(jix_core
+            ${obj_platform}
+           )
+return()
+
+add_subdirectory(common)
 add_subdirectory(lib)
 add_subdirectory(css)
 add_subdirectory(names)
