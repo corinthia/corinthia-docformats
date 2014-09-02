@@ -12,17 +12,22 @@
 # limitations under the License.
 
 source_group(DocFormats\\core\\lib .*)
-
-
-set(src_lib
-    src/lib/DFAllocator.c
-    src/lib/DFArray.c
-    src/lib/DFBuffer.c
-    src/lib/DFCallback.c
-    src/lib/DFCharacterSet.c
-    src/lib/DFError.c
-    src/lib/DFFilesystem.c
-    src/lib/DFHashTable.c
-    src/lib/DFString.c
-    src/lib/DFZipFile.c
-    PARENT_SCOPE)
+include_directories(../../../3rdparty/headers)
+include_directories(../platform)
+include_directories(../../forward_decl_BAD)
+add_library(obj_core_lib OBJECT
+            DFAllocator.c
+            DFArray.c
+            DFBuffer.c
+            DFCallback.c
+            DFCharacterSet.c
+            DFError.c
+            DFFilesystem.c
+            DFHashTable.c
+            DFString.c
+            DFZipFile.c
+           )
+set(obj_lib
+    $<TARGET_OBJECTS:obj_core_lib>
+    PARENT_SCOPE
+   )

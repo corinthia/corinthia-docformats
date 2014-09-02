@@ -15,14 +15,15 @@
 ## Build object files
 ###
 add_subdirectory(platform)
+add_subdirectory(lib)
 
 add_library(jix_core
             ${obj_platform}
+            ${obj_lib}
            )
 return()
 
 add_subdirectory(common)
-add_subdirectory(lib)
 add_subdirectory(css)
 add_subdirectory(names)
 add_subdirectory(xml)
