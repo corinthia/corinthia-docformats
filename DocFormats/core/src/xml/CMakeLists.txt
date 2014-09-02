@@ -11,12 +11,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+
+include_directories()
+
+
+###
+## Build objects
+###
 source_group(DocFormats\\core\\xml .*)
+include_directories(/usr/include/libxml2)
+include_directories(../platform)
+include_directories(../lib)
+include_directories(../css)
+include_directories(../../forward_decl_BAD)
+add_library(obj_core_xml OBJECT
+            DFDOM.c
+            DFMarkupCompatibility.c
+            DFNameMap.c
+            DFXML.c
+           )
 
 
-set(src_xml
-    src/xml/DFDOM.c
-    src/xml/DFMarkupCompatibility.c
-    src/xml/DFNameMap.c
-    src/xml/DFXML.c
-    PARENT_SCOPE)
+###
+## Inform caller about object list
+###
+set(obj_xml
+    $<TARGET_OBJECTS:obj_core_xml>
+    PARENT_SCOPE
+   )
+                          

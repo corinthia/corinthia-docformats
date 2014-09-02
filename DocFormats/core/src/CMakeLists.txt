@@ -18,19 +18,22 @@ add_subdirectory(platform)
 add_subdirectory(lib)
 add_subdirectory(common)
 add_subdirectory(names)
-
-add_library(jix_core
-            ${obj_platform}
-            ${obj_lib}
-            ${obj_common}
-            ${obj_names}
-           )
-return()
-
 add_subdirectory(css)
+add_subdirectory(html)
 add_subdirectory(xml)
 
-set(src_src
-    ${src_css}
-    ${src_xml}
-    PARENT_SCOPE)
+###
+## Inform caller of object files
+###
+set(obj_src
+    ${obj_platform}
+    ${obj_lib}
+    ${obj_common}
+    ${obj_names}
+    ${obj_css}
+    ${obj_html}
+    ${obj_xml}
+    PARENT_SCOPE
+   )
+
+

@@ -17,6 +17,12 @@
 ###
 add_subdirectory(headers)
 add_subdirectory(src)
+
+
+add_library(jix_core
+            ${obj_src}
+           )
+
 return()
 add_subdirectory(tests)
 

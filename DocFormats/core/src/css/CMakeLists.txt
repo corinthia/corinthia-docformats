@@ -11,17 +11,37 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+include_directories()
+
+
+###
+## Build objects
+###
 source_group(DocFormats\\core\\css .*)
+include_directories(.)
+include_directories(../lib)
+include_directories(../common)
+include_directories(../names)
+include_directories(../../forward_decl_BAD)
+add_library(obj_core_css OBJECT
+            CSS.c
+            CSSClassNames.c
+            CSSLength.c
+            CSSParser.c
+            CSSProperties.c
+            CSSSelector.c
+            CSSSheet.c
+            CSSStyle.c
+            CSSSyntax.c
+           )
 
 
-set(src_css
-    src/css/CSS.c
-    src/css/CSSClassNames.c
-    src/css/CSSLength.c
-    src/css/CSSParser.c
-    src/css/CSSProperties.c
-    src/css/CSSSelector.c
-    src/css/CSSSheet.c
-    src/css/CSSStyle.c
-    src/css/CSSSyntax.c
-    PARENT_SCOPE)
+###
+## Inform caller about object list
+###
+set(obj_names
+    $<TARGET_OBJECTS:obj_core_css>
+    PARENT_SCOPE
+   )
+                          
