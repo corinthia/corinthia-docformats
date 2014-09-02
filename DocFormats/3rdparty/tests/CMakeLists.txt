@@ -11,8 +11,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set(src_tests
-    tests/test_main.c
-    PARENT_SCOPE)
+include_directories()
+
+
+include_directories()
+include_directories(../external/minizip)
+include_directories(../external/w3c-tidy-html5/include)
+include_directories(../external/w3c-tidy-html5/src)
+include_directories(../src)
 source_group(DocFormats\\3rdparty\\tests REGULAR_EXPRESSION .*)
 
+add_library(test_3rdparty
+            test_main.c
+           )

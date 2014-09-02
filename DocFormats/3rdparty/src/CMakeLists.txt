@@ -14,9 +14,18 @@
 include_directories()
 
 
-set(src_src
-    src/wrapper.c
+include_directories()
+include_directories(../external/minizip)
+include_directories(../external/w3c-tidy-html5/include)
+include_directories(../external/w3c-tidy-html5/src)
+source_group(DocFormats\\3rdparty\\src
+             REGULAR_EXPRESSION .*)
+add_library(obj_src_src OBJECT
+            wrapper.c
+           )
+
+set(obj_src
+    $<TARGET_OBJECTS:obj_src_src>
     PARENT_SCOPE
    )
 
-source_group(DocFormats\\3rdparty\\src REGULAR_EXPRESSION .*)

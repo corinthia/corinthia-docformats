@@ -12,8 +12,8 @@
 # limitations under the License.
 
 add_subdirectory(3rdparty)
-add_subdirectory(core)
 return()
+add_subdirectory(core)
 
 
 

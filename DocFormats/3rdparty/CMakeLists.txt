@@ -18,22 +18,11 @@
 add_subdirectory(headers)
 add_subdirectory(external)
 add_subdirectory(src)
-add_subdirectory(tests)
 
 
-###
-## Build module library
-###
-include_directories()
-include_directories(external/minizip)
-include_directories(external/w3c-tidy-html5/include)
-include_directories(external/w3c-tidy-html5/src)
 add_library(3rdparty
-            ${src_headers}
-            ${src_external}
-            ${src_src}
+            ${obj_external}
+            ${obj_src}
            )
-add_library(test_3rdparty
-            ${src_tests}
-          )
 
+add_subdirectory(tests)
