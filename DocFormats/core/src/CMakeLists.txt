@@ -13,16 +13,16 @@
 
 add_subdirectory(common)
 add_subdirectory(platform)
-add_subdirectory(css)
 add_subdirectory(lib)
+add_subdirectory(css)
 add_subdirectory(names)
 add_subdirectory(xml)
 
 set(src_src
     ${src_common}
     ${src_platform}
-    ${src_css}
     ${src_lib}
+    ${src_css}
     ${src_names}
     ${src_xml}
     PARENT_SCOPE)

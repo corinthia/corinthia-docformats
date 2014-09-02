@@ -23,6 +23,15 @@ add_subdirectory(tests)
 ## Build module library
 ###
 include_directories()
+include_directories(/usr/include/libxml2)
+include_directories(../3rdparty/headers)
+include_directories(src/names)
+include_directories(src/common)
+include_directories(src/lib)
+include_directories(src/platform)
+include_directories(src/xml)
+include_directories(src/html)
+include_directories(src/css)
 add_library(core
             ${src_headers}
             ${src_src}
