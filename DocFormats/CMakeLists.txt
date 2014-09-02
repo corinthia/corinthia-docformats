@@ -16,7 +16,6 @@
 ###
 add_subdirectory(3rdparty)
 add_subdirectory(core)
-return()
 
 
 ###
@@ -24,9 +23,11 @@ return()
 ###
 add_library(docformats
             ${obj_3rdparty}
+            ${obj_core}
            )
 add_library(test_docformats
             ${obj_test_3rdparty}
+            ${obj_test_core}
            )
 
 

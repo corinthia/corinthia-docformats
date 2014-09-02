@@ -1,4 +1,4 @@
-#
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -12,26 +12,24 @@
 # limitations under the License.
 
 
-###
-## build object files
-###
-add_subdirectory(headers)
-add_subdirectory(src)
-add_subdirectory(tests)
+include_directories()
 
 
 ###
-## Identify objects to caller
+## Build objects
 ###
-set(obj_core
-    ${obj_src}
-    PARENT_SCOPE
-   )
-
-# WARNING: PARENT_SCOPE is only 1 level so we need to repeat
-set(obj_test_core
-    ${obj_test}
-    PARENT_SCOPE
-   )
+source_group(DocFormats\\core\\html .*)
+# include_directories(../lib)
+# include_directories(../../forward_decl_BAD)
+# add_library(obj_core_common OBJECT
+#           )
 
 
+###
+## Inform caller about object list
+###
+# set(obj_html
+#     $<TARGET_OBJECTS:obj_core_html>
+#     PARENT_SCOPE
+#    )
+                          

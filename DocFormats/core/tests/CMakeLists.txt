@@ -11,9 +11,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-source_group(DocFormats\\3rdparty\\headers REGULAR_EXPRESSION .*)
+include_directories()
 
-set(src_tests
-    tests/test_main.c
-    PARENT_SCOPE)
+
+###
+## Build test object files (white box test with access to everyting)
+###
+source_group(DocFormats\\3rdparty\\tests REGULAR_EXPRESSION .*)
+add_library(test_core OBJECT
+            test_main.c
+           )
+
+
+
+###
+## identify objects to caller
+###
+set(obj_test
+    $<TARGET_OBJECTS:test_core>
+    PARENT_SCOPE
+   )
 
