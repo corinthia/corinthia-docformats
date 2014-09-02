@@ -11,7 +11,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+###
+## Build object files
+###
 add_subdirectory(3rdparty)
+
+
+
+###
+## Build libraries from source
+###
+add_library(docformats
+            ${obj_3rdparty}
+           )
+add_library(test_docformats
+            ${obj_test_3rdparty}
+           )
+
+
+
 return()
 add_subdirectory(core)
 

@@ -13,16 +13,25 @@
 
 
 ###
-## Collect source information
+## build object files
 ###
 add_subdirectory(headers)
 add_subdirectory(external)
 add_subdirectory(src)
-
-
-add_library(3rdparty
-            ${obj_external}
-            ${obj_src}
-           )
-
 add_subdirectory(tests)
+
+###
+## Identify objects to caller
+###
+set(obj_3rdparty
+    ${obj_external}
+    ${obj_src}
+    PARENT_SCOPE
+   )
+
+# WARNING: PARENT_SCOPE is only 1 level so we need to repeat
+set(obj_test_3rdparty
+    ${obj_test}
+    PARENT_SCOPE
+   )
+

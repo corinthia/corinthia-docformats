@@ -14,7 +14,9 @@
 include_directories()
 
 
-include_directories()
+###
+## build src object files
+###
 include_directories(../external/minizip)
 include_directories(../external/w3c-tidy-html5/include)
 include_directories(../external/w3c-tidy-html5/src)
@@ -24,6 +26,9 @@ add_library(obj_src_src OBJECT
             wrapper.c
            )
 
+###
+## identify object files to caller
+###
 set(obj_src
     $<TARGET_OBJECTS:obj_src_src>
     PARENT_SCOPE

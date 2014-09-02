@@ -14,13 +14,25 @@
 include_directories()
 
 
-include_directories()
+###
+## Build test object files (white box test with access to everyting)
+###
 include_directories(../external/minizip)
 include_directories(../external/w3c-tidy-html5/include)
 include_directories(../external/w3c-tidy-html5/src)
 include_directories(../src)
 source_group(DocFormats\\3rdparty\\tests REGULAR_EXPRESSION .*)
-
-add_library(test_3rdparty
+add_library(test_3rdparty OBJECT
             test_main.c
            )
+
+
+
+###
+## identify objects to caller
+###
+set(obj_test
+    $<TARGET_OBJECTS:test_3rdparty>
+    PARENT_SCOPE
+   )
+
