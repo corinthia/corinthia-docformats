@@ -11,33 +11,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-
 include_directories()
 
 
 ###
-## Build xml objects
+## Build latex filter objects
 ###
-source_group(DocFormats\\core\\xml .*)
-include_directories(/usr/include/libxml2)
-include_directories(../platform)
-include_directories(../lib)
-include_directories(../css)
-include_directories(../../forward_decl_BAD)
-add_library(obj_core_xml OBJECT
-            DFDOM.c
-            DFMarkupCompatibility.c
-            DFNameMap.c
-            DFXML.c
+source_group(DocFormats\\filers\\latex .*)
+include_directories(../../../core/headers)
+add_library(obj_filter_latex OBJECT
+            HTMLToLaTeX.c
            )
 
 
 ###
-## Inform caller about object list
+## Inform caller about objects
 ###
-set(obj_xml
-    $<TARGET_OBJECTS:obj_core_xml>
-    PARENT_SCOPE
-   )
-                          
+set(obj_src
+    $<TARGET_OBJECTS:obj_filter_latex>
+    PARENT_SCOPE)
+

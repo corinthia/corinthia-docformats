@@ -16,7 +16,7 @@ include_directories()
 
 
 ###
-## Build objects
+## Build names objects
 ###
 source_group(DocFormats\\core\\names .*)
 include_directories(../../forward_decl_BAD)

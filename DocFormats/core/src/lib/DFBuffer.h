@@ -15,9 +15,6 @@
 #ifndef DocFormats_DFBuffer_h
 #define DocFormats_DFBuffer_h
 
-#include "DFError.h"
-#include "DFTypes.h"
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                            DFBuffer                                            //

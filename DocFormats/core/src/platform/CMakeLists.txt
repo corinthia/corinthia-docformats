@@ -11,8 +11,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-source_group(DocFormats\\core\\platform .*)
+
 include_directories()
+
+
+###
+## Build platform objects
+###
+source_group(DocFormats\\core\\platform .*)
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_platform OBJECT
             Apple.c
@@ -20,6 +26,12 @@ add_library(obj_core_platform OBJECT
             Unix.c
             Win32.c
            )
+
+
+
+###
+## Identify objects to caller
+###
 set(obj_platform
     $<TARGET_OBJECTS:obj_core_platform>
     PARENT_SCOPE)

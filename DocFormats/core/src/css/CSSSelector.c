@@ -15,6 +15,9 @@
 #include "CSSSelector.h"
 #include "DFNameMap.h"
 #include "DFString.h"
+#include "DFTypes.h"
+#include "DFError.h"
+#include "DFBuffer.h"
 #include "DFDOM.h"
 #include "DFCommon.h"
 

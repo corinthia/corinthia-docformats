@@ -11,15 +11,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-#ifndef DEF_3RDPARTY_H
-#define DEF_3RDPARTY_H
+#ifndef DEF_CORE_HELPER_H
+#define DEF_CORE_HELPER_H
 
-// include original third party files
-#include "../external/w3c-tidy-html5/include/tidy.h"
-#include "../external/w3c-tidy-html5/include/buffio.h"
-#define UTF8        4
-
-#include "../external/minizip/unzip.h"
-#include "../external/minizip/zip.h"
+// include original files
+#include "../forward_decl_BAD/DFTypes.h"
+#include "../forward_decl_BAD/DFError.h"
+#include "../src/lib/DFBuffer.h"
+#include "../forward_decl_BAD/DFDOM.h"
+#include "../forward_decl_BAD/DFHTML.h"
 
 #endif

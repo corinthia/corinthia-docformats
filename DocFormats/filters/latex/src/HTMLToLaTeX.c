@@ -13,7 +13,6 @@
 // limitations under the License.
 
 #include "HTMLToLaTeX.h"
-#include "DFHTML.h"
 #include "DFTable.h"
 #include "DFHTMLTables.h"
 #include "DFString.h"

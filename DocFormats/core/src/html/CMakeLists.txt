@@ -16,7 +16,7 @@ include_directories()
 
 
 ###
-## Build objects
+## Build html objects
 ###
 source_group(DocFormats\\core\\html .*)
 # include_directories(../lib)

@@ -15,6 +15,8 @@
 #include "DFFilesystem.h"
 #include "DFString.h"
 #include "DFArray.h"
+#include "DFTypes.h"
+#include "DFError.h"
 #include "DFBuffer.h"
 #include "DFError.h"
 #include "DFCharacterSet.h"

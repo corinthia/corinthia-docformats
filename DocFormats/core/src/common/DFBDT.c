@@ -13,6 +13,9 @@
 // limitations under the License.
 
 #include "DFBDT.h"
+#include "DFTypes.h"
+#include "DFError.h"
+#include "DFBuffer.h"
 #include "DFDOM.h"
 #include "DFXML.h"
 #include "DFCommon.h"

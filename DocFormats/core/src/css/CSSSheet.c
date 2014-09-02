@@ -20,6 +20,8 @@
 #include "CSSLength.h"
 #include "DFString.h"
 #include "DFHashTable.h"
+#include "DFTypes.h"
+#include "DFError.h"
 #include "DFBuffer.h"
 #include "DFCommon.h"
 

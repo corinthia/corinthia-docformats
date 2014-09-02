@@ -18,6 +18,7 @@
 #include "WordPackage.h"
 #include "DFXMLNames.h"
 #include "DFBDT.h"
+#include "DFBuffer.h"
 #include "DFDOM.h"
 #include "DFClassNames.h"
 #include "DFXMLForward.h"

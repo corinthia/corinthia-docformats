@@ -1,4 +1,4 @@
-
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,33 +11,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-
 include_directories()
 
 
 ###
-## Build xml objects
+## Build test object files (white box test with access to everyting)
 ###
-source_group(DocFormats\\core\\xml .*)
-include_directories(/usr/include/libxml2)
-include_directories(../platform)
-include_directories(../lib)
-include_directories(../css)
-include_directories(../../forward_decl_BAD)
-add_library(obj_core_xml OBJECT
-            DFDOM.c
-            DFMarkupCompatibility.c
-            DFNameMap.c
-            DFXML.c
+source_group(DocFormats\\filters\\latex\\tests REGULAR_EXPRESSION .*)
+add_library(test_latex OBJECT
+            test_main.c
            )
 
 
+
 ###
-## Inform caller about object list
+## identify objects to caller
 ###
-set(obj_xml
-    $<TARGET_OBJECTS:obj_core_xml>
+set(obj_test
+    $<TARGET_OBJECTS:test_latex>
     PARENT_SCOPE
    )
-                          
+

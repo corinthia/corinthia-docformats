@@ -12,13 +12,3 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_HTMLToLaTeX_h
-#define DocFormats_HTMLToLaTeX_h
-
-#include "core_helper.h"
-
-// Note: HTML document must be normalized first
-
-char *HTMLToLaTeX(DFDocument *htmlDoc);
-
-#endif

@@ -16,7 +16,7 @@ include_directories()
 
 
 ###
-## Build objects
+## Build css objects
 ###
 source_group(DocFormats\\core\\css .*)
 include_directories(.)

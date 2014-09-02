@@ -13,6 +13,8 @@
 // limitations under the License.
 
 #include "DFString.h"
+#include "DFTypes.h"
+#include "DFError.h"
 #include "DFBuffer.h"
 #include "DFCharacterSet.h"
 #include "DFCommon.h"

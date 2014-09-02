@@ -16,7 +16,7 @@ include_directories()
 
 
 ###
-## Build objects
+## Build common objects
 ###
 source_group(DocFormats\\core\\common .*)
 include_directories(../lib)

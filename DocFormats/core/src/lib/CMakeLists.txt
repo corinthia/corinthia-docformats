@@ -15,7 +15,7 @@ include_directories()
 
 
 ###
-## Build objects
+## Build lib objects
 ###
 source_group(DocFormats\\core\\lib .*)
 include_directories(../../../3rdparty/headers)

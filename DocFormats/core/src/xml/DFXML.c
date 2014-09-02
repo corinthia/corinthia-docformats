@@ -16,6 +16,8 @@
 #include "DFDOM.h"
 #include "DFMarkupCompatibility.h"
 #include "DFHTML.h"
+#include "DFTypes.h"
+#include "DFError.h"
 #include "DFBuffer.h"
 #include "DFString.h"
 #include "DFCommon.h"
