@@ -17,23 +17,20 @@
 add_subdirectory(platform)
 add_subdirectory(lib)
 add_subdirectory(common)
+add_subdirectory(names)
 
 add_library(jix_core
             ${obj_platform}
             ${obj_lib}
             ${obj_common}
+            ${obj_names}
            )
 return()
 
 add_subdirectory(css)
-add_subdirectory(names)
 add_subdirectory(xml)
 
 set(src_src
-    ${src_common}
-    ${src_platform}
-    ${src_lib}
     ${src_css}
-    ${src_names}
     ${src_xml}
     PARENT_SCOPE)

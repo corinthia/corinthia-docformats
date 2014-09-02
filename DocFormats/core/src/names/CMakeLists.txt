@@ -11,10 +11,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+include_directories()
+
+
+###
+## Build objects
+###
 source_group(DocFormats\\core\\names .*)
+include_directories(../../forward_decl_BAD)
+add_library(obj_core_names OBJECT
+            DFXMLNames.c
+            DFXMLNamespaces.c
+           )
 
 
-set(src_names
-    src/names/DFXMLNames.c
-    src/names/DFXMLNamespaces.c
-    PARENT_SCOPE)
+###
+## Inform caller about object list
+###
+set(obj_names
+    $<TARGET_OBJECTS:obj_core_names>
+    PARENT_SCOPE
+   )
+                          
