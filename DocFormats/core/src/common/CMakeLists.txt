@@ -11,9 +11,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-source_group(DocFormats\\core\\common .*)
 
-set(src_common
-    src/common/DFBDT.c
-    src/common/DFTable.c
-    PARENT_SCOPE)
+include_directories()
+
+
+###
+## Build objects
+###
+source_group(DocFormats\\core\\common .*)
+include_directories(../lib)
+include_directories(../../forward_decl_BAD)
+add_library(obj_core_common OBJECT
+            DFBDT.c
+            DFTable.c
+           )
+
+
+###
+## Inform caller about object list
+###
+set(obj_common
+    $<TARGET_OBJECTS:obj_core_common>
+    PARENT_SCOPE
+   )
+                          

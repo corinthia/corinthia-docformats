@@ -11,6 +11,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_directories()
+
+
+###
+## Build objects
+###
 source_group(DocFormats\\core\\lib .*)
 include_directories(../../../3rdparty/headers)
 include_directories(../platform)
@@ -27,6 +33,10 @@ add_library(obj_core_lib OBJECT
             DFString.c
             DFZipFile.c
            )
+
+###
+## Inform caller about object list
+###
 set(obj_lib
     $<TARGET_OBJECTS:obj_core_lib>
     PARENT_SCOPE
