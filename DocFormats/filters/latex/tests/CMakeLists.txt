@@ -19,7 +19,7 @@ include_directories()
 ###
 source_group(DocFormats\\filters\\latex\\tests REGULAR_EXPRESSION .*)
 add_library(test_latex OBJECT
-            test_main.c
+            test_latex.c
            )
 
 

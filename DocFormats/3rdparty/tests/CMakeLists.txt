@@ -23,7 +23,7 @@ include_directories(../external/w3c-tidy-html5/src)
 include_directories(../src)
 source_group(DocFormats\\3rdparty\\tests REGULAR_EXPRESSION .*)
 add_library(test_3rdparty OBJECT
-            test_main.c
+            test_3rdparty.c
            )
 
 

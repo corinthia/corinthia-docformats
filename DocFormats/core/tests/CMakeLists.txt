@@ -19,7 +19,7 @@ include_directories()
 ###
 source_group(DocFormats\\3rdparty\\tests REGULAR_EXPRESSION .*)
 add_library(test_core OBJECT
-            test_main.c
+            test_core.c
            )
 
 
