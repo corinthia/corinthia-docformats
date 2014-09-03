@@ -15,9 +15,6 @@
 #ifndef DocFormats_DFTable_h
 #define DocFormats_DFTable_h
 
-#include "DFXMLForward.h"
-#include "DFTypes.h"
-
 typedef struct {
     unsigned int rows;
     unsigned int cols;

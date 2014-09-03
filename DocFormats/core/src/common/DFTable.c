@@ -12,8 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "DFTable.h"
+#include "DFXMLForward.h"
 #include "DFTypes.h"
+#include "DFTable.h"
 #include "DFError.h"
 #include "DFBuffer.h"
 #include "DFDOM.h"

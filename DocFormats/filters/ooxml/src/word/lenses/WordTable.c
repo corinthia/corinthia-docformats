@@ -17,6 +17,8 @@
 #include "WordSheet.h"
 #include "DFStyles.h"
 #include "Word.h"
+#include "DFXMLForward.h"
+#include "DFTypes.h"
 #include "DFTable.h"
 #include "DFHTMLTables.h"
 #include "CSS.h"

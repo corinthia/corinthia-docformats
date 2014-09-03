@@ -12,8 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "DFHTMLTables.h"
+#include "DFXMLForward.h"
+#include "DFTypes.h"
 #include "DFTable.h"
+#include "DFHTMLTables.h"
 #include "DFDOM.h"
 #include "DFString.h"
 #include "CSSLength.h"
