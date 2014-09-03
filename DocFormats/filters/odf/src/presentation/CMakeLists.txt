@@ -1,4 +1,4 @@
-#
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -15,20 +15,19 @@ include_directories()
 
 
 ###
-## Build test object files (white box test with access to everyting)
+## Build odf presentation filter objects
 ###
-source_group(DocFormats\\filters\\latex\\tests REGULAR_EXPRESSION .*)
-add_library(test_filter_latex OBJECT
-            test_latex.c
+source_group(DocFormats\\filters\\odf\\presentation .*)
+include_directories(../../../../core/headers)
+add_library(obj_filter_odf_presentation OBJECT
+            ODFPresentation.c
            )
 
 
-
 ###
-## identify objects to caller
+## Inform caller about objects
 ###
-set(obj_test
-    $<TARGET_OBJECTS:test_filter_latex>
-    PARENT_SCOPE
-   )
+set(obj_presentation
+    $<TARGET_OBJECTS:obj_filter_odf_presentation>
+    PARENT_SCOPE)
 

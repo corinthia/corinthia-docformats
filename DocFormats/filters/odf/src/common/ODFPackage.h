@@ -15,8 +15,6 @@
 #ifndef DocFormats_ODFPackage_h
 #define DocFormats_ODFPackage_h
 
-#include "DFXMLForward.h"
-#include "DFError.h"
 #include "ODFManifest.h"
 #include "ODFSheet.h"
 

@@ -19,7 +19,6 @@
 #include "DFXMLNames.h"
 #include "DFXMLForward.h"
 #include "DFError.h"
-#include "DFBuffer.h"
 
 DFDocument *DFParseXMLString(const char *str, DFError **error);
 DFDocument *DFParseXMLFile(const char *filename, DFError **error);

@@ -17,7 +17,7 @@ include_directories()
 ###
 ## Build latex filter objects
 ###
-source_group(DocFormats\\filers\\latex .*)
+source_group(DocFormats\\filters\\latex .*)
 include_directories(../../../core/headers)
 add_library(obj_filter_latex OBJECT
             HTMLToLaTeX.c

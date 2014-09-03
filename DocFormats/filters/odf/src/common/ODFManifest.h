@@ -15,10 +15,6 @@
 #ifndef DocFormats_ODFManifest_h
 #define DocFormats_ODFManifest_h
 
-#include "DFDOM.h"
-#include "DFHashTable.h"
-#include "DFTypes.h"
-
 /**
 
  \file

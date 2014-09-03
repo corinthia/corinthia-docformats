@@ -12,12 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "core_helper.h"
+#include "core_datacapsule.h"
 #include "ODFPackage.h"
-#include "DFDOM.h"
-#include "DFXML.h"
-#include "DFString.h"
-#include "DFFilesystem.h"
-#include "DFCommon.h"
 
 static DFDocument *readOrCreateDocument(ODFPackage *package, const char *filename, Tag rootTag, Tag childTag)
 {

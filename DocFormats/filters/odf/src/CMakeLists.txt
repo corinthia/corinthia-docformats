@@ -16,11 +16,10 @@
 ## build object files
 ###
 add_subdirectory(common)
-return()
 add_subdirectory(drawing)
 add_subdirectory(presentation)
 add_subdirectory(spreadsheet)
-add_subdirectory(text)
+## add_subdirectory(text)
 
 ###
 ## Identify objects to caller
@@ -30,7 +29,7 @@ set(obj_src
     ${obj_drawing}
     ${obj_presentation}
     ${obj_spreadsheet}
-    ${obj_text}
+##    ${obj_text}
     PARENT_SCOPE
    )
 

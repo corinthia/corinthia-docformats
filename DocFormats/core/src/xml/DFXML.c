@@ -13,6 +13,9 @@
 // limitations under the License.
 
 #include "DFCallback.h"
+#include "DFTypes.h"
+#include "DFError.h"
+#include "DFBuffer.h"
 #include "DFXML.h"
 #include "DFDOM.h"
 #include "DFMarkupCompatibility.h"
@@ -23,8 +26,6 @@
 #include "CSSSheet.h"
 #include "CSSLength.h"
 #include "DFHTML.h"
-#include "DFTypes.h"
-#include "DFError.h"
 #include "DFBuffer.h"
 #include "DFString.h"
 #include "DFCommon.h"

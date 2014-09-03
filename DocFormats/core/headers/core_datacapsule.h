@@ -15,6 +15,8 @@
 #define DEF_CORE_DATACAPSULE_H
 
 // include original third party files
+#include "../forward_decl_BAD/DFDOM.h"
+#include "../forward_decl_BAD/DFXML.h"
 #include "../forward_decl_BAD/DFXMLForward.h"
 #include "../forward_decl_BAD/DFHashTable.h"
 #include "../src/lib/DFCallback.h"
