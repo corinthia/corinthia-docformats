@@ -1,4 +1,4 @@
-#
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,26 +11,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_directories()
+
 
 ###
-## build object files
+## Build odf test filter objects
 ###
-add_subdirectory(common)
-add_subdirectory(drawing)
-add_subdirectory(presentation)
-add_subdirectory(spreadsheet)
-add_subdirectory(text)
+source_group(DocFormats\\filters\\odf\\text .*)
+include_directories(../../../../core/headers)
+add_library(obj_filter_odf_text OBJECT
+            ODFText.c
+           )
+
 
 ###
-## Identify objects to caller
+## Inform caller about objects
 ###
-set(obj_src
-    ${obj_common}
-    ${obj_drawing}
-    ${obj_presentation}
-    ${obj_spreadsheet}
-    ${obj_text}
-    PARENT_SCOPE
-   )
-
+set(obj_text
+    $<TARGET_OBJECTS:obj_filter_odf_text>
+    PARENT_SCOPE)
 

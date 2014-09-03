@@ -1,3 +1,0 @@
-This file is only present because git does not store empty directories.
-
-The directory will eventually contain code to support conversion of ODF text documents.
