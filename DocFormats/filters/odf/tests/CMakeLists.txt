@@ -11,37 +11,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_directories()
+
 
 ###
-## build object files
+## Build test object files (white box test with access to everyting)
 ###
-add_subdirectory(latex)
-add_subdirectory(odf)
-
-add_library(jixtest
-           ${obj_latex}
-           ${obj_odf}
+source_group(DocFormats\\filters\\odf\\tests REGULAR_EXPRESSION .*)
+add_library(test_odf OBJECT
+            test_odf.c
            )
-add_library(jixtest_test
-           ${obj_test_latex}
-           ${obj_test_odf}
-           )
-return()
 
 
 
 ###
-## Identify objects to caller
+## identify objects to caller
 ###
-set(obj_core
-    ${obj_src}
+set(obj_test
+    $<TARGET_OBJECTS:test_odf>
     PARENT_SCOPE
    )
-
-# WARNING: PARENT_SCOPE is only 1 level so we need to repeat
-set(obj_test_core
-    ${obj_test}
-    PARENT_SCOPE
-   )
-
 
