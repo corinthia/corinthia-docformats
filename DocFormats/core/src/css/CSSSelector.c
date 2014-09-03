@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "DFXMLNames.h"
+#include "DFXMLForward.h"
 #include "CSSSelector.h"
 #include "DFNameMap.h"
 #include "DFString.h"

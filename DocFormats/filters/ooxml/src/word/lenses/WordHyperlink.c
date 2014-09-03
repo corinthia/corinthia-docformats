@@ -15,6 +15,7 @@
 #include "WordLenses.h"
 #include "WordStyles.h"
 #include "OPC.h"
+#include "DFCallback.h"
 #include "CSSProperties.h"
 #include "DFString.h"
 #include "DFCommon.h"

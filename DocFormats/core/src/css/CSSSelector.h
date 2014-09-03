@@ -15,8 +15,6 @@
 #ifndef DocFormats_CSSSelector_h
 #define DocFormats_CSSSelector_h
 
-#include "DFXMLForward.h"
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                           StyleFamily                                          //

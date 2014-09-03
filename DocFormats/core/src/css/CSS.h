@@ -15,6 +15,7 @@
 #ifndef DocFormats_CSS_h
 #define DocFormats_CSS_h
 
+#include "DFCallback.h"
 #include "CSSProperties.h"
 #include "DFHashTable.h"
 #include "DFArray.h"

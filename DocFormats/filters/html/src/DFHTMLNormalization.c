@@ -15,6 +15,7 @@
 #include "DFHTMLNormalization.h"
 #include "DFDOM.h"
 #include "CSS.h"
+#include "DFCallback.h"
 #include "CSSProperties.h"
 #include "CSSSheet.h"
 #include "CSSLength.h"

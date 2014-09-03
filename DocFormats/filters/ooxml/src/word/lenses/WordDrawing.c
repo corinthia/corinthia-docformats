@@ -17,6 +17,7 @@
 #include "WordObjects.h"
 #include "WordSection.h"
 #include "CSSLength.h"
+#include "DFCallback.h"
 #include "CSSProperties.h"
 #include "CSSSheet.h"
 #include "CSSLength.h"

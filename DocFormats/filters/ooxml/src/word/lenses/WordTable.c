@@ -19,6 +19,7 @@
 #include "DFTable.h"
 #include "DFHTMLTables.h"
 #include "CSS.h"
+#include "DFCallback.h"
 #include "CSSProperties.h"
 #include "CSSLength.h"
 #include "WordSection.h"

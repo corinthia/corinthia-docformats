@@ -18,6 +18,7 @@
 #include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFFilesystem.h"
+#include "DFCallback.h"
 #include "CSSProperties.h"
 #include "DFString.h"
 #include "DFCommon.h"

@@ -20,6 +20,7 @@
 #include "DFXMLNames.h"
 #include "CSS.h"
 #include "CSSLength.h"
+#include "DFCallback.h"
 #include "CSSProperties.h"
 #include "WordNumbering.h"
 #include "WordTheme.h"

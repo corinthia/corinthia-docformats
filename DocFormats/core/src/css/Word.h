@@ -17,6 +17,7 @@
 
 #include "DFError.h"
 #include "DFXMLForward.h"
+#include "DFCallback.h"
 #include "CSSStyle.h"
 #include "CSSSheet.h"
 

@@ -18,6 +18,7 @@
 #include "WordNumbering.h"
 #include "WordLists.h"
 #include "CSS.h"
+#include "DFCallback.h"
 #include "CSSProperties.h"
 #include "CSSLength.h"
 #include "DFXMLNames.h"

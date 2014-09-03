@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DFCallback.h"
 #include "CSSProperties.h"
 #include "CSS.h"
 #include "DFString.h"

@@ -14,9 +14,11 @@
 
 #include "CSS.h"
 #include "CSSParser.h"
+#include "DFCallback.h"
 #include "CSSProperties.h"
 #include "CSSSyntax.h"
 #include "DFXMLNames.h"
+#include "DFXMLForward.h"
 #include "CSSSelector.h"
 #include "DFTypes.h"
 #include "DFError.h"

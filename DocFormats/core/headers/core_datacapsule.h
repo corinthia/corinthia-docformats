@@ -15,6 +15,7 @@
 #define DEF_CORE_DATACAPSULE_H
 
 // include original third party files
+#include "../forward_decl_BAD/DFXMLForward.h"
 #include "../src/css/CSSSheet.h"
 #include "../src/css/CSSLength.h"
 #include "../forward_decl_BAD/DFHTML.h"

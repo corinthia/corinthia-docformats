@@ -41,7 +41,6 @@
 
  */
 
-#include "DFCallback.h"
 #include "DFHashTable.h"
 
 typedef struct CSSProperties CSSProperties;

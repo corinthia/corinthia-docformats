@@ -44,6 +44,7 @@
 
  */
 
+#include "CSSSelector.h"
 #include "CSSStyle.h"
 #include "DFHashTable.h"
 
