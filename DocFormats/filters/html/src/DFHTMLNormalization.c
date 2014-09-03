@@ -18,6 +18,8 @@
 #include "DFCallback.h"
 #include "DFHashTable.h"
 #include "CSSProperties.h"
+#include "CSSSelector.h"
+#include "CSSStyle.h"
 #include "CSSSheet.h"
 #include "CSSLength.h"
 #include "DFHTML.h"

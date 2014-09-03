@@ -19,6 +19,7 @@
 #include "WordLists.h"
 #include "CSS.h"
 #include "DFCallback.h"
+#include "DFTypes.h"
 #include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "CSSLength.h"

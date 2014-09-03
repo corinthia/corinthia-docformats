@@ -16,6 +16,11 @@
 
 // include original third party files
 #include "../forward_decl_BAD/DFXMLForward.h"
+#include "../forward_decl_BAD/DFHashTable.h"
+#include "../src/lib/DFCallback.h"
+#include "../src/css/CSSSelector.h"
+#include "../src/css/CSSProperties.h"
+#include "../src/css/CSSStyle.h"
 #include "../src/css/CSSSheet.h"
 #include "../src/css/CSSLength.h"
 #include "../forward_decl_BAD/DFHTML.h"

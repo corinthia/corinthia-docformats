@@ -16,6 +16,9 @@
 #define DocFormats_CSSClassNames_h
 
 #include "DFXMLForward.h"
+#include "CSSSelector.h"
+#include "DFHashTable.h"
+#include "CSSStyle.h"
 #include "CSSSheet.h"
 
 void CSSEnsureReferencedStylesPresent(DFDocument *htmlDoc, CSSSheet *styleSheet);

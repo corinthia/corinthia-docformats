@@ -24,6 +24,10 @@
 #include "DFXMLForward.h"
 #include "DFXMLNames.h"
 #include "CSSSelector.h"
+#include "DFHashTable.h"
+#include "CSSProperties.h"
+#include "CSSSelector.h"
+#include "CSSStyle.h"
 #include "CSSSheet.h"
 
 #define EMUS_PER_POINT 12700

@@ -12,15 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DFStyles.h"
 #include "Word.h"
 #include "WordStyles.h"
+#include "DFHashTable.h"
+#include "CSSSelector.h"
+#include "CSSStyle.h"
+#include "CSSProperties.h"
 #include "CSSSheet.h"
 #include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFFilesystem.h"
 #include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
 #include "DFString.h"
 #include "DFCommon.h"
 

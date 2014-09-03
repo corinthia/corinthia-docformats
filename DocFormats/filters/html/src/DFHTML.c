@@ -24,6 +24,8 @@
 #include "DFXMLNames.h"
 #include "CSSSelector.h"
 #include "CSSLength.h"
+#include "CSSSelector.h"
+#include "CSSStyle.h"
 #include "CSSSheet.h"
 #include "DFHTDocument.h"
 #include "DFTidyHelper.h"

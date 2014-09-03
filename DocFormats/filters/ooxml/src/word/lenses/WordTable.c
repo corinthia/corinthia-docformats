@@ -15,6 +15,7 @@
 #include "WordLenses.h"
 #include "WordStyles.h"
 #include "WordSheet.h"
+#include "DFStyles.h"
 #include "Word.h"
 #include "DFTable.h"
 #include "DFHTMLTables.h"

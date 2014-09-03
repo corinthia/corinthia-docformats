@@ -17,6 +17,7 @@
 #include "DFXMLNames.h"
 #include "CSSSelector.h"
 #include "DFString.h"
+#include "DFStyles.h"
 #include "Word.h"
 #include "DFCommon.h"
 
