@@ -15,6 +15,8 @@
 #include "DFXML.h"
 #include "DFDOM.h"
 #include "DFMarkupCompatibility.h"
+#include "CSSSheet.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFTypes.h"
 #include "DFError.h"

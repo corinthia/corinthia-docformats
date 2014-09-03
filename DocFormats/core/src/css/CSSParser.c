@@ -14,6 +14,8 @@
 
 #include "CSSParser.h"
 #include "CSS.h"
+#include "CSSSheet.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFString.h"
 #include "DFCharacterSet.h"

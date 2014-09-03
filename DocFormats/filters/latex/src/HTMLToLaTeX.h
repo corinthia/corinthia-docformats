@@ -16,6 +16,7 @@
 #define DocFormats_HTMLToLaTeX_h
 
 #include "core_helper.h"
+#include "core_datacapsule.h"
 
 // Note: HTML document must be normalized first
 

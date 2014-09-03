@@ -16,6 +16,7 @@
 #define DocFormats_Word_h
 
 #include "DFError.h"
+#include "DFXMLForward.h"
 #include "CSSStyle.h"
 #include "CSSSheet.h"
 

@@ -19,6 +19,8 @@
 #include "Commands.h"
 #include "DFChanges.h"
 #include "WordConverter.h"
+#include "CSSSheet.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFHTMLNormalization.h"
 #include "DFFilesystem.h"

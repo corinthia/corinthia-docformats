@@ -16,7 +16,6 @@
 #define DocFormats_DFHTML_h
 
 #include "DFXMLNames.h"
-#include "CSSSheet.h"
 #include "DFXMLForward.h"
 #include "DFError.h"
 #include "CSSLength.h"

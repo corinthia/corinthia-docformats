@@ -18,6 +18,8 @@
 #include "WordSection.h"
 #include "CSSLength.h"
 #include "CSSProperties.h"
+#include "CSSSheet.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFFilesystem.h"
 #include "OPC.h"

@@ -14,6 +14,8 @@
 
 #include "Word.h"
 #include "WordStyles.h"
+#include "CSSSheet.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFFilesystem.h"
 #include "CSSProperties.h"

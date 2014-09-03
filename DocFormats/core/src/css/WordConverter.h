@@ -22,6 +22,7 @@
 #include "DFDOM.h"
 #include "DFClassNames.h"
 #include "DFXMLForward.h"
+#include "DFXMLNames.h"
 #include "CSSSelector.h"
 #include "CSSSheet.h"
 

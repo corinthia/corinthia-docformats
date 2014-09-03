@@ -16,6 +16,8 @@
 #include "DFDOM.h"
 #include "CSS.h"
 #include "CSSProperties.h"
+#include "CSSSheet.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFClassNames.h"
 #include "DFString.h"

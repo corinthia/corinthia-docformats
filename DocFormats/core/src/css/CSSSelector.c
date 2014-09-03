@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DFXMLNames.h"
 #include "CSSSelector.h"
 #include "DFNameMap.h"
 #include "DFString.h"

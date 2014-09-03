@@ -20,6 +20,8 @@
 #include "WordObjects.h"
 #include "WordCaption.h"
 #include "WordSheet.h"
+#include "CSSSheet.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFString.h"
 #include "DFCommon.h"

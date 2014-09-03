@@ -19,6 +19,5 @@
 #include "../forward_decl_BAD/DFError.h"
 #include "../src/lib/DFBuffer.h"
 #include "../forward_decl_BAD/DFDOM.h"
-#include "../forward_decl_BAD/DFHTML.h"
 
 #endif

@@ -14,6 +14,7 @@
 
 #include "WordSheet.h"
 #include "DFDOM.h"
+#include "DFXMLNames.h"
 #include "CSSSelector.h"
 #include "DFString.h"
 #include "Word.h"

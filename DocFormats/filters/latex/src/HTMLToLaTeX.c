@@ -13,11 +13,6 @@
 // limitations under the License.
 
 #include "HTMLToLaTeX.h"
-#include "DFTable.h"
-#include "DFHTMLTables.h"
-#include "DFString.h"
-#include "DFFilesystem.h"
-#include "DFCommon.h"
 
 typedef struct LaTeXConverter LaTeXConverter;
 

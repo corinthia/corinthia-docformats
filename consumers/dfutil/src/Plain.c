@@ -18,10 +18,12 @@
 #include "Commands.h"
 #include "OPC.h"
 #include "WordConverter.h"
+#include "CSSSheet.h"
 #include "DFXML.h"
 #include "DFHashTable.h"
 #include "DFString.h"
 #include "DFFilesystem.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFCommon.h"
 

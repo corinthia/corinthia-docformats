@@ -17,6 +17,8 @@
 #include "WordObjects.h"
 #include "DFDOM.h"
 #include "DFString.h"
+#include "CSSSheet.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFCommon.h"
 

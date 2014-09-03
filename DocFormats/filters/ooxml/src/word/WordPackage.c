@@ -19,6 +19,8 @@
 #include "DFFilesystem.h"
 #include "DFXML.h"
 #include "OPC.h"
+#include "CSSSheet.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFHTMLNormalization.h"
 #include "WordField.h"

@@ -12,11 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "CSSSheet.h"
+#include "CSSLength.h"
 #include "DFHTML.h"
 #include "DFFilesystem.h"
 #include "DFDOM.h"
 #include "CSS.h"
 #include "CSSProperties.h"
+#include "DFXMLNames.h"
 #include "CSSSelector.h"
 #include "CSSLength.h"
 #include "CSSSheet.h"
