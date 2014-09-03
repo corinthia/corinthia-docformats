@@ -32,6 +32,7 @@
 #include "CSSSheet.h"
 #include "CSSLength.h"
 #include "DFHTML.h"
+#include "OPC.h"
 #include "WordStyles.h"
 #include "Word.h"
 #include "DFCommon.h"

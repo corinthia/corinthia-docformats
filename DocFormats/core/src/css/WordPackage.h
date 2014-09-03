@@ -15,9 +15,6 @@
 #ifndef DocFormats_WordPackage_h
 #define DocFormats_WordPackage_h
 
-#include "DFXMLForward.h"
-#include "OPC.h"
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                           WordPackage                                          //

@@ -12,18 +12,3 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "core_helper.h"
-#include "core_datacapsule.h"
-#include "WordLenses.h"
-#include "DFCommon.h"
-
-DFNode *WordContainerGet(WordGetData *get, WordLens *childLens, DFNode *abstract, DFNode *concrete)
-{
-    return BDTContainerGet(get,(DFLens *)childLens,abstract,concrete);
-}
-
-void WordContainerPut(WordPutData *put, WordLens *childLens, DFNode *abstract, DFNode *concrete)
-{
-    BDTContainerPut(put,(DFLens *)childLens,abstract,concrete,
-                    (DFLookupConcreteFunction)WordConverterGetConcrete);
-}

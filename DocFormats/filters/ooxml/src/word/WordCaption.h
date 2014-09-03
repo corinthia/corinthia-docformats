@@ -15,9 +15,6 @@
 #ifndef DocFormats_WordCaption_h
 #define DocFormats_WordCaption_h
 
-#include "DFXMLForward.h"
-#include "DFTypes.h"
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                           WordCaption                                          //

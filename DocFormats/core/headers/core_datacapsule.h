@@ -36,5 +36,6 @@
 #include "../src/css/OPC.h"
 #include "../forward_decl_BAD/DFFilesystem.h"
 #include "../src/lib/DFZipFile.h"
+#include "../src/css/WordPackage.h"
 
 #endif
