@@ -19,6 +19,7 @@
 #include "DFDOM.h"
 #include "CSS.h"
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "DFXMLNames.h"
 #include "CSSSelector.h"

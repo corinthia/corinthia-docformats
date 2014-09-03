@@ -13,10 +13,10 @@
 // limitations under the License.
 
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "CSS.h"
 #include "DFString.h"
-#include "DFHashTable.h"
 #include "DFCommon.h"
 
 char *CSSPropertiesCopyDescription(CSSProperties *properties)

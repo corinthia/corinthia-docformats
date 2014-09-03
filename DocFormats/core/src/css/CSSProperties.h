@@ -41,8 +41,6 @@
 
  */
 
-#include "DFHashTable.h"
-
 typedef struct CSSProperties CSSProperties;
 
 struct CSSProperties {

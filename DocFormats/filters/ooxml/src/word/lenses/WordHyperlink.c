@@ -16,6 +16,7 @@
 #include "WordStyles.h"
 #include "OPC.h"
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "DFString.h"
 #include "DFCommon.h"

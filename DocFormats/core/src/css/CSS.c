@@ -15,6 +15,7 @@
 #include "CSS.h"
 #include "CSSParser.h"
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "CSSSyntax.h"
 #include "DFXMLNames.h"

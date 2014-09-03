@@ -16,8 +16,8 @@
 #define DocFormats_CSS_h
 
 #include "DFCallback.h"
-#include "CSSProperties.h"
 #include "DFHashTable.h"
+#include "CSSProperties.h"
 #include "DFArray.h"
 
 typedef enum {

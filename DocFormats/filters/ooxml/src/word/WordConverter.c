@@ -36,6 +36,7 @@
 #include "DFBDT.h"
 #include "CSS.h"
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "CSSLength.h"
 #include "DFXMLNames.h"

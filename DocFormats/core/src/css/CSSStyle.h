@@ -114,6 +114,8 @@
 
  */
 
+
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "DFTypes.h"
 

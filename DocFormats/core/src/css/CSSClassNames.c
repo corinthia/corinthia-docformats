@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "DFXMLForward.h"
 #include "DFXMLNames.h"
@@ -28,7 +29,6 @@
 #include "DFXML.h"
 #include "DFNameMap.h"
 #include "DFString.h"
-#include "DFHashTable.h"
 #include "CSSSheet.h"
 #include "CSSLength.h"
 #include "DFHTML.h"

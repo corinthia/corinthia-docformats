@@ -15,6 +15,7 @@
 #include "WordLists.h"
 #include "DFDOM.h"
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "CSSLength.h"
 #include "WordConverter.h"

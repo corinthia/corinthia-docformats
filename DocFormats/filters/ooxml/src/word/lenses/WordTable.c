@@ -20,6 +20,7 @@
 #include "DFHTMLTables.h"
 #include "CSS.h"
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "CSSLength.h"
 #include "WordSection.h"

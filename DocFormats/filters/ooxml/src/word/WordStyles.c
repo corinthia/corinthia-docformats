@@ -21,13 +21,13 @@
 #include "CSS.h"
 #include "CSSLength.h"
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "WordNumbering.h"
 #include "WordTheme.h"
 #include "WordSection.h"
 #include "WordSheet.h"
 #include "DFString.h"
-#include "DFHashTable.h"
 #include "DFCommon.h"
 
 static Tag WordSectPr_Children[] = {

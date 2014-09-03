@@ -16,6 +16,7 @@
 #include "DFDOM.h"
 #include "CSS.h"
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "CSSSheet.h"
 #include "CSSLength.h"

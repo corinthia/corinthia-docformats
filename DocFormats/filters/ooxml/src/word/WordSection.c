@@ -15,6 +15,7 @@
 #include "WordSection.h"
 #include "WordStyles.h"
 #include "DFCallback.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "CSSLength.h"
 #include "DFString.h"
