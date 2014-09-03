@@ -15,7 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordGC.h"
-#include "WordConverter.h"
 #include "WordPackage.h"
 #include "OPC.h"
 #include "DFDOM.h"

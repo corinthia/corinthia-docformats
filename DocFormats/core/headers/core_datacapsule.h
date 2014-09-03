@@ -37,5 +37,6 @@
 #include "../forward_decl_BAD/DFFilesystem.h"
 #include "../src/lib/DFZipFile.h"
 #include "../src/css/WordPackage.h"
+#include "../src/css/WordConverter.h"
 
 #endif

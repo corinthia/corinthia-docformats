@@ -15,7 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordNotes.h"
-#include "WordConverter.h"
 #include "WordSheet.h"
 #include "WordLenses.h"
 #include "DFString.h"

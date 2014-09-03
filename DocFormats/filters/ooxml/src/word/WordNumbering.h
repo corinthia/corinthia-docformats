@@ -15,9 +15,6 @@
 #ifndef DocFormats_WordNumbering_h
 #define DocFormats_WordNumbering_h
 
-#include "WordConverter.h"
-#include "DFXMLForward.h"
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                          WordNumLevel                                          //

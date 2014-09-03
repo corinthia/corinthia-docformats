@@ -15,11 +15,7 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordSettings.h"
-#include "DFDOM.h"
-#include "DFXML.h"
 #include "WordPackage.h"
-#include "WordConverter.h"
-#include "DFCommon.h"
 
 static Tag WordSettings_Children[] = {
     WORD_WRITEPROTECTION,

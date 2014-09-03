@@ -15,7 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 
-#include "WordConverter.h"
 #include "WordBookmark.h"
 #include "WordField.h"
 #include "WordStyles.h"

@@ -15,9 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordTheme.h"
-#include "WordConverter.h"
-#include "DFDOM.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

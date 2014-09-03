@@ -20,7 +20,6 @@
 #include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "CSSLength.h"
-#include "WordConverter.h"
 #include "WordNumbering.h"
 #include "WordStyles.h"
 #include "CSSSelector.h"

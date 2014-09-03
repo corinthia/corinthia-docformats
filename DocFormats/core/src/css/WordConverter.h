@@ -16,19 +16,6 @@
 #define DocFormats_WordConverter_h
 
 #include "WordPackage.h"
-#include "DFXMLNames.h"
-#include "DFBDT.h"
-#include "DFBuffer.h"
-#include "DFDOM.h"
-#include "DFClassNames.h"
-#include "DFXMLForward.h"
-#include "DFXMLNames.h"
-#include "CSSSelector.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "CSSSelector.h"
-#include "CSSStyle.h"
-#include "CSSSheet.h"
 
 #define EMUS_PER_POINT 12700
 
