@@ -33,5 +33,8 @@
 #include "../forward_decl_BAD/DFString.h"
 #include "../forward_decl_BAD/DFFilesystem.h"
 #include "../forward_decl_BAD/DFCommon.h"
+#include "../src/css/OPC.h"
+#include "../forward_decl_BAD/DFFilesystem.h"
+#include "../src/lib/DFZipFile.h"
 
 #endif

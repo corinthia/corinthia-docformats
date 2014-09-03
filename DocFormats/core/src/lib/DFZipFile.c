@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
+#include "DFError.h"
 #include "DFZipFile.h"
 #include "3rdparty.h"
 #include "DFFilesystem.h"

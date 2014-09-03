@@ -12,11 +12,3 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_DFZipFile_h
-#define DocFormats_DFZipFile_h
-
-
-int DFUnzip(const char *zipFilename, const char *sourceDir, DFError **error);
-int DFZip(const char *zipFilename, const char *sourceDir, DFError **error);
-
-#endif

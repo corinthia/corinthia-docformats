@@ -15,10 +15,6 @@
 #ifndef DocFormats_OPC_h
 #define DocFormats_OPC_h
 
-#include "DFXMLForward.h"
-#include "DFError.h"
-#include "DFBuffer.h"
-
 // Essentials of the Open Packaging Conventions
 // http://msdn.microsoft.com/en-us/library/ee361919(office.11).aspx
 

@@ -15,34 +15,19 @@
 ###
 ## build object files
 ###
-add_subdirectory(latex)
-add_subdirectory(odf)
-add_subdirectory(ooxml)
-
-add_library(jixtest
-           ${obj_latex}
-           ${obj_odf}
-           ${obj_ooxml}
-           )
-add_library(jixtest_test
-           ${obj_test_latex}
-           ${obj_test_odf}
-           ${obj_test_ooxml}
-           )
-return()
-
-
+add_subdirectory(src)
+add_subdirectory(tests)
 
 ###
 ## Identify objects to caller
 ###
-set(obj_core
+set(obj_ooxml
     ${obj_src}
     PARENT_SCOPE
    )
 
 # WARNING: PARENT_SCOPE is only 1 level so we need to repeat
-set(obj_test_core
+set(obj_test_ooxml
     ${obj_test}
     PARENT_SCOPE
    )

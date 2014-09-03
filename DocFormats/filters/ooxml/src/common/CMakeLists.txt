@@ -1,4 +1,4 @@
-#
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,40 +11,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_directories()
+
 
 ###
-## build object files
+## Build ooxml common filter objects
 ###
-add_subdirectory(latex)
-add_subdirectory(odf)
-add_subdirectory(ooxml)
-
-add_library(jixtest
-           ${obj_latex}
-           ${obj_odf}
-           ${obj_ooxml}
+source_group(DocFormats\\filters\\ooxml\\common .*)
+include_directories(../../../../core/headers)
+add_library(obj_filter_ooxml_common OBJECT
+            OPC.c
            )
-add_library(jixtest_test
-           ${obj_test_latex}
-           ${obj_test_odf}
-           ${obj_test_ooxml}
-           )
-return()
-
 
 
 ###
-## Identify objects to caller
+## Inform caller about objects
 ###
-set(obj_core
-    ${obj_src}
-    PARENT_SCOPE
-   )
-
-# WARNING: PARENT_SCOPE is only 1 level so we need to repeat
-set(obj_test_core
-    ${obj_test}
-    PARENT_SCOPE
-   )
-
+set(obj_common
+    $<TARGET_OBJECTS:obj_filter_ooxml_common>
+    PARENT_SCOPE)
 

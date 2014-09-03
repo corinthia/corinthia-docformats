@@ -12,14 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "OPC.h"
-#include "DFDOM.h"
-#include "DFFilesystem.h"
-#include "DFXML.h"
-#include "DFZipFile.h"
-#include "DFHashTable.h"
-#include "DFString.h"
-#include "DFCommon.h"
+#include "core_helper.h"
+#include "core_datacapsule.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
