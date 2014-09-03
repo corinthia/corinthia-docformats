@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DFCallback.h"
+#include "DFHashTable.h"
+#include "CSSProperties.h"
+#include "DFArray.h"
 #include "CSS.h"
 #include "CSSParser.h"
 #include "DFCallback.h"

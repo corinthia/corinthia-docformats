@@ -15,7 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordSettings.h"
-#include "WordPackage.h"
 
 static Tag WordSettings_Children[] = {
     WORD_WRITEPROTECTION,

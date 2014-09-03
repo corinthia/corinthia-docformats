@@ -17,16 +17,7 @@
 #include "WordCommonPr.h"
 #include "WordStyles.h"
 #include "WordSheet.h"
-#include "CSS.h"
 #include "DFDOM.h"
-#include "CSSSelector.h"
-#include "DFHashTable.h"
-#include "CSSStyle.h"
-#include "CSSSheet.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 int Word_parseOnOff(const char *value)
 {

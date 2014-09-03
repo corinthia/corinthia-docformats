@@ -15,9 +15,6 @@
 #ifndef DocFormats_WordNotes_h
 #define DocFormats_WordNotes_h
 
-#include "DFDOM.h"
-#include "DFHashTable.h"
-
 struct WordGetData;
 struct WordPutData;
 struct WordConverter;

@@ -15,13 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordSection.h"
-#include "WordStyles.h"
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "CSSLength.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

@@ -14,25 +14,11 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
-#include "WordStyles.h"
-#include "DFDOM.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "CSSSelector.h"
 #include "CSSStyle.h"
-#include "CSSSheet.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "DFXMLNames.h"
-#include "CSS.h"
-#include "CSSLength.h"
-#include "DFCallback.h"
 #include "WordNumbering.h"
 #include "WordTheme.h"
 #include "WordSection.h"
 #include "WordSheet.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 static Tag WordSectPr_Children[] = {
     WORD_FOOTNOTEPR,

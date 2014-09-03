@@ -15,11 +15,6 @@
 #ifndef DocFormats_CSS_h
 #define DocFormats_CSS_h
 
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "DFArray.h"
-
 typedef enum {
     PageSizeUnknown = 0,
     PageSizeA4Portrait,

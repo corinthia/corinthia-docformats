@@ -22,14 +22,7 @@
 #include "WordObjects.h"
 #include "WordCaption.h"
 #include "WordSheet.h"
-#include "CSSSelector.h"
-#include "DFHashTable.h"
 #include "CSSStyle.h"
-#include "CSSSheet.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 static void findTargetAndType(WordBookmark *bookmark, WordSheet *sheet);
 void findLabel(WordBookmark *bookmark);

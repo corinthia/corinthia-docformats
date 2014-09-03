@@ -15,8 +15,6 @@
 #ifndef DocFormats_WordTheme_h
 #define DocFormats_WordTheme_h
 
-#include "WordPackage.h"
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                            WordTheme                                           //

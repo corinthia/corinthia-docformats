@@ -17,9 +17,6 @@
 #include "WordNumPr.h"
 #include "WordNumbering.h"
 #include "WordSheet.h"
-#include "CSS.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 static char *parseLvlText(const char *input, WordConcreteNum *num)
 {

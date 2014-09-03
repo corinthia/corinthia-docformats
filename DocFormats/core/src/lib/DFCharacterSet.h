@@ -15,7 +15,6 @@
 #ifndef DocFormats_DFCharacterSet_h
 #define DocFormats_DFCharacterSet_h
 
-#include "DFTypes.h"
 
 int DFCharIsHex(uint32_t ch);
 int DFCharIsWhitespace(uint32_t ch);

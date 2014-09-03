@@ -38,5 +38,9 @@
 #include "../src/lib/DFZipFile.h"
 #include "../src/css/WordPackage.h"
 #include "../src/css/WordConverter.h"
+#include "../src/css/WordStyles.h"
+#include "../src/css/CSS.h"
+#include "../src/css/CSSClassNames.h"
+#include "../src/lib/DFCharacterSet.h"
 
 #endif

@@ -15,7 +15,6 @@
 #ifndef DocFormats_WordBookmark_h
 #define DocFormats_WordBookmark_h
 
-#include "DFXMLForward.h"
 #include "WordSheet.h"
 
 struct WordPutData;

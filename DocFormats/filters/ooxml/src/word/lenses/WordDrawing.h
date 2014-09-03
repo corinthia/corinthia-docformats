@@ -15,9 +15,6 @@
 #ifndef DocFormats_WordDrawing_h
 #define DocFormats_WordDrawing_h
 
-#include "WordConverter.h"
-#include "DFDOM.h"
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                           WordDrawing                                          //

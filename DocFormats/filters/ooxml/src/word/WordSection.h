@@ -15,9 +15,6 @@
 #ifndef DocFormats_WordSection_h
 #define DocFormats_WordSection_h
 
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

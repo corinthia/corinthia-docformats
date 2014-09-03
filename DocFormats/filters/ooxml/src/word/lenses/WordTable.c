@@ -17,20 +17,10 @@
 #include "WordLenses.h"
 #include "WordStyles.h"
 #include "WordSheet.h"
-#include "DFStyles.h"
 #include "Word.h"
-#include "DFXMLForward.h"
-#include "DFTypes.h"
 #include "DFTable.h"
 #include "DFHTMLTables.h"
-#include "CSS.h"
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "CSSLength.h"
 #include "WordSection.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 typedef struct {
     CSSProperties *tableProperties;

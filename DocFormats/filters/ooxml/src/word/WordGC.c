@@ -15,13 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordGC.h"
-#include "WordPackage.h"
-#include "OPC.h"
-#include "DFDOM.h"
-#include "DFFilesystem.h"
-#include "DFString.h"
-#include "DFHashTable.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

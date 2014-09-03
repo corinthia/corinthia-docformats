@@ -15,7 +15,6 @@
 #ifndef DocFormats_WordSettings_h
 #define DocFormats_WordSettings_h
 
-#include "WordPackage.h"
 
 void Word_updateSettings(WordPackage *package, int updateFields);
 

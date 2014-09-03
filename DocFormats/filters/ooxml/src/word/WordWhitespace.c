@@ -15,10 +15,7 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordWhitespace.h"
-#include "DFDOM.h"
 #include "DFClassNames.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 static void addNbsps(DFNode *node, int inParagraph, int *havePrecedingSpace)
 {

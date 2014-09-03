@@ -15,8 +15,6 @@
 #ifndef DocFormats_WordField_h
 #define DocFormats_WordField_h
 
-#include "WordPackage.h"
-
 const char **Word_parseField(const char *cstr);
 
 int Word_simplifyFields(WordPackage *package);

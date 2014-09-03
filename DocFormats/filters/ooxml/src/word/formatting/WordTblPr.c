@@ -17,15 +17,7 @@
 #include "WordTblPr.h"
 #include "WordStyles.h"
 #include "WordSection.h"
-#include "CSS.h"
-#include "CSSSelector.h"
-#include "DFHashTable.h"
 #include "CSSStyle.h"
-#include "CSSSheet.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 static Tag WordTblPr_children[] = {
     WORD_TBLSTYLE,

@@ -20,11 +20,6 @@
 #include "WordObjects.h"
 #include "WordSheet.h"
 #include "WordStyles.h"
-#include "CSS.h"
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

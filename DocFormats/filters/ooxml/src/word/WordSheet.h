@@ -15,10 +15,6 @@
 #ifndef DocFormats_WordSheet_h
 #define DocFormats_WordSheet_h
 
-#include "DFXMLForward.h"
-#include "DFHashTable.h"
-#include "DFTypes.h"
-
 char *WordStyleNameToClassName(const char *name);
 char *WordStyleNameFromClassName(const char *name);
 

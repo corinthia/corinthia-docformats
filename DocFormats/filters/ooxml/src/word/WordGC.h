@@ -15,8 +15,6 @@
 #ifndef DocFormats_WordGC_h
 #define DocFormats_WordGC_h
 
-#include "WordPackage.h"
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                             WordGC                                             //

@@ -15,13 +15,7 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordSheet.h"
-#include "DFDOM.h"
-#include "DFXMLNames.h"
-#include "CSSSelector.h"
-#include "DFString.h"
-#include "DFStyles.h"
 #include "Word.h"
-#include "DFCommon.h"
 
 static char *WordSheetIdentForType(const char *type, const char *styleId)
 {

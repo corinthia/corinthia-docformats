@@ -18,22 +18,7 @@
 #include "WordLenses.h"
 #include "WordObjects.h"
 #include "WordSection.h"
-#include "CSSLength.h"
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "CSSSelector.h"
-#include "DFHashTable.h"
 #include "CSSStyle.h"
-#include "CSSSheet.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "DFFilesystem.h"
-#include "OPC.h"
-#include "DFDOM.h"
-#include "DFString.h"
-#include "DFPlatform.h"
-#include "DFCommon.h"
 
 static int internalPut(WordPutData *put, DFNode *abstract, DFNode *concrete, int isNew);
 static void populateDrawingElement(WordConverter *converter, DFNode *root, double widthPts,

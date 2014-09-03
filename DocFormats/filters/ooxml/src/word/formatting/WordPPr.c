@@ -17,15 +17,7 @@
 #include "WordPPr.h"
 #include "WordStyles.h"
 #include "WordSection.h"
-#include "CSS.h"
-#include "CSSSelector.h"
-#include "DFHashTable.h"
 #include "CSSStyle.h"
-#include "CSSSheet.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 static Tag WordNumPr_Children[] = {
     WORD_ILVL,

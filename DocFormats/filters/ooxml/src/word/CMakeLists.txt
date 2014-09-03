@@ -27,6 +27,8 @@ include_directories()
 ###
 source_group(DocFormats\\filters\\ooxml\\word .*)
 include_directories(../../../../core/headers)
+include_directories(lenses)
+include_directories(.)
 add_library(obj_filter_ooxml_word OBJECT
             Word.c
             WordCaption.c

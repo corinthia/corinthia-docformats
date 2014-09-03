@@ -15,12 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordNumbering.h"
-#include "WordStyles.h"
-#include "DFDOM.h"
-#include "CSS.h"
-#include "DFHashTable.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

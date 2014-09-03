@@ -16,12 +16,6 @@
 #include "core_datacapsule.h"
 #include "WordLenses.h"
 #include "WordStyles.h"
-#include "OPC.h"
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 static void WordHyperlinkPut(WordPutData *put, DFNode *abstract, DFNode *concrete);
 

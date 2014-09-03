@@ -15,20 +15,9 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordLists.h"
-#include "DFDOM.h"
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "CSSLength.h"
 #include "WordNumbering.h"
-#include "WordStyles.h"
-#include "CSSSelector.h"
-#include "DFHashTable.h"
 #include "CSSStyle.h"
-#include "CSSSheet.h"
 #include "DFHTML.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 typedef struct ListDimensions {
     double marginLeftPct;

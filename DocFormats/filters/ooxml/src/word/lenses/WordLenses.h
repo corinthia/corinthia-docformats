@@ -15,9 +15,6 @@
 #ifndef DocFormats_WordLenses_h
 #define DocFormats_WordLenses_h
 
-#include "DFBDT.h"
-#include "WordConverter.h"
-
 typedef struct {
     int (*isVisible)(WordPutData *put, DFNode *concrete);
     DFNode *(*get)(WordGetData *get, DFNode *concrete);
