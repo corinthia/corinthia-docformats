@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "core_helper.h"
+#include "core_datacapsule.h"
 #include "DFTidyHelper.h"
 #include "3rdparty.h"
-#include "DFNameMap.h"
-#include "DFCommon.h"
 
 char *copyTidyNodeValue(TidyNode tnode, TidyDoc tdoc)
 {

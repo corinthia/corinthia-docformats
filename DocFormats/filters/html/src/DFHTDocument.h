@@ -16,8 +16,6 @@
 #define DocFormats_DFHTDocument_h
 
 #include "3rdparty.h"
-#include "DFError.h"
-#include "DFBuffer.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

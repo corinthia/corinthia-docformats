@@ -12,21 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "DFHTMLNormalization.h"
-#include "DFDOM.h"
-#include "CSS.h"
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "CSSSelector.h"
-#include "CSSStyle.h"
-#include "CSSSheet.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "DFClassNames.h"
-#include "DFString.h"
-#include "DFCharacterSet.h"
-#include "DFCommon.h"
+#include "core_helper.h"
+#include "core_datacapsule.h"
 
 static void removeWhitespaceTextChildren(DFNode *node)
 {

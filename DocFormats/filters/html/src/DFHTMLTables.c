@@ -12,14 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "DFXMLForward.h"
-#include "DFTypes.h"
-#include "DFTable.h"
-#include "DFHTMLTables.h"
-#include "DFDOM.h"
-#include "DFString.h"
-#include "CSSLength.h"
-#include "DFCommon.h"
+#include "core_helper.h"
+#include "core_datacapsule.h"
 
 typedef struct RowList RowList;
 

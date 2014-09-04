@@ -12,10 +12,3 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_DFTidyWrapper_h
-#define DocFormats_DFTidyWrapper_h
-
-
-int DFHTMLTidy(DFBuffer *input, DFBuffer *output, int xHTML, DFError **error);
-
-#endif

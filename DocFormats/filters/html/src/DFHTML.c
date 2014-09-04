@@ -12,28 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "CSSSheet.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "DFFilesystem.h"
-#include "DFDOM.h"
-#include "CSS.h"
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "DFXMLNames.h"
-#include "CSSSelector.h"
-#include "CSSLength.h"
-#include "CSSSelector.h"
-#include "CSSStyle.h"
-#include "CSSSheet.h"
+#include "core_helper.h"
+#include "core_datacapsule.h"
 #include "DFHTDocument.h"
 #include "DFTidyHelper.h"
-#include "DFNameMap.h"
-#include "DFXML.h"
-#include "DFString.h"
-#include "DFCharacterSet.h"
-#include "DFCommon.h"
 
 static DFNode *HTML_findHead(DFDocument *doc)
 {
