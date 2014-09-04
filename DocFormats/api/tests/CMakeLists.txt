@@ -1,4 +1,4 @@
-
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,28 +11,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-###
-## Build object files
-###
-add_subdirectory(3rdparty)
-add_subdirectory(core)
-add_subdirectory(filters)
-add_subdirectory(api)
+include_directories()
 
 
 ###
-## Build libraries from source
+## Build test object files (white box test with access to everyting)
 ###
-add_library(docformats
-            ${obj_3rdparty}
-            ${obj_core}
-            ${obj_filters}
-            ${obj_api}
+source_group(DocFormats\\tests REGULAR_EXPRESSION .*)
+add_library(test_api OBJECT
+            test_api.c
            )
-add_library(test_docformats
-            ${obj_test_3rdparty}
-            ${obj_test_core}
-            ${obj_test_filters}
-            ${obj_test_api}
-           )
+
+
+
+###
+## identify objects to caller
+###
+set(obj_test
+    $<TARGET_OBJECTS:test_api>
+    PARENT_SCOPE
+   )
 
