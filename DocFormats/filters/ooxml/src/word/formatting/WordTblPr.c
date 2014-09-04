@@ -17,7 +17,6 @@
 #include "WordTblPr.h"
 #include "WordStyles.h"
 #include "WordSection.h"
-#include "CSSStyle.h"
 
 static Tag WordTblPr_children[] = {
     WORD_TBLSTYLE,

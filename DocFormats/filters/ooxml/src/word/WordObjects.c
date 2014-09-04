@@ -18,9 +18,6 @@
 #include "WordDrawing.h"
 #include "WordBookmark.h"
 #include "WordCaption.h"
-#include "DFString.h"
-#include "DFHashTable.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

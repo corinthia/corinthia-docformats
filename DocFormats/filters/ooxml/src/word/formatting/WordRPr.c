@@ -17,7 +17,6 @@
 #include "WordRPr.h"
 #include "WordStyles.h"
 #include "WordTheme.h"
-#include "CSSStyle.h"
 
 static Tag WordRPR_Children[] = {
     WORD_RSTYLE,

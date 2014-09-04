@@ -15,13 +15,8 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordSettings.h"
-#include "CSSSelector.h"
-#include "DFHashTable.h"
-#include "CSSStyle.h"
-#include "DFHTMLNormalization.h"
 #include "WordField.h"
 #include "WordBookmark.h"
-#include "DFCommon.h"
 
 static DFDocument *parsePart(WordPackage *package, OPCPart *part, DFError **error);
 

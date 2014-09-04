@@ -14,7 +14,6 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
-#include "CSSStyle.h"
 #include "WordNumbering.h"
 #include "WordTheme.h"
 #include "WordSection.h"

@@ -18,7 +18,6 @@
 #include "WordBookmark.h"
 #include "WordObjects.h"
 #include "DFDOM.h"
-#include "CSSStyle.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

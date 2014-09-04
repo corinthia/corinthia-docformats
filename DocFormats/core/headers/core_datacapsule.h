@@ -42,5 +42,8 @@
 #include "../src/css/CSS.h"
 #include "../src/css/CSSClassNames.h"
 #include "../src/lib/DFCharacterSet.h"
+#include "../src/names/DFClassNames.h"
+#include "../src/html/DFHTMLNormalization.h"
+#include "../src/css/Word.h"
 
 #endif

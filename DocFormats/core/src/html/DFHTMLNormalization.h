@@ -15,9 +15,6 @@
 #ifndef DocFormats_DFHTMLNormalization_h
 #define DocFormats_DFHTMLNormalization_h
 
-#include "DFXMLNames.h"
-#include "DFXMLForward.h"
-
 void HTML_normalizeDocument(DFDocument *doc);
 
 void HTML_pushDownInlineProperties(DFNode *node);

@@ -18,7 +18,6 @@
 #include "WordLenses.h"
 #include "WordObjects.h"
 #include "WordSection.h"
-#include "CSSStyle.h"
 
 static int internalPut(WordPutData *put, DFNode *abstract, DFNode *concrete, int isNew);
 static void populateDrawingElement(WordConverter *converter, DFNode *root, double widthPts,

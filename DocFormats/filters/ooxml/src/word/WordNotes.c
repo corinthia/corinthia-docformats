@@ -17,8 +17,6 @@
 #include "WordNotes.h"
 #include "WordSheet.h"
 #include "WordLenses.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

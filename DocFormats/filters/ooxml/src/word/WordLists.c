@@ -16,8 +16,6 @@
 #include "core_datacapsule.h"
 #include "WordLists.h"
 #include "WordNumbering.h"
-#include "CSSStyle.h"
-#include "DFHTML.h"
 
 typedef struct ListDimensions {
     double marginLeftPct;

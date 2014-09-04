@@ -15,7 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordSheet.h"
-#include "Word.h"
 
 static char *WordSheetIdentForType(const char *type, const char *styleId)
 {

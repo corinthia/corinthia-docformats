@@ -18,8 +18,6 @@
 #include "DFDOM.h"
 #include "WordDrawing.h"
 #include "WordNotes.h"
-#include "DFString.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

@@ -22,7 +22,6 @@
 #include "WordObjects.h"
 #include "WordCaption.h"
 #include "WordSheet.h"
-#include "CSSStyle.h"
 
 static void findTargetAndType(WordBookmark *bookmark, WordSheet *sheet);
 void findLabel(WordBookmark *bookmark);

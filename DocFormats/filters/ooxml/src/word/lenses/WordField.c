@@ -22,9 +22,7 @@
 #include "WordCaption.h"
 #include "DFDOM.h"
 #include "DFXML.h"
-#include "DFString.h"
 #include "DFArray.h"
-#include "DFCommon.h"
 
 static void WordFieldPut(WordPutData *put, DFNode *abstract, DFNode *concrete);
 

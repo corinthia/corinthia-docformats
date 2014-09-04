@@ -17,7 +17,6 @@
 #include "WordPPr.h"
 #include "WordStyles.h"
 #include "WordSection.h"
-#include "CSSStyle.h"
 
 static Tag WordNumPr_Children[] = {
     WORD_ILVL,

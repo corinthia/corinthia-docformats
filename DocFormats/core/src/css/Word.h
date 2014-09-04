@@ -15,15 +15,6 @@
 #ifndef DocFormats_Word_h
 #define DocFormats_Word_h
 
-#include "DFError.h"
-#include "DFXMLForward.h"
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSStyle.h"
-#include "CSSProperties.h"
-#include "CSSSelector.h"
-#include "CSSSheet.h"
-
 #define WordStyleNameFootnoteReference "footnote reference"
 #define WordStyleNameFootnoteText "footnote text"
 #define WordStyleNameEndnoteReference "endnote reference"
