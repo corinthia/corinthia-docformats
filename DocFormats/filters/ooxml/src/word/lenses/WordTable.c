@@ -15,8 +15,7 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordLenses.h"
-#include "DFTable.h"
-#include "DFHTMLTables.h"
+#include "WordSheet.h"
 #include "WordSection.h"
 
 typedef struct {

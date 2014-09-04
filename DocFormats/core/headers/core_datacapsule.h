@@ -52,5 +52,6 @@
 #include "../src/css/WordTblPr.h"
 #include "../src/common/DFBDT.h"
 #include "../forward_decl_BAD/DFXMLNames.h"
+#include "../forward_decl_BAD/DFNameMap.h"
 
 #endif

@@ -15,6 +15,7 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordLenses.h"
+#include "WordSheet.h"
 #include "WordBookmark.h"
 #include "WordObjects.h"
 
