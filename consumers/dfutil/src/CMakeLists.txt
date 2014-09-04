@@ -13,15 +13,21 @@
 
 include_directories()
 include_directories(../../../DocFormats/api/headers)
-add_executable(dfutil
-               BDTTest.c
-               Commands.c
-               DFChanges.c
-               Plain.c
-               Test.c
-               TestCase.c
-               TestFunctions.c
-               TextPackage.c
-               main.c
-              )
-target_link_libraries(dfutil DocFormats m z pthread xml2)
+
+set(SOURCES
+    BDTTest.c
+    Commands.c
+    DFChanges.c
+    Plain.c
+    Test.c
+    TestCase.c
+    TestFunctions.c
+    TextPackage.c
+    main.c)
+
+if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    set(SOURCES ${SOURCES} FunctionTests.m StringTests.m)
+endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
+add_executable(dfutil ${SOURCES})
+target_link_libraries(dfutil DocFormats m z pthread xml2 ${LIBS})

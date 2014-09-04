@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #import <Foundation/Foundation.h>
+#include "DocFormats.h"
 #include "StringTests.h"
 
 int testDFNextChar(const uint32_t *input32, size_t len32)

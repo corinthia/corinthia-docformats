@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #import <Foundation/Foundation.h>
+#include "DocFormats.h"
 #include "FunctionTests.h"
 
 static NSString *NSStringFromC(const char *cstr)

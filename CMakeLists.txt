@@ -18,7 +18,6 @@ project(Socrates)
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     find_library(FOUNDATION_LIBRARY Foundation)
     find_library(IMAGEIO_LIBRARY ImageIO)
-    set(SOURCES ${SOURCES} FunctionTests.m StringTests.m)
     set(LIBS ${LIBS} iconv ${FOUNDATION_LIBRARY} ${IMAGEIO_LIBRARY})
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
