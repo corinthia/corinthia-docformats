@@ -12,3 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// This function is here to avoid warnings in Xcode about the library not containing any symbols
+void filter_odf_drawing_stub(void)
+{
+}
