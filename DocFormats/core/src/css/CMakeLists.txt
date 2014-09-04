@@ -40,7 +40,7 @@ add_library(obj_core_css OBJECT
 ###
 ## Inform caller about object list
 ###
-set(obj_names
+set(obj_css
     $<TARGET_OBJECTS:obj_core_css>
     PARENT_SCOPE
    )
