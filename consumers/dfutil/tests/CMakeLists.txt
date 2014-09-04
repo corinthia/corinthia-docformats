@@ -11,5 +11,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_subdirectory(dfconvert)
-add_subdirectory(dfutil)
+include_directories()
+
+add_executable(dfutil_test
+               test_dfutil.c
+              )
+target_link_libraries(dfutil_test DocFormats)
