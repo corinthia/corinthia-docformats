@@ -24,7 +24,6 @@ add_library(obj_filter_html OBJECT
             DFHTDocument.c
             DFHTML.c
             DFHTMLNormalization.c
-            DFHTMLTables.c
             DFTidyHelper.c
             DFTidyWrapper.c
            )

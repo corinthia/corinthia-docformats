@@ -19,17 +19,19 @@ include_directories()
 ## Build html objects
 ###
 source_group(DocFormats\\core\\html .*)
-# include_directories(../lib)
-# include_directories(../../forward_decl_BAD)
-# add_library(obj_core_common OBJECT
-#           )
+include_directories(../lib)
+include_directories(../common)
+include_directories(../css)
+include_directories(../../forward_decl_BAD)
+add_library(obj_core_html OBJECT
+            DFHTMLTables.c
+           )
 
 
 ###
 ## Inform caller about object list
 ###
-# set(obj_html
-#     $<TARGET_OBJECTS:obj_core_html>
-#     PARENT_SCOPE
-#    )
-                          
+set(obj_html
+     $<TARGET_OBJECTS:obj_core_html>
+     PARENT_SCOPE
+    )
