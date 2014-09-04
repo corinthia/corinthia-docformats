@@ -15,6 +15,6 @@
 ###
 ## build object files
 ###
-#  add_subdirectory(src)
+add_subdirectory(src)
 add_subdirectory(tests)
 

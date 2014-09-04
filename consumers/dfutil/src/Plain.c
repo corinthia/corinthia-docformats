@@ -12,24 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DocFormats.h"
 #include "Plain.h"
 #include "TextPackage.h"
 #include "Plain.h"
 #include "Commands.h"
-#include "OPC.h"
-#include "WordConverter.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "CSSSelector.h"
-#include "CSSStyles.h"
-#include "CSSSheet.h"
-#include "DFXML.h"
-#include "DFHashTable.h"
-#include "DFString.h"
-#include "DFFilesystem.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "DFCommon.h"
 
 static void addSerializedDoc(DFBuffer *result, DFDocument *doc, const char *filename)
 {

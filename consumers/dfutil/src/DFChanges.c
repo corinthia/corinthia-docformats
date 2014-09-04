@@ -12,11 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DocFormats.h"
 #include "DFChanges.h"
-#include "DFHashTable.h"
-#include "DFString.h"
-#include "DFNameMap.h"
-#include "DFCommon.h"
 
 static char *fullNameForTag(DFDocument *doc, Tag tag)
 {

@@ -12,11 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DocFormats.h"
 #include "TextPackage.h"
-#include "DFBuffer.h"
-#include "DFString.h"
-#include "DFFilesystem.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

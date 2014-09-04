@@ -12,14 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DocFormats.h"
 #include "Commands.h"
 #include "BDTTest.h"
 #include "Test.h"
 #include "Plain.h"
 #include "FunctionTests.h"
 #include "StringTests.h"
-#include "DFZipFile.h"
-#include "DFCommon.h"
 
 static int runCommand(int argc, const char **argv, DFError **dferr)
 {

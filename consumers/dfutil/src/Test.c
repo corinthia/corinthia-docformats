@@ -12,14 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DocFormats.h"
 #include "Test.h"
 #include "TestCase.h"
 #include "TextPackage.h"
 #include "Commands.h"
 #include "TestFunctions.h"
-#include "DFString.h"
-#include "DFFilesystem.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

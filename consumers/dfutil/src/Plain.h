@@ -15,10 +15,6 @@
 #ifndef dfutil_Plain_h
 #define dfutil_Plain_h
 
-#include "DFError.h"
-#include "DFHashTable.h"
-#include "DFDOM.h"
-#include "WordPackage.h"
 
 char *Word_toPlain(WordPackage *package, DFHashTable *parts);
 int Word_fromPlain(WordPackage *package, const char *plain, const char *path, DFError **error);

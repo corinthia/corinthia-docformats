@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DocFormats.h"
 #include "Commands.h"
 #include "BDTTest.h"
 #include "Test.h"
@@ -19,18 +20,6 @@
 #include "TextPackage.h"
 #include "StringTests.h"
 #include "DFChanges.h"
-#include "OPC.h"
-#include "WordConverter.h"
-#include "CSSSheet.h"
-#include "DFHTML.h"
-#include "CSSLength.h"
-#include "DFXML.h"
-#include "DFString.h"
-#include "DFFilesystem.h"
-#include "DFHTMLNormalization.h"
-#include "CSS.h"
-#include "HTMLToLaTeX.h"
-#include "DFCommon.h"
 
 static DFBuffer *readData(const char *filename, DFError **error)
 {

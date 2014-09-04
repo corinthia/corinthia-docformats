@@ -15,9 +15,6 @@
 #ifndef dfutil_Commands_h
 #define dfutil_Commands_h
 
-#include "DFError.h"
-#include "DFBuffer.h"
-
 int prettyPrintFile(const char *filename, DFError **error);
 int fromPlain(const char *inFilename, const char *outFilename, DFError **error);
 int normalizeFile(const char *filename, DFError **error);

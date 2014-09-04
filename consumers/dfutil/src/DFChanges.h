@@ -15,8 +15,6 @@
 #ifndef dfutil_DFChanges_h
 #define dfutil_DFChanges_h
 
-#include "DFDOM.h"
-
 void DFComputeChanges(DFNode *root1, DFNode *root2, Tag idAttr);
 char *DFChangesToString(DFNode *root);
 

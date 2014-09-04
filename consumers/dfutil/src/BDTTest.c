@@ -12,12 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DocFormats.h"
 #include "BDTTest.h"
-#include "DFDOM.h"
-#include "DFBDT.h"
-#include "DFString.h"
-#include "DFXML.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

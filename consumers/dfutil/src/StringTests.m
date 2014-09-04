@@ -14,7 +14,6 @@
 
 #import <Foundation/Foundation.h>
 #include "StringTests.h"
-#include "DFString.h"
 
 int testDFNextChar(const uint32_t *input32, size_t len32)
 {

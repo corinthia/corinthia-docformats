@@ -14,8 +14,6 @@
 
 #import <Foundation/Foundation.h>
 #include "FunctionTests.h"
-#include "DFString.h"
-#include "DFFilesystem.h"
 
 static NSString *NSStringFromC(const char *cstr)
 {

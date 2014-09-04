@@ -15,8 +15,6 @@
 #ifndef dfutil_TestCase_h
 #define dfutil_TestCase_h
 
-#include "DFHashTable.h"
-#include "WordPackage.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

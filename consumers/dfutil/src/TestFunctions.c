@@ -12,26 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DocFormats.h"
 #include "TestFunctions.h"
-#include "DFBDT.h"
 #include "BDTTest.h"
 #include "Plain.h"
 #include "Commands.h"
 #include "DFChanges.h"
-#include "WordConverter.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "CSSSelector.h"
-#include "CSSStyles.h"
-#include "CSSSheet.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "DFHTMLNormalization.h"
-#include "DFFilesystem.h"
-#include "DFString.h"
-#include "HTMLToLaTeX.h"
-#include "DFXML.h"
-#include "DFCommon.h"
 
 typedef void (*TestFunction)(TestCase *script, int argc, const char **argv);
 
