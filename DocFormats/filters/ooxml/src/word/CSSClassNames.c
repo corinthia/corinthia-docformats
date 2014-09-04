@@ -12,32 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "DFArray.h"
-#include "DFCallback.h"
-#include "DFHashTable.h"
-#include "CSSProperties.h"
-#include "DFXMLForward.h"
-#include "DFXMLNames.h"
-#include "DFTypes.h"
-#include "CSSSelector.h"
-#include "DFHashTable.h"
-#include "CSSStyle.h"
-#include "CSSSheet.h"
+#include "core_helper.h"
+#include "core_datacapsule.h"
+
 #include "CSSClassNames.h"
-#include "CSS.h"
-#include "DFError.h"
-#include "DFBuffer.h"
-#include "DFDOM.h"
-#include "DFXML.h"
-#include "DFNameMap.h"
-#include "DFString.h"
-#include "CSSSheet.h"
-#include "CSSLength.h"
-#include "DFHTML.h"
-#include "OPC.h"
-#include "WordStyles.h"
 #include "Word.h"
-#include "DFCommon.h"
 
 static const char *classPrefixForElementName(const char *elementName);
 

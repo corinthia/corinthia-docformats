@@ -28,8 +28,11 @@ include_directories()
 source_group(DocFormats\\filters\\ooxml\\word .*)
 include_directories(../../../../core/headers)
 include_directories(lenses)
+include_directories(formatting)
 include_directories(.)
+include_directories(../common)
 add_library(obj_filter_ooxml_word OBJECT
+            CSSClassNames.c
             Word.c
             WordCaption.c
             WordConverter.c

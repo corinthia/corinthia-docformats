@@ -20,6 +20,8 @@ include_directories()
 source_group(DocFormats\\filters\\ooxml\\word\\lenses .*)
 include_directories(../../../../../core/headers)
 include_directories(..)
+include_directories(../formatting)
+include_directories(../../common)
 add_library(obj_filter_ooxml_word_lenses OBJECT
             WordBlockLevel.c
             WordBody.c

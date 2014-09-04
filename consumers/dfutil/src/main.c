@@ -16,6 +16,8 @@
 #include "Commands.h"
 #include "BDTTest.h"
 #include "Test.h"
+#include "OPC.h"
+#include "WordPackage.h"
 #include "Plain.h"
 #include "FunctionTests.h"
 #include "StringTests.h"

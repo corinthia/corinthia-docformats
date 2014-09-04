@@ -26,7 +26,6 @@ include_directories(../names)
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_css OBJECT
             CSS.c
-            CSSClassNames.c
             CSSLength.c
             CSSParser.c
             CSSProperties.c

@@ -14,6 +14,9 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
+#include "OPC.h"
+#include "WordPackage.h"
+#include "WordConverter.h"
 #include "WordObjects.h"
 #include "WordDrawing.h"
 #include "WordBookmark.h"

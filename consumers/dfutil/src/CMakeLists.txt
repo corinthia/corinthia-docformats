@@ -13,6 +13,8 @@
 
 include_directories()
 include_directories(../../../DocFormats/api/headers)
+include_directories(../../../DocFormats/filters/ooxml/src/common)
+include_directories(../../../DocFormats/filters/ooxml/src/word)
 
 set(SOURCES
     BDTTest.c

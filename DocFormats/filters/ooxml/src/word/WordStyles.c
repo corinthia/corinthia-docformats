@@ -14,10 +14,18 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
+#include "OPC.h"
+#include "WordPackage.h"
+#include "WordConverter.h"
 #include "WordNumbering.h"
 #include "WordTheme.h"
 #include "WordSection.h"
 #include "WordSheet.h"
+#include "WordCommonPr.h"
+#include "WordNumPr.h"
+#include "WordPPr.h"
+#include "WordRPr.h"
+#include "WordTblPr.h"
 
 static Tag WordSectPr_Children[] = {
     WORD_FOOTNOTEPR,

@@ -14,8 +14,12 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
+#include "OPC.h"
+#include "WordPackage.h"
+#include "WordConverter.h"
 #include "WordLists.h"
 #include "WordNumbering.h"
+#include "WordPPr.h"
 
 typedef struct ListDimensions {
     double marginLeftPct;

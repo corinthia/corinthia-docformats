@@ -13,6 +13,9 @@
 // limitations under the License.
 
 #include "DocFormats.h"
+#include "OPC.h"
+#include "WordPackage.h"
+#include "WordConverter.h"
 #include "TestCase.h"
 #include "TestFunctions.h"
 #include "Plain.h"

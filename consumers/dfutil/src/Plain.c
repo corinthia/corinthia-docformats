@@ -13,9 +13,11 @@
 // limitations under the License.
 
 #include "DocFormats.h"
+#include "OPC.h"
+#include "WordPackage.h"
+#include "WordConverter.h"
 #include "Plain.h"
 #include "TextPackage.h"
-#include "Plain.h"
 #include "Commands.h"
 
 static void addSerializedDoc(DFBuffer *result, DFDocument *doc, const char *filename)

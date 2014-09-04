@@ -15,6 +15,8 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 
+#include "OPC.h"
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                         OPCRelationship                                        //

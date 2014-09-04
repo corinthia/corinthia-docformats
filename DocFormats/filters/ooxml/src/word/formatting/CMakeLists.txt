@@ -20,6 +20,7 @@ include_directories()
 source_group(DocFormats\\filters\\ooxml\\word\\formatting .*)
 include_directories(../../../../../core/headers)
 include_directories(..)
+include_directories(../../common)
 add_library(obj_filter_ooxml_word_formatting OBJECT
             WordCommonPr.c
             WordNumPr.c

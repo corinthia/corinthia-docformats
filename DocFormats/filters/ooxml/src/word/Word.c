@@ -14,7 +14,8 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
-
+#include "OPC.h"
+#include "WordPackage.h"
 
 int DFHTMLToWord2(WordPackage *package, const char *sourcePath, const char *destPath, DFError **error)
 {

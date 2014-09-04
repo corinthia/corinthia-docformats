@@ -15,8 +15,6 @@
 #ifndef DocFormats_WordCommonPr_h
 #define DocFormats_WordCommonPr_h
 
-#include "WordConverter.h"
-
 int Word_parseOnOff(const char *value);
 
 char *twipsFromCSS(const char *str, int relativeTwips);

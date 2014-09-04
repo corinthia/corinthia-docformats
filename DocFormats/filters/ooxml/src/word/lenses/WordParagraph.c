@@ -14,10 +14,15 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
+#include "OPC.h"
+#include "WordPackage.h"
+#include "WordConverter.h"
 #include "WordLenses.h"
 #include "WordNumbering.h"
 #include "WordLists.h"
 #include "WordSheet.h"
+#include "WordPPr.h"
+#include "WordRPr.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

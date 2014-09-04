@@ -15,6 +15,9 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 
+#include "OPC.h"
+#include "WordPackage.h"
+#include "WordConverter.h"
 #include "WordSheet.h"
 #include "WordBookmark.h"
 #include "WordField.h"
@@ -30,6 +33,8 @@
 #include "WordCaption.h"
 #include "WordWhitespace.h"
 #include "WordTheme.h"
+#include "WordStyles.h"
+#include "CSSClassNames.h"
 
 static int isWhitespaceRun(DFNode *run)
 {

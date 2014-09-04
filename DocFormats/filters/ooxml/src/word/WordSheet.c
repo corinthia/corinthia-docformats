@@ -14,7 +14,12 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
+#include "OPC.h"
+#include "WordPackage.h"
+#include "WordConverter.h"
+#include "WordStyles.h"
 #include "WordSheet.h"
+#include "Word.h"
 
 static char *WordSheetIdentForType(const char *type, const char *styleId)
 {
