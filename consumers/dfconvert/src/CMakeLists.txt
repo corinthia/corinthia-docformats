@@ -11,6 +11,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_subdirectory(dfconvert)
-return()
-add_subdirectory(dfutil)
+include_directories()
+
+add_executable(dfconvert
+               main.c
+              )
+target_link_libraries(dfconvert DocFormats)

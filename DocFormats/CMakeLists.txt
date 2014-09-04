@@ -23,16 +23,18 @@ add_subdirectory(api)
 ###
 ## Build libraries from source
 ###
-add_library(docformats
+add_library(DocFormats
             ${obj_3rdparty}
             ${obj_core}
             ${obj_filters}
             ${obj_api}
            )
-add_library(test_docformats
+set_property(TARGET DocFormats PROPERTY INTERFACE_POSITION_INDEPENDENT_CODE ON)
+add_library(test_DocFormats
             ${obj_test_3rdparty}
             ${obj_test_core}
             ${obj_test_filters}
             ${obj_test_api}
            )
+set_property(TARGET test_DocFormats PROPERTY INTERFACE_POSITION_INDEPENDENT_CODE ON)
 

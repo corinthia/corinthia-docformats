@@ -28,5 +28,4 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
 add_subdirectory(DocFormats)
-return()
 add_subdirectory(consumers)
