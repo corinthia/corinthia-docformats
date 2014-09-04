@@ -15,10 +15,8 @@
 #ifndef DocFormats_DFPlatform_h
 #define DocFormats_DFPlatform_h
 
-#include "DFError.h"
-#include "DFArray.h"
-
 int DFMkdirIfAbsent(const char *path, DFError **error);
+
 int DFAddDirContents(const char *absPath, const char *relPath, int recursive, DFArray *array, DFError **error);
 int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, DFError **error);
 

@@ -53,7 +53,7 @@ add_library(obj_filter_ooxml_word OBJECT
 ###
 set(obj_word
     $<TARGET_OBJECTS:obj_filter_ooxml_word>
-    ${obj_word_formatting}
-    ${obj_word_lenses}
+    ${obj_formatting}
+    ${obj_lenses}
     PARENT_SCOPE)
 

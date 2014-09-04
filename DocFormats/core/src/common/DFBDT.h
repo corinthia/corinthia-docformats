@@ -15,7 +15,6 @@
 #ifndef DocFormats_DFBDT_h
 #define DocFormats_DFBDT_h
 
-#include "DFXMLForward.h"
 
 typedef DFNode *(*DFLookupConcreteFunction)(void *ctx, DFNode *abstract);
 

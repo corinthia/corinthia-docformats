@@ -15,7 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordLenses.h"
-#include "DFDOM.h"
 
 static void WordChangePut(WordPutData *put, DFNode *abstract, DFNode *concrete);
 

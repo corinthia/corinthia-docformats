@@ -14,7 +14,6 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
-#include "WordNumPr.h"
 #include "WordNumbering.h"
 #include "WordSheet.h"
 

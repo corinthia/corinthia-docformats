@@ -13,6 +13,8 @@
 // limitations under the License.
 
 #include "DFCommon.h"
+#include "DFError.h"
+#include "DFArray.h"
 #include "DFPlatform.h"
 
 // This file contains functions that are applicable to Linux (or more generally, any non-Apple Unix platform)

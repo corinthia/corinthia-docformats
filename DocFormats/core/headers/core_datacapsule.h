@@ -45,5 +45,12 @@
 #include "../src/names/DFClassNames.h"
 #include "../src/html/DFHTMLNormalization.h"
 #include "../src/css/Word.h"
+#include "../src/css/WordCommonPr.h"
+#include "../src/css/WordNumPr.h"
+#include "../src/css/WordPPr.h"
+#include "../src/css/WordRPr.h"
+#include "../src/css/WordTblPr.h"
+#include "../src/common/DFBDT.h"
+#include "../forward_decl_BAD/DFXMLNames.h"
 
 #endif

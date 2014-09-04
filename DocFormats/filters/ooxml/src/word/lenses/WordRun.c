@@ -17,8 +17,6 @@
 #include "WordLenses.h"
 #include "WordNotes.h"
 #include "WordObjects.h"
-#include "WordSheet.h"
-#include "WordStyles.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

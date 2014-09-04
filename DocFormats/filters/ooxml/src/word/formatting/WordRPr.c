@@ -14,8 +14,6 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
-#include "WordRPr.h"
-#include "WordStyles.h"
 #include "WordTheme.h"
 
 static Tag WordRPR_Children[] = {

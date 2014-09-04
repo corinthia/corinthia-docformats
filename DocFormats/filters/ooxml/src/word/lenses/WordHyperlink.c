@@ -15,7 +15,6 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordLenses.h"
-#include "WordStyles.h"
 
 static void WordHyperlinkPut(WordPutData *put, DFNode *abstract, DFNode *concrete);
 

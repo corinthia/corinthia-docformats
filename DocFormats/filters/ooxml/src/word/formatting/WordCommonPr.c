@@ -14,10 +14,7 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
-#include "WordCommonPr.h"
-#include "WordStyles.h"
 #include "WordSheet.h"
-#include "DFDOM.h"
 
 int Word_parseOnOff(const char *value)
 {

@@ -16,6 +16,7 @@
 #include "core_datacapsule.h"
 #include "WordSettings.h"
 #include "WordField.h"
+#include "WordSheet.h"
 #include "WordBookmark.h"
 
 static DFDocument *parsePart(WordPackage *package, OPCPart *part, DFError **error);

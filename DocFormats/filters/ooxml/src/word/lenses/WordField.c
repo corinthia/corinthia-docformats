@@ -14,15 +14,12 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
+#include "WordSheet.h"
 #include "WordField.h"
 #include "WordLenses.h"
 #include "WordBookmark.h"
 #include "WordObjects.h"
-#include "WordPackage.h"
 #include "WordCaption.h"
-#include "DFDOM.h"
-#include "DFXML.h"
-#include "DFArray.h"
 
 static void WordFieldPut(WordPutData *put, DFNode *abstract, DFNode *concrete);
 

@@ -19,6 +19,7 @@ include_directories()
 ###
 source_group(DocFormats\\filters\\ooxml\\word\\lenses .*)
 include_directories(../../../../../core/headers)
+include_directories(..)
 add_library(obj_filter_ooxml_word_lenses OBJECT
             WordBlockLevel.c
             WordBody.c
@@ -42,7 +43,7 @@ add_library(obj_filter_ooxml_word_lenses OBJECT
 ###
 ## Inform caller about objects
 ###
-set(obj_formatting
+set(obj_lenses
     $<TARGET_OBJECTS:obj_filter_ooxml_word_lenses>
     PARENT_SCOPE)
 

@@ -15,8 +15,6 @@
 #ifndef DocFormats_WordBookmark_h
 #define DocFormats_WordBookmark_h
 
-#include "WordSheet.h"
-
 struct WordPutData;
 
 void Word_setupBookmarkLinks(struct WordPutData *put);

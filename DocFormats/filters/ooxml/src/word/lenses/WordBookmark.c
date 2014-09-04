@@ -14,14 +14,12 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
+#include "WordSheet.h"
 #include "WordBookmark.h"
 #include "WordLenses.h"
-#include "DFDOM.h"
-#include "WordPackage.h"
 #include "WordField.h"
 #include "WordObjects.h"
 #include "WordCaption.h"
-#include "WordSheet.h"
 
 static void findTargetAndType(WordBookmark *bookmark, WordSheet *sheet);
 void findLabel(WordBookmark *bookmark);

@@ -15,11 +15,8 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "WordLenses.h"
-#include "WordSheet.h"
-#include "WordStyles.h"
 #include "WordNumbering.h"
 #include "WordLists.h"
-#include "DFXMLNames.h"
 #include "DFNameMap.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
