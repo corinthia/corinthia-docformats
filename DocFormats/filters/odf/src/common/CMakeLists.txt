@@ -24,7 +24,7 @@ add_library(obj_filter_odf_common OBJECT
             ODFPackage.c
             ODFSheet.c
            )
-set_property(TARGET obj_filter_odf_common PROPERTY FOLDER DocFormats/core/filter/odf)
+set_property(TARGET obj_filter_odf_common PROPERTY FOLDER DocFormats/filters/odf)
 
 
 ###

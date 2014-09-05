@@ -21,7 +21,7 @@ include_directories(../../../api/headers)
 add_library(test_html OBJECT
             test_html.c
            )
-set_property(TARGET test_html PROPERTY FOLDER DocFormats/core/filter/html)
+set_property(TARGET test_html PROPERTY FOLDER DocFormats/filters/html)
 
 
 

@@ -26,7 +26,7 @@ add_library(obj_filter_html OBJECT
             DFTidyHelper.c
             DFTidyWrapper.c
            )
-set_property(TARGET obj_filter_html PROPERTY FOLDER DocFormats/core/filter/html)
+set_property(TARGET obj_filter_html PROPERTY FOLDER DocFormats/filters/html)
 
 
 ###

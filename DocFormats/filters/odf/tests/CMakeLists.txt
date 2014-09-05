@@ -21,7 +21,7 @@ include_directories(../../../api/headers)
 add_library(test_odf OBJECT
             test_odf.c
            )
-set_property(TARGET test_odf PROPERTY FOLDER DocFormats/core/filter/odf)
+set_property(TARGET test_odf PROPERTY FOLDER DocFormats/filters/odf)
 
 
 

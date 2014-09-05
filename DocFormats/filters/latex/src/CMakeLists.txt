@@ -21,7 +21,7 @@ include_directories(../../../core/headers)
 add_library(obj_filter_latex OBJECT
             HTMLToLaTeX.c
            )
-set_property(TARGET obj_filter_latex PROPERTY FOLDER DocFormats/core/filter/latex)
+set_property(TARGET obj_filter_latex PROPERTY FOLDER DocFormats/filters/latex)
 
 
 ###

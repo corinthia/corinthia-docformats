@@ -21,7 +21,7 @@ include_directories(../../../../core/headers)
 add_library(obj_filter_odf_presentation OBJECT
             ODFPresentation.c
            )
-set_property(TARGET obj_filter_odf_presentation PROPERTY FOLDER DocFormats/core/filter/odf)
+set_property(TARGET obj_filter_odf_presentation PROPERTY FOLDER DocFormats/filters/odf)
 
 ###
 ## Inform caller about objects

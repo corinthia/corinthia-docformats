@@ -21,7 +21,7 @@ include_directories(../../../../core/headers)
 add_library(obj_filter_odf_spreadsheet OBJECT
             ODFSpreadsheet.c
            )
-set_property(TARGET obj_filter_odf_spreadsheet PROPERTY FOLDER DocFormats/core/filter/odf)
+set_property(TARGET obj_filter_odf_spreadsheet PROPERTY FOLDER DocFormats/filters/odf)
 
 ###
 ## Inform caller about objects

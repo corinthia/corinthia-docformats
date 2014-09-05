@@ -21,7 +21,7 @@ include_directories(../../../api/headers)
 add_library(test_filter_latex OBJECT
             test_latex.c
            )
-set_property(TARGET test_filter_latex PROPERTY FOLDER DocFormats/core/filter/latex)
+set_property(TARGET test_filter_latex PROPERTY FOLDER DocFormats/filters/latex)
 
 
 
