@@ -150,35 +150,41 @@ int DFDeleteFile(const char *path, DFError **error)
 
 static int addDirContents(const char *absPath, const char *relPath, int recursive, DFArray *array, DFError **error)
 {
-    PlatformDirEntry *list = NULL;
+    PlatformDirEntry *entries = NULL;
     char *errmsg = NULL;
-    if (!PlatformReadDir(absPath,&errmsg,&list)) {
+    if (!PlatformReadDir(absPath,&errmsg,&entries)) {
         DFErrorFormat(error,"%s",errmsg);
         free(errmsg);
         return 0;
     }
 
-    PlatformDirEntry *next;
     int ok = 1;
-    for (; ok && (list != NULL); list = next) {
-        next = list->next;
+    PlatformDirEntry *next;
 
-        char *absSubPath = DFAppendPathComponent(absPath,list->name);
-        char *relSubPath = DFAppendPathComponent(relPath,list->name);
+    for (PlatformDirEntry *current = entries; ok && (current != NULL); current = next) {
+        next = current->next;
+
+        char *absSubPath = DFAppendPathComponent(absPath,current->name);
+        char *relSubPath = DFAppendPathComponent(relPath,current->name);
 
         if (relSubPath[0] == '/')
             DFArrayAppend(array,&relSubPath[1]);
         else
             DFArrayAppend(array,relSubPath);
 
-        if (recursive && list->isDirectory)
+        if (recursive && current->isDirectory)
             ok = addDirContents(absSubPath,relSubPath,recursive,array,error);
 
         free(absSubPath);
         free(relSubPath);
-        free(list->name);
-        free(list);
     }
+
+    for (PlatformDirEntry *current = entries; ok && (current != NULL); current = next) {
+        next = current->next;
+        free(current->name);
+        free(current);
+    }
+
     return ok;
 }
 
