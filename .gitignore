@@ -3,3 +3,5 @@ DerivedData/
 project.xcworkspace/
 xcuserdata/
 *.xccheckout
+build
+libs

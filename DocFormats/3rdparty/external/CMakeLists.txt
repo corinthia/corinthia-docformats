@@ -12,7 +12,7 @@
 # limitations under the License.
 
 
-include_directories()
+include_directories(SYSTEM ${INCLUDE_DIRS})
 
 
 ###

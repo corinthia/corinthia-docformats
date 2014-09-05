@@ -15,6 +15,7 @@ include_directories()
 include_directories(../../../DocFormats/api/headers)
 include_directories(../../../DocFormats/filters/ooxml/src/common)
 include_directories(../../../DocFormats/filters/ooxml/src/word)
+link_directories(${LIB_DIRS})
 
 set(SOURCES
     BDTTest.c
@@ -32,4 +33,4 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
 add_executable(dfutil ${SOURCES})
-target_link_libraries(dfutil DocFormats m z pthread xml2 ${LIBS})
+target_link_libraries(dfutil DocFormats ${LIBS})

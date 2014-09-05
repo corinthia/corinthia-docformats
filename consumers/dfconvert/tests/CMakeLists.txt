@@ -12,6 +12,7 @@
 # limitations under the License.
 
 include_directories()
+link_directories(${LIB_DIRS})
 
 add_executable(dfconvert_test
                test_dfconvert.c
