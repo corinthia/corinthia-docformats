@@ -13,8 +13,6 @@
 // limitations under the License.
 
 #include "DFCommon.h"
-#include "DFError.h"
-#include "DFArray.h"
 #include "DFPlatform.h"
 
 // This file contains functions that are applicable to Linux (or more generally, any non-Apple Unix platform)
@@ -22,10 +20,11 @@
 #ifndef WIN32
 #ifndef __APPLE__
 
-int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, DFError **error)
+int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, char **errmsg)
 {
     printf("WARNING: DFGetImageDimensions is not implemented on Linux\n");
-    DFErrorFormat(error,"DFGetImageDimensions is not implemented on Linux");
+    if (errmsg != NULL)
+        *errmsg = strdup("DFGetImageDimensions is not implemented on Linux");
     return 0;
 }
 

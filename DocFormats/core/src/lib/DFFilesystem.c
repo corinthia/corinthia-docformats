@@ -43,10 +43,14 @@ int DFCreateDirectory(const char *path, int intermediates, DFError **error)
             if (pos == 0)
                 continue;
             char *partial = DFSubstring(path,0,pos);
-            int ok = DFMkdirIfAbsent(partial,error);
+            char *errmsg = NULL;
+            int ok = DFMkdirIfAbsent(partial,&errmsg);
             free(partial);
-            if (!ok)
+            if (!ok) {
+                DFErrorFormat(error,"%s",errmsg);
+                free(errmsg);
                 return 0;
+            }
         }
     }
     return 1;
@@ -144,12 +148,46 @@ int DFDeleteFile(const char *path, DFError **error)
     return ok;
 }
 
+static int addDirContents(const char *absPath, const char *relPath, int recursive, DFArray *array, DFError **error)
+{
+    PlatformDirEntry *list = NULL;
+    char *errmsg = NULL;
+    if (!PlatformReadDir(absPath,&errmsg,&list)) {
+        DFErrorFormat(error,"%s",errmsg);
+        free(errmsg);
+        return 0;
+    }
+
+    PlatformDirEntry *next;
+    int ok = 1;
+    for (; ok && (list != NULL); list = next) {
+        next = list->next;
+
+        char *absSubPath = DFAppendPathComponent(absPath,list->name);
+        char *relSubPath = DFAppendPathComponent(relPath,list->name);
+
+        if (relSubPath[0] == '/')
+            DFArrayAppend(array,&relSubPath[1]);
+        else
+            DFArrayAppend(array,relSubPath);
+
+        if (recursive && list->isDirectory)
+            ok = addDirContents(absSubPath,relSubPath,recursive,array,error);
+
+        free(absSubPath);
+        free(relSubPath);
+        free(list->name);
+        free(list);
+    }
+    return ok;
+}
+
 const char **DFContentsOfDirectory(const char *path, int recursive, DFError **error)
 {
     const char **entries = NULL;
     DFArray *array = DFArrayNew((DFCopyFunction)strdup,(DFFreeFunction)free);
 
-    if (DFAddDirContents(path,"",recursive,array,error))
+    if (addDirContents(path,"",recursive,array,error))
         entries = DFStringArrayFlatten(array);
 
     DFArrayRelease(array);

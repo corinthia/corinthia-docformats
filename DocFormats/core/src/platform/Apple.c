@@ -13,8 +13,6 @@
 // limitations under the License.
 
 #include "DFCommon.h"
-#include "DFError.h"
-#include "DFArray.h"
 #include "DFPlatform.h"
 
 // This file contains functions that are applicable to iOS and OS X
@@ -23,7 +21,7 @@
 
 #include <ImageIO/ImageIO.h>
 
-int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, DFError **error)
+int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, char **errmsg)
 {
     CFStringRef srcPath = CFStringCreateWithBytes(kCFAllocatorDefault,(const UInt8 *)path,
                                                   strlen(path),kCFStringEncodingUTF8,0);

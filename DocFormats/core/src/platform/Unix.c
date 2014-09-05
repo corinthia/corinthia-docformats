@@ -13,11 +13,7 @@
 // limitations under the License.
 
 #include "DFCommon.h"
-#include "DFError.h"
-#include "DFArray.h"
 #include "DFPlatform.h"
-#include "DFFilesystem.h"
-#include "DFString.h"
 
 // This file contains functions that are applicable to all Unix-based platforms, including Linux, iOS, and OS X
 
@@ -28,22 +24,26 @@ void DFInitOnce(DFOnce *once, DFOnceFunction fun)
     pthread_once(once,fun);
 }
 
-int DFMkdirIfAbsent(const char *path, DFError **error)
+int DFMkdirIfAbsent(const char *path, char **errmsg)
 {
     if ((mkdir(path,0777) != 0) && (errno != EEXIST)) {
-        DFErrorSetPosix(error,errno);
+        if (errmsg != NULL)
+            *errmsg = strdup(strerror(errno));
         return 0;
     }
     return 1;
 }
 
-int DFAddDirContents(const char *absPath, const char *relPath, int recursive, DFArray *array, DFError **error)
+int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list)
 {
-    DIR *dir = opendir(absPath);
+    DIR *dir = opendir(path);
     if (dir == NULL) {
-        DFErrorFormat(error,"%s: %s",relPath,strerror(errno));
+        if (errmsg != NULL)
+            *errmsg = strdup(strerror(errno));
         return 0;
     }
+
+    PlatformDirEntry **outputPtr = list;
 
     struct dirent buffer;
     struct dirent *result = NULL;
@@ -52,19 +52,16 @@ int DFAddDirContents(const char *absPath, const char *relPath, int recursive, DF
         if (!strcmp(result->d_name,".") || !strcmp(result->d_name,".."))
             continue;
 
-        char *absSubPath = DFAppendPathComponent(absPath,result->d_name);
-        char *relSubPath = DFAppendPathComponent(relPath,result->d_name);
+        struct stat statbuf;
+        char entryPath[4096];
+        snprintf(entryPath,4096,"%s/%s",path,result->d_name);
+        if (0 != stat(entryPath,&statbuf))
+            continue;
 
-        if (relSubPath[0] == '/')
-            DFArrayAppend(array,&relSubPath[1]);
-        else
-            DFArrayAppend(array,relSubPath);
-
-        if (recursive && DFIsDirectory(absSubPath))
-            ok = DFAddDirContents(absSubPath,relSubPath,recursive,array,error);
-
-        free(absSubPath);
-        free(relSubPath);
+        (*outputPtr) = (PlatformDirEntry *)calloc(1,sizeof(PlatformDirEntry));
+        (*outputPtr)->name = strdup(result->d_name);
+        (*outputPtr)->isDirectory = S_ISDIR(statbuf.st_mode);
+        outputPtr = &(*outputPtr)->next;
     }
     closedir(dir);
     return ok;

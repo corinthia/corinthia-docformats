@@ -397,7 +397,12 @@ static int getImageFile(WordConverter *converter, const char *src, PixelSize *si
     char *abstractPathSlash = DFFormatString("%s/",converter->abstractPath);
     char *newSrcPath = DFPathResolveAbsolute(abstractPathSlash,unescapedSrc);
 
-    int ok = DFGetImageDimensions(newSrcPath,&size->widthPx,&size->heightPx,error);
+    char *errmsg = NULL;
+    int ok = DFGetImageDimensions(newSrcPath,&size->widthPx,&size->heightPx,&errmsg);
+    if (!ok) {
+        DFErrorFormat(error,"%s",errmsg);
+        free(errmsg);
+    }
     free(abstractPathSlash);
     free(unescapedSrc);
     free(newSrcPath);

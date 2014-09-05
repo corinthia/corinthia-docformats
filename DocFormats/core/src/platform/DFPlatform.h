@@ -15,10 +15,23 @@
 #ifndef DocFormats_DFPlatform_h
 #define DocFormats_DFPlatform_h
 
-int DFMkdirIfAbsent(const char *path, DFError **error);
+#ifdef WIN32
+char *PlatformWin32ErrorString(DWORD code);
+#endif
 
-int DFAddDirContents(const char *absPath, const char *relPath, int recursive, DFArray *array, DFError **error);
-int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, DFError **error);
+typedef struct PlatformDirEntry {
+    struct PlatformDirEntry *next;
+    char *name;
+    int isDirectory;
+} PlatformDirEntry;
+
+int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list);
+
+
+
+int DFMkdirIfAbsent(const char *path, char **errmsg);
+
+int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, char **errmsg);
 
 #ifdef WIN32
 
