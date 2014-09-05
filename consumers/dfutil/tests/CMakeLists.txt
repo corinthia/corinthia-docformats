@@ -18,3 +18,4 @@ add_executable(dfutil_test
                test_dfutil.c
               )
 target_link_libraries(dfutil_test DocFormats)
+set_property(TARGET dfutil_test PROPERTY FOLDER consumers/dfutil_test)

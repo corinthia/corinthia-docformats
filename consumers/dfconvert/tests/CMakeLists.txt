@@ -18,3 +18,4 @@ add_executable(dfconvert_test
                test_dfconvert.c
               )
 target_link_libraries(dfconvert_test DocFormats)
+set_property(TARGET dfconvert_test PROPERTY FOLDER consumers/dfconvert_test)

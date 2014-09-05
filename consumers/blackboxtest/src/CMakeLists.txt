@@ -18,4 +18,4 @@ add_executable(blackboxtest
                main.c
               )
 target_link_libraries(blackboxtest test_DocFormats)
-set_property(TARGET dfconvert PROPERTY FOLDER consumers/blackboxtest)
+set_property(TARGET blackboxtest PROPERTY FOLDER consumers/blackboxtest)
