@@ -17,12 +17,12 @@ include_directories()
 ###
 ## Build test object files (white box test with access to everyting)
 ###
-source_group(DocFormats\\core\\tests\\common REGULAR_EXPRESSION .*)
 include_directories(../../../api/headers)
 include_directories(../../src/common)
 add_library(test_core_common OBJECT
             test_core_common.c
            )
+set_property(TARGET test_core_common PROPERTY FOLDER DocFormats/core/tests)
 
 
 
