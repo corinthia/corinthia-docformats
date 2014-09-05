@@ -17,12 +17,11 @@ include_directories()
 ###
 ## Build odf drawing filter objects
 ###
-source_group(DocFormats\\filters\\odf\\drawing .*)
 include_directories(../../../../core/headers)
 add_library(obj_filter_odf_drawing OBJECT
             ODFDrawing.c
            )
-
+set_property(TARGET obj_filter_odf_drawing PROPERTY FOLDER DocFormats/core/filter/odf)
 
 ###
 ## Inform caller about objects

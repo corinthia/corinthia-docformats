@@ -17,7 +17,6 @@ include_directories(SYSTEM ${INCLUDE_DIRS})
 ###
 ## Build html filter objects
 ###
-source_group(DocFormats\\filters\\html .*)
 include_directories(../../../3rdparty/headers)
 include_directories(../../../core/headers)
 add_library(obj_filter_html OBJECT
@@ -27,6 +26,7 @@ add_library(obj_filter_html OBJECT
             DFTidyHelper.c
             DFTidyWrapper.c
            )
+set_property(TARGET obj_filter_html PROPERTY FOLDER DocFormats/core/filter/html)
 
 
 ###

@@ -17,12 +17,11 @@ include_directories()
 ###
 ## Build odf test filter objects
 ###
-source_group(DocFormats\\filters\\odf\\text .*)
 include_directories(../../../../core/headers)
 add_library(obj_filter_odf_text OBJECT
             ODFText.c
            )
-
+set_property(TARGET obj_filter_odf_text PROPERTY FOLDER DocFormats/core/filter/odf)
 
 ###
 ## Inform caller about objects

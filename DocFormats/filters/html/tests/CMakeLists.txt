@@ -17,11 +17,11 @@ include_directories()
 ###
 ## Build test object files (white box test with access to everyting)
 ###
-source_group(DocFormats\\filters\\html\\tests REGULAR_EXPRESSION .*)
 include_directories(../../../api/headers)
 add_library(test_html OBJECT
             test_html.c
            )
+set_property(TARGET test_html PROPERTY FOLDER DocFormats/core/filter/html)
 
 
 

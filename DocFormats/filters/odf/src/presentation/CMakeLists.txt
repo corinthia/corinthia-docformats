@@ -17,12 +17,11 @@ include_directories()
 ###
 ## Build odf presentation filter objects
 ###
-source_group(DocFormats\\filters\\odf\\presentation .*)
 include_directories(../../../../core/headers)
 add_library(obj_filter_odf_presentation OBJECT
             ODFPresentation.c
            )
-
+set_property(TARGET obj_filter_odf_presentation PROPERTY FOLDER DocFormats/core/filter/odf)
 
 ###
 ## Inform caller about objects

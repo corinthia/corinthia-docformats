@@ -17,11 +17,11 @@ include_directories()
 ###
 ## Build test object files (white box test with access to everyting)
 ###
-source_group(DocFormats\\filters\\odf\\tests REGULAR_EXPRESSION .*)
 include_directories(../../../api/headers)
 add_library(test_odf OBJECT
             test_odf.c
            )
+set_property(TARGET test_odf PROPERTY FOLDER DocFormats/core/filter/odf)
 
 
 

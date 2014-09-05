@@ -17,7 +17,6 @@ include_directories()
 ###
 ## Build odf common filter objects
 ###
-source_group(DocFormats\\filters\\odf\\common .*)
 include_directories(../../../../core/headers)
 add_library(obj_filter_odf_common OBJECT
             ODF.c
@@ -25,6 +24,7 @@ add_library(obj_filter_odf_common OBJECT
             ODFPackage.c
             ODFSheet.c
            )
+set_property(TARGET obj_filter_odf_common PROPERTY FOLDER DocFormats/core/filter/odf)
 
 
 ###

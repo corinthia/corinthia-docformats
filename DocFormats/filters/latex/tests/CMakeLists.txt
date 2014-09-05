@@ -17,11 +17,11 @@ include_directories()
 ###
 ## Build test object files (white box test with access to everyting)
 ###
-source_group(DocFormats\\filters\\latex\\tests REGULAR_EXPRESSION .*)
 include_directories(../../../api/headers)
 add_library(test_filter_latex OBJECT
             test_latex.c
            )
+set_property(TARGET test_filter_latex PROPERTY FOLDER DocFormats/core/filter/latex)
 
 
 
