@@ -17,12 +17,11 @@ include_directories()
 ###
 ## Build test object files (white box test with access to everyting)
 ###
-source_group(DocFormats\\filters\\ooxml\\tests REGULAR_EXPRESSION .*)
 include_directories(../../../api/headers)
 add_library(test_ooxml OBJECT
             test_ooxml.c
            )
-
+set_property(TARGET test_ooxml PROPERTY FOLDER DocFormats/core/filter/ooxml)
 
 
 ###

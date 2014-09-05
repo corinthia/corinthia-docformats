@@ -17,7 +17,6 @@ include_directories()
 ###
 ## Build ooxml word formatting filter objects
 ###
-source_group(DocFormats\\filters\\ooxml\\word\\formatting .*)
 include_directories(../../../../../core/headers)
 include_directories(..)
 include_directories(../../common)
@@ -28,6 +27,7 @@ add_library(obj_filter_ooxml_word_formatting OBJECT
             WordRPr.c
             WordTblPr.c
            )
+set_property(TARGET obj_filter_ooxml_word_formatting PROPERTY FOLDER DocFormats/core/filter/ooxml)
 
 
 ###

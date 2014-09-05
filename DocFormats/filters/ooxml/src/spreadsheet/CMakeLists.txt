@@ -17,11 +17,11 @@ include_directories()
 ###
 ## Build ooxml spreadsheet filter objects
 ###
-source_group(DocFormats\\filters\\ooxml\\spreadsheet .*)
 include_directories(../../../../core/headers)
 add_library(obj_filter_ooxml_spreadsheet OBJECT
             OOXMLSpreadsheet.c
            )
+set_property(TARGET obj_filter_ooxml_spreadsheet PROPERTY FOLDER DocFormats/core/filter/ooxml)
 
 
 ###

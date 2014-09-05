@@ -17,7 +17,6 @@ include_directories()
 ###
 ## Build ooxml word lenses filter objects
 ###
-source_group(DocFormats\\filters\\ooxml\\word\\lenses .*)
 include_directories(../../../../../core/headers)
 include_directories(..)
 include_directories(../formatting)
@@ -40,6 +39,7 @@ add_library(obj_filter_ooxml_word_lenses OBJECT
             WordSmartTag.c
             WordTable.c
            )
+set_property(TARGET obj_filter_ooxml_word_lenses PROPERTY FOLDER DocFormats/core/filter/ooxml)
 
 
 ###

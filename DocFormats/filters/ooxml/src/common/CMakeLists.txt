@@ -17,12 +17,11 @@ include_directories()
 ###
 ## Build ooxml common filter objects
 ###
-source_group(DocFormats\\filters\\ooxml\\common .*)
 include_directories(../../../../core/headers)
 add_library(obj_filter_ooxml_common OBJECT
             OPC.c
            )
-
+set_property(TARGET obj_filter_ooxml_common PROPERTY FOLDER DocFormats/core/filter/ooxml)
 
 ###
 ## Inform caller about objects

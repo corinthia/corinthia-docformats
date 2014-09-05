@@ -17,11 +17,11 @@ include_directories()
 ###
 ## Build ooxml presentation filter objects
 ###
-source_group(DocFormats\\filters\\ooxml\\presentation .*)
 include_directories(../../../../core/headers)
 add_library(obj_filter_ooxml_presentation OBJECT
             OOXMLPresentation.c
            )
+set_property(TARGET obj_filter_ooxml_presentation PROPERTY FOLDER DocFormats/core/filter/ooxml)
 
 
 ###
