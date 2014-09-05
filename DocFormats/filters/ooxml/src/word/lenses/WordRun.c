@@ -20,7 +20,7 @@
 #include "WordLenses.h"
 #include "WordNotes.h"
 #include "WordObjects.h"
-#include "WordPPR.h"
+#include "WordPPr.h"
 #include "WordRPr.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
