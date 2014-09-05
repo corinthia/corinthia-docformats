@@ -13,8 +13,8 @@
 
 include_directories()
 link_directories(${LIB_DIRS})
-
 add_executable(dfconvert
                main.c
               )
 target_link_libraries(dfconvert DocFormats)
+set_property(TARGET dfconvert PROPERTY FOLDER consumers/dfconvert)

@@ -14,6 +14,11 @@
 cmake_minimum_required(VERSION 2.8)
 project(Socrates)
 
+# Turn on the ability to create folders to organize projects (.vcproj)
+# It creates "CMakePredefinedTargets" folder by default and adds CMake
+# defined projects like INSTALL.vcproj and ZERO_CHECK.vcproj
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 # platform dependent stuff
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     find_library(FOUNDATION_LIBRARY Foundation)
