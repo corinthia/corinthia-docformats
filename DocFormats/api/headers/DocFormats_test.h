@@ -25,36 +25,36 @@
 //---------------------------
 #define NO_MORE_TEST_CASES -999
 extern int test_3rdparty      (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 extern int test_core_platform (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 extern int test_core_lib      (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 extern int test_core_common   (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 extern int test_core_names    (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 extern int test_core_data     (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 extern int test_filter_latex  (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 extern int test_filter_odf    (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 extern int test_filter_ooxml  (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 extern int test_filter_html   (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 extern int test_api           (int   runTest,
-                               char *textName,
+                               char *testName,
                                char *errorText);
 

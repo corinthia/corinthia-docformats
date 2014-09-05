@@ -14,7 +14,7 @@
 
 #include "DocFormats_test.h"
 
-int test_filter_ooxml(int runTest, char *textName, char *errorText)
+int test_filter_ooxml(int runTest, char *testName, char *errorText)
 {
   return NO_MORE_TEST_CASES;
 }
