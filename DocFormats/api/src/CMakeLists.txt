@@ -17,10 +17,10 @@ include_directories()
 ###
 ## build src object files
 ###
-source_group(DocFormats\\api REGULAR_EXPRESSION .*)
 add_library(obj_api OBJECT
             wrapper.c
            )
+set_property(TARGET obj_api PROPERTY FOLDER DocFormats/api)
 
 ###
 ## identify object files to caller

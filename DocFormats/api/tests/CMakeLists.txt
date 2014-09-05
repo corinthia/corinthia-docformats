@@ -17,11 +17,11 @@ include_directories()
 ###
 ## Build test object files (white box test with access to everyting)
 ###
-source_group(DocFormats\\tests REGULAR_EXPRESSION .*)
 include_directories(../headers)
 add_library(test_api OBJECT
             test_api.c
            )
+set_property(TARGET test_api PROPERTY FOLDER DocFormats/api)
 
 
 

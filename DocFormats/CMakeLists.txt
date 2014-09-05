@@ -31,6 +31,7 @@ add_library(DocFormats
             DocFormats.c
            )
 set_property(TARGET DocFormats PROPERTY INTERFACE_POSITION_INDEPENDENT_CODE ON)
+set_property(TARGET DocFormats PROPERTY FOLDER DocFormats)
 add_library(test_DocFormats
             ${obj_3rdparty}
             ${obj_core}
@@ -43,4 +44,5 @@ add_library(test_DocFormats
             DocFormats.c
            )
 set_property(TARGET test_DocFormats PROPERTY INTERFACE_POSITION_INDEPENDENT_CODE ON)
+set_property(TARGET test_DocFormats PROPERTY FOLDER DocFormats)
 
