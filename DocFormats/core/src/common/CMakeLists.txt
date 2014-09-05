@@ -18,13 +18,13 @@ include_directories()
 ###
 ## Build common objects
 ###
-source_group(DocFormats\\core\\common .*)
 include_directories(../lib)
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_common OBJECT
             DFBDT.c
             DFTable.c
            )
+set_property(TARGET obj_core_common PROPERTY FOLDER DocFormats/core/src)
 
 
 ###

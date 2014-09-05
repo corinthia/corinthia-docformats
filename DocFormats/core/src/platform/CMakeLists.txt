@@ -18,7 +18,6 @@ include_directories()
 ###
 ## Build platform objects
 ###
-source_group(DocFormats\\core\\platform .*)
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_platform OBJECT
             Apple.c
@@ -26,6 +25,7 @@ add_library(obj_core_platform OBJECT
             Unix.c
             Win32.c
            )
+set_property(TARGET obj_core_platform PROPERTY FOLDER DocFormats/core/src)
 
 
 

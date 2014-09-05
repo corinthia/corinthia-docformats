@@ -18,7 +18,6 @@ include_directories()
 ###
 ## Build css objects
 ###
-source_group(DocFormats\\core\\css .*)
 include_directories(.)
 include_directories(../lib)
 include_directories(../common)
@@ -34,6 +33,7 @@ add_library(obj_core_css OBJECT
             CSSStyle.c
             CSSSyntax.c
            )
+set_property(TARGET obj_core_css PROPERTY FOLDER DocFormats/core/src)
 
 
 ###

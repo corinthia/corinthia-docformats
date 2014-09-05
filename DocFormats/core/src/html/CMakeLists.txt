@@ -18,7 +18,6 @@ include_directories()
 ###
 ## Build html objects
 ###
-source_group(DocFormats\\core\\html .*)
 include_directories(../lib)
 include_directories(../common)
 include_directories(../css)
@@ -26,6 +25,7 @@ include_directories(../../forward_decl_BAD)
 add_library(obj_core_html OBJECT
             DFHTMLTables.c
            )
+set_property(TARGET obj_core_html PROPERTY FOLDER DocFormats/core/src)
 
 
 ###

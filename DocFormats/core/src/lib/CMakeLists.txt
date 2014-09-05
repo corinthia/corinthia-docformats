@@ -17,7 +17,6 @@ include_directories(SYSTEM ${INCLUDE_DIRS})
 ###
 ## Build lib objects
 ###
-source_group(DocFormats\\core\\lib .*)
 include_directories(../../../3rdparty/headers)
 include_directories(../platform)
 include_directories(../../forward_decl_BAD)
@@ -33,6 +32,7 @@ add_library(obj_core_lib OBJECT
             DFString.c
             DFZipFile.c
            )
+set_property(TARGET obj_core_lib PROPERTY FOLDER DocFormats/core/src)
 
 ###
 ## Inform caller about object list
