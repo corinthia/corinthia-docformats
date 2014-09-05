@@ -1,4 +1,4 @@
-#
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -12,24 +12,9 @@
 # limitations under the License.
 
 include_directories()
-
-
-###
-## Build test object files (white box test with access to everyting)
-###
-source_group(DocFormats\\filters\\odf\\tests REGULAR_EXPRESSION .*)
-include_directories(../../../api/headers)
-add_library(test_odf OBJECT
-            test_odf.c
-           )
-
-
-
-###
-## identify objects to caller
-###
-set(obj_test
-    $<TARGET_OBJECTS:test_odf>
-    PARENT_SCOPE
-   )
-
+link_directories(${LIB_DIRS})
+include_directories(../../../DocFormats/api/headers)
+add_executable(blackboxtest
+               main.c
+              )
+target_link_libraries(blackboxtest test_DocFormats)

@@ -11,25 +11,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_directories()
-
 
 ###
-## Build test object files (white box test with access to everyting)
+## build object files
 ###
-source_group(DocFormats\\filters\\odf\\tests REGULAR_EXPRESSION .*)
-include_directories(../../../api/headers)
-add_library(test_odf OBJECT
-            test_odf.c
-           )
-
-
-
-###
-## identify objects to caller
-###
-set(obj_test
-    $<TARGET_OBJECTS:test_odf>
-    PARENT_SCOPE
-   )
+add_subdirectory(src)
 

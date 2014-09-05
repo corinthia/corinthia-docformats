@@ -17,6 +17,7 @@ include_directories()
 ###
 ## Build test object files (white box test with access to everyting)
 ###
+include_directories(../../api/headers)
 include_directories(../external/minizip)
 include_directories(../external/w3c-tidy-html5/include)
 include_directories(../external/w3c-tidy-html5/src)

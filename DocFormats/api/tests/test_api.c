@@ -12,7 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This function is here to avoid warnings in Xcode about the library not containing any symbols
-void test_api_stub(void)
+#include "DocFormats_test.h"
+
+int test_api(int runTest, char *textName, char *errorText)
 {
+  return NO_MORE_TEST_CASES;
 }
+

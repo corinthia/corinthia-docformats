@@ -12,7 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This function is here to avoid warnings in Xcode about the library not containing any symbols
-void test_odf_stub(void)
+#include "DocFormats_test.h"
+
+int test_filter_odf(int runTest, char *textName, char *errorText)
 {
+  return NO_MORE_TEST_CASES;
 }

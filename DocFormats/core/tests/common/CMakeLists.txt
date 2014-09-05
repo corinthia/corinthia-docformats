@@ -17,10 +17,11 @@ include_directories()
 ###
 ## Build test object files (white box test with access to everyting)
 ###
-source_group(DocFormats\\filters\\odf\\tests REGULAR_EXPRESSION .*)
+source_group(DocFormats\\core\\tests\\common REGULAR_EXPRESSION .*)
 include_directories(../../../api/headers)
-add_library(test_odf OBJECT
-            test_odf.c
+include_directories(../../src/common)
+add_library(test_core_common OBJECT
+            test_core_common.c
            )
 
 
@@ -28,8 +29,8 @@ add_library(test_odf OBJECT
 ###
 ## identify objects to caller
 ###
-set(obj_test
-    $<TARGET_OBJECTS:test_odf>
+set(obj_test_common
+    $<TARGET_OBJECTS:test_core_common>
     PARENT_SCOPE
    )
 

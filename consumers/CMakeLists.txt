@@ -13,3 +13,4 @@
 
 add_subdirectory(dfconvert)
 add_subdirectory(dfutil)
+add_subdirectory(blackboxtest)
