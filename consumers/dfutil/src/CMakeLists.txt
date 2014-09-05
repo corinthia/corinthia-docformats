@@ -34,3 +34,4 @@ endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
 add_executable(dfutil ${SOURCES})
 target_link_libraries(dfutil DocFormats ${LIBS})
+set_property(TARGET dfutil PROPERTY FOLDER consumers/dfutil)
