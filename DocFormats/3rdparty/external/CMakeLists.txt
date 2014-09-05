@@ -18,21 +18,17 @@ include_directories(SYSTEM ${INCLUDE_DIRS})
 ###
 ## build minzip objects
 ###
-source_group(DocFormats\\3rdparty\\external\\minizip
-             REGULAR_EXPRESSION minizip/.*)
 include_directories(minizip)
 add_library(obj_3rdparty_external_minizip OBJECT
             minizip/ioapi.c
             minizip/unzip.c
             minizip/zip.c
            )
-
+set_property(TARGET obj_3rdparty_external_minizip PROPERTY FOLDER DocFormats/3rdparty)
 
 ###
 ## build w3c-tidy-html5 objects
 ###
-source_group(DocFormats\\3rdparty\\external\\w3c-tidy-html5
-             REGULAR_EXPRESSION w3c-tidy-html5/.*)
 include_directories(w3c-tidy-html5/include)
 include_directories(w3c-tidy-html5/src)
 add_library(obj_3rdparty_external_w3c-tidy-html5 OBJECT
@@ -64,6 +60,7 @@ add_library(obj_3rdparty_external_w3c-tidy-html5 OBJECT
             w3c-tidy-html5/src/utf8.c
             w3c-tidy-html5/src/win32tc.c
            )
+set_property(TARGET obj_3rdparty_external_w3c-tidy-html5 PROPERTY FOLDER DocFormats/3rdparty)
 
 ###
 ## Identify objects to caller

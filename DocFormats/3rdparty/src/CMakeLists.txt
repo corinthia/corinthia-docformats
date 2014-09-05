@@ -20,17 +20,16 @@ include_directories()
 include_directories(../external/minizip)
 include_directories(../external/w3c-tidy-html5/include)
 include_directories(../external/w3c-tidy-html5/src)
-source_group(DocFormats\\3rdparty\\src
-             REGULAR_EXPRESSION .*)
-add_library(obj_src_src OBJECT
+add_library(obj_3rdparty_src OBJECT
             wrapper.c
            )
+set_property(TARGET obj_3rdparty_src PROPERTY FOLDER DocFormats/3rdparty)
 
 ###
 ## identify object files to caller
 ###
 set(obj_src
-    $<TARGET_OBJECTS:obj_src_src>
+    $<TARGET_OBJECTS:obj_3rdparty_src>
     PARENT_SCOPE
    )
 

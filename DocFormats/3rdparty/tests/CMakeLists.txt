@@ -22,11 +22,10 @@ include_directories(../external/minizip)
 include_directories(../external/w3c-tidy-html5/include)
 include_directories(../external/w3c-tidy-html5/src)
 include_directories(../src)
-source_group(DocFormats\\3rdparty\\tests REGULAR_EXPRESSION .*)
 add_library(test_3rdparty OBJECT
             test_3rdparty.c
            )
-
+set_property(TARGET test_3rdparty PROPERTY FOLDER DocFormats/3rdparty)
 
 
 ###
