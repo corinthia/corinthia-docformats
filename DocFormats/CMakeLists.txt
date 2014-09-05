@@ -32,6 +32,10 @@ add_library(DocFormats
            )
 set_property(TARGET DocFormats PROPERTY INTERFACE_POSITION_INDEPENDENT_CODE ON)
 add_library(test_DocFormats
+            ${obj_3rdparty}
+            ${obj_core}
+            ${obj_filters}
+            ${obj_api}
             ${obj_test_3rdparty}
             ${obj_test_core}
             ${obj_test_filters}
