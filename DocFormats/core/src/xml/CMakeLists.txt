@@ -19,7 +19,6 @@ include_directories(SYSTEM ${INCLUDE_DIRS})
 ###
 ## Build xml objects
 ###
-source_group(DocFormats\\core\\xml .*)
 include_directories(/usr/include/libxml2)
 include_directories(../platform)
 include_directories(../lib)
@@ -31,6 +30,7 @@ add_library(obj_core_xml OBJECT
             DFNameMap.c
             DFXML.c
            )
+set_property(TARGET obj_core_xml PROPERTY FOLDER DocFormats/core/src)
 
 
 ###
