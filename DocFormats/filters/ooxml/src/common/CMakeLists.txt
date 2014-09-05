@@ -21,7 +21,7 @@ include_directories(../../../../core/headers)
 add_library(obj_filter_ooxml_common OBJECT
             OPC.c
            )
-set_property(TARGET obj_filter_ooxml_common PROPERTY FOLDER DocFormats/core/filter/ooxml)
+set_property(TARGET obj_filter_ooxml_common PROPERTY FOLDER DocFormats/filters/ooxml)
 
 ###
 ## Inform caller about objects

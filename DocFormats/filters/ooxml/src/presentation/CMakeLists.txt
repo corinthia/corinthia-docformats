@@ -21,7 +21,7 @@ include_directories(../../../../core/headers)
 add_library(obj_filter_ooxml_presentation OBJECT
             OOXMLPresentation.c
            )
-set_property(TARGET obj_filter_ooxml_presentation PROPERTY FOLDER DocFormats/core/filter/ooxml)
+set_property(TARGET obj_filter_ooxml_presentation PROPERTY FOLDER DocFormats/filters/ooxml)
 
 
 ###

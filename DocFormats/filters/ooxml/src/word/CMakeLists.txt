@@ -48,7 +48,7 @@ add_library(obj_filter_ooxml_word OBJECT
             WordTheme.c
             WordWhitespace.c
            )
-set_property(TARGET obj_filter_ooxml_word PROPERTY FOLDER DocFormats/core/filter/ooxml)
+set_property(TARGET obj_filter_ooxml_word PROPERTY FOLDER DocFormats/filters/ooxml)
 
 
 ###

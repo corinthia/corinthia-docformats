@@ -21,7 +21,7 @@ include_directories(../../../../core/headers)
 add_library(obj_filter_ooxml_spreadsheet OBJECT
             OOXMLSpreadsheet.c
            )
-set_property(TARGET obj_filter_ooxml_spreadsheet PROPERTY FOLDER DocFormats/core/filter/ooxml)
+set_property(TARGET obj_filter_ooxml_spreadsheet PROPERTY FOLDER DocFormats/filters/ooxml)
 
 
 ###

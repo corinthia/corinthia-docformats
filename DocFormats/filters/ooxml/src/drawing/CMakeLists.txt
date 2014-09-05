@@ -21,7 +21,7 @@ include_directories(../../../../core/headers)
 add_library(obj_filter_ooxml_drawing OBJECT
             OOXMLDrawing.c
            )
-set_property(TARGET obj_filter_ooxml_drawing PROPERTY FOLDER DocFormats/core/filter/ooxml)
+set_property(TARGET obj_filter_ooxml_drawing PROPERTY FOLDER DocFormats/filters/ooxml)
 
 
 ###

@@ -27,7 +27,7 @@ add_library(obj_filter_ooxml_word_formatting OBJECT
             WordRPr.c
             WordTblPr.c
            )
-set_property(TARGET obj_filter_ooxml_word_formatting PROPERTY FOLDER DocFormats/core/filter/ooxml)
+set_property(TARGET obj_filter_ooxml_word_formatting PROPERTY FOLDER DocFormats/filters/ooxml)
 
 
 ###
