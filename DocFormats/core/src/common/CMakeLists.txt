@@ -22,7 +22,9 @@ include_directories(../lib)
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_common OBJECT
             DFBDT.c
+            DFBDT.h
             DFTable.c
+            DFTable.h
            )
 set_property(TARGET obj_core_common PROPERTY FOLDER DocFormats/core/src)
 

@@ -25,13 +25,21 @@ include_directories(../names)
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_css OBJECT
             CSS.c
+            CSS.h
             CSSLength.c
+            CSSLength.h
             CSSParser.c
+            CSSParser.h
             CSSProperties.c
+            CSSProperties.h
             CSSSelector.c
+            CSSSelector.h
             CSSSheet.c
+            CSSSheet.h
             CSSStyle.c
+            CSSStyle.h
             CSSSyntax.c
+            CSSSyntax.h
            )
 set_property(TARGET obj_core_css PROPERTY FOLDER DocFormats/core/src)
 
