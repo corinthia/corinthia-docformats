@@ -401,19 +401,12 @@ static int getImageFile(WordConverter *converter, const char *src, PixelSize *si
     ERROR errmsg;
     int ok = PlatformGetImageDimensions(newSrcPath,&size->widthPx,&size->heightPx,errmsg);
     if (!ok) {
-<<<<<<< HEAD
-//        DFErrorFormat(error,"%s",errmsg);
-//        free(errmsg);
-
         // Because some platforms don't yet implement DFGetImageDimensions, we'll just ignore the error
         // and pretend the image has a size of 0:0. This needs to be fixed obviously but it will at least
         // make all the tests pass for noe.
         size->widthPx = 0;
         size->heightPx = 0;
         ok = 1;
-=======
-        DFErrorFormat(error,"%s",errmsg);
->>>>>>> platform works with Linux.c
     }
     free(abstractPathSlash);
     free(unescapedSrc);
