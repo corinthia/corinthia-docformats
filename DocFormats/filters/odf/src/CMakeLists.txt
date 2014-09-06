@@ -13,24 +13,63 @@
 
 
 ###
-## build object files
+## group object files
 ###
-add_subdirectory(common)
-add_subdirectory(drawing)
-add_subdirectory(presentation)
-add_subdirectory(spreadsheet)
-add_subdirectory(text)
+set(obj_common
+    common/ODF.c
+    common/ODF.h
+    common/ODFManifest.c
+    common/ODFManifest.h
+    common/ODFPackage.c
+    common/ODFPackage.h
+    common/ODFSheet.c
+    common/ODFSheet.h
+   )
+source_group(common FILES ${obj_common})
+
+set(obj_drawing
+    drawing/ODFDrawing.c
+   )
+source_group(drawing FILES ${obj_drawing})
+
+set(obj_presentation
+    presentation/ODFPresentation.c
+   )
+source_group(presentation FILES ${obj_presentation})
+
+set(obj_spreadsheet
+    spreadsheet/ODFSpreadsheet.c
+   )
+source_group(spreadsheet FILES ${obj_spreadsheet})
+
+set(obj_text
+    text/ODFText.c
+   )
+source_group(text FILES ${obj_text})
+
+
+include_directories()
+
 
 ###
-## Identify objects to caller
+## Build odf filter objects
+###
+include_directories(../../../core/headers)
+add_library(obj_filter_odf OBJECT
+            ${obj_common}
+            ${obj_drawing}
+            ${obj_presentation}
+            ${obj_spreadsheet}
+            ${obj_text}
+           )
+set_property(TARGET obj_filter_odf PROPERTY FOLDER DocFormats/filters/odf)
+
+
+###
+## Inform caller about objects
 ###
 set(obj_src
-    ${obj_common}
-    ${obj_drawing}
-    ${obj_presentation}
-    ${obj_spreadsheet}
-    ${obj_text}
-    PARENT_SCOPE
-   )
+    $<TARGET_OBJECTS:obj_filter_odf>
+    PARENT_SCOPE)
 
 
