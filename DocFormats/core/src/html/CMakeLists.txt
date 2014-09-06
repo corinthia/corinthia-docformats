@@ -27,7 +27,7 @@ add_library(obj_core_html OBJECT
             DFHTMLTables.c
             DFHTMLTables.h
            )
-set_property(TARGET obj_core_html PROPERTY FOLDER DocFormats/core/src)
+set_property(TARGET obj_core_html PROPERTY FOLDER DocFormats/core)
 
 
 ###

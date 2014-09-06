@@ -26,7 +26,7 @@ add_library(obj_core_common OBJECT
             DFTable.c
             DFTable.h
            )
-set_property(TARGET obj_core_common PROPERTY FOLDER DocFormats/core/src)
+set_property(TARGET obj_core_common PROPERTY FOLDER DocFormats/core)
 
 
 ###

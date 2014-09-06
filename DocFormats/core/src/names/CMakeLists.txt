@@ -24,7 +24,7 @@ add_library(obj_core_names OBJECT
             DFXMLNames.c
             DFXMLNamespaces.c
            )
-set_property(TARGET obj_core_names PROPERTY FOLDER DocFormats/core/src)
+set_property(TARGET obj_core_names PROPERTY FOLDER DocFormats/core)
 
 
 ###

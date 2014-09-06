@@ -26,7 +26,7 @@ add_library(obj_core_platform OBJECT
             Unix.c
             Win32.c
            )
-set_property(TARGET obj_core_platform PROPERTY FOLDER DocFormats/core/src)
+set_property(TARGET obj_core_platform PROPERTY FOLDER DocFormats/core)
 
 
 

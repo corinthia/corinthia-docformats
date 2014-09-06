@@ -21,7 +21,7 @@ include_directories(../../../api/headers)
 add_library(test_ooxml OBJECT
             test_ooxml.c
            )
-set_property(TARGET test_ooxml PROPERTY FOLDER DocFormats/core/filter/ooxml)
+set_property(TARGET test_ooxml PROPERTY FOLDER DocFormats/filters/ooxml)
 
 
 ###

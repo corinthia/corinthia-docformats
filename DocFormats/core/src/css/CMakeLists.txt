@@ -41,7 +41,7 @@ add_library(obj_core_css OBJECT
             CSSSyntax.c
             CSSSyntax.h
            )
-set_property(TARGET obj_core_css PROPERTY FOLDER DocFormats/core/src)
+set_property(TARGET obj_core_css PROPERTY FOLDER DocFormats/core)
 
 
 ###

@@ -37,7 +37,7 @@ add_library(obj_core_lib OBJECT
             DFZipFile.c
             DFZipFile.h
            )
-set_property(TARGET obj_core_lib PROPERTY FOLDER DocFormats/core/src)
+set_property(TARGET obj_core_lib PROPERTY FOLDER DocFormats/core)
 
 ###
 ## Inform caller about object list

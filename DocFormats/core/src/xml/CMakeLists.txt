@@ -31,7 +31,7 @@ add_library(obj_core_xml OBJECT
             DFNameMap.c
             DFXML.c
            )
-set_property(TARGET obj_core_xml PROPERTY FOLDER DocFormats/core/src)
+set_property(TARGET obj_core_xml PROPERTY FOLDER DocFormats/core)
 
 
 ###
