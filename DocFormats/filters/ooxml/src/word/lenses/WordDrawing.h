@@ -15,13 +15,13 @@
 #ifndef DocFormats_WordDrawing_h
 #define DocFormats_WordDrawing_h
 
+#include "OOXMLTypedefs.h"
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                           WordDrawing                                          //
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-typedef struct WordDrawing WordDrawing;
 
 struct WordDrawing {
     size_t retainCount;

@@ -15,8 +15,6 @@
 #ifndef DocFormats_WordNumPr_h
 #define DocFormats_WordNumPr_h
 
-#include "WordConverter.h"
-
 void WordGetNumPrStyle(DFNode *numPr, CSSStyle *style, WordConverter *converter);
 void updateNumbering(WordConverter *converter, CSSSheet *cssSheet);
 

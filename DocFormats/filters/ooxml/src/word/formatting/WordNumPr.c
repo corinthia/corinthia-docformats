@@ -14,12 +14,9 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
-#include "OPC.h"
-#include "WordPackage.h"
 #include "WordConverter.h"
 #include "WordNumbering.h"
 #include "WordSheet.h"
-#include "WordPackage.h"
 
 static char *parseLvlText(const char *input, WordConcreteNum *num)
 {

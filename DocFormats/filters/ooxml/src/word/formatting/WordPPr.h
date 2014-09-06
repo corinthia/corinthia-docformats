@@ -15,8 +15,6 @@
 #ifndef DocFormats_WordPPr_h
 #define DocFormats_WordPPr_h
 
-#include "WordConverter.h"
-
 /** \file */
 
 /**

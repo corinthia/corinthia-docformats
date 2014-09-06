@@ -15,13 +15,11 @@
 #include "core_helper.h"
 #include "core_datacapsule.h"
 
-#include "OPC.h"
 #include "WordPackage.h"
 #include "WordConverter.h"
 #include "WordSheet.h"
 #include "WordBookmark.h"
 #include "WordField.h"
-#include "WordSheet.h"
 #include "WordNotes.h"
 #include "WordNumbering.h"
 #include "WordSection.h"

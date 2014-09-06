@@ -15,13 +15,13 @@
 #ifndef DocFormats_WordPackage_h
 #define DocFormats_WordPackage_h
 
+#include "OOXMLTypedefs.h"
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                           WordPackage                                          //
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-typedef struct WordPackage WordPackage;
 
 struct WordPackage {
     size_t retainCount;

@@ -14,11 +14,9 @@
 
 #include "core_helper.h"
 #include "core_datacapsule.h"
-#include "OPC.h"
-#include "WordPackage.h"
 #include "WordConverter.h"
-#include "WordSection.h"
 #include "WordCommonPr.h"
+#include "WordSection.h"
 
 static Tag WordNumPr_Children[] = {
     WORD_ILVL,

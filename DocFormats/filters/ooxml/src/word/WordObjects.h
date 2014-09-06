@@ -15,15 +15,13 @@
 #ifndef DocFormats_WordObjects_h
 #define DocFormats_WordObjects_h
 
-#include "WordSheet.h"
+#include "OOXMLTypedefs.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                           WordObjects                                          //
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-typedef struct WordObjects WordObjects;
 
 WordObjects *WordObjectsNew(WordPackage *package);
 void WordObjectsFree(WordObjects *objects);

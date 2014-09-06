@@ -16,6 +16,7 @@
 ## gather object files
 ###
 set(obj_common
+    common/OOXMLTypedefs.h
     common/OPC.c
     common/OPC.h
    )

@@ -15,14 +15,13 @@
 #ifndef DocFormats_WordSection_h
 #define DocFormats_WordSection_h
 
+#include "OOXMLTypedefs.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                           WordSection                                          //
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-typedef struct WordSection WordSection;
 
 struct WordSection {
     // All measurements are in twips (1/20th of a point)

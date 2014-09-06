@@ -15,8 +15,6 @@
 #ifndef DocFormats_WordTblPr_h
 #define DocFormats_WordTblPr_h
 
-#include "WordConverter.h"
-
 void WordGetTblPr(DFNode *concrete, CSSProperties *table, CSSProperties *cell, struct WordSection *section, const char **styleId);
 void WordPutTblPr(DFNode *concrete, CSSProperties *newTable, CSSProperties *newCell,
                   struct WordSection *section, const char *styleId);

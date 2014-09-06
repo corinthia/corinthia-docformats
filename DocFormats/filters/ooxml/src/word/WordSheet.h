@@ -15,6 +15,8 @@
 #ifndef DocFormats_WordSheet_h
 #define DocFormats_WordSheet_h
 
+#include "OOXMLTypedefs.h"
+
 char *WordStyleNameToClassName(const char *name);
 char *WordStyleNameFromClassName(const char *name);
 
@@ -23,8 +25,6 @@ char *WordStyleNameFromClassName(const char *name);
 //                                            WordStyle                                           //
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-typedef struct WordStyle WordStyle;
 
 struct WordStyle {
     size_t retainCount;
@@ -45,8 +45,6 @@ int WordStyleIsProtected(WordStyle *style);
 //                                            WordSheet                                           //
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-typedef struct WordSheet WordSheet;
 
 WordSheet *WordSheetNew(DFDocument *doc);
 void WordSheetFree(WordSheet *sheet);

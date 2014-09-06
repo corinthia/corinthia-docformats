@@ -15,13 +15,15 @@
 #ifndef DocFormats_WordLenses_h
 #define DocFormats_WordLenses_h
 
-typedef struct {
+#include "OOXMLTypedefs.h"
+
+struct WordLens {
     int (*isVisible)(WordPutData *put, DFNode *concrete);
     DFNode *(*get)(WordGetData *get, DFNode *concrete);
     void (*put)(WordPutData *put, DFNode *abstract, DFNode *concrete);
     DFNode *(*create)(WordPutData *put, DFNode *abstract);
     void (*remove)(WordPutData *put, DFNode *concrete);
-} WordLens;
+};
 
 extern WordLens WordBlockLevelLens;
 extern WordLens WordBodyLens;

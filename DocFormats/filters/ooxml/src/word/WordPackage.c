@@ -18,7 +18,6 @@
 #include "WordPackage.h"
 #include "WordSettings.h"
 #include "WordField.h"
-#include "WordSheet.h"
 #include "WordBookmark.h"
 #include "WordConverter.h"
 

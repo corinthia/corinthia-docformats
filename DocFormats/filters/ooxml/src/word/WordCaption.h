@@ -15,13 +15,13 @@
 #ifndef DocFormats_WordCaption_h
 #define DocFormats_WordCaption_h
 
+#include "OOXMLTypedefs.h"
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                           WordCaption                                          //
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-typedef struct WordCaption WordCaption;
 
 struct WordCaption {
     size_t retainCount;

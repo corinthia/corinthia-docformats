@@ -15,9 +15,7 @@
 #ifndef DocFormats_WordNotes_h
 #define DocFormats_WordNotes_h
 
-struct WordGetData;
-struct WordPutData;
-struct WordConverter;
+#include "OOXMLTypedefs.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
@@ -25,17 +23,15 @@ struct WordConverter;
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-DFNode *WordRunGetNote(struct WordGetData *get, DFNode *concrete);
-int WordRunPutNote(struct WordPutData *put, DFNode *abstract, DFNode *concrete);
-void WordNoteReferenceRemove(struct WordPutData *put, DFNode *concrete);
+DFNode *WordRunGetNote(WordGetData *get, DFNode *concrete);
+int WordRunPutNote(WordPutData *put, DFNode *abstract, DFNode *concrete);
+void WordNoteReferenceRemove(WordPutData *put, DFNode *concrete);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                            WordNote                                            //
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-typedef struct WordNote WordNote;
 
 struct WordNote {
     size_t retainCount;
@@ -52,8 +48,6 @@ void WordNoteRelease(WordNote *note);
 //                                          WordNoteGroup                                         //
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-typedef struct WordNoteGroup WordNoteGroup;
 
 struct WordNoteGroup {
     size_t retainCount;
