@@ -14,7 +14,6 @@
 ###
 ## Build object files
 ###
-add_subdirectory(platform)
 add_subdirectory(lib)
 add_subdirectory(common)
 add_subdirectory(names)
@@ -26,7 +25,6 @@ add_subdirectory(xml)
 ## Inform caller of object files
 ###
 set(obj_src
-    ${obj_platform}
     ${obj_lib}
     ${obj_common}
     ${obj_names}

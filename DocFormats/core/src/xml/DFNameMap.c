@@ -20,7 +20,7 @@
 #include "DFHashTable.h"
 #include "DFCommon.h"
 #include "DFArray.h"
-#include "DFPlatform.h"
+#include "platform.h"
 
 static void NameMap_staticInit();
 

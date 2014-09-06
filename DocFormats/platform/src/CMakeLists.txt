@@ -18,22 +18,23 @@ include_directories()
 ###
 ## Build platform objects
 ###
-include_directories(../../forward_decl_BAD)
-add_library(obj_core_platform OBJECT
+include_directories(../../core/forward_decl_BAD)
+include_directories(../headers)
+add_library(obj_platform OBJECT
             Apple.c
-            DFPlatform.h
+            ../headers/platform.h
             Linux.c
             Unix.c
             Win32.c
            )
-set_property(TARGET obj_core_platform PROPERTY FOLDER DocFormats/core)
+set_property(TARGET obj_platform PROPERTY FOLDER DocFormats/platform)
 
 
 
 ###
 ## Identify objects to caller
 ###
-set(obj_platform
-    $<TARGET_OBJECTS:obj_core_platform>
+set(obj_src
+    $<TARGET_OBJECTS:obj_platform>
     PARENT_SCOPE)
 

@@ -11,20 +11,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_subdirectory(lib)
-add_subdirectory(common)
-add_subdirectory(names)
-add_subdirectory(data)
-
 
 ###
-## identify objects to caller
+## build object files
 ###
-set(obj_test
-    ${obj_test_lib}
-    ${obj_test_common}
-    ${obj_test_names}
-    ${obj_test_data}
+add_subdirectory(src)
+add_subdirectory(tests)
+
+###
+## Identify objects to caller
+###
+set(obj_platform
+    ${obj_src}
+    PARENT_SCOPE
+   )
+
+# WARNING: PARENT_SCOPE is only 1 level so we need to repeat
+set(obj_test_platform
+    ${obj_test}
     PARENT_SCOPE
    )
 

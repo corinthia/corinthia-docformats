@@ -20,7 +20,7 @@
 #include "DFBuffer.h"
 #include "DFError.h"
 #include "DFCharacterSet.h"
-#include "DFPlatform.h"
+#include "platform.h"
 #include "DFCommon.h"
 
 int DFFileExists(const char *path)

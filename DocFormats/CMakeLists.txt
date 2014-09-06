@@ -14,6 +14,7 @@
 ###
 ## Build object files
 ###
+add_subdirectory(platform)
 add_subdirectory(3rdparty)
 add_subdirectory(core)
 add_subdirectory(filters)
@@ -24,6 +25,7 @@ add_subdirectory(api)
 ## Build libraries from source
 ###
 add_library(DocFormats
+            ${obj_platform}
             ${obj_3rdparty}
             ${obj_core}
             ${obj_filters}
@@ -33,11 +35,13 @@ add_library(DocFormats
 set_property(TARGET DocFormats PROPERTY INTERFACE_POSITION_INDEPENDENT_CODE ON)
 set_property(TARGET DocFormats PROPERTY FOLDER DocFormats)
 add_library(test_DocFormats
+            ${obj_platform}
             ${obj_3rdparty}
             ${obj_core}
             ${obj_filters}
             ${obj_api}
             ${obj_test_3rdparty}
+            ${obj_test_platform}
             ${obj_test_core}
             ${obj_test_filters}
             ${obj_test_api}

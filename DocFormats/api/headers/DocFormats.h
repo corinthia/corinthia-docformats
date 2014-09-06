@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "../../platform/headers/platform.h"
 #include "../../core/headers/core_helper.h"
 #include "../../core/headers/core_datacapsule.h"
 #include "../../filters/latex/src/HTMLToLaTeX.h"

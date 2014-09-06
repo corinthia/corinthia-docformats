@@ -17,20 +17,20 @@ include_directories()
 ###
 ## Build test object files (white box test with access to everyting)
 ###
-include_directories(../../../api/headers)
-include_directories(../../src/platform)
-add_library(test_core_platform OBJECT
-            test_core_platform.c
+include_directories(../../api/headers)
+include_directories(../headers)
+add_library(test_platform OBJECT
+            test_platform.c
            )
-set_property(TARGET test_core_platform PROPERTY FOLDER DocFormats/core/tests)
+set_property(TARGET test_platform PROPERTY FOLDER DocFormats/platform)
 
 
 
 ###
 ## identify objects to caller
 ###
-set(obj_test_platform
-    $<TARGET_OBJECTS:test_core_platform>
+set(obj_test
+    $<TARGET_OBJECTS:test_platform>
     PARENT_SCOPE
    )
 

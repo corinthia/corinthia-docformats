@@ -13,7 +13,7 @@
 // limitations under the License.
 
 #include "DFCommon.h"
-#include "DFPlatform.h"
+#include "platform.h"
 
 // This file contains functions that are applicable to all Unix-based platforms, including Linux, iOS, and OS X
 

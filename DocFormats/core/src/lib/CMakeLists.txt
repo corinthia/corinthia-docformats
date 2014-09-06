@@ -18,7 +18,7 @@ include_directories(SYSTEM ${INCLUDE_DIRS})
 ## Build lib objects
 ###
 include_directories(../../../3rdparty/headers)
-include_directories(../platform)
+include_directories(../../../platform/headers)
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_lib OBJECT
             DFAllocator.c

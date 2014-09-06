@@ -20,7 +20,7 @@ include_directories(SYSTEM ${INCLUDE_DIRS})
 ## Build xml objects
 ###
 include_directories(/usr/include/libxml2)
-include_directories(../platform)
+include_directories(../../../platform/headers)
 include_directories(../lib)
 include_directories(../css)
 include_directories(../../forward_decl_BAD)
