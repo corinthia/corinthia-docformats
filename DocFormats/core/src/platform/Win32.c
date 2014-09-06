@@ -69,12 +69,12 @@ int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list)
 {
     WIN32_FIND_DATA ffd;
     HANDLE hFind = INVALID_HANDLE_VALUE;
-    char *pattern = DFFormatString("%s/*",path);
+    char pattern[4096];
+    snprintf(pattern,4096,"%s/*",path);
     hFind = FindFirstFile(pattern,&ffd);
     if (hFind == INVALID_HANDLE_VALUE) {
         if (errmsg != NULL)
             *errmsg = PlatformWin32ErrorString(GetLastError());
-        free(pattern);
         return 0;
     }
 
@@ -92,7 +92,6 @@ int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list)
     } while (ok && (FindNextFile(hFind,&ffd) != 0));
 
     FindClose(hFind);
-    free(pattern);
     return ok;
 }
 
