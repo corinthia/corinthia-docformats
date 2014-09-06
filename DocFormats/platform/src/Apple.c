@@ -13,14 +13,21 @@
 // limitations under the License.
 
 #include "platform.h"
-
-// This file contains functions that are applicable to iOS and OS X
-
-#ifdef __APPLE__
-
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <dirent.h>
 #include <ImageIO/ImageIO.h>
 
-int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, char **errmsg)
+
+
+int PlatformGetImageDimensions(const char   *path,
+                               unsigned int *width,
+                               unsigned int *height,
+                               ERROR         errmsg)
 {
     CFStringRef srcPath = CFStringCreateWithBytes(kCFAllocatorDefault,(const UInt8 *)path,
                                                   strlen(path),kCFStringEncodingUTF8,0);
@@ -58,27 +65,27 @@ int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *he
     return 0;
 }
 
-#endif
 
 
-#ifndef WIN32
-
-int DFMkdirIfAbsent(const char *path, char **errmsg)
+int PlatformMkdirIfAbsent(const char *path,
+                          ERROR       errmsg)
 {
     if ((mkdir(path,0777) != 0) && (errno != EEXIST)) {
-        if (errmsg != NULL)
-            *errmsg = strdup(strerror(errno));
+        strcpy(errmsg, strerror(errno));
         return 0;
     }
     return 1;
 }
 
-int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list)
+
+
+int PlatformReadDir(const char        *path,
+                    ERROR              errmsg,
+                    PlatformDirEntry **list)
 {
     DIR *dir = opendir(path);
     if (dir == NULL) {
-        if (errmsg != NULL)
-            *errmsg = strdup(strerror(errno));
+        strcpy(errmsg, strerror(errno));
         return 0;
     }
 
@@ -106,4 +113,4 @@ int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list)
     return ok;
 }
 
-#endif
+
