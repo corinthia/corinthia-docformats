@@ -16,9 +16,9 @@ Word_testCreate();
   </body>
 </html>
 ##item images/test.png
-89504E470D0A1A0A0000000D4948445200000060000000400103000000DFFAE04D00000003504C54
-45001EFF5E39ED880000001749444154785EEDC03101000000C220FBA7B6C36E58061C034000011C
-4ED8260000000049454E44AE426082
+89504E470D0A1A0A0000000D49484452000000400000004008030000009DB781EC00000003504C54
+450000FF8A78D2570000001B4944415458C3EDC18100000000C3A0F953DFE00455010000007C0310
+40000119B331760000000049454E44AE426082
 #item expected
 ##item document.xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -31,7 +31,7 @@ Word_testCreate();
       <w:r>
         <w:drawing>
           <wp:inline>
-            <wp:extent cx="2635250" cy="1756833"/>
+            <wp:extent cx="2635250" cy="2635250"/>
             <wp:docPr id="1" name="Picture 1"/>
             <wp:cNvGraphicFramePr>
               <a:graphicFrameLocks noChangeAspect="1"/>
@@ -52,7 +52,7 @@ Word_testCreate();
                   <dpct:spPr>
                     <a:xfrm>
                       <a:off x="0" y="0"/>
-                      <a:ext cx="2635250" cy="1756833"/>
+                      <a:ext cx="2635250" cy="2635250"/>
                     </a:xfrm>
                     <a:prstGeom prst="rect"/>
                   </dpct:spPr>
@@ -112,6 +112,6 @@ Word_testCreate();
   <rel:Relationship Id="rId2" Target="/word/styles.xml" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles"/>
 </rel:Relationships>
 ##item /word/media/image1.png
-89504E470D0A1A0A0000000D4948445200000060000000400103000000DFFAE04D00000003504C54
-45001EFF5E39ED880000001749444154785EEDC03101000000C220FBA7B6C36E58061C034000011C
-4ED8260000000049454E44AE426082
+89504E470D0A1A0A0000000D49484452000000400000004008030000009DB781EC00000003504C54
+450000FF8A78D2570000001B4944415458C3EDC18100000000C3A0F953DFE00455010000007C0310
+40000119B331760000000049454E44AE426082
