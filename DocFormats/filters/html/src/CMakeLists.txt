@@ -21,10 +21,13 @@ include_directories(../../../3rdparty/headers)
 include_directories(../../../core/headers)
 add_library(obj_filter_html OBJECT
             DFHTDocument.c
+            DFHTDocument.h
             DFHTML.c
             DFHTMLNormalization.c
             DFTidyHelper.c
+            DFTidyHelper.h
             DFTidyWrapper.c
+            DFTidyWrapper.h
            )
 set_property(TARGET obj_filter_html PROPERTY FOLDER DocFormats/filters/html)
 
