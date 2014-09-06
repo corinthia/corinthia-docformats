@@ -21,6 +21,7 @@ include_directories(../external/minizip)
 include_directories(../external/w3c-tidy-html5/include)
 include_directories(../external/w3c-tidy-html5/src)
 add_library(obj_3rdparty_src OBJECT
+            ../headers/3rdparty.h
             wrapper.c
            )
 set_property(TARGET obj_3rdparty_src PROPERTY FOLDER DocFormats/3rdparty)
