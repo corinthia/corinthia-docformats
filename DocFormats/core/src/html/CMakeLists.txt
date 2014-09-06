@@ -23,7 +23,9 @@ include_directories(../common)
 include_directories(../css)
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_html OBJECT
+            DFHTMLNormalization.h
             DFHTMLTables.c
+            DFHTMLTables.h
            )
 set_property(TARGET obj_core_html PROPERTY FOLDER DocFormats/core/src)
 
@@ -35,3 +37,4 @@ set(obj_html
      $<TARGET_OBJECTS:obj_core_html>
      PARENT_SCOPE
     )
+

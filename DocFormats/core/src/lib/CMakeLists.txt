@@ -22,15 +22,20 @@ include_directories(../platform)
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_lib OBJECT
             DFAllocator.c
+            DFAllocator.h
             DFArray.c
             DFBuffer.c
+            DFBuffer.h
             DFCallback.c
+            DFCallback.h
             DFCharacterSet.c
+            DFCharacterSet.h
             DFError.c
             DFFilesystem.c
             DFHashTable.c
             DFString.c
             DFZipFile.c
+            DFZipFile.h
            )
 set_property(TARGET obj_core_lib PROPERTY FOLDER DocFormats/core/src)
 
@@ -41,3 +46,4 @@ set(obj_lib
     $<TARGET_OBJECTS:obj_core_lib>
     PARENT_SCOPE
    )
+

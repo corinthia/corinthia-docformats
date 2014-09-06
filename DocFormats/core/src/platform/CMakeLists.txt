@@ -21,6 +21,7 @@ include_directories()
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_platform OBJECT
             Apple.c
+            DFPlatform.h
             Linux.c
             Unix.c
             Win32.c

@@ -20,6 +20,7 @@ include_directories()
 ###
 include_directories(../../forward_decl_BAD)
 add_library(obj_core_names OBJECT
+            DFClassNames.h
             DFXMLNames.c
             DFXMLNamespaces.c
            )

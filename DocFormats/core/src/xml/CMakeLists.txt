@@ -27,6 +27,7 @@ include_directories(../../forward_decl_BAD)
 add_library(obj_core_xml OBJECT
             DFDOM.c
             DFMarkupCompatibility.c
+            DFMarkupCompatibility.h
             DFNameMap.c
             DFXML.c
            )
