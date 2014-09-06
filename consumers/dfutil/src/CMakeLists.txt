@@ -19,14 +19,28 @@ link_directories(${LIB_DIRS})
 
 set(SOURCES
     BDTTest.c
+    BDTTest.h
     Commands.c
+    Commands.h
     DFChanges.c
+    DFChanges.h
+    dfutil-Prefix.pch
+    FunctionTests.h
+# NOT SUPPORTED    FunctionTests.m
+    main.c
     Plain.c
+    Plain.h
+    StringTests.h
+# NOT SUPPORTED    StringTests.m
     Test.c
     TestCase.c
+    TestCase.h
     TestFunctions.c
+    TestFunctions.h
+    Test.h
     TextPackage.c
-    main.c)
+    TextPackage.h
+   )
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(SOURCES ${SOURCES} FunctionTests.m StringTests.m)
@@ -35,3 +49,6 @@ endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 add_executable(dfutil ${SOURCES})
 target_link_libraries(dfutil DocFormats ${LIBS})
 set_property(TARGET dfutil PROPERTY FOLDER consumers/dfutil)
+
+
+
