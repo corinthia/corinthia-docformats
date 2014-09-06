@@ -131,7 +131,7 @@ add_library(obj_filter_ooxml OBJECT
             ${obj_word_formatting}
             ${obj_word_lenses}
            )
-set_property(TARGET obj_filter_ooxml PROPERTY FOLDER DocFormats/filters)
+set_property(TARGET obj_filter_ooxml PROPERTY FOLDER DocFormats/filters/ooxml)
 
 
 
