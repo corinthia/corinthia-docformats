@@ -19,6 +19,7 @@ include_directories()
 ###
 include_directories(../headers)
 add_library(test_api OBJECT
+            ../headers/DocFormats_test.h
             test_api.c
            )
 set_property(TARGET test_api PROPERTY FOLDER DocFormats/api)

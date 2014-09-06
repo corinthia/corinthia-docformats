@@ -18,6 +18,7 @@ include_directories()
 ## build src object files
 ###
 add_library(obj_api OBJECT
+            ../headers/DocFormats.h
             wrapper.c
            )
 set_property(TARGET obj_api PROPERTY FOLDER DocFormats/api)
