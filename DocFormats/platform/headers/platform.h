@@ -11,43 +11,36 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-#ifndef DocFormats_DFPlatform_h
-#define DocFormats_DFPlatform_h
-
-#ifdef WIN32
-char *PlatformWin32ErrorString(DWORD code);
+#ifdef DocFormats_platform_h
+#error platform.h included multiple times, not allowed
 #endif
+#define DocFormats_platform_h
 
+// Single linked list, used to set/return multiple files
+// Reciever is responsible to free list
+// Caller for get operations
+// Called for set operations
 typedef struct PlatformDirEntry {
     struct PlatformDirEntry *next;
-    char *name;
-    int isDirectory;
+    char                    *name;
+    int                      isDirectory;
 } PlatformDirEntry;
 
-int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list);
+
+// Standard ERROR message, given by caller
+typedef char ERROR[100];
 
 
 
-int DFMkdirIfAbsent(const char *path, char **errmsg);
+// Not all OS contain all functions, therefore substitues are put in place
+int PlatformReadDir(const char        *path,
+                    ERROR              errmsg,
+                    PlatformDirEntry **list);
+int PlatformMkdirIfAbsent(const char *path,
+                          ERROR       errmsg);
+int PlatformGetImageDimensions(const char   *path,
+                               unsigned int *width,
+                               unsigned int *height,
+                               ERROR         errmsg);
 
-int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, char **errmsg);
 
-#ifdef WIN32
-
-#define DF_ONCE_INIT INIT_ONCE_STATIC_INIT;
-typedef INIT_ONCE DFOnce;
-typedef void (*DFOnceFunction)(void);
-void DFInitOnce(DFOnce *once, DFOnceFunction fun);
-
-#else
-
-#include <pthread.h>
-#define DF_ONCE_INIT PTHREAD_ONCE_INIT;
-typedef pthread_once_t DFOnce;
-typedef void (*DFOnceFunction)(void);
-void DFInitOnce(DFOnce *once, DFOnceFunction fun);
-
-#endif
-
-#endif

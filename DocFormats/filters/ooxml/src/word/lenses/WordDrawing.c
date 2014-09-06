@@ -398,9 +398,10 @@ static int getImageFile(WordConverter *converter, const char *src, PixelSize *si
     char *abstractPathSlash = DFFormatString("%s/",converter->abstractPath);
     char *newSrcPath = DFPathResolveAbsolute(abstractPathSlash,unescapedSrc);
 
-    char *errmsg = NULL;
-    int ok = DFGetImageDimensions(newSrcPath,&size->widthPx,&size->heightPx,&errmsg);
+    ERROR errmsg;
+    int ok = PlatformGetImageDimensions(newSrcPath,&size->widthPx,&size->heightPx,errmsg);
     if (!ok) {
+<<<<<<< HEAD
 //        DFErrorFormat(error,"%s",errmsg);
 //        free(errmsg);
 
@@ -410,6 +411,9 @@ static int getImageFile(WordConverter *converter, const char *src, PixelSize *si
         size->widthPx = 0;
         size->heightPx = 0;
         ok = 1;
+=======
+        DFErrorFormat(error,"%s",errmsg);
+>>>>>>> platform works with Linux.c
     }
     free(abstractPathSlash);
     free(unescapedSrc);

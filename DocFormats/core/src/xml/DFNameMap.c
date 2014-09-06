@@ -325,8 +325,8 @@ static void initBuiltinMap(void)
 
 static DFNameMap *BuiltinMapGet(void)
 {
-    static DFOnce once = DF_ONCE_INIT;
-    DFInitOnce(&once,initBuiltinMap);
+    if (!builtinMap)
+      initBuiltinMap();
     return builtinMap;
 }
 

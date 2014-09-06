@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "platform.h"
 #include "DFFilesystem.h"
 #include "DFString.h"
 #include "DFArray.h"
@@ -20,7 +21,6 @@
 #include "DFBuffer.h"
 #include "DFError.h"
 #include "DFCharacterSet.h"
-#include "platform.h"
 #include "DFCommon.h"
 
 int DFFileExists(const char *path)
@@ -43,12 +43,11 @@ int DFCreateDirectory(const char *path, int intermediates, DFError **error)
             if (pos == 0)
                 continue;
             char *partial = DFSubstring(path,0,pos);
-            char *errmsg = NULL;
-            int ok = DFMkdirIfAbsent(partial,&errmsg);
+            ERROR errmsg;
+            int ok = PlatformMkdirIfAbsent(partial,errmsg);
             free(partial);
             if (!ok) {
                 DFErrorFormat(error,"%s",errmsg);
-                free(errmsg);
                 return 0;
             }
         }
@@ -151,10 +150,9 @@ int DFDeleteFile(const char *path, DFError **error)
 static int addDirContents(const char *absPath, const char *relPath, int recursive, DFArray *array, DFError **error)
 {
     PlatformDirEntry *entries = NULL;
-    char *errmsg = NULL;
-    if (!PlatformReadDir(absPath,&errmsg,&entries)) {
+    ERROR errmsg;
+    if (!PlatformReadDir(absPath,errmsg,&entries)) {
         DFErrorFormat(error,"%s",errmsg);
-        free(errmsg);
         return 0;
     }
 

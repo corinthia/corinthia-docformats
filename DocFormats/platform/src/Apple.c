@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "DFCommon.h"
 #include "platform.h"
 
 // This file contains functions that are applicable to iOS and OS X
@@ -57,6 +56,54 @@ int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *he
         CFRelease(properties);
     }
     return 0;
+}
+
+#endif
+
+
+#ifndef WIN32
+
+int DFMkdirIfAbsent(const char *path, char **errmsg)
+{
+    if ((mkdir(path,0777) != 0) && (errno != EEXIST)) {
+        if (errmsg != NULL)
+            *errmsg = strdup(strerror(errno));
+        return 0;
+    }
+    return 1;
+}
+
+int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list)
+{
+    DIR *dir = opendir(path);
+    if (dir == NULL) {
+        if (errmsg != NULL)
+            *errmsg = strdup(strerror(errno));
+        return 0;
+    }
+
+    PlatformDirEntry **outputPtr = list;
+
+    struct dirent buffer;
+    struct dirent *result = NULL;
+    int ok = 1;
+    while (ok && (0 == readdir_r(dir,&buffer,&result)) && (result != NULL)) {
+        if (!strcmp(result->d_name,".") || !strcmp(result->d_name,".."))
+            continue;
+
+        struct stat statbuf;
+        char entryPath[4096];
+        snprintf(entryPath,4096,"%s/%s",path,result->d_name);
+        if (0 != stat(entryPath,&statbuf))
+            continue;
+
+        (*outputPtr) = (PlatformDirEntry *)calloc(1,sizeof(PlatformDirEntry));
+        (*outputPtr)->name = strdup(result->d_name);
+        (*outputPtr)->isDirectory = S_ISDIR(statbuf.st_mode);
+        outputPtr = &(*outputPtr)->next;
+    }
+    closedir(dir);
+    return ok;
 }
 
 #endif
