@@ -62,7 +62,7 @@ add_library(obj_filter_odf OBJECT
             ${obj_spreadsheet}
             ${obj_text}
            )
-set_property(TARGET obj_filter_odf PROPERTY FOLDER DocFormats/filters/odf)
+set_property(TARGET obj_filter_odf PROPERTY FOLDER DocFormats/filters)
 
 
 ###
