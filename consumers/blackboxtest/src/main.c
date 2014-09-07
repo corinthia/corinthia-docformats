@@ -30,7 +30,7 @@ void doEntityTest(int verbose, char *entityName, int *runTest, int *failTest,
   // loop through all local test cases
   for (i = 1;; ++i)
   {
-    snprintf(testName, 100, "test %d", i);
+//FIX for now    snprintf(testName, 100, "test %d", i);
     errorText[0] = '\0';
 
     // run test

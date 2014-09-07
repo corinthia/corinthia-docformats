@@ -24,7 +24,6 @@
 
 // Standard ERROR message, given by caller
 typedef char DF_ERR_TXT[100];
-typedef int JAN;
 
 
 
