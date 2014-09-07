@@ -16,6 +16,18 @@
 #endif
 #define DocFormats_platform_h
 
+// Standard includes, allowed in all sources
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+// Standard ERROR message, given by caller
+typedef char DF_ERR_TXT[100];
+typedef int JAN;
+
+
+
 // Single linked list, used to set/return multiple files
 // Reciever is responsible to free list
 // Caller for get operations
@@ -27,20 +39,14 @@ typedef struct PlatformDirEntry {
 } PlatformDirEntry;
 
 
-// Standard ERROR message, given by caller
-typedef char ERROR[100];
-
-
-
 // Not all OS contain all functions, therefore substitues are put in place
-int PlatformReadDir(const char        *path,
-                    ERROR              errmsg,
-                    PlatformDirEntry **list);
-int PlatformMkdirIfAbsent(const char *path,
-                          ERROR       errmsg);
-int PlatformGetImageDimensions(const char   *path,
-                               unsigned int *width,
-                               unsigned int *height,
-                               ERROR         errmsg);
-
+extern int PlatformReadDir(const char        *path,
+                           DF_ERR_TXT         errmsg,
+                           PlatformDirEntry **list);
+extern int PlatformMkdirIfAbsent(const char *path,
+                                 DF_ERR_TXT  errmsg);
+extern int PlatformGetImageDimensions(const char   *path,
+                                      unsigned int *width,
+                                      unsigned int *height,
+									  DF_ERR_TXT    errmsg);
 

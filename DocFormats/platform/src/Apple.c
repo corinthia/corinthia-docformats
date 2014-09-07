@@ -13,9 +13,6 @@
 // limitations under the License.
 
 #include "platform.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -27,7 +24,7 @@
 int PlatformGetImageDimensions(const char   *path,
                                unsigned int *width,
                                unsigned int *height,
-                               ERROR         errmsg)
+                               DF_ERR_TXT    errmsg)
 {
     CFStringRef srcPath = CFStringCreateWithBytes(kCFAllocatorDefault,(const UInt8 *)path,
                                                   strlen(path),kCFStringEncodingUTF8,0);
@@ -68,7 +65,7 @@ int PlatformGetImageDimensions(const char   *path,
 
 
 int PlatformMkdirIfAbsent(const char *path,
-                          ERROR       errmsg)
+                          DF_ERR_TXT  errmsg)
 {
     if ((mkdir(path,0777) != 0) && (errno != EEXIST)) {
         strcpy(errmsg, strerror(errno));
@@ -80,7 +77,7 @@ int PlatformMkdirIfAbsent(const char *path,
 
 
 int PlatformReadDir(const char        *path,
-                    ERROR              errmsg,
+                    DF_ERR_TXT         errmsg,
                     PlatformDirEntry **list)
 {
     DIR *dir = opendir(path);

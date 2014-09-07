@@ -12,13 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "platform.h"
+#include <platform.h>
+#include <windows.h>
 
-// This file contains functions that are applicable to Windows
 
-#ifdef WIN32
-
-char *PlatformWin32ErrorString(DWORD code)
+static void PlatformWin32ErrorString(DWORD code, DF_ERR_TXT errmsg)
 {
     char *lpMsgBuf;
     FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER |
@@ -38,42 +36,35 @@ char *PlatformWin32ErrorString(DWORD code)
     lpMsgBuf[len] = '\0';
     // Does LocalFree work with the same heap as malloc/free? If so, we could avoid making the
     // separate copy here.
-    char *result = strdup(lpMsgBuf);
+	strcpy_s(errmsg, sizeof(errmsg), lpMsgBuf);
     LocalFree(lpMsgBuf);
-    return result;
 }
 
-static BOOL CALLBACK DFInitOnceWrapper(PINIT_ONCE InitOnce,void *p,void *c)
-{
-    ((DFOnceFunction)p)();
-    return 1;
-}
 
-void DFInitOnce(DFOnce *once, DFOnceFunction fun)
-{
-    InitOnceExecuteOnce(once,DFInitOnceWrapper,fun,NULL);
-}
 
-int DFMkdirIfAbsent(const char *path, char **errmsg)
+int PlatformMkdirIfAbsent(const char *path,
+	                      DF_ERR_TXT  errmsg)
 {
     if (!CreateDirectory(path,NULL) && (GetLastError() != ERROR_ALREADY_EXISTS)) {
-        if (errmsg != NULL)
-            *errmsg = PlatformWin32ErrorString(GetLastError());
+        PlatformWin32ErrorString(GetLastError(), errmsg);
         return 0;
     }
     return 1;
 }
 
-int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list)
+
+
+int PlatformReadDir(const char        *path,
+                    DF_ERR_TXT         errmsg,
+                    PlatformDirEntry **list)
 {
     WIN32_FIND_DATA ffd;
     HANDLE hFind = INVALID_HANDLE_VALUE;
     char pattern[4096];
-    snprintf(pattern,4096,"%s/*",path);
+	_snprintf_s(pattern, sizeof(pattern), sizeof(pattern), "%s/*", path);
     hFind = FindFirstFile(pattern,&ffd);
     if (hFind == INVALID_HANDLE_VALUE) {
-        if (errmsg != NULL)
-            *errmsg = PlatformWin32ErrorString(GetLastError());
+        PlatformWin32ErrorString(GetLastError(), errmsg);
         return 0;
     }
 
@@ -85,7 +76,7 @@ int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list)
             continue;
 
         (*outputPtr) = (PlatformDirEntry *)calloc(1,sizeof(PlatformDirEntry));
-        (*outputPtr)->name = strdup(ffd.cFileName);
+        (*outputPtr)->name = _strdup(ffd.cFileName);
         (*outputPtr)->isDirectory = (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
         outputPtr = &(*outputPtr)->next;
     } while (ok && (FindNextFile(hFind,&ffd) != 0));
@@ -94,12 +85,16 @@ int PlatformReadDir(const char *path, char **errmsg, PlatformDirEntry **list)
     return ok;
 }
 
-int DFGetImageDimensions(const char *path, unsigned int *width, unsigned int *height, char **errmsg)
+
+
+int PlatformGetImageDimensions(const char   *path,
+                               unsigned int *width,
+                               unsigned int *height,
+                               DF_ERR_TXT    errmsg)
 {
     printf("WARNING: DFGetImageDimensions is not implemented on Windows\n");
-    if (errmsg != NULL)
-        *errmsg = strdup("DFGetImageDimensions is not implemented on Windows");
+    abort();
     return 0;
 }
 
-#endif
+

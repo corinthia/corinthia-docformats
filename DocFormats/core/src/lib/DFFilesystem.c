@@ -43,7 +43,7 @@ int DFCreateDirectory(const char *path, int intermediates, DFError **error)
             if (pos == 0)
                 continue;
             char *partial = DFSubstring(path,0,pos);
-            ERROR errmsg;
+            DF_ERR_TXT errmsg;
             int ok = PlatformMkdirIfAbsent(partial,errmsg);
             free(partial);
             if (!ok) {
@@ -150,7 +150,7 @@ int DFDeleteFile(const char *path, DFError **error)
 static int addDirContents(const char *absPath, const char *relPath, int recursive, DFArray *array, DFError **error)
 {
     PlatformDirEntry *entries = NULL;
-    ERROR errmsg;
+    DF_ERR_TXT errmsg;
     if (!PlatformReadDir(absPath,errmsg,&entries)) {
         DFErrorFormat(error,"%s",errmsg);
         return 0;

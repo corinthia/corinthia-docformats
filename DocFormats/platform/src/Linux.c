@@ -13,9 +13,6 @@
 // limitations under the License.
 
 #include "platform.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -26,7 +23,7 @@
 int PlatformGetImageDimensions(const char   *path,
                                unsigned int *width,
                                unsigned int *height,
-                               ERROR         errmsg)
+                               DF_ERR_TXT    errmsg)
 {
     printf("WARNING: PlatformGetImageDimensions is not implemented on Linux\n");
     abort();
@@ -36,7 +33,7 @@ int PlatformGetImageDimensions(const char   *path,
 
 
 int PlatformMkdirIfAbsent(const char *path,
-                          ERROR       errmsg)
+                          DF_ERR_TXT  errmsg)
 {
     if ((mkdir(path,0777) != 0) && (errno != EEXIST)) {
         strcpy(errmsg, strerror(errno));
@@ -48,7 +45,7 @@ int PlatformMkdirIfAbsent(const char *path,
 
 
 int PlatformReadDir(const char        *path,
-                    ERROR              errmsg,
+                    DF_ERR_TXT         errmsg,
                     PlatformDirEntry **list)
 {
     DIR *dir = opendir(path);

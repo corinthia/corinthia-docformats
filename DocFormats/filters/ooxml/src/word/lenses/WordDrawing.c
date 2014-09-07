@@ -398,7 +398,7 @@ static int getImageFile(WordConverter *converter, const char *src, PixelSize *si
     char *abstractPathSlash = DFFormatString("%s/",converter->abstractPath);
     char *newSrcPath = DFPathResolveAbsolute(abstractPathSlash,unescapedSrc);
 
-    ERROR errmsg;
+    DF_ERR_TXT errmsg;
     int ok = PlatformGetImageDimensions(newSrcPath,&size->widthPx,&size->heightPx,errmsg);
     if (!ok) {
         // Because some platforms don't yet implement DFGetImageDimensions, we'll just ignore the error
