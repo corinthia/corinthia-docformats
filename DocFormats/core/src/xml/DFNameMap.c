@@ -18,8 +18,8 @@
 #include "DFError.h"
 #include "DFBuffer.h"
 #include "DFDOM.h"
-#include "DFHashTable.h"
 #include "DFTypes.h"
+#include "DFHashTable.h"
 #include "DFCommon.h"
 #include "DFArray.h"
 

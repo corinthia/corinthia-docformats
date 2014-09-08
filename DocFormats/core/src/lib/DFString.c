@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "DFHashTable.h"
 #include "DFTypes.h"
+#include "DFHashTable.h"
 #include "DFError.h"
 #include "DFArray.h"
 #include "DFString.h"

@@ -13,8 +13,8 @@
 // limitations under the License.
 
 #include "platform.h"
-#include "DFHashTable.h"
 #include "DFTypes.h"
+#include "DFHashTable.h"
 #include "DFArray.h"
 #include "DFError.h"
 #include "DFFilesystem.h"

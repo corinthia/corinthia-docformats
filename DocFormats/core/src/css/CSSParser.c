@@ -13,8 +13,8 @@
 // limitations under the License.
 
 #include "DFCallback.h"
-#include "DFHashTable.h"
 #include "DFTypes.h"
+#include "DFHashTable.h"
 #include "CSSProperties.h"
 #include "DFArray.h"
 #include "CSSParser.h"

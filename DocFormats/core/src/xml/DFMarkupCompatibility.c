@@ -14,8 +14,8 @@
 
 #include "DFMarkupCompatibility.h"
 #include "DFNameMap.h"
-#include "DFHashTable.h"
 #include "DFTypes.h"
+#include "DFHashTable.h"
 #include "DFArray.h"
 #include "DFError.h"
 #include "DFString.h"

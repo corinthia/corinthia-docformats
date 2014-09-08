@@ -15,7 +15,6 @@
 #ifndef DocFormats_DFHashTable_h
 #define DocFormats_DFHashTable_h
 
-#include "DFTypes.h"
 
 // http://en.wikipedia.org/wiki/Jenkins_hash_function
 

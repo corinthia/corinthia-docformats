@@ -15,8 +15,8 @@
 #define DEF_CORE_HELPER_H
 
 // include original files
-#include "../forward_decl_BAD/DFHashTable.h"
-#include "../forward_decl_BAD/DFTypes.h"
+#include "../src/lib/DFTypes.h"
+#include "../src/lib/DFHashTable.h"
 #include "../src/lib/DFError.h"
 #include "../src/lib/DFBuffer.h"
 #include "../forward_decl_BAD/DFDOM.h"
