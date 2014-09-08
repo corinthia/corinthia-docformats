@@ -32,7 +32,7 @@
 #include "../src/html/DFHTMLTables.h"
 #include "../forward_decl_BAD/DFString.h"
 #include "../forward_decl_BAD/DFFilesystem.h"
-#include "../forward_decl_BAD/DFCommon.h"
+#include "../src/lib/DFCommon.h"
 #include "../forward_decl_BAD/DFFilesystem.h"
 #include "../src/lib/DFZipFile.h"
 #include "../src/css/CSS.h"

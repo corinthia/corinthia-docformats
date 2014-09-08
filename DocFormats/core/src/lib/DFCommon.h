@@ -15,8 +15,6 @@
 #ifndef DocFormats_DFCommon_h
 #define DocFormats_DFCommon_h
 
-#include "DFTypes.h"
-
 #include <assert.h>
 #include <ctype.h>
 #include <errno.h>

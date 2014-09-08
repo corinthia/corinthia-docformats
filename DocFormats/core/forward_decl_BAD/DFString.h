@@ -15,10 +15,6 @@
 #ifndef DocFormats_DFString_h
 #define DocFormats_DFString_h
 
-#include "DFError.h"
-#include "DFArray.h"
-#include "DFTypes.h"
-
 uint32_t DFNextChar(const char *strr, size_t *offset);
 uint32_t DFPrevChar(const char *str, size_t *offset);
 int DFStringCompare(const char *a, const char *b);

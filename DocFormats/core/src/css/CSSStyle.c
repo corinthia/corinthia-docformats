@@ -17,19 +17,20 @@
 #include "DFCallback.h"
 #include "DFHashTable.h"
 #include "CSSProperties.h"
+#include "DFTypes.h"
 #include "DFArray.h"
 #include "CSSSelector.h"
 #include "CSSStyle.h"
 #include "CSSSheet.h"
 #include "CSS.h"
-#include "DFTypes.h"
 #include "CSSSelector.h"
 #include "CSSSheet.h"
 #include "CSSLength.h"
 #include "CSSStyle.h"
+#include "DFCommon.h"
+#include "DFError.h"
 #include "DFHTML.h"
 #include "DFString.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

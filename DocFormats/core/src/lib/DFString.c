@@ -12,9 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "DFString.h"
+#include "DFHashTable.h"
 #include "DFTypes.h"
 #include "DFError.h"
+#include "DFArray.h"
+#include "DFString.h"
 #include "DFBuffer.h"
 #include "DFCharacterSet.h"
 #include "DFCommon.h"

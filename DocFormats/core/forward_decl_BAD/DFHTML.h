@@ -17,7 +17,6 @@
 
 #include "DFXMLNames.h"
 #include "DFXMLForward.h"
-#include "DFError.h"
 
 typedef struct CSSSize CSSSize;
 

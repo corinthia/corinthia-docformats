@@ -12,8 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "DFError.h"
 #include "DFCommon.h"
+#include "DFTypes.h"
+#include "DFError.h"
 
 struct DFError {
     size_t retainCount;

@@ -15,8 +15,6 @@
 #ifndef DocFormats_DFError_h
 #define DocFormats_DFError_h
 
-#include "DFTypes.h"
-
 typedef struct DFError DFError;
 
 void DFErrorSetPosix(DFError **error, int code);

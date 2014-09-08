@@ -17,6 +17,7 @@
 #include "DFCallback.h"
 #include "DFHashTable.h"
 #include "CSSProperties.h"
+#include "DFTypes.h"
 #include "DFArray.h"
 #include "CSSSelector.h"
 #include "CSSStyle.h"
@@ -24,9 +25,8 @@
 #include "CSS.h"
 #include "CSSParser.h"
 #include "CSSLength.h"
-#include "DFString.h"
-#include "DFTypes.h"
 #include "DFError.h"
+#include "DFString.h"
 #include "DFBuffer.h"
 #include "DFCommon.h"
 

@@ -18,8 +18,10 @@
 #include "DFDOM.h"
 #include "DFXMLNames.h"
 #include "DFHashTable.h"
+#include "DFTypes.h"
 #include "DFNameMap.h"
 #include "DFAllocator.h"
+#include "DFArray.h"
 #include "DFString.h"
 #include "DFCommon.h"
 

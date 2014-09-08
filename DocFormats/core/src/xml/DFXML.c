@@ -20,7 +20,9 @@
 #include "DFDOM.h"
 #include "DFMarkupCompatibility.h"
 #include "DFHashTable.h"
+#include "DFTypes.h"
 #include "DFBuffer.h"
+#include "DFArray.h"
 #include "DFString.h"
 #include "DFCommon.h"
 #include <libxml/tree.h>

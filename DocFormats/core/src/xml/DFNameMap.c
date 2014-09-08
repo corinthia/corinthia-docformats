@@ -19,6 +19,7 @@
 #include "DFBuffer.h"
 #include "DFDOM.h"
 #include "DFHashTable.h"
+#include "DFTypes.h"
 #include "DFCommon.h"
 #include "DFArray.h"
 

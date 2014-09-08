@@ -13,9 +13,9 @@
 // limitations under the License.
 
 #include "DFTypes.h"
+#include "DFCommon.h"
 #include "DFError.h"
 #include "DFBuffer.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

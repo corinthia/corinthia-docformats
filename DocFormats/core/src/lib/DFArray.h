@@ -15,9 +15,6 @@
 #ifndef DocFormats_DFArray_h
 #define DocFormats_DFArray_h
 
-#include "DFHashTable.h"
-#include "DFTypes.h"
-
 typedef struct DFArray DFArray;
 
 DFArray *DFArrayNew(DFCopyFunction copy, DFFreeFunction free);

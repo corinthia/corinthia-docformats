@@ -13,12 +13,15 @@
 // limitations under the License.
 
 
+#include "DFTypes.h"
+#include "DFCommon.h"
 #include "DFError.h"
 #include "DFZipFile.h"
 #include "3rdparty.h"
 #include "DFFilesystem.h"
+#include "DFHashTable.h"
+#include "DFArray.h"
 #include "DFString.h"
-#include "DFCommon.h"
 
 static int zipError(DFError **error, const char *format, ...) ATTRIBUTE_FORMAT(printf,2,3);
 

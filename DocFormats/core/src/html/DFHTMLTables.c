@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "DFTypes.h"
 #include "DFCommon.h"
 #include "DFError.h"
 #include "DFBuffer.h"
@@ -19,6 +20,8 @@
 #include "DFTable.h"
 #include "DFHTMLTables.h"
 #include "CSSLength.h"
+#include "DFHashTable.h"
+#include "DFArray.h"
 #include "DFString.h"
 
 typedef struct RowList RowList;
