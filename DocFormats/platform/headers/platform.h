@@ -47,5 +47,7 @@ extern int PlatformMkdirIfAbsent(const char *path,
 extern int PlatformGetImageDimensions(const char   *path,
                                       unsigned int *width,
                                       unsigned int *height,
-									  DF_ERR_TXT    errmsg);
+                                      DF_ERR_TXT    errmsg);
+
+extern void PlatformRunOnce(int *once, void(*fun)(void));
 

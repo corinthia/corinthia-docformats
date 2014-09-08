@@ -17,6 +17,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <pthread.h>
 #include <ImageIO/ImageIO.h>
 
 
@@ -110,4 +111,10 @@ int PlatformReadDir(const char        *path,
     return ok;
 }
 
+
+
+void PlatformRunOnce(int *once,  void (*fun)(void))
+{
+    pthread_once((pthread_once_t *)once,fun);
+}
 

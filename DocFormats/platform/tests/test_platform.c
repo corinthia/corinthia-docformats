@@ -12,10 +12,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <platform.h>
 #include "DocFormats_test.h"
+#include <pthread.h>
 
 int test_core_platform(int runTest, char *testName, char *errorText)
 {
-  return NO_MORE_TEST_CASES;
+  switch (runTest)
+  {
+    case 1:
+      strcpy(testName,"Control sizeof(pthread_once_t/INIT_ONCE)");
+#ifdef WIN32
+      INIT_ONCE tx;
+#else 
+      pthread_once_t tx;
+#endif
+      if (sizeof(tx) == sizeof(int))
+        return 1;
+
+      sprintf(errorText, "got size=%d expected size(int)=%d",
+                         sizeof(tx),
+                         sizeof(int));
+      return -1;
+            
+    default:
+      return NO_MORE_TEST_CASES;
+  }
 }
 

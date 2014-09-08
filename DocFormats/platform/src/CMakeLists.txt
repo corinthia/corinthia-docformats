@@ -20,23 +20,18 @@ include_directories()
 ###
 include_directories(../headers)
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-add_library(obj_platform OBJECT
-            Apple.c
-            ../headers/platform.h
-           )
+set(platform_src Apple.c)
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-add_library(obj_platform OBJECT
-            Linux.c
-            ../headers/platform.h
-           )
+set(platform_src Linux.c)
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-add_library(obj_platform OBJECT
-            Win32.c
-            ../headers/platform.h
-           )
+set(platform_src Win32.c)
 else()
 message(FATAL_ERROR "platform not supported, please implement first")
 endif()
+add_library(obj_platform OBJECT
+            ${platform_src}
+            ../headers/platform.h
+           )
 set_property(TARGET obj_platform PROPERTY FOLDER DocFormats/platform)
 
 

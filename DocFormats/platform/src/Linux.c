@@ -17,6 +17,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <pthread.h>
 
 
 
@@ -77,3 +78,10 @@ int PlatformReadDir(const char        *path,
     closedir(dir);
     return ok;
 }
+
+
+void PlatformRunOnce(int *once,  void (*fun)(void))
+{
+    pthread_once((pthread_once_t *)once,fun);
+}
+

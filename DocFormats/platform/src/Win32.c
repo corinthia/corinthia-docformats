@@ -16,7 +16,7 @@
 #include <windows.h>
 
 
-static void PlatformWin32ErrorString(DWORD code, DF_ERR_TXT errmsg)
+static void WinErrorString(DWORD code, DF_ERR_TXT errmsg)
 {
     char *lpMsgBuf;
     FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER |
@@ -46,7 +46,7 @@ int PlatformMkdirIfAbsent(const char *path,
 	                      DF_ERR_TXT  errmsg)
 {
     if (!CreateDirectory(path,NULL) && (GetLastError() != ERROR_ALREADY_EXISTS)) {
-        PlatformWin32ErrorString(GetLastError(), errmsg);
+        WinErrorString(GetLastError(), errmsg);
         return 0;
     }
     return 1;
