@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <platform.h>
 #include "DocFormats_test.h"
 
 int test_filter_ooxml(int runTest, char *testName, char *errorText)

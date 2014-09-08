@@ -54,6 +54,7 @@ include_directories()
 ###
 ## Build odf filter objects
 ###
+include_directories(../../../platform/headers)
 include_directories(../../../core/headers)
 add_library(obj_filter_odf OBJECT
             ${obj_common}

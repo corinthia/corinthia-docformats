@@ -118,6 +118,7 @@ include_directories()
 ###
 ## Build ooxml common filter objects
 ###
+include_directories(../../../platform/headers)
 include_directories(../../../core/headers)
 include_directories(../../../platform/headers)
 include_directories(common)

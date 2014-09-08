@@ -17,6 +17,7 @@ include_directories(SYSTEM ${INCLUDE_DIRS})
 ###
 ## Build html filter objects
 ###
+include_directories(../../../platform/headers)
 include_directories(../../../3rdparty/headers)
 include_directories(../../../core/headers)
 add_library(obj_filter_html OBJECT

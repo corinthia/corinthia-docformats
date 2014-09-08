@@ -17,6 +17,7 @@ include_directories()
 ###
 ## Build latex filter objects
 ###
+include_directories(../../../platform/headers)
 include_directories(../../../core/headers)
 add_library(obj_filter_latex OBJECT
             HTMLToLaTeX.c

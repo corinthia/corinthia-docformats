@@ -19,6 +19,7 @@ include_directories()
 ## Build css objects
 ###
 include_directories(.)
+include_directories(../../../platform/headers)
 include_directories(../lib)
 include_directories(../common)
 include_directories(../names)

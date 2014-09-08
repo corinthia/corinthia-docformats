@@ -13,6 +13,7 @@
 // limitations under the License.
 
 
+#include <platform.h>
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "ODFManifest.h"

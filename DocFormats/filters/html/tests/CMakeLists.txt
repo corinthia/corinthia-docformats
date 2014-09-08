@@ -17,6 +17,7 @@ include_directories()
 ###
 ## Build test object files (white box test with access to everyting)
 ###
+include_directories(../../../platform/headers)
 include_directories(../../../api/headers)
 add_library(test_html OBJECT
             test_html.c
