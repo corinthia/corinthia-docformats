@@ -85,3 +85,10 @@ void PlatformRunOnce(int *once,  void (*fun)(void))
     pthread_once((pthread_once_t *)once,fun);
 }
 
+
+
+int PlatformRunInit()
+{
+  return PTHREAD_ONCE_INIT;
+}
+

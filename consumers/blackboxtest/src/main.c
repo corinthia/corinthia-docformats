@@ -30,7 +30,7 @@ void doEntityTest(int verbose, char *entityName, int *runTest, int *failTest,
   // loop through all local test cases
   for (i = 1;; ++i)
   {
-//FIX for now    snprintf(testName, 100, "test %d", i);
+    strcpy(testName, "**missing**");
     errorText[0] = '\0';
 
     // run test
@@ -49,11 +49,11 @@ void doEntityTest(int verbose, char *entityName, int *runTest, int *failTest,
     if (rc > 0)
     {
       if (verbose == 2)
-        printf("%s SUCCESS\n", testName);
+        printf("test(%d) %s SUCCESS\n", i, testName);
     }
     else
     {
-      printf("%s FAILED with %d (%s)\n", testName, rc, errorText);
+      printf("test(%d) %s FAILED(%s)\n", i, testName, errorText);
       ++*failTest;
     }
   }

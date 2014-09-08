@@ -16,26 +16,38 @@
 #include "DocFormats_test.h"
 #ifdef WIN32
 #include <windows.h>
-#define DF_ONCE_INIT INIT_ONCE_STATIC_INIT;
+#define DF_ONCE_INIT INIT_ONCE_STATIC_INIT
+#define DF_ONCE_DECL INIT_ONCE
 #else
-#define DF_ONCE_INIT PTHREAD_ONCE_INIT;
 #include <pthread.h>
+#define DF_ONCE_INIT PTHREAD_ONCE_INIT
+#define DF_ONCE_DECL pthread_once_t
 #endif
+
 
 
 int test1(char *errorText)
 {
-#ifdef WIN32
-  INIT_ONCE tx;
-#else 
-  pthread_once_t tx;
-#endif
+  DF_ONCE_DECL tx;
+
+
   if (sizeof(tx) == sizeof(int))
 	  return 1;
 
   sprintf(errorText, "got size=%d expected size(int)=%d",
 		      (int)sizeof(tx),
 		      (int)sizeof(int));
+  return -1;
+}
+
+
+int test2(char *errorText)
+{
+  int x = DF_ONCE_INIT;
+  if (x == 0)
+    return 1;
+
+  sprintf(errorText, "PTHREAD_ONCE_INIT/INIT_ONCE_STATIC_INIT expected 0 is %d", x);
   return -1;
 }
 
@@ -48,7 +60,7 @@ static void runOnceTest(void)
 
 
 
-int test2(char *errorText)
+int test3(char *errorText)
 {
   int runOnceMutex = DF_ONCE_INIT;
 
@@ -72,7 +84,7 @@ int test2(char *errorText)
 
 
 
-int test3(char *errorText)
+int test4(char *errorText)
 {
   int runOnceMutex1 = DF_ONCE_INIT;
   int runOnceMutex2 = DF_ONCE_INIT;
@@ -98,6 +110,57 @@ int test3(char *errorText)
 
 
 
+int test5(char *errorText)
+{
+  runOnceCount = 0;
+  RUN_ONCE(runOnceTest);
+  if (runOnceCount != 1)
+  {
+    sprintf(errorText, "f() called %d times, expected 1", runOnceCount);
+    return -1;
+  }
+
+  for (int j = 0; j < 5; ++j)
+    RUN_ONCE(runOnceTest);
+  if (runOnceCount != 2)
+  {
+    sprintf(errorText, "should block, f() called %d times, expected 2",
+      runOnceCount);
+    return -1;
+  }
+  return 1;
+}
+
+
+
+int test6(char *errorText)
+{
+  runOnceCount = 0;
+  RUN_ONCE(runOnceTest);
+  RUN_ONCE(runOnceTest);
+  if (runOnceCount != 2)
+  {
+    sprintf(errorText, "f() called %d times, expected 2", runOnceCount);
+    return -1;
+  }
+
+  for (int j = 0; j < 5; ++j)
+  {
+    RUN_ONCE(runOnceTest);
+    RUN_ONCE(runOnceTest);
+  }
+  if (runOnceCount != 4)
+  {
+    sprintf(errorText, "should block, f() called %d times, expected 4",
+      runOnceCount);
+    return -1;
+  }
+  return 1;
+}
+
+
+
+
 int test_core_platform(int runTest, char *testName, char *errorText)
 {
   switch (runTest)
@@ -106,16 +169,28 @@ int test_core_platform(int runTest, char *testName, char *errorText)
       strcpy(testName,"Control sizeof(pthread_once_t/INIT_ONCE)");
 	  return test1(errorText);
 
-	case 2:
+    case 2:
+      strcpy(testName, "Test RUN_ONCE init constant");
+      return test2(errorText);
+
+	case 3:
 		strcpy(testName, "PlatformRunOnce works singular");
-		return test2(errorText);
+		return test3(errorText);
 
-  case 3:
+  case 4:
     strcpy(testName, "PlatformRunOnce combination test");
-    return test3(errorText);
+    return test4(errorText);
 
-    default:
-      return NO_MORE_TEST_CASES;
+  case 5:
+    strcpy(testName, "RUN_ONCE works singular");
+    return test5(errorText);
+
+  case 6:
+    strcpy(testName, "RUN_ONCE combination test");
+    return test6(errorText);
+
+  default:
+    return NO_MORE_TEST_CASES;
   }
 }
 

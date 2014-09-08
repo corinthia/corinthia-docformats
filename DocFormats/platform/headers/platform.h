@@ -57,3 +57,9 @@ extern int PlatformGetImageDimensions(const char   *path,
 
 extern void PlatformRunOnce(int *once, void(*fun)(void));
 
+
+#define RUN_ONCE(fun) \
+{ static int myVar = 0; \
+  PlatformRunOnce(&myVar, fun); \
+}
+

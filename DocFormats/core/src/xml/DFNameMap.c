@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "platform.h"
 #include "DFNameMap.h"
 #include "DFTypes.h"
 #include "DFError.h"
@@ -20,7 +21,6 @@
 #include "DFHashTable.h"
 #include "DFCommon.h"
 #include "DFArray.h"
-#include "platform.h"
 
 static void NameMap_staticInit();
 
@@ -326,7 +326,7 @@ static void initBuiltinMap(void)
 static DFNameMap *BuiltinMapGet(void)
 {
     if (!builtinMap)
-      initBuiltinMap();
+      RUN_ONCE(initBuiltinMap);
     return builtinMap;
 }
 
