@@ -65,8 +65,8 @@ int main(int argc, const char * argv[])
   int vb = 2;
   int rT, fT;
 
+  doEntityTest(vb, "platform",      &rT, &fT, test_core_platform);
   doEntityTest(vb, "3rdparty",      &rT, &fT, test_3rdparty);
-  doEntityTest(vb, "core platform", &rT, &fT, test_core_platform);
   doEntityTest(vb, "core lib",      &rT, &fT, test_core_lib);
   doEntityTest(vb, "core common",   &rT, &fT, test_core_common);
   doEntityTest(vb, "core names",    &rT, &fT, test_core_names);

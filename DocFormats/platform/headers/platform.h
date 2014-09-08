@@ -16,6 +16,13 @@
 #endif
 #define DocFormats_platform_h
 
+// remove warnings in WIN32
+#ifdef WIN32
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
+
+
 // Standard includes, allowed in all sources
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,7 +31,6 @@
 
 // Standard ERROR message, given by caller
 typedef char DF_ERR_TXT[100];
-
 
 
 // Single linked list, used to set/return multiple files

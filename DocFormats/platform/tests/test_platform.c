@@ -14,7 +14,89 @@
 
 #include <platform.h>
 #include "DocFormats_test.h"
+#ifdef WIN32
+#include <windows.h>
+#define DF_ONCE_INIT INIT_ONCE_STATIC_INIT;
+#else
+#define DF_ONCE_INIT PTHREAD_ONCE_INIT;
 #include <pthread.h>
+#endif
+
+
+int test1(char *errorText)
+{
+#ifdef WIN32
+  INIT_ONCE tx;
+#else 
+  pthread_once_t tx;
+#endif
+  if (sizeof(tx) == sizeof(int))
+	  return 1;
+
+  sprintf(errorText, "got size=%d expected size(int)=%d",
+		      (int)sizeof(tx),
+		      (int)sizeof(int));
+  return -1;
+}
+
+
+static int runOnceCount;
+static void runOnceTest(void)
+{
+	++runOnceCount;
+}
+
+
+
+int test2(char *errorText)
+{
+  int runOnceMutex = DF_ONCE_INIT;
+
+  runOnceCount = 0;
+  PlatformRunOnce(&runOnceMutex, runOnceTest);
+  if (runOnceCount != 1)
+  {
+    sprintf(errorText, "f() called %d times, expected 1", runOnceCount);
+    return -1;
+  }
+
+  PlatformRunOnce(&runOnceMutex, runOnceTest);
+  if (runOnceCount != 1)
+  {
+    sprintf(errorText, "should block, f() called %d times, expected 1",
+            runOnceCount);
+    return -1;
+  }
+  return 1;
+}
+
+
+
+int test3(char *errorText)
+{
+  int runOnceMutex1 = DF_ONCE_INIT;
+  int runOnceMutex2 = DF_ONCE_INIT;
+
+  runOnceCount = 0;
+  PlatformRunOnce(&runOnceMutex1, runOnceTest);
+  PlatformRunOnce(&runOnceMutex2, runOnceTest);
+  if (runOnceCount != 2)
+  {
+    sprintf(errorText, "f() called %d times, expected 2", runOnceCount);
+    return -1;
+  }
+  PlatformRunOnce(&runOnceMutex1, runOnceTest);
+  PlatformRunOnce(&runOnceMutex2, runOnceTest);
+  if (runOnceCount != 2)
+  {
+    sprintf(errorText, "should block, f() called %d times, expected 1",
+            runOnceCount);
+    return -1;
+  }
+  return 1;
+}
+
+
 
 int test_core_platform(int runTest, char *testName, char *errorText)
 {
@@ -22,19 +104,16 @@ int test_core_platform(int runTest, char *testName, char *errorText)
   {
     case 1:
       strcpy(testName,"Control sizeof(pthread_once_t/INIT_ONCE)");
-#ifdef WIN32
-      INIT_ONCE tx;
-#else 
-      pthread_once_t tx;
-#endif
-      if (sizeof(tx) == sizeof(int))
-        return 1;
+	  return test1(errorText);
 
-      sprintf(errorText, "got size=%d expected size(int)=%d",
-                         sizeof(tx),
-                         sizeof(int));
-      return -1;
-            
+	case 2:
+		strcpy(testName, "PlatformRunOnce works singular");
+		return test2(errorText);
+
+  case 3:
+    strcpy(testName, "PlatformRunOnce combination test");
+    return test3(errorText);
+
     default:
       return NO_MORE_TEST_CASES;
   }

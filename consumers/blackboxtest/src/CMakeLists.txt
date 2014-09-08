@@ -17,5 +17,5 @@ include_directories(../../../DocFormats/api/headers)
 add_executable(blackboxtest
                main.c
               )
-target_link_libraries(blackboxtest test_DocFormats)
+target_link_libraries(blackboxtest test_DocFormats ${LIBS})
 set_property(TARGET blackboxtest PROPERTY FOLDER consumers/blackboxtest)

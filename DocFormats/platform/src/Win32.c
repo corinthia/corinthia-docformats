@@ -18,26 +18,26 @@
 
 static void WinErrorString(DWORD code, DF_ERR_TXT errmsg)
 {
-    char *lpMsgBuf;
-    FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER |
-        FORMAT_MESSAGE_FROM_SYSTEM |
-        FORMAT_MESSAGE_IGNORE_INSERTS,
-        NULL,
-        code,
-        MAKELANGID(LANG_NEUTRAL,SUBLANG_DEFAULT),
-        (LPTSTR)&lpMsgBuf,
-        0,NULL);
-    size_t len = strlen(lpMsgBuf);
-    while ((len > 0) &&
-        ((lpMsgBuf[len - 1] == '\n') ||
-        (lpMsgBuf[len - 1] == '\r') ||
-        (lpMsgBuf[len - 1] == '.')))
-        len--;
-    lpMsgBuf[len] = '\0';
-    // Does LocalFree work with the same heap as malloc/free? If so, we could avoid making the
-    // separate copy here.
+  char *lpMsgBuf;
+  FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER |
+                FORMAT_MESSAGE_FROM_SYSTEM |
+                FORMAT_MESSAGE_IGNORE_INSERTS,
+                NULL,
+                code,
+                MAKELANGID(LANG_NEUTRAL,SUBLANG_DEFAULT),
+                (LPTSTR)&lpMsgBuf,
+                0,NULL);
+  size_t len = strlen(lpMsgBuf);
+  while ((len > 0) &&
+   ((lpMsgBuf[len - 1] == '\n') ||
+    (lpMsgBuf[len - 1] == '\r') ||
+    (lpMsgBuf[len - 1] == '.')))
+    len--;
+  lpMsgBuf[len] = '\0';
+  // Does LocalFree work with the same heap as malloc/free? If so, we could avoid making the
+  // separate copy here.
 	strcpy_s(errmsg, sizeof(errmsg), lpMsgBuf);
-    LocalFree(lpMsgBuf);
+  LocalFree(lpMsgBuf);
 }
 
 
@@ -64,7 +64,7 @@ int PlatformReadDir(const char        *path,
 	_snprintf_s(pattern, sizeof(pattern), sizeof(pattern), "%s/*", path);
     hFind = FindFirstFile(pattern,&ffd);
     if (hFind == INVALID_HANDLE_VALUE) {
-        PlatformWin32ErrorString(GetLastError(), errmsg);
+        WinErrorString(GetLastError(), errmsg);
         return 0;
     }
 
@@ -92,9 +92,21 @@ int PlatformGetImageDimensions(const char   *path,
                                unsigned int *height,
                                DF_ERR_TXT    errmsg)
 {
-    printf("WARNING: DFGetImageDimensions is not implemented on Windows\n");
-    abort();
-    return 0;
+  printf("WARNING: DFGetImageDimensions is not implemented on Windows\n");
+  abort();
+  return 0;
 }
 
+
+
+static BOOL CALLBACK InitOnceWrapper(PINIT_ONCE InitOnce,void *p,void *c)
+{
+  ((void(*)(void))p)();
+  return 1;
+}
+
+void PlatformRunOnce(int *once, void (*fun)(void))
+{
+  InitOnceExecuteOnce((PINIT_ONCE)once, InitOnceWrapper, fun, NULL);
+}
 
