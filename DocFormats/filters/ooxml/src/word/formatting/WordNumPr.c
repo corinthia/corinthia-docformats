@@ -13,6 +13,8 @@
 // limitations under the License.
 
 #include <assert.h>
+#include <math.h>
+
 #include <platform.h>
 #include "core_helper.h"
 #include "core_datacapsule.h"

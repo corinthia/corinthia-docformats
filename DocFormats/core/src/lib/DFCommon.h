@@ -15,37 +15,12 @@
 #ifndef DocFormats_DFCommon_h
 #define DocFormats_DFCommon_h
 
-//#include <assert.h>
 #include <ctype.h>
-//#include <errno.h>
-#include <fcntl.h>
-#include <math.h>
 #include <stdarg.h>
 #include <stdint.h>
-#include <sys/stat.h>
 
 #ifdef WIN32
-#include <io.h>
-#include <direct.h>
-#define open _open
-#define creat _creat
-#define read _read
-#define write _write
-#define close _close
-#define getcwd _getcwd
-#define snprintf _snprintf
-#define vsnprintf _vsnprintf
-#define strcasecmp _stricmp
-#define strncasecmp _strnicmp
-#define strdup _strdup
-#define rmdir _rmdir
-#define unlink _unlink
 #define bzero(mem,size) memset(mem,0,size)
-#pragma warning(disable: 4090) // 'function': different 'const' qualifiers
-#else // not WIN32
-#include <dirent.h>
-#include <unistd.h>
 #endif
-
 
 #endif

@@ -19,9 +19,14 @@
 // remove warnings in WIN32
 #ifdef WIN32
 #define _CRT_SECURE_NO_WARNINGS
+#pragma warning(disable: 4090) // 'function': different 'const' qualifiers
+#pragma warning(disable: 4996) // This function or variable may be unsafe. Consider using
+
+#define snprintf   _snprintf
+#define strcasecmp _stricmp
 #endif
 
-
+  
 
 // Standard includes, allowed in all sources
 #include <stdio.h>

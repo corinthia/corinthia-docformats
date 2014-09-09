@@ -160,6 +160,32 @@ int test6(char *errorText)
 
 
 
+int test7(char *errorText)
+{
+  char test[20];
+
+
+  snprintf(test, sizeof(test), "chk %d ok", 134);
+  if (!strcmp(test, "chk 134 ok"))
+    return 1;
+
+  sprintf(errorText, "got <%s> expected <chk 134 ok>", test);
+  return -1;
+}
+
+
+
+int test8(char *errorText)
+{
+  if (!strcasecmp("check IGEN", "check igen"))
+    return 1;
+
+  sprintf(errorText, "expected 0 got %d", strcasecmp("check IGEN", "check igen"));
+  return -1;
+}
+
+
+
 
 int test_core_platform(int runTest, char *testName, char *errorText)
 {
@@ -188,6 +214,14 @@ int test_core_platform(int runTest, char *testName, char *errorText)
   case 6:
     strcpy(testName, "RUN_ONCE combination test");
     return test6(errorText);
+
+  case 7:
+    strcpy(testName, "snprintf test (different impl. on windows");
+    return test7(errorText);
+
+  case 8:
+    strcpy(testName, "strcasecmp test (different impl. on windows");
+    return test8(errorText);
 
   default:
     return NO_MORE_TEST_CASES;

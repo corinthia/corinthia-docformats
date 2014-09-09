@@ -15,9 +15,18 @@
 #include <assert.h>
 #include <errno.h>
 #include <limits.h>
+#include <sys/stat.h>
+#ifdef WIN32
+#include <direct.h>
+#include <io.h>
+#else
+#include <unistd.h>
+#endif
+
 #include <platform.h>
 #include "DFTypes.h"
 #include "DFHashTable.h"
+
 #include "DFArray.h"
 #include "DFError.h"
 #include "DFFilesystem.h"
