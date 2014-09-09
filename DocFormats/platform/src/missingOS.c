@@ -14,6 +14,6 @@
 
 #include <platform.h>
 
-int AppleDummy()
+void AppleDummy()
 {
 }

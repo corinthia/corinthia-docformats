@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "platform.h"
+#include <assert.h>
+#include <platform.h>
 #include "DFAllocator.h"
 #include "DFCommon.h"
 

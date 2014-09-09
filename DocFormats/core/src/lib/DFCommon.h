@@ -15,11 +15,10 @@
 #ifndef DocFormats_DFCommon_h
 #define DocFormats_DFCommon_h
 
-#include <assert.h>
+//#include <assert.h>
 #include <ctype.h>
-#include <errno.h>
+//#include <errno.h>
 #include <fcntl.h>
-#//include <limits.h>
 #include <math.h>
 #include <stdarg.h>
 #include <stdint.h>
