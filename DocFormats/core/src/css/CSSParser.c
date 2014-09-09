@@ -32,7 +32,6 @@
 #include "DFHTML.h"
 #include "DFString.h"
 #include "DFCharacterSet.h"
-#include "DFCommon.h"
 
 static int matchPast(CSSParser *p, uint16_t endChar, int *invalid);
 

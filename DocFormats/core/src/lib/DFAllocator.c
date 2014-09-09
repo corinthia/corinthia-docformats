@@ -15,7 +15,6 @@
 #include <assert.h>
 #include <platform.h>
 #include "DFAllocator.h"
-#include "DFCommon.h"
 
 typedef struct DFAllocatorBlock DFAllocatorBlock;
 

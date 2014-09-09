@@ -538,7 +538,7 @@ int runTests(int argc, const char **argv, int diff, DFError **error)
     }
 
     TestHarness harness;
-    bzero(&harness,sizeof(TestHarness));
+    memset(&harness,0,sizeof(TestHarness));
     harness.showResults = (DFArrayCount(tests) == 1);
     harness.showDiffs = diff;
 

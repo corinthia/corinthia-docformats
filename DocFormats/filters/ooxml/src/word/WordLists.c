@@ -318,7 +318,7 @@ static void fixTrailingParagraphs(ListStack *stack, int minIlvl)
 static void Word_fixListSingle(WordConverter *conv, DFNode *node)
 {
     ListStack stack;
-    bzero(&stack,sizeof(ListStack));
+    memset(&stack,0,sizeof(ListStack));
 
     DFNode *next;
     for (DFNode *child = node->first; child != NULL; child = next) {

@@ -30,7 +30,6 @@
 #include "DFError.h"
 #include "DFString.h"
 #include "DFBuffer.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

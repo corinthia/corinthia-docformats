@@ -291,7 +291,7 @@ void HTMLBreakBDTRefs(DFNode *node, const char *idPrefix)
 CSSSize HTML_getImageDimensions(DFNode *img)
 {
     CSSSize dimensions;
-    bzero(&dimensions,sizeof(CSSSize));
+    memset(&dimensions,0,sizeof(CSSSize));
 
     const char *styleAttr = DFGetAttribute(img,HTML_STYLE);
     if (styleAttr != NULL) {

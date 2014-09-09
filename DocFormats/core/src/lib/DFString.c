@@ -21,7 +21,6 @@
 #include "DFString.h"
 #include "DFBuffer.h"
 #include "DFCharacterSet.h"
-#include "DFCommon.h"
 
 typedef struct {
     int pointerIndex;

@@ -17,7 +17,6 @@
 #include "DFTypes.h"
 #include "DFHashTable.h"
 #include "DFArray.h"
-#include "DFCommon.h"
 
 struct DFArray {
     size_t retainCount;

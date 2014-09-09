@@ -25,7 +25,6 @@
 #include "DFAllocator.h"
 #include "DFArray.h"
 #include "DFString.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
@@ -54,7 +53,7 @@ static DFNode *DocumentCreateNode(DFDocument *doc, Tag tag)
 
 //    Node *node = NodeNew(tag);
     DFNode *node = DFAllocatorAlloc(doc->allocator,sizeof(DFNode));
-    bzero(node,sizeof(DFNode));
+    memset(node,0,sizeof(DFNode));
     node->tag = tag;
     doc->nodes[doc->nodesCount++] = node;
     DFAssignSeqNo(doc,node);

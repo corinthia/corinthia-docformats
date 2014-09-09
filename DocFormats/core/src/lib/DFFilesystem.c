@@ -35,7 +35,6 @@
 #include "DFBuffer.h"
 #include "DFError.h"
 #include "DFCharacterSet.h"
-#include "DFCommon.h"
 
 #ifndef S_ISDIR
 #define S_ISDIR(m)      (((m) & S_IFMT) == S_IFDIR)     /* directory */

@@ -222,7 +222,7 @@ static void simplifyRecursive(WordSimplification *simp, DFNode *node)
 int Word_simplifyFields(WordPackage *package)
 {
     WordSimplification simp;
-    bzero(&simp,sizeof(WordSimplification));
+    memset(&simp,0,sizeof(WordSimplification));
     simplifyRecursive(&simp,package->document->docNode);
     DFBufferRelease(simp.instrText);
     return simp.haveFields;

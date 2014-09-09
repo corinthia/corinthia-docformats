@@ -15,7 +15,6 @@
 
 #include <assert.h>
 #include <platform.h>
-#include "DFCommon.h"
 #include "DFTypes.h"
 #include "DFError.h"
 

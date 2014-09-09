@@ -31,7 +31,6 @@ add_library(obj_core_lib OBJECT
             DFCallback.h
             DFCharacterSet.c
             DFCharacterSet.h
-            DFCommon.h
             DFError.c
             DFError.h
             DFFilesystem.c

@@ -22,7 +22,6 @@
 #include "DFArray.h"
 #include "CSS.h"
 #include "DFString.h"
-#include "DFCommon.h"
 
 char *CSSPropertiesCopyDescription(CSSProperties *properties)
 {

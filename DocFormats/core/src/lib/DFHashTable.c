@@ -16,7 +16,6 @@
 #include <platform.h>
 #include "DFTypes.h"
 #include "DFHashTable.h"
-#include "DFCommon.h"
 
 typedef struct DFHashEntry DFHashEntry;
 

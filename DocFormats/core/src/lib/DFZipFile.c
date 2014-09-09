@@ -16,7 +16,6 @@
 #include <errno.h>
 #include <platform.h>
 #include "DFTypes.h"
-#include "DFCommon.h"
 #include "DFError.h"
 #include "DFZipFile.h"
 #include "3rdparty.h"
@@ -107,7 +106,7 @@ int DFUnzip(const char *zipFilename, const char *destDir, DFError **error)
 static int zipAddFile(zipFile zip, const char *dest, FILE *inFile, DFError **error)
 {
     zip_fileinfo fileinfo;
-    bzero(&fileinfo,sizeof(fileinfo));
+    memset(&fileinfo,0,sizeof(fileinfo));
 
     if (ZIP_OK != zipOpenNewFileInZip(zip,
                                       dest,

@@ -18,7 +18,6 @@
 #include "../forward_decl_BAD/DFDOM.h"
 #include "../forward_decl_BAD/DFXML.h"
 #include "../forward_decl_BAD/DFXMLForward.h"
-#include "../src/lib/DFCommon.h"
 #include "../src/lib/DFHashTable.h"
 #include "../src/lib/DFCallback.h"
 #include "../src/css/CSSSelector.h"

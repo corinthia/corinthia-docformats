@@ -21,7 +21,6 @@
 #include "DFBuffer.h"
 #include "DFDOM.h"
 #include "DFXML.h"
-#include "DFCommon.h"
 #include "DFHashTable.h"
 
 int nullIsVisible(void *ctx, DFNode *concrete)

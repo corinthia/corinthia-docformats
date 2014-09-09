@@ -101,7 +101,7 @@ static void WordGetPBdr(DFNode *concrete, CSSProperties *properties)
 static void WordPutPBdr(DFNode *concrete, CSSProperties *oldp, CSSProperties *newp)
 {
     DFNode *children[PREDEFINED_TAG_COUNT];
-    bzero(children,PREDEFINED_TAG_COUNT*sizeof(DFNode *));
+    memset(children,0,PREDEFINED_TAG_COUNT*sizeof(DFNode *));
     childrenToArray(concrete,children);
 
     DFDocument *doc = concrete->doc;

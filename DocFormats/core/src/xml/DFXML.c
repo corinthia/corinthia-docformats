@@ -26,7 +26,6 @@
 #include "DFBuffer.h"
 #include "DFArray.h"
 #include "DFString.h"
-#include "DFCommon.h"
 #include <libxml/tree.h>
 #include <libxml/xmlwriter.h>
 
@@ -300,7 +299,7 @@ static void SAXFatalError(void *ctx, const char *msg, ...)
 
 static void DFSAXSetup(xmlSAXHandler *handler)
 {
-    bzero(handler,sizeof(xmlSAXHandler));
+    memset(handler,0,sizeof(xmlSAXHandler));
     handler->characters = SAXCharacters;
     handler->processingInstruction = SAXProcessingInstruction;
     handler->comment = SAXComment;
@@ -572,7 +571,7 @@ void DFSerializeXMLBuffer(DFDocument *doc, NamespaceID defaultNS, int indent, DF
     }
 
     Serialization serialization;
-    bzero(&serialization,sizeof(serialization));
+    memset(&serialization,0,sizeof(serialization));
     serialization.writer = writer;
     serialization.doc = doc;
     serialization.defaultNS = defaultNS;

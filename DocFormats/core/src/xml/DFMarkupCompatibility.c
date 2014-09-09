@@ -21,7 +21,6 @@
 #include "DFArray.h"
 #include "DFError.h"
 #include "DFString.h"
-#include "DFCommon.h"
 
 #define MAX_DEPTH 256
 
@@ -81,7 +80,7 @@ void DFMarkupCompatibilityPush(DFMarkupCompatibility *mc, int nb_namespaces, con
     mc->depth++;
     if (mc->depth < MAX_DEPTH) {
         MCRecord *record = &mc->records[mc->depth-1];
-        bzero(record,sizeof(MCRecord));
+        memset(record,0,sizeof(MCRecord));
         if (nb_namespaces > 0) {
             record->namespaces = DFHashTableNew((DFCopyFunction)strdup,(DFFreeFunction)free);
             for (int i = 0; i < nb_namespaces; i++) {

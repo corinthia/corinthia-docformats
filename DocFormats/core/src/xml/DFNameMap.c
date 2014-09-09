@@ -21,7 +21,6 @@
 #include "DFDOM.h"
 #include "DFTypes.h"
 #include "DFHashTable.h"
-#include "DFCommon.h"
 #include "DFArray.h"
 
 static void NameMap_staticInit();

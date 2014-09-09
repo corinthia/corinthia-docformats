@@ -31,7 +31,6 @@
 #include "DFBuffer.h"
 #include "DFString.h"
 #include "DFCharacterSet.h"
-#include "DFCommon.h"
 
 typedef struct {
     char *left;

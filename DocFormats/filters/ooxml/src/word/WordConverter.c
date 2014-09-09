@@ -1012,7 +1012,7 @@ StyleFamily WordStyleFamilyForSelector(const char *selector)
 
 void childrenToArray(DFNode *node, DFNode **children)
 {
-    bzero(children,PREDEFINED_TAG_COUNT*sizeof(DFNode *));
+    memset(children,0,PREDEFINED_TAG_COUNT*sizeof(DFNode *));
     for (DFNode *child = node->first; child != NULL; child = child->next) {
         if ((child->tag >= MIN_ELEMENT_TAG) && (child->tag < PREDEFINED_TAG_COUNT))
             children[child->tag] = child;

@@ -20,7 +20,6 @@
 #include "DFError.h"
 #include "DFBuffer.h"
 #include "DFDOM.h"
-#include "DFCommon.h"
 
 DFTableDimensions DFTableDimensionsMake(unsigned int rows, unsigned int cols)
 {

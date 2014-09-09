@@ -25,7 +25,6 @@
 #include "DFString.h"
 #include "DFBuffer.h"
 #include "DFDOM.h"
-#include "DFCommon.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

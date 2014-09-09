@@ -15,7 +15,6 @@
 #include <platform.h>
 #include "DFTypes.h"
 #include "DFCharacterSet.h"
-#include "DFCommon.h"
 
 int DFCharIsHex(uint32_t ch)
 {
