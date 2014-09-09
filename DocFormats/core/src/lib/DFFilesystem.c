@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "platform.h"
+#include <limits.h>
+#include <platform.h>
 #include "DFTypes.h"
 #include "DFHashTable.h"
 #include "DFArray.h"
@@ -24,6 +25,11 @@
 #include "DFError.h"
 #include "DFCharacterSet.h"
 #include "DFCommon.h"
+
+#ifndef S_ISDIR
+#define S_ISDIR(m)      (((m) & S_IFMT) == S_IFDIR)     /* directory */
+#endif
+
 
 int DFFileExists(const char *path)
 {

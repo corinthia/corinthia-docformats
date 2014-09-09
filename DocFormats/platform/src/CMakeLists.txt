@@ -30,6 +30,7 @@ message(FATAL_ERROR "platform not supported, please implement first")
 endif()
 add_library(obj_platform OBJECT
             ${platform_src}
+			missingOS.c
             ../headers/platform.h
            )
 set_property(TARGET obj_platform PROPERTY FOLDER DocFormats/platform)

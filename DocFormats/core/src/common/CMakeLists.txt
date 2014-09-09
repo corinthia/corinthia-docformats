@@ -20,6 +20,7 @@ include_directories()
 ###
 include_directories(../lib)
 include_directories(../../forward_decl_BAD)
+include_directories(../../../platform/headers)
 add_library(obj_core_common OBJECT
             DFBDT.c
             DFBDT.h

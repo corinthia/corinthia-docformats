@@ -22,6 +22,7 @@ include_directories(../lib)
 include_directories(../common)
 include_directories(../css)
 include_directories(../../forward_decl_BAD)
+include_directories(../../../platform/headers)
 add_library(obj_core_html OBJECT
             DFHTMLNormalization.h
             DFHTMLTables.c

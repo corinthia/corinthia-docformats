@@ -24,16 +24,23 @@ add_library(obj_core_lib OBJECT
             DFAllocator.c
             DFAllocator.h
             DFArray.c
+            DFArray.h
             DFBuffer.c
             DFBuffer.h
             DFCallback.c
             DFCallback.h
             DFCharacterSet.c
             DFCharacterSet.h
+            DFCommon.h
             DFError.c
+            DFError.h
             DFFilesystem.c
+            DFFilesystem.h
             DFHashTable.c
+            DFHashTable.h
             DFString.c
+            DFString.h
+            DFTypes.h
             DFZipFile.c
             DFZipFile.h
            )

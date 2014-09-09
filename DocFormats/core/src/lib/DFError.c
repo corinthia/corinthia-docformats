@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-#include <platform.h>:w
+#include <platform.h>
 #include "DFCommon.h"
 #include "DFTypes.h"
 #include "DFError.h"
