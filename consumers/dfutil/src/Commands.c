@@ -23,6 +23,9 @@
 #include "TextPackage.h"
 #include "StringTests.h"
 #include "DFChanges.h"
+#ifndef WIN32
+#include <unistd.h> // for mkdtemp
+#endif
 
 static DFBuffer *readData(const char *filename, DFError **error)
 {
