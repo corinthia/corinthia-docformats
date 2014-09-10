@@ -99,14 +99,14 @@ int PlatformGetImageDimensions(const char   *path,
 
 
 
-static BOOL CALLBACK InitOnceWrapper(PINIT_ONCE InitOnce,void *p,void *c)
+static BOOL CALLBACK InitOnceWrapper(DF_ONCE_DECL InitOnce,void *p,void *c)
 {
   ((void(*)(void))p)();
   return 1;
 }
 
-void PlatformRunOnce(int *once, void (*fun)(void))
+void PlatformRunOnce(DF_ONCE_DECL *once, void (*fun)(void))
 {
-  InitOnceExecuteOnce((PINIT_ONCE)once, InitOnceWrapper, fun, NULL);
+  InitOnceExecuteOnce(once, InitOnceWrapper, fun, NULL);
 }
 

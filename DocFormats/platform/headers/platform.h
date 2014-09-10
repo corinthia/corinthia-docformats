@@ -16,6 +16,16 @@
 #endif
 #define DocFormats_platform_h
 
+#ifdef WIN32
+#include <windows.h>
+#define DF_ONCE_INIT INIT_ONCE_STATIC_INIT
+#define DF_ONCE_DECL INIT_ONCE
+#else
+#include <pthread.h>
+#define DF_ONCE_INIT PTHREAD_ONCE_INIT
+#define DF_ONCE_DECL pthread_once_t
+#endif
+
 // remove warnings in WIN32
 #ifdef WIN32
 #define _CRT_SECURE_NO_WARNINGS
@@ -61,11 +71,11 @@ extern int PlatformGetImageDimensions(const char   *path,
                                       unsigned int *height,
                                       DF_ERR_TXT    errmsg);
 
-extern void PlatformRunOnce(int *once, void(*fun)(void));
+extern void PlatformRunOnce(DF_ONCE_DECL *once, void(*fun)(void));
 
 
 #define RUN_ONCE(fun) \
-{ static int myVar = 0; \
+{ static DF_ONCE_DECL myVar = DF_ONCE_INIT; \
   PlatformRunOnce(&myVar, fun); \
 }
 

@@ -113,8 +113,8 @@ int PlatformReadDir(const char        *path,
 
 
 
-void PlatformRunOnce(int *once,  void (*fun)(void))
+void PlatformRunOnce(DF_ONCE_DECL *once,  void (*fun)(void))
 {
-    pthread_once((pthread_once_t *)once,fun);
+    pthread_once(once,fun);
 }
 

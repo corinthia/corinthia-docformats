@@ -14,15 +14,6 @@
 
 #include <platform.h>
 #include "DocFormats_test.h"
-#ifdef WIN32
-#include <windows.h>
-#define DF_ONCE_INIT INIT_ONCE_STATIC_INIT
-#define DF_ONCE_DECL INIT_ONCE
-#else
-#include <pthread.h>
-#define DF_ONCE_INIT PTHREAD_ONCE_INIT
-#define DF_ONCE_DECL pthread_once_t
-#endif
 
 
 
@@ -43,12 +34,19 @@ int test1(char *errorText)
 
 int test2(char *errorText)
 {
+  // With pthreads, pthread_once_t (i.e. DF_ONCE_INIT) is an opaque value and we can't make any
+  // assumptions about what it is supposed to be. In fact on Apple platforms it's not even
+  // a scalar.
+#ifdef WIN32
   int x = DF_ONCE_INIT;
   if (x == 0)
     return 1;
 
   sprintf(errorText, "PTHREAD_ONCE_INIT/INIT_ONCE_STATIC_INIT expected 0 is %d", x);
   return -1;
+#else
+  return 1;
+#endif
 }
 
 
@@ -62,7 +60,7 @@ static void runOnceTest(void)
 
 int test3(char *errorText)
 {
-  int runOnceMutex = DF_ONCE_INIT;
+  DF_ONCE_DECL runOnceMutex = DF_ONCE_INIT;
 
   runOnceCount = 0;
   PlatformRunOnce(&runOnceMutex, runOnceTest);
@@ -86,8 +84,8 @@ int test3(char *errorText)
 
 int test4(char *errorText)
 {
-  int runOnceMutex1 = DF_ONCE_INIT;
-  int runOnceMutex2 = DF_ONCE_INIT;
+  DF_ONCE_DECL runOnceMutex1 = DF_ONCE_INIT;
+  DF_ONCE_DECL runOnceMutex2 = DF_ONCE_INIT;
 
   runOnceCount = 0;
   PlatformRunOnce(&runOnceMutex1, runOnceTest);
