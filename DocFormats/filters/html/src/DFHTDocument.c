@@ -13,10 +13,10 @@
 // limitations under the License.
 
 #include <platform.h>
+#include <3rdparty.h>
 #include "core_helper.h"
 #include "core_datacapsule.h"
 #include "DFHTDocument.h"
-#include "3rdparty.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //

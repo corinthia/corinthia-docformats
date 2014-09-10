@@ -14,7 +14,9 @@
 
 #include "DocFormats_test.h"
 
-int test_3rdparty(int runTest, char *testName, char *errorText)
+int test_3rdparty(int   runTest,
+                  char *testName,  int sizeTestName,
+                  char *errorText, int sizeErrorName)
 {
   return NO_MORE_TEST_CASES;
 }

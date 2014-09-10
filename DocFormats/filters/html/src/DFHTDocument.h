@@ -15,8 +15,6 @@
 #ifndef DocFormats_DFHTDocument_h
 #define DocFormats_DFHTDocument_h
 
-#include "3rdparty.h"
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
 //                                          DFHTDocument                                          //

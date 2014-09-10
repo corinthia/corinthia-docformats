@@ -11,32 +11,9 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-#ifdef DocFormats_platform_h
+#ifdef DOCFORMATS_PLATFORM_H
 #error platform.h included multiple times, not allowed
 #endif
-#define DocFormats_platform_h
-
-#ifdef WIN32
-#include <windows.h>
-#define DF_ONCE_INIT INIT_ONCE_STATIC_INIT
-#define DF_ONCE_DECL INIT_ONCE
-#else
-#include <pthread.h>
-#define DF_ONCE_INIT PTHREAD_ONCE_INIT
-#define DF_ONCE_DECL pthread_once_t
-#endif
-
-// remove warnings in WIN32
-#ifdef WIN32
-#define _CRT_SECURE_NO_WARNINGS
-#pragma warning(disable: 4090) // 'function': different 'const' qualifiers
-#pragma warning(disable: 4996) // This function or variable may be unsafe. Consider using
-
-#define snprintf   _snprintf
-#define strcasecmp _stricmp
-#endif
-
-  
 
 // Standard includes, allowed in all sources
 #include <stdio.h>
@@ -78,4 +55,20 @@ extern void PlatformRunOnce(DF_ONCE_DECL *once, void(*fun)(void));
 { static DF_ONCE_DECL myVar = DF_ONCE_INIT; \
   PlatformRunOnce(&myVar, fun); \
 }
+
+
+
+// remove warnings in WIN32
+#ifdef WIN32
+#define _CRT_SECURE_NO_WARNINGS
+#pragma warning(disable: 4090) // 'function': different 'const' qualifiers
+#pragma warning(disable: 4996) // This function or variable may be unsafe. Consider using
+
+#define snprintf   _snprintf
+#define strcasecmp _stricmp
+#define strcpy     USE strncpy instead
+#define sprintf    USE snprintf instead
+#endif
+
+
 

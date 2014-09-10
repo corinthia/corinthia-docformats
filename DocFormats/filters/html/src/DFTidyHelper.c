@@ -15,8 +15,8 @@
 #include <platform.h>
 #include "core_helper.h"
 #include "core_datacapsule.h"
-#include "DFTidyHelper.h"
 #include "3rdparty.h"
+#include "DFTidyHelper.h"
 
 char *copyTidyNodeValue(TidyNode tnode, TidyDoc tdoc)
 {

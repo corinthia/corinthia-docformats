@@ -15,6 +15,7 @@
 #include <platform.h>
 #include "core_helper.h"
 #include "core_datacapsule.h"
+#include "3rdparty.h"
 #include "DFTidyWrapper.h"
 #include "DFHTDocument.h"
 

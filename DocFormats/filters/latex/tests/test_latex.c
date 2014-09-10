@@ -15,7 +15,9 @@
 #include <platform.h>
 #include "DocFormats_test.h"
 
-int test_filter_latex(int runTest, char *testName, char *errorText)
+int test_filter_latex(int  runTest,
+                     char *testName,  int sizeTestName,
+                     char *errorText, int sizeErrorName)
 {
   return NO_MORE_TEST_CASES;
 }

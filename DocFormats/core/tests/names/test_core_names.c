@@ -14,7 +14,9 @@
 
 #include "DocFormats_test.h"
 
-int test_core_names(int runTest, char *testName, char *errorText)
+int test_core_names(int   runTest,
+                    char *testName,  int sizeTestName,
+                    char *errorText, int sizeErrorName)
 {
   return NO_MORE_TEST_CASES;
 }

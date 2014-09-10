@@ -15,8 +15,6 @@
 ###
 ## build object files
 ###
-add_subdirectory(headers)
-add_subdirectory(external)
 add_subdirectory(src)
 add_subdirectory(tests)
 

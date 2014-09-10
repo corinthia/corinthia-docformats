@@ -11,8 +11,10 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-#ifndef DEF_3RDPARTY_H
-#define DEF_3RDPARTY_H
+#ifdef DOCFORMATS_3RDPARTY_H
+#error 3rdparty.h included multiple times, not allowed
+#endif
+#define DOCFORMATS_3RDPARTY_H
 
 // include original third party files
 #include "../external/w3c-tidy-html5/include/tidy.h"
@@ -21,5 +23,3 @@
 
 #include "../external/minizip/unzip.h"
 #include "../external/minizip/zip.h"
-
-#endif

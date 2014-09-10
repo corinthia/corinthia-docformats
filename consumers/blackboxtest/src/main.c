@@ -18,7 +18,7 @@
 
 
 void doEntityTest(int verbose, char *entityName, int *runTest, int *failTest,
-                  int (*funcptr)(int, char*, char*))
+                  int (*funcptr)(int, char*, int, char*, int))
 {
   int i, rc;
   char testName[200], errorText[200];
@@ -30,11 +30,11 @@ void doEntityTest(int verbose, char *entityName, int *runTest, int *failTest,
   // loop through all local test cases
   for (i = 1;; ++i)
   {
-    strcpy(testName, "**missing**");
+    strncpy(testName, "**missing**", sizeof(testName));
     errorText[0] = '\0';
 
     // run test
-    rc = funcptr(i, testName, errorText);
+    rc = funcptr(i, testName, sizeof(testName), errorText, sizeof(errorText));
     
     // Check result 
     //     = 0 Test skipped

@@ -15,8 +15,6 @@
 #ifndef DocFormats_DFTidyHelper_h
 #define DocFormats_DFTidyHelper_h
 
-#include "3rdparty.h"
-
 char *copyTidyNodeValue(TidyNode tnode, TidyDoc tdoc);
 DFNode *fromTidyNode(DFDocument *htmlDoc, TidyDoc tdoc, TidyNode tnode);
 
