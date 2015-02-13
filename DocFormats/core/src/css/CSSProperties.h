@@ -1,4 +1,7 @@
-// Copyright 2012-2014 UX Productivity Pty Ltd
+// This file is part of the Corinthia project (http://corinthia.io).
+//
+// See the COPYRIGHT.txt file distributed with this work for
+// information regarding copyright ownership.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
