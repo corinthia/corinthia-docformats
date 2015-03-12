@@ -2,6 +2,7 @@ The copyright for this software is held by the contributors listed below.
 Full history of contributions is available from the Git repositories
 linked to from http://corinthia.io.
 
+Franz de Copenhague <franzdecopenhague@outlook.com>
 Gabriela Gibson <gabriela.gibson@gmail.com>
 Jan Iversen <jani@apache.org>
 Peter Kelly <peter@uxproductivity.com>
