@@ -15,13 +15,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <QApplication>
-#include "MainWindow.h"
+#include <QWidget>
 
-int main(int argc, char *argv[])
+class Toolbar;
+class Editor;
+
+class MainWindow : public QWidget
 {
-    QApplication *app = new QApplication(argc, argv);
-    MainWindow *window = new MainWindow(app);
-    window->show();
-    return app->exec();
-}
+    Q_OBJECT
+public:
+    MainWindow(QApplication *app);
+    ~MainWindow();
+    public slots:
+    void insertTable();
+    void insertLink();
+    void insertCharacter();
+    void backspace();
+    void moveLeft();
+    void moveRight();
+    void undo();
+    void redo();
+private:
+    QApplication *_app;
+    Toolbar *_toolbar;
+    Editor *_editor;
+};

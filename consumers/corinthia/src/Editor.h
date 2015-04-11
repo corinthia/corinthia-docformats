@@ -15,23 +15,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef editWindows_h 
-#define editWindows_h
-#include <QtCore/QUrl>
-#include <QtWidgets/QWidget>
-#include "ui_desktop.h"
+#import <QWidget>
 
-class DesktopWindow : public QWidget, private Ui::DesktopWindow
+class Editor;
+class EditorPrivate;
+class QWebView;
+class JSInterface;
+
+class Editor : public QWidget
 {
-        Q_OBJECT
-
-    public:
-        DesktopWindow(QWidget *parent = 0);
-        void setUrl(const QUrl &url);
-
-    public slots:
-        void on_elementLineEdit_returnPressed();
-        void on_highlightButton_clicked();
+    Q_OBJECT
+public:
+    Editor(QWidget *parent = 0, Qt::WindowFlags f = 0);
+    virtual ~Editor();
+    QWebView *webView() const;
+    JSInterface *js() const;
+private:
+    EditorPrivate *_p;
 };
-
-#endif
