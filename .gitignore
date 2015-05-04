@@ -3,3 +3,8 @@ DerivedData/
 project.xcworkspace/
 xcuserdata/
 *.xccheckout
+TAGS
+*.patch
+
+# Emacs
+*#*
