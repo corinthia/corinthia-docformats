@@ -3,6 +3,8 @@ DerivedData/
 project.xcworkspace/
 xcuserdata/
 *.xccheckout
+build/
+build.32/
 TAGS
 *.patch
 
