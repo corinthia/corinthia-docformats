@@ -15,13 +15,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef dfutil_FunctionTests_h
-#define dfutil_FunctionTests_h
+#pragma once
 
 #ifdef __APPLE__
 
 void testPathFunctions(void);
-
-#endif
 
 #endif

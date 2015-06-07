@@ -15,8 +15,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_DFCore_h
-#define DocFormats_DFCore_h
-
-
-#endif
+#pragma once

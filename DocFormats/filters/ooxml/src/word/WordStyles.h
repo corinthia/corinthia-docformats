@@ -15,8 +15,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_WordStyles_h
-#define DocFormats_WordStyles_h
+#pragma once
 
 #include "WordCommonPr.h"
 #include "WordNumPr.h"
@@ -26,5 +25,3 @@
 
 CSSSheet *WordParseStyles(WordConverter *converter);
 void WordUpdateStyles(WordConverter *converter, CSSSheet *styleSheet);
-
-#endif

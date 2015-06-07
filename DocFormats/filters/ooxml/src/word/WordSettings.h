@@ -15,11 +15,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_WordSettings_h
-#define DocFormats_WordSettings_h
+#pragma once
 
 #include "WordPackage.h"
 
 void Word_updateSettings(WordPackage *package, int updateFields);
-
-#endif

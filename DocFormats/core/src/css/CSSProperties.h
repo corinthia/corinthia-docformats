@@ -15,8 +15,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_CSSProperties_h
-#define DocFormats_CSSProperties_h
+#pragma once
 
 /** @file
 
@@ -119,5 +118,3 @@ CSSProperties *CSSPropertiesNew(void);
 
 CSSProperties *CSSPropertiesRetain(CSSProperties *properties);
 void CSSPropertiesRelease(CSSProperties *properties);
-
-#endif

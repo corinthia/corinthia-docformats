@@ -15,12 +15,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_WordWhitespace_h
-#define DocFormats_WordWhitespace_h
+#pragma once
 
 #include <DocFormats/DFXMLForward.h>
 
 void WordAddNbsps(DFDocument *doc);
 void WordRemoveNbsps(DFDocument *doc);
-
-#endif

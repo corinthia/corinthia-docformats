@@ -15,8 +15,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_DFAllocator_h
-#define DocFormats_DFAllocator_h
+#pragma once
 
 #include "DFTypes.h"
 
@@ -25,5 +24,3 @@ typedef struct DFAllocator DFAllocator;
 DFAllocator *DFAllocatorNew(void);
 void DFAllocatorFree(DFAllocator *alc);
 void *DFAllocatorAlloc(DFAllocator *alc, size_t size);
-
-#endif

@@ -15,9 +15,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef DocFormats_ODF_h
-#define DocFormats_ODF_h
+#pragma once
 
 #include "ODFPackage.h"
-
-#endif
