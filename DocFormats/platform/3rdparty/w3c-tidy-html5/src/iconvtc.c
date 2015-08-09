@@ -11,7 +11,9 @@
 
 #ifdef TIDY_ICONV_SUPPORT
 
+#if 0
 #include <iconv.h>
+#endif
 
 /* maximum number of bytes for a single character */
 #define TC_INBUFSIZE  16
