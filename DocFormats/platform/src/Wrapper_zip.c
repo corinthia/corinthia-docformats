@@ -128,6 +128,8 @@ static int readDirectory(FILE *zipFile, DFextZipHandleP zipHandle)
         return -1;
 
     // loop through all entries
+
+
     for (i = 0; i < zipHandle->zipFileCount; i++) {
         ZipDirectoryRecord *recDir   = (ZipDirectoryRecord *)workBuf;
         DFextZipDirEntry   *dirEntry = &zipHandle->zipFileEntries[i];
@@ -192,10 +194,12 @@ static void writeGlobalDirAndEndRecord(DFextZipHandleP zipHandle) {
     endRecord.zipCommentLength       = strlen(comment);
 
     dirRecord.signature              = ZipDirectoryRecord_signature;
-    dirRecord.versionMadeBy          = ZLIB_VERNUM;
-    dirRecord.versionNeededToExtract = dirRecord.generalPurposeBitFlag = dirRecord.lastModFileTime        =
-    dirRecord.lastModFileDate        = dirRecord.crc32                 = dirRecord.extraFieldLength       =
-    dirRecord.fileCommentLength      = dirRecord.diskNumberStart       = dirRecord.internalFileAttributes =
+    dirRecord.versionMadeBy          = 0x2D;
+    dirRecord.versionNeededToExtract = 0x14;
+    dirRecord.lastModFileTime        = dirRecord.lastModFileDate   =
+    dirRecord.crc32                  = dirRecord.extraFieldLength       = dirRecord.fileCommentLength =
+    dirRecord.diskNumberStart        = dirRecord.internalFileAttributes = 0;
+    dirRecord.generalPurposeBitFlag  = 0x0006;
     dirRecord.externalFileAttributes = 0;
 
     // loop through all directory entries, write to disk while collecting size
