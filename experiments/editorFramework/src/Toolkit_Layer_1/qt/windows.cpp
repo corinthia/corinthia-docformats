@@ -17,42 +17,9 @@
 
 #pragma once
 #include "windows.hpp"
-#include "qt_toolkit.hpp"
 
 
-
-toolkit * toolkit::createInstance(toolkit_callback *tk, int debug_level) {
-    return (toolkit *)new qt_toolkit();
+MainWindow::MainWindow(QApplication *app) {
 }
-
-
-
-bool qt_toolkit::startWindow() {
-    int    argc = 0;
-    char **argv = NULL;
-
-    app    = new QApplication(argc, argv);
-    window = new MainWindow(app);
-    return true;
+MainWindow::~MainWindow() {
 }
-
-
-
-void qt_toolkit::run() {
-    window->show();
-    app->exec();
-}
-
-
-
-bool qt_toolkit::callJavascript(const char *function) {
-    return true;
-}
-
-
-
-#if 0
-{
-}
-
-#endif

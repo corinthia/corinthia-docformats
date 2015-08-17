@@ -16,33 +16,40 @@
 // limitations under the License.
 
 #pragma once
+#include "../toolkit.hpp"
+#include <QtWidgets/QApplication>
 
-/******************** WINDOWS.HPP ********************
- * This file contain all the graphical classes 
- * inherited from Qt
+
+
+/*
+ * Implementation of toolkit generic interface in Qt
+ *
  */
 
-#include <QtWidgets/QWidget>
 
 
-
-class MainWindow : public QWidget
+class qt_toolkit : toolkit
 {
-    Q_OBJECT
+    /* toolkit qt implementation */
+
 public:
-    MainWindow(QApplication *app);
-    virtual ~MainWindow();
-    public slots:
-    void insertTable();
-    void insertLink();
-    void insertCharacter();
-    void backspace();
-    void moveLeft();
-    void moveRight();
-    void undo();
-    void redo();
-private:
-    QApplication *_app;
-//    Toolbar *_toolbar;
-//    Editor *_editor;
+    /* Inherited functions */
+    bool startWindow();
+    void run();
+    bool callJavascript(const char *function);
+
+
+
+    // Constructor/Destructor
+    qt_toolkit(toolkit_callback *setCallback, int setDebugLevel);
+    ~qt_toolkit();
+
+
+
+private: 
+    QApplication     *app;
+    MainWindow       *window;
+    toolkit_callback *callback;
+    int               debugLevel;
 };
+
