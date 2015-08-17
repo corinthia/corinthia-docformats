@@ -16,10 +16,18 @@
 // limitations under the License.
 
 #pragma once
-#include "windows.hpp"
+#include "qt_classes.hpp"
 
 
-MainWindow::MainWindow(QApplication *app) {
-}
-MainWindow::~MainWindow() {
-}
+void Editor::webViewloadFinished(bool ok) {}
+
+Editor::Editor(QWidget *parent, Qt::WindowFlags f) {}
+Editor::~Editor() {}
+
+
+void Editor::mouseDoubleClickEvent(QMouseEvent *event) {}
+void Editor::mouseMoveEvent(QMouseEvent *event) {}
+void Editor::mousePressEvent(QMouseEvent *event) {}
+void Editor::mouseReleaseEvent(QMouseEvent *event) {}
+void Editor::resizeEvent(QResizeEvent *event) {}
+bool Editor::eventFilter(QObject *obj, QEvent *event) { return true; }

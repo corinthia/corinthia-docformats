@@ -16,40 +16,10 @@
 // limitations under the License.
 
 #pragma once
-#include "../toolkit.hpp"
-#include <QtWidgets/QApplication>
+#include "qt_classes.hpp"
 
 
-
-/*
- * Implementation of toolkit generic interface in Qt
- *
- */
-
-
-
-class qt_toolkit : toolkit
-{
-    /* toolkit qt implementation */
-
-public:
-    /* Inherited functions */
-    bool startWindow();
-    void run();
-    bool callJavascript(const char *function);
-
-
-
-    // Constructor/Destructor
-    qt_toolkit(toolkit_callback *setCallback, int setDebugLevel);
-    ~qt_toolkit();
-
-
-
-private: 
-    QApplication     *app;
-    MainWindow       *window;
-    toolkit_callback *callback;
-    int               debugLevel;
-};
-
+Toolbar::Toolbar() {
+}
+Toolbar::~Toolbar() {
+}
