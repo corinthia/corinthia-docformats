@@ -20,6 +20,13 @@
 
 
 Toolbar::Toolbar() {
-}
-Toolbar::~Toolbar() {
+    saveButton.setText("Save");
+    saveAsButton.setText("SaveAs");
+    loadButton.setText("Load");
+    this->setLayout(&layout);
+    layout.addWidget(&saveButton);
+    layout.addWidget(&saveAsButton);
+    layout.addWidget(&loadButton);
+    layout.setSpacing(4);
+    layout.setContentsMargins(0, 0, 0, 0);
 }
