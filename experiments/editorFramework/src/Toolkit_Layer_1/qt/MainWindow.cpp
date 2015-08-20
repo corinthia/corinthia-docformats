@@ -19,7 +19,7 @@
 #include "qt_classes.hpp"
 
 
-MainWindow::MainWindow() {
+MainWindow::MainWindow() : QWidget(0) {
     toolbar.setParent(this);
     editor.setParent(this);
 
