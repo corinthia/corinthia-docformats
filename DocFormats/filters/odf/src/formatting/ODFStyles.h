@@ -14,22 +14,31 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 #pragma once
 
 #include <DocFormats/DFXMLForward.h>
 #include "DFTypes.h"
-#include "formatting/ODFStyles.h"
+#include "ODFConverter.h"
+#include "CSS.h"
+#include "CSSSheet.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                //
-//                                            ODFSheet                                            //
+//                                            ODFStyle                                            //
 //                                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-typedef struct ODFSheet ODFSheet;
+typedef struct ODFStyle ODFStyle;
 
-ODFSheet *ODFSheetNew(DFDocument *stylesDoc, DFDocument *contentDoc);
-ODFSheet *ODFSheetRetain(ODFSheet *sheet);
-void ODFSheetRelease(ODFSheet *sheet);
-ODFStyle *ODFSheetStyleForSelector(ODFSheet *sheet, const char *selector);
+struct ODFStyle {
+    size_t retainCount;
+    DFNode *element;
+    char *selector;
+};
+
+ODFStyle *ODFStyleNew();
+ODFStyle *ODFStyleRetain(ODFStyle *style);
+void ODFStyleRelease(ODFStyle *style);
+
+CSSSheet *ODFStylesGet(ODFConverter *converter);
+

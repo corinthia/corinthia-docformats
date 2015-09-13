@@ -20,21 +20,34 @@
 #include <DocFormats/DFStorage.h>
 #include "DFDOM.h"
 #include "ODFPackage.h"
-#include "lenses/ODFLenses.h"
 
-typedef struct ODFTextConverter ODFTextConverter;
+#include "CSS.h"
+#include "CSSSheet.h"
 
-struct ODFTextConverter {
-    size_t retainCount;
+typedef struct {
     DFDocument *html;
+    DFNode *body; //just cos its easier for the moment
     DFStorage *abstractStorage;
-    ODFPackage *package;
     char *idPrefix;
-};
+    ODFPackage *package;
+    struct ODFSheet *styles;
+    DFBuffer *warnings;
+    CSSSheet *styleSheet;
+} ODFConverter ;
 
-ODFTextConverter *ODFTextConverterNew(DFDocument *html,
-                                      DFStorage *abstractStorage,
-                                      ODFPackage *package,
-                                      const char *idPrefix);
-ODFTextConverter *ODFTextConverterRetain(ODFTextConverter *conv);
-void ODFTextConverterRelease(ODFTextConverter *conv);
+typedef struct {
+    ODFConverter *conv;
+} ODFGetData;
+
+typedef struct {
+    ODFConverter *conv;
+    DFDocument *contentDoc;
+    DFHashTable *numIdByHtmlId;
+    DFHashTable *htmlIdByNumId;
+} ODFPutData;
+
+int ODFConverterGet(DFDocument *html, DFStorage *abstractStorage, ODFPackage *package, const char *idPrefix, DFError **error);
+int ODFConverterPut(DFDocument *html, DFStorage *abstractStorage, ODFPackage *package, const char *idPrefix, DFError **error);
+
+DFNode *ODFConverterCreateAbstract(ODFGetData *get, Tag tag, DFNode *concrete);
+DFNode *ODFConverterGetConcrete(ODFPutData *put, DFNode *abstract);

@@ -21,6 +21,8 @@
 #include <DocFormats/DFStorage.h>
 #include <DocFormats/DFXMLForward.h>
 
-DFDocument *ODFTextGet(DFStorage *concreteStorage, DFStorage *abstractStorage, const char *idPrefix, DFError **error);
+#include "ODFConverter.h"
+
+DFDocument *ODFTextGet(ODFConverter *converter);
 int ODFTextPut(DFStorage *concreteStorage, DFStorage *abstractStorage, DFDocument *htmlDoc, const char *idPrefix, DFError **error);
 int ODFTextCreate(DFStorage *concreteStorage, DFStorage *abstractStorage, DFDocument *htmlDoc, DFError **error);

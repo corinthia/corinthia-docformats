@@ -14,7 +14,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 #pragma once
 
+#include <DocFormats/DFError.h>
+#include <DocFormats/DFStorage.h>
+
 #include "ODFPackage.h"
+
+DFDocument *ODFGet(DFStorage *concreteStorage, DFStorage *abstractStorage, const char *idPrefix, DFError **error);
+int ODFPut(DFStorage *concreteStorage, DFStorage *abstractStorage, DFDocument *htmlDoc, const char *idPrefix, DFError **error);
+int ODFCreate(DFStorage *concreteStorage, DFStorage *abstractStorage, DFDocument *htmlDoc, DFError **error);
+

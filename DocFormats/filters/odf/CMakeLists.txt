@@ -22,10 +22,36 @@ set(GroupSrc
     src/ODFManifest.h
     src/ODFPackage.c
     src/ODFPackage.h
+    src/ODFConverter.c
+    src/ODFConverter.h
     src/ODFSheet.c
     src/ODFSheet.h)
 
+###
+## group odf lenses objects
+###
+set(GroupODFLenses
+    src/lenses/ODFLenses.c
+    src/lenses/ODFLenses.h
+    src/lenses/ODFDocument.c
+    src/lenses/ODFBody.c
+    src/lenses/ODFSpreadsheetLens.c
+    src/lenses/ODFTextLens.c
+    src/lenses/ODFTextLevelLens.c
+    src/lenses/ODFPresentationLens.c
+    src/lenses/ODFParagraph.c
+    src/lenses/ODFParagraphContent.c
+    src/lenses/ODFHeader.c)
+
+set(GroupODFFormatting
+    src/formatting/ODFStyles.c
+    src/formatting/ODFStyles.h)
+
 set(GroupSrcText
+    src/text/color.h
+    src/text/color.c
+    src/text/gbg_test.h
+    src/text/gbg_test.c
     src/text/ODFText.h
     src/text/ODFText.c
     src/text/ODFTextConverter.h
@@ -69,8 +95,13 @@ include_directories(../../unittest)
 add_library(odf OBJECT
     ${GroupSrc}
     ${GroupSrcText}
+    ${GroupODFLenses}
+    ${GroupODFFormatting}
     ${GroupTests})
-source_group(src         FILES ${GroupSrc})
-source_group(src\\text   FILES ${GroupSrcText})
-source_group(tests       FILES ${GroupTests})
+
+source_group(src                FILES ${GroupSrc})
+source_group(src\\lenses        FILES ${GroupODFLenses})
+source_group(src\\formatting    FILES ${GroupODFFormatting})
+source_group(src\\text          FILES ${GroupSrcText})
+source_group(tests              FILES ${GroupTests})
 set_property(TARGET odf PROPERTY FOLDER DocFormats/filters)

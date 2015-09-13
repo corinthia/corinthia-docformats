@@ -15,28 +15,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
+#include "DFPlatform.h"
+#include "ODFLenses.h"
+#include "DFCommon.h"
 
-#include <DocFormats/DFXMLForward.h>
-#include <DocFormats/DFError.h>
-#include <DocFormats/DFStorage.h>
-#include "ODFManifest.h"
+DFNode *ODFContainerGet(ODFGetData *get, ODFLens *childLens, DFNode *abstract, DFNode *concrete)
+{
+    return BDTContainerGet(get,(DFLens *)childLens,abstract,concrete);
+}
 
-typedef struct ODFPackage ODFPackage;
-
-struct ODFPackage {
-    size_t retainCount;
-    DFStorage *storage;
-    DFDocument *contentDoc;
-    DFDocument *metaDoc;
-    DFDocument *settingsDoc;
-    DFDocument *stylesDoc;
-    ODFManifest *manifest;
-};
-
-ODFPackage *ODFPackageOpenNew(DFStorage *storage, DFError **error);
-ODFPackage *ODFPackageOpenFrom(DFStorage *storage, DFError **error);
-ODFPackage *ODFPackageRetain(ODFPackage *package);
-void ODFPackageRelease(ODFPackage *package);
-int ODFPackageSave(ODFPackage *package, DFError **error);
-
+void ODFContainerPut(ODFPutData *put, ODFLens *childLens, DFNode *abstract, DFNode *concrete)
+{
+    BDTContainerPut(put,(DFLens *)childLens,abstract,concrete,
+                    (DFLookupConcreteFunction)ODFConverterGetConcrete);
+}
