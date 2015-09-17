@@ -6,7 +6,7 @@ Corinthia is a library for converting between different word processing file
 formats. Currently it supports .docx (part of the OOXML specification), HTML,
 and LaTeX (export-only). Corinthia also contain convinience executables.
 
-For more information, contact any of the following people
+For more information, visit our [forum](https://groups.google.com/forum/#!forum/corinthiateam) or the [Wiki](https://github.com/corinthia/corinthia-www/wiki) or contact any of the following people
 
 - Peter Kelly <peter@uxproductivity.com>
 - Louis Suárez-Potts <luispo@gmail.com>
