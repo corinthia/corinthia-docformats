@@ -1,0 +1,40 @@
+<div class="container-fluid">
+	<div class="jumbotron">
+		<h1>Process a Document</h1>
+		<p>Select a document and how to process it</p>
+		<a href="/selections" class="btn btn-success">What are my options?</a>
+		<a href="index.html" class="btn btn-info">Home</a>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+			<form action="/process" enctype="multipart/form-data" method="post">
+				<div class="panel panel-success">
+					<div class="panel-heading">Selection</div>
+					<div class="panel-body" ng-switch="mode">
+						<div class="form-group" >
+							<label for="exampleInputFile">Single Document</label>
+							<div class="btn btn-success btn-file">
+								Choose<input type="file" name="file1" id="file1"
+									onchange="angular.element(this).scope().filechanged(this)"
+									accept="application/vnd.oasis.opendocument.text"></input>
+							</div>
+						</div>
+						<input type="submit" name="submit" class="btn btn-danger " value="Submit" ng-enabled="mode=='Aggregations'" >
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-6">
+			<!--Body content-->
+			<div class="panel-body" ng-switch="mode">
+				<div ng-switch-when="Singles">
+					<h2>Document To Be Processed</h2>
+					<ul class="list-group">
+						<li class="list-group-item" ng-repeat="file in angFiles ">
+							{{file}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
