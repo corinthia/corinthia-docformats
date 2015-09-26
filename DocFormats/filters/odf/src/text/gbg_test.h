@@ -14,7 +14,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-#pragma
+#pragma once
 
 #define TAG_NOT_FOUND 4040404
 #define TAG_NOT_MATCHED 777777
@@ -24,12 +24,14 @@
 Tag  find_HTML(DFNode *odfNode, DFNode *htmlNode);
 void print_node_info(DFNode *node);
 void trace_node_info(DFNode *node, int level);
+void nodes2json(DFNode *odfNode, int level);
 void show_nodes(DFNode *node, int level);
 void walkChildren(DFNode *odfNode, int level);
 void buildCSS_Styles(CSSSheet * cssSheet, DFNode *odfNode);
 char *node_id_info(DFNode *node);
 char *missing_tag_info(DFNode *node);
 void print_line(int style);
+void writejson(DFNode *odfNode, const char* name);
 
 
 static char* translateXMLEnumName[] = {

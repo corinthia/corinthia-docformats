@@ -88,6 +88,7 @@ put it back again as a dev aid.
 
 */
 
+static FILE* jsonFile = NULL;
 /**
  * Temp function: Collect all the possible translations from ODF to
  * HTML.  Will probably still change shape a lot.
@@ -150,11 +151,7 @@ Tag find_HTML(DFNode *odfNode, DFNode *htmlNode)
 
     case  STYLE_TEXT_PROPERTIES : {
 
-        // no output:
-        // const char* s = DFGetAttribute(odfNode,STYLE_TEXT_PROPERTIES);
-        const char* s = DFGetAttribute(odfNode,DOM_TEXT);
-
-        for (int i = 0; i < odfNode->attrsCount; i++) {
+        for (unsigned int i = 0; i < odfNode->attrsCount; i++) {
 
             if (odfNode->attrs[i].tag == FO_FONT_WEIGHT
                 && !strcmp("bold",odfNode->attrs[i].value)) {
@@ -205,16 +202,127 @@ Tag find_HTML(DFNode *odfNode, DFNode *htmlNode)
     }
 }
 
+static void escapeJson(char * strin, char * strout)
+{
+    char *ptr = strin;
+    int j = 0;
+    for(int i=0; i<strlen(strin); i++){
+        switch(*ptr) {
+            case '\n':
+                strout[j++] = '\\';
+                strout[j] = 'n';
+                break;
+            case '\r':
+                strout[j++] = '\\';
+                strout[j] = 'r';
+                break;
+            case '"':
+                strout[j++] = '\\';
+                strout[j] = '"';
+                break;
+            case '\t':
+                strout[j++] = '\\';
+                strout[j] = 't';
+                break;
+            case '\\':
+                strout[j++] = '\\';
+                strout[j] = '\\';
+                break;
+            default:
+                strout[j] = *ptr;
+                break;
+        }
+        ptr++;
+        j++;
+    }
+    strout[j] = 0;
+}
+
+
+static void jsonNodeOpen(DFNode *n, int level)
+{
+    //bit like a trace but with names and curly braces
+    //will need to escape some characters?
+    if (n == NULL) return;
+//    char spaces[] = "                                      ";
+//    spaces[level*4] = 0;
+    if (n->tag) {
+        fprintf(jsonFile, "{\"type\": \"%s\",\n", translateXMLEnumName[n->tag]);
+        fprintf(jsonFile, " \"seq\": %d,\n ", n->seqNo);
+    }
+    if(n->attrsCount > 0) {
+        fprintf(jsonFile, "\"attributes\": [\n");
+        for (int i = 0; i < n->attrsCount; i++) {
+            if(i>0)  fputs(",", jsonFile);
+            fprintf(jsonFile, "{  \"%s\": \"%s\"}", translateXMLEnumName[n->attrs[i].tag], n->attrs[i].value);
+        }
+        fprintf(jsonFile, "\n ],\n");
+    }
+    if (n->value) {
+        //how big - not all characters will need escaping
+        char escStr[strlen(n->value)*2]; //just hard code for the moment
+//        puts(n->value);
+        escapeJson(n->value, escStr);
+//        puts(n->value);
+        fprintf(jsonFile, " \"value\": \"%s\",\n", escStr);
+    }
+}
+
+static void jsonNodeClose(DFNode *n, int level, int last)
+{
+    //bit like a trace but with names and curly braces
+    //will need to escape some characters?
+//    char spaces[] = "                                      ";
+//    spaces[level*4] = 0;
+    if(last) {
+        fprintf(jsonFile, "}\n");
+    } else {
+        fprintf(jsonFile, "},           \n");
+    }
+}
+
 /**
- * Dev tool: List all the nodes following the given one.
+ * Experiment - write out a JSON representation of a DFNode
  */
 void show_nodes(DFNode *odfNode, int level)
 {
-//    print_node_info(odfNode);
+    level++;
     trace_node_info(odfNode, level);
     for (DFNode *odfChild = odfNode->first; odfChild != NULL; odfChild = odfChild->next) {
-	walkChildren(odfChild, level);
+        show_nodes(odfChild, level);
     }
+}
+
+
+
+void writejson(DFNode *odfNode, const char* name)
+{
+    jsonFile = fopen(name, "w");
+    if(jsonFile != NULL) {
+        nodes2json(odfNode, 0);
+    }
+    fclose(jsonFile);
+}
+
+void nodes2json(DFNode *odfNode, int level)
+{
+    jsonNodeOpen(odfNode, level);
+    level++;
+    int i = 0;
+    fprintf(jsonFile, "\"children\": [\n");
+    for (DFNode *odfChild = odfNode->first; odfChild != NULL; odfChild = odfChild->next) {
+        //if(i>0)  fputs(",", jsonFile);
+        nodes2json(odfChild, level);
+        i++;
+    }
+    fprintf(jsonFile, "]\n");
+    level--;
+    int last = 1;
+    //want to know whether to add the comma
+    if(odfNode->next != NULL) {
+        last = 0;
+    }
+    jsonNodeClose(odfNode, level, last);
 }
 
 /**
