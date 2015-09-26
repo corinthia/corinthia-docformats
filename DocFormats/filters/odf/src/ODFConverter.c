@@ -131,7 +131,9 @@ int ODFConverterGet(DFDocument *html, DFStorage *abstractStorage, ODFPackage *pa
 
     char *cssText = CSSSheetCopyCSSText(converter->styleSheet);
     HTMLAddInternalStyleSheet(converter->html, cssText);
-    HTML_safeIndent(converter->html->docNode,0);
+    //Safe indent adds a lot of DOM_TEXT nodes around the generated nodes
+    //not sure we want this.
+//    HTML_safeIndent(converter->html->docNode,0);
 
     int ok = 1;
     if (converter->warnings->len > 0) {
@@ -139,6 +141,8 @@ int ODFConverterGet(DFDocument *html, DFStorage *abstractStorage, ODFPackage *pa
         ok = 0;
     }
 
+    writejson(odfDocument, "concrete.json");
+    writejson(converter->html->docNode, "abstract.json");
     ODFConverterFree(converter);
     return ok;
 }
