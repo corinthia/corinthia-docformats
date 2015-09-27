@@ -222,6 +222,8 @@ var runcorinthia = function(filein, res, doc, extract) {
             console.log('child process exited with code ' + code);
             res.redirect('app/output/' + filein + '.html');
             res.end();
+            fs.renameSync('abstract.json', 'public/app/output/abstract.json');
+            fs.renameSync('concrete.json', 'public/app/output/concrete.json');
         });
     });
 }
