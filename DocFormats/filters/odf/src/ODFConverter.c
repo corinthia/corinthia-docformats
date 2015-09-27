@@ -350,17 +350,13 @@ int ODFConverterPut(DFDocument *html, DFStorage *abstractStorage, ODFPackage *pa
     ODF_setupBookmarkLinks(&put);
     ODFObjectsAnalyzeBookmarks(converter->objects,converter->styles); */
 
-    printf(GREEN "THE ABSTRACT NODES\n" RESET);
-    show_nodes(converter->html->root, 0);
-
-    printf("\n\n\n\n\n");
 
     //This looks like the real beast - stuff above is some sort of housekeeping I don't get yet.
     ODFDocumentLens.put(&put,converter->html->root,ODFDocument);
 
     //Let's see what we made at the end
-    printf(GREEN "THE END RESULT\n" RESET);
-    show_nodes(put.contentDoc->root, 0);
+    writejson(put.contentDoc->root, "concretePut.json");
+    writejson(converter->html->root, "abstractPut.json");
 
     //ODFObjectsExpandBookmarks(converter->objects);
     //ODFRemoveNbsps(converter->package->document);

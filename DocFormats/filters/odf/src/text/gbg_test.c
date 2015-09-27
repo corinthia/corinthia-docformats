@@ -216,9 +216,9 @@ static void escapeJson(char * strin, char * strout)
                 strout[j++] = '\\';
                 strout[j] = 'r';
                 break;
-            case '"':
+            case 34: //a "
                 strout[j++] = '\\';
-                strout[j] = '"';
+                strout[j] = 0x22;
                 break;
             case '\t':
                 strout[j++] = '\\';
@@ -254,7 +254,10 @@ static void jsonNodeOpen(DFNode *n, int level)
         fprintf(jsonFile, "\"attributes\": [\n");
         for (int i = 0; i < n->attrsCount; i++) {
             if(i>0)  fputs(",", jsonFile);
-            fprintf(jsonFile, "{  \"%s\": \"%s\"}", translateXMLEnumName[n->attrs[i].tag], n->attrs[i].value);
+            char escStr[strlen(n->attrs[i].value)*2]; //just hard code for the moment
+            escapeJson(n->attrs[i].value, escStr);
+
+            fprintf(jsonFile, "{  \"%s\": \"%s\"}", translateXMLEnumName[n->attrs[i].tag], escStr);
         }
         fprintf(jsonFile, "\n ],\n");
     }

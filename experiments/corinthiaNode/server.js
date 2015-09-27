@@ -255,8 +255,9 @@ var runcorinthiaPut = function(res, doc) {
     ls.on('close', function (code) {
         console.log('child process exited with code ' + code + ' from ' + odfFile);
         res.render('result', {result: odfFile});
-//        res.redirect('app/output/' + filein + '.html');
         res.end();
+        fs.renameSync('abstractPut.json', 'public/app/output/abstractPut.json');
+        fs.renameSync('concretePut.json', 'public/app/output/concretePut.json');
     });
 
 }
