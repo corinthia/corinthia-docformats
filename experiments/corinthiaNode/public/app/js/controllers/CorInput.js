@@ -38,10 +38,6 @@ corControllers.controller('corInputCtrl', ['$scope', '$routeParams', '$http',
 	$scope.depth = "all";
 	$scope.angFiles = [];
 	$scope.trgFiles = [];
-        $scope.aggregates = [];
-        $http.get('records/Aggregations/docs.json').success(function(data) {
-            $scope.aggregates = data.docs;
-        });
 
     $scope.filechanged= function(element){
     	$scope.angFiles = [];
