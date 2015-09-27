@@ -1,6 +1,9 @@
 function onload() {
 	//alert("Top of the world, ma");
-	var bods = document.getElementsByTagName("body");
+    var heads = document.getElementsByTagName("head");
+    heads[0].innerHTML += '<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">'
+
+    var bods = document.getElementsByTagName("body");
 
 	var hdr = document.createElement("div");
 	var att = document.createAttribute("class");
