@@ -1,4 +1,7 @@
 extends layout
+
 block content
-  h1 Your edited document may be downloaded from
-  a(href='input/headers.odt' download) result
+    a(class='btn btn-info', href='app/index.html') Home
+    h1 Your edited document may be downloaded from
+    p raw path is #{result}
+    a(href='#{result}' download) result
