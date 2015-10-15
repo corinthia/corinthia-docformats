@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-2">
 			<div>
-				<h2>Process new document</h2>
+				<h2>Submit a new document</h2>
 				<ul class="list-group">
 					<a  class="list-group-item list-group-item-warning" href="#input" >Select and set options</a>
 				</ul>
@@ -14,10 +14,33 @@
 		</div>
 		<div class="col-md-8">
 			<!--Body content-->
-			<div class="row"><h2>Or View</h2></div>
-                        <div class="row">
-                        </div>
-
+			<div class="row"><h2>Document Repository</h2></div>
+            <div class="row">
+                <table class="table table-bordered table-condensed">
+                        <thead>
+                        <tr>
+                                <th>Document</th>
+                                <th>Last Modified</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="file in dirlist.files " >
+                                <td>                        
+                                <a title="Edit" class="btn-xs btn-success" href="../doc/output/{{file.name}}"><span class="glyphicon glyphicon-edit" aria-hidden="false"></span></a>
+                                <button title="Download" type="button" class="btn-xs btn-info" aria-label="Left Align" ng-click="downloadMe(file)">
+                                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                </button>
+                                {{file.name}}
+                                </td>
+                                <td>{{file.mtime}}</td>
+                        </tr>
+                        </tbody>
+                </table>
+                <a title="Show JSON" class="btn-xs btn-warning" href="output/abstract.json" target="_blank">abstract get</a>
+                <a title="Show JSON" class="btn-xs btn-warning" href="output/concrete.json" target="_blank">concrete get</a>
+                <a title="Show JSON" class="btn-xs btn-warning" href="output/abstractPut.json" target="_blank">abstract put</span></a>
+                <a title="Show JSON" class="btn-xs btn-warning" href="output/concretePut.json" target="_blank">concrete get</a>
+           </div>
 		</div>
 	</div>
 </div>

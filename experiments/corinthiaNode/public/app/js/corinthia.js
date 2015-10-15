@@ -73,6 +73,8 @@ function addForm(hdr) {
     frm.appendChild(ip1);
 
     //we could try an XMLHttpRequest instead of form stuff?
+    //need to get a handle on the document name too
+    //have the get process write it into the meta data
     var ip2 = document.createElement("input");
     var id2 = document.createAttribute("id");
     id2.value = "SaveMe";

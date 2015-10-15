@@ -57,37 +57,80 @@ server.use(logger('dev'));
 // server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
 
-server.use('/', routes);
+//server.use('/', routes);
 
 server.get('/app', function(req, res, next) {
     req.redirect('app/index.html');
     next(err);
 });
 
+server.get("/foo*", function(req, res, next){
+  res.write("Foo*\n");
+  next();
+});
+
+server.get("/foo", function(req, res){
+  res.end("Foo\n");
+});
+
+server.get("/foo/bar", function(req, res){
+  res.end("Foo Bar\n");
+});
+
+server.use('/doc/output/*', function(req, res, next) {
+    filein = path.basename(req.originalUrl);
+    odfFile = path.join('public/input', filein);
+    console.log("Edit " + filein + " " + odfFile);
+    runcorinthia(filein, res, 'p');
+//    res.redirect('../../app/output/'+filein+'.html');
+//    res.end('The end');
+});
+
 server.post('/process', function(req, res) {
-	var bb = new Busboy({
-		headers : req.headers
-	});
+    var bb = new Busboy({
+        headers : req.headers
+    });
 
 
-	bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
-		console.log("Filename " + filename + " field " + fieldname);
-		filein = path.basename(filename);
-                odfFile = path.join('public/input',path.basename(filename));
-		file.pipe(fs.createWriteStream(odfFile));
-	});
+    bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
+        console.log("Filename " + filename + " field " + fieldname);
+        filein = path.basename(filename);
+        odfFile = path.join('public/input',path.basename(filename));
+        file.pipe(fs.createWriteStream(odfFile));
+    });
 
-	bb.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
+    bb.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
         console.log('Field [' + fieldname + ']: value: ' + inspect(val));
 
       });
 
-	bb.on('finish', function() {
+    bb.on('finish', function() {
             console.log("File steamed to " + odfFile);
             runcorinthia(filein, res, 'p');
-	});
+    });
 
-	req.pipe(bb);
+    req.pipe(bb);
+});
+
+server.post('/app/edit/*', function(req, res) {
+    var bb = new Busboy({
+        headers : req.headers
+    });
+    filein = path.basename(req.url);
+    console.log('so file is ' + filein);
+
+    bb.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
+        console.log('Field [' + fieldname + ']: value: ' + inspect(val));
+        odfFile = path.join('public/input',(val));
+        filein = val;
+      });
+
+    bb.on('finish', function() {
+            console.log("Edit " + odfFile);
+            runcorinthia(filein, res, 'p');
+    });
+
+    req.pipe(bb);
 });
 
 server.post('/corput', function(req, res) {
@@ -99,11 +142,11 @@ server.post('/corput', function(req, res) {
         var doc;
 
         bb.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
-          console.log('Field ' + fieldname + ': value: ' + inspect(val));
+//          console.log('Field ' + fieldname + ': value: ' + inspect(val));
 
           switch(fieldname){
             case 'htmldata':
-                console.log('corput document ' + val);
+ //               console.log('corput document ' + val);
                 doc = val;
             break;
           };
@@ -130,32 +173,8 @@ server.post('/help', function(req, res) {
 
         });
 
-        var cmdArgs = ['-jar', 'odfe.jar', '-help'];
-
         bb.on('finish', function() {
-          console.log('cmd ' + cmdArgs);
-          ls    = spawn('java', cmdArgs);
 
-          var title="ODFE Version Info";
-          var info="";
-          ls.stdout.on('data', function (data) {
-                console.log('stdout: ' + data);
-                info = info.concat( data );
-          });
-
-          ls.stderr.on('data', function (data) {
-                console.log('stdout: ' + data);
-                info = info.concat( data );
-          });
-
-          ls.on('close', function (code) {
-              console.log('child process exited with code ' + code);
-              res.render('help', {
-                message: title,
-                helpinfo: info
-              });
-              res.end();
-          });
         });
         req.pipe(bb);
 });
@@ -196,7 +215,8 @@ server.use(function(err, req, res, next) {
 });
 
 
-var runcorinthia = function(filein, res, doc, extract) {
+var runcorinthia = function(filein, res, doc) {
+    var errmsg;
     console.log('process ' + process.cwd() + ' odfFile ' + odfFile);
     var outfile = 'public/app/output/' + filein + '.html';
     fs.exists(outfile, function(exists)  {
@@ -216,23 +236,31 @@ var runcorinthia = function(filein, res, doc, extract) {
 
         ls.stderr.on('data', function (data) {
             console.log('stderr: ' + data);
+            errmsg = data;
         });
 
         ls.on('close', function (code) {
             console.log('child process exited with code ' + code);
-            res.redirect('app/output/' + filein + '.html');
+            if(code == 0) {
+                console.log('redirect too ' + outfile);
+                res.redirect('../../app/output/'+filein+'.html');
+                fs.renameSync('abstract.json', 'public/app/output/abstract.json');
+                fs.renameSync('concrete.json', 'public/app/output/concrete.json');
+                getDocs();
+            } else {
+            res.render('error', {message: 'input/' + filein});
+            }
             res.end();
-            fs.renameSync('abstract.json', 'public/app/output/abstract.json');
-            fs.renameSync('concrete.json', 'public/app/output/concrete.json');
         });
     });
 }
 
 var runcorinthiaPut = function(res, doc) {
     console.log('Corinthia Put ');
+    var errmsg;
 
     //need to take the doc and write it to a file on disk
-    var outfile = 'public/app/output/' + filein + '.saved.html';
+    var outfile = 'public/app/output/' + filein + '.html';
     var fd = fs.openSync(outfile, 'w');
     fs.writeSync(fd, doc);
     fs.closeSync(fd);
@@ -241,7 +269,7 @@ var runcorinthiaPut = function(res, doc) {
     cmdArgs.push(odfFile);
     cmdArgs.push(outfile);
     console.log('Do the Corinthia ' + odfFile + ' put ' + outfile);
-    console.log(cmdArgs);
+//    console.log(cmdArgs);
     ls = spawn('../../build/bin/dfconvert', cmdArgs);
 
     ls.stdout.on('data', function (data) {
@@ -250,16 +278,41 @@ var runcorinthiaPut = function(res, doc) {
 
     ls.stderr.on('data', function (data) {
         console.log('stderr: ' + data);
+        errmsg = data;
     });
 
     ls.on('close', function (code) {
         console.log('child process exited with code ' + code + ' from ' + odfFile);
-        res.render('result', {result: 'input/' + filein});
+        if(code == 0) {
+            res.redirect('../../app/index.html');
+            fs.renameSync('abstractPut.json', 'public/app/output/abstractPut.json');
+            fs.renameSync('concretePut.json', 'public/app/output/concretePut.json');
+            getDocs();
+        }
+        else {
+            res.render('error', {message: 'input/' + filein});
+        }
         res.end();
-        fs.renameSync('abstractPut.json', 'public/app/output/abstractPut.json');
-        fs.renameSync('concretePut.json', 'public/app/output/concretePut.json');
     });
+}
 
+var getDocs = function() {
+    var filesData = {files:[]}
+    var filesArray = fs.readdirSync("public/input");
+    console.log("files length " + filesData.files.length);
+    for(var i=0; i<filesArray.length; i++)
+    {
+        var stat = fs.statSync("public/input/" + filesArray[i]);
+        filesData.files[i] = {};
+        filesData.files[i].name = filesArray[i];
+        var fdate = new Date(stat.mtime);
+        filesData.files[i].mtime = fdate.toLocaleString();;
+        console.log(filesData.files[i]);
+    }
+    var filesStr = JSON.stringify(filesData);
+    var fd = fs.openSync("public/app/docs.json", 'w');
+    fs.writeSync(fd, filesStr);
+    fs.closeSync(fd);
 }
 
 module.exports = server;

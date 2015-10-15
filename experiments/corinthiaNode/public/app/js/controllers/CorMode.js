@@ -33,13 +33,39 @@ var corControllers = angular.module('corControllers');
 
 
 
-corControllers.controller('corModeCtrl', ['$scope', '$routeParams', '$http',
-            function($scope, $routeParams, $http) {
-               $scope.mode = $routeParams.mode;
-               $scope.orderProp = 'age';
-	       $scope.notReady = true;
-	       $scope.upload = function() {
-	               $fileUpload.upload($scope.files);
-		};
-	    }]);
+    corControllers.controller('corModeCtrl', ['$scope', '$routeParams', '$http', '$location',
+        function($scope, $routeParams, $http, $location) {
+            $http.get('docs.json').success(function(data) {
+                 $scope.dirlist = data;
+            });
+
+            $scope.mode = $routeParams.mode;
+            $scope.notReady = true;
+            $scope.upload = function() {
+                $fileUpload.upload($scope.files);
+            };
+            $scope.downloadMe = function(file) {
+                //alert("Download " + file);
+                var url='../input/' + file;    
+                window.open(url,'Download');  
+            }
+            $scope.editMe = function(file) {
+                //alert("Edit " + file);
+                $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+                $http.post('edit/' + file).success(function(data) {
+                    $scope.response = data;
+                }).error(function(data) {
+                    alert("post failed " + data);
+                });
+/*                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        $location.path('app/output/'+file+'.html');  
+                    }
+                }
+                xhttp.open("POST", "edit/", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("fname="+file);*/
+            }
+        }]);
 
