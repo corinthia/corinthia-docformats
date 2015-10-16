@@ -21,18 +21,20 @@
                         <tr>
                                 <th>Document</th>
                                 <th>Last Modified</th>
+                                <th class= "text-center">Delete</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="file in dirlist.files " >
                                 <td>                        
                                 <a title="Edit" class="btn-xs btn-success" href="../doc/output/{{file.name}}"><span class="glyphicon glyphicon-edit" aria-hidden="false"></span></a>
-                                <button title="Download" type="button" class="btn-xs btn-info" aria-label="Left Align" ng-click="downloadMe(file)">
-                                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
-                                </button>
+                                <a title="Download" class="btn-xs btn-info" href="../../input/{{file.name}}"><span class="glyphicon glyphicon-download" aria-hidden="false"></span></a>
                                 {{file.name}}
                                 </td>
                                 <td>{{file.mtime}}</td>
+                                <td class= "text-center">                        
+                                <a title="Delete" class="btn-xs btn-danger" href="../doc/delete/{{file.name}}"><span class="glyphicon glyphicon-remove" aria-hidden="false"></span></a>
+                                </td>
                         </tr>
                         </tbody>
                 </table>

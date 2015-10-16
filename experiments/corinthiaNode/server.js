@@ -64,26 +64,28 @@ server.get('/app', function(req, res, next) {
     next(err);
 });
 
-server.get("/foo*", function(req, res, next){
-  res.write("Foo*\n");
-  next();
-});
-
-server.get("/foo", function(req, res){
-  res.end("Foo\n");
-});
-
-server.get("/foo/bar", function(req, res){
-  res.end("Foo Bar\n");
-});
-
 server.use('/doc/output/*', function(req, res, next) {
     filein = path.basename(req.originalUrl);
     odfFile = path.join('public/input', filein);
     console.log("Edit " + filein + " " + odfFile);
     runcorinthia(filein, res, 'p');
-//    res.redirect('../../app/output/'+filein+'.html');
-//    res.end('The end');
+});
+
+server.use('/doc/delete/*', function(req, res, next) {
+    filein = path.basename(req.originalUrl);
+    odfFile = path.join('public/input', filein);
+    console.log("Delete " + filein + " " + odfFile);
+    fs.unlinkSync(odfFile);
+    //do we need to get rid of the corresponding html files too?
+    //would be cleaner
+    var outfile = 'public/app/output/' + filein + '.html';
+    if(fs.existsSync(outfile)) {
+         console.log(outfile + ' exists so deleting');
+         fs.unlinkSync(outfile); //delete any existing
+    }
+    getDocs();
+    res.redirect('../../app/index.html');
+    res.end();
 });
 
 server.post('/process', function(req, res) {
@@ -115,7 +117,7 @@ server.post('/process', function(req, res) {
 server.post('/app/edit/*', function(req, res) {
     var bb = new Busboy({
         headers : req.headers
-    });
+    }); 
     filein = path.basename(req.url);
     console.log('so file is ' + filein);
 
@@ -299,7 +301,6 @@ var runcorinthiaPut = function(res, doc) {
 var getDocs = function() {
     var filesData = {files:[]}
     var filesArray = fs.readdirSync("public/input");
-    console.log("files length " + filesData.files.length);
     for(var i=0; i<filesArray.length; i++)
     {
         var stat = fs.statSync("public/input/" + filesArray[i]);
@@ -307,7 +308,6 @@ var getDocs = function() {
         filesData.files[i].name = filesArray[i];
         var fdate = new Date(stat.mtime);
         filesData.files[i].mtime = fdate.toLocaleString();;
-        console.log(filesData.files[i]);
     }
     var filesStr = JSON.stringify(filesData);
     var fd = fs.openSync("public/app/docs.json", 'w');

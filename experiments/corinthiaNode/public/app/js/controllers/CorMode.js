@@ -44,11 +44,6 @@ var corControllers = angular.module('corControllers');
             $scope.upload = function() {
                 $fileUpload.upload($scope.files);
             };
-            $scope.downloadMe = function(file) {
-                //alert("Download " + file);
-                var url='../input/' + file;    
-                window.open(url,'Download');  
-            }
             $scope.editMe = function(file) {
                 //alert("Edit " + file);
                 $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
