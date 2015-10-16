@@ -57,7 +57,7 @@ server.use(logger('dev'));
 // server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
 
-//server.use('/', routes);
+server.use('/', routes);
 
 server.get('/app', function(req, res, next) {
     req.redirect('app/index.html');

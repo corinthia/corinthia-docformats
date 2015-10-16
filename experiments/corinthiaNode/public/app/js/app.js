@@ -29,17 +29,19 @@
 
 /* App Module */
 
-var odfeApp = angular.module('corApp', [ 'ngRoute',
-		'corControllers' ]);
+var corApp = angular.module('corApp', [ 'ngRoute', 'corControllers', 'd3' ]);
 
-odfeApp.config([ '$routeProvider', function($routeProvider) {
+corApp.config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.when('/cor', {
-		templateUrl : 'partials/cor-mode.html',
-		controller : 'corModeCtrl'
+            templateUrl : 'partials/cor-mode.html',
+            controller : 'corModeCtrl'
+        }).when('/paths/:dfName', {
+            templateUrl : 'partials/dfpaths.html',
+            controller : 'DFNodePathsCtrl'
         }).when('/input', {
             templateUrl : 'partials/corinput.html',
             controller : 'corInputCtrl'})
             .otherwise({
-		redirectTo : '/cor'
-	});
+            redirectTo : '/cor'
+        });
 } ]);
