@@ -309,7 +309,7 @@ var getDocs = function() {
         filesData.files[i] = {};
         filesData.files[i].name = filesArray[i];
         var fdate = moment(stat.mtime);
-        filesData.files[i].mtime = fdate.format("YYYY-MM-DD HH:MM");
+        filesData.files[i].mtime = fdate.format("YYYY-MM-DD hh:mm:ss");
     }
     var filesStr = JSON.stringify(filesData);
     var fd = fs.openSync("public/app/docs.json", 'w');
