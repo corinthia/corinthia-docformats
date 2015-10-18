@@ -33,6 +33,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 // var bodyParser = require('body-parser');
 
+var moment = require('moment');
+
 var routes = require('./routes/index');
 var spawn = require('child_process').spawn;
 
@@ -306,8 +308,8 @@ var getDocs = function() {
         var stat = fs.statSync("public/input/" + filesArray[i]);
         filesData.files[i] = {};
         filesData.files[i].name = filesArray[i];
-        var fdate = new Date(stat.mtime);
-        filesData.files[i].mtime = fdate.toLocaleString();;
+        var fdate = moment(stat.mtime);
+        filesData.files[i].mtime = fdate.format("YYYY-MM-DD HH:MM");
     }
     var filesStr = JSON.stringify(filesData);
     var fd = fs.openSync("public/app/docs.json", 'w');
