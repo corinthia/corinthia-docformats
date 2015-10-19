@@ -6,4 +6,5 @@ server.set('port', process.env.PORT || 3000);
 
 var server = server.listen(server.get('port'), function() {
   console.log('Express server listening on port ' + server.address().port);
+  console.log('Go to http://localhost:3000 (Chrome or Firefox tested)');
 });

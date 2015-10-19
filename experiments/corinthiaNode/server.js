@@ -61,11 +61,6 @@ server.use(express.static(path.join(__dirname, 'public')));
 
 server.use('/', routes);
 
-server.get('/app', function(req, res, next) {
-    req.redirect('app/index.html');
-    next(err);
-});
-
 server.use('/doc/output/*', function(req, res, next) {
     filein = path.basename(req.originalUrl);
     odfFile = path.join('public/input', filein);
@@ -88,6 +83,16 @@ server.use('/doc/delete/*', function(req, res, next) {
     getDocs();
     res.redirect('../../app/index.html');
     res.end();
+});
+
+server.get('/', function(req, res, next) {
+    console.log("default url");
+    res.redirect('/app');
+});
+
+server.get('/app', function(req, res, next) {
+    req.redirect('app/index.html');
+    next(err);
 });
 
 server.post('/process', function(req, res) {
@@ -246,10 +251,14 @@ var runcorinthia = function(filein, res, doc) {
         ls.on('close', function (code) {
             console.log('child process exited with code ' + code);
             if(code == 0) {
-                console.log('redirect too ' + outfile);
+                console.log('redirect to ' + outfile);
                 res.redirect('../../app/output/'+filein+'.html');
-                fs.renameSync('abstract.json', 'public/app/output/abstract.json');
-                fs.renameSync('concrete.json', 'public/app/output/concrete.json');
+                if(fs.existsSync('abstract.json')) {
+                    fs.renameSync('abstract.json', 'public/app/output/abstract.json');
+                    fs.renameSync('concrete.json', 'public/app/output/concrete.json');
+                } else {
+                    console.log("Unable to find abstract.json\n");
+                }
                 getDocs();
             } else {
             res.render('error', {message: 'input/' + filein});
@@ -289,8 +298,12 @@ var runcorinthiaPut = function(res, doc) {
         console.log('child process exited with code ' + code + ' from ' + odfFile);
         if(code == 0) {
             res.redirect('../../app/index.html');
-            fs.renameSync('abstractPut.json', 'public/app/output/abstractPut.json');
-            fs.renameSync('concretePut.json', 'public/app/output/concretePut.json');
+            if(fs.existsSync('abstractPut.json')) {
+                fs.renameSync('abstractPut.json', 'public/app/output/abstractPut.json');
+                fs.renameSync('concretePut.json', 'public/app/output/concretePut.json');
+            } else {
+                console.log("Unable to find abstractPut.json\n");
+            }
             getDocs();
         }
         else {
