@@ -7,6 +7,11 @@ build/
 build.32/
 TAGS
 *.patch
+node_modules/
+bower_components/
+output/
+input/
+nodeeditor/
 
 # Emacs
 *#*
