@@ -142,6 +142,17 @@ corControllers.controller('DFNodePathsCtrl', ['$scope', '$routeParams', '$http',
                             .attr("dx", 3.5)
                             .text(function(d) {
                                 txt = d.type;
+                                if(d.attributes) {
+                                    txt += " [";
+                                    for(var a=0; a<d.attributes.length; a++) {
+                                        Object.getOwnPropertyNames(d.attributes[a]).forEach(function(val, idx, array) {
+                                            txt += '{' + val + ' -> ' + d.attributes[a][val] + '}';
+                                        });                                    
+                                    }
+                                    txt += "]";
+                                }
+                                if(d.value)
+                                    txt += " " + d.value;
                                 return txt;
                             });
 
