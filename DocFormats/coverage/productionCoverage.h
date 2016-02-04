@@ -16,26 +16,19 @@
 // limitations under the License.
 #pragma once
 
+#include "DFXMLNames.h"
+
 #define TAG_NOT_FOUND 4040404
 #define TAG_NOT_MATCHED 777777
-#include "CSS.h"
-#include "CSSSheet.h"
-#include "ProductionCoverage.h"
 
-Tag  find_HTML(DFNode *odfNode, DFNode *htmlNode);
-void print_node_info(DFNode *node);
-void trace_node_info(DFNode *node, int level);
 void nodes2json(DFNode *odfNode, int level);
-void show_nodes(DFNode *node, int level);
-void walkChildren(DFNode *odfNode, int level);
-void buildCSS_Styles(CSSSheet * cssSheet, DFNode *odfNode);
-char *node_id_info(DFNode *node);
-char *missing_tag_info(DFNode *node);
-void print_line(int style);
-//void writejson(DFNode *odfNode, const char* name);
+void writejson(DFNode *odfNode, const char* name);
 
+//add in an array of counters to track the type of nodes hit during processing
 
-/* static char* translateXMLEnumName[] = {
+static unsigned int gauges[PREDEFINED_TAG_COUNT];
+
+static char* translateXMLEnumName[] = {
     "one",
     "two",
     "DOM_TEXT",
@@ -3392,4 +3385,3 @@ void print_line(int style);
     "PREDEFINED_TAG_COUNT",
 }
 ;
-*/

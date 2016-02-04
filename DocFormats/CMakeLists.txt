@@ -30,6 +30,7 @@ add_subdirectory(unittest)
 add_subdirectory(filters/ooxml)
 add_subdirectory(filters/latex)
 add_subdirectory(filters/odf)
+add_subdirectory(coverage)
 
 
 
@@ -61,7 +62,8 @@ set(GroupObjRoot
     $<TARGET_OBJECTS:ooxml>
     $<TARGET_OBJECTS:latex>
     $<TARGET_OBJECTS:odf>
-    $<TARGET_OBJECTS:platform>)
+    $<TARGET_OBJECTS:platform>
+    $<TARGET_OBJECTS:coverage>)
 
 
 

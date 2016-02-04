@@ -716,6 +716,10 @@ int WordConverterGet(DFDocument *html, DFStorage *abstractStorage, WordPackage *
     free(cssText);
 
     HTML_safeIndent(converter->html->docNode,0);
+    
+    writejson(wordDocument, "concrete.json");
+    writejson(converter->html->docNode, "abstract.json");
+
 
     int ok = 1;
     if (converter->warnings->len > 0) {

@@ -30,6 +30,8 @@
 #include "color.h"
 #include "gbg_test.h"
 
+
+
 /*
   G: Advice I have still to cover:
   ================================
@@ -201,7 +203,7 @@ Tag find_HTML(DFNode *odfNode, DFNode *htmlNode)
     }
     }
 }
-
+/*
 static void escapeJson(char * strin, char * strout)
 {
     char *ptr = strin;
@@ -236,9 +238,9 @@ static void escapeJson(char * strin, char * strout)
         j++;
     }
     strout[j] = 0;
-}
+}*/
 
-
+/*
 static void jsonNodeOpen(DFNode *n, int level)
 {
     //bit like a trace but with names and curly braces
@@ -282,7 +284,7 @@ static void jsonNodeClose(DFNode *n, int level, int last)
     } else {
         fprintf(jsonFile, "},           \n");
     }
-}
+}*/
 
 /**
  * Experiment - write out a JSON representation of a DFNode
@@ -298,7 +300,7 @@ void show_nodes(DFNode *odfNode, int level)
 
 
 
-void writejson(DFNode *odfNode, const char* name)
+/*void writejson(DFNode *odfNode, const char* name)
 {
     jsonFile = fopen(name, "w");
     if(jsonFile != NULL) {
@@ -326,7 +328,7 @@ void nodes2json(DFNode *odfNode, int level)
         last = 0;
     }
     jsonNodeClose(odfNode, level, last);
-}
+}*/
 
 /**
  * Dev tool: List all the nodes following the given one.

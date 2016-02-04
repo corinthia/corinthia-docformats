@@ -26,6 +26,7 @@
 #include "lenses/ODFLenses.h"
 #include "DFHTML.h"
 #include "DFHTMLNormalization.h"
+#include "ProductionCoverage.h"
 
 #include "text/gbg_test.h"
 
