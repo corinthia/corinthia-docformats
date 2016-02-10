@@ -74,7 +74,7 @@ static DFNode *ODFDocumentGet(ODFGetData *get, DFNode *concrete)
     DFSetAttribute(meta,HTML_CHARSET,"utf-8");
     DFNode *script = ODFConverterCreateAbstract(get,HTML_SCRIPT,NULL);
     DFAppendChild(head,script);
-    DFSetAttribute(script, HTML_SRC, "..\/js\/corinthia.js");
+    DFSetAttribute(script, HTML_SRC, "..\/..\/js\/corinthia.js");
 
     //Find the OFFICE_BODY
     DFNode *ODFBody = DFChildWithTag(concrete,OFFICE_BODY);

@@ -27,6 +27,7 @@ limitations under the License.
 */
 
 var express = require('express');
+var bodyParser = require('body-parser')
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -36,12 +37,15 @@ var cookieParser = require('cookie-parser');
 var moment = require('moment');
 
 var routes = require('./routes/index');
-var spawn = require('child_process').spawn;
 
 var Busboy = require('busboy');
 var inspect = require('util').inspect;
 var os = require('os');
 var fs = require('fs');
+var rimraf = require('rimraf');
+
+
+var corinthia = require('./corinthiaProcess');
 
 var server = express();
 
@@ -58,30 +62,35 @@ server.use(logger('dev'));
 // server.use(bodyParser.urlencoded());
 // server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
+server.use(bodyParser.json());
 
 server.use('/', routes);
 
 server.use('/doc/output/*', function(req, res, next) {
-    filein = path.basename(req.originalUrl);
-    odfFile = path.join('public/input', filein);
-    console.log("Edit " + filein + " " + odfFile);
-    runcorinthia(filein, res, 'p');
+    corinthia.get(req, res);
 });
 
 server.use('/doc/delete/*', function(req, res, next) {
+    // should manage this in the Corinthia file..
+    
     filein = path.basename(req.originalUrl);
     odfFile = path.join('public/input', filein);
     console.log("Delete " + filein + " " + odfFile);
     fs.unlinkSync(odfFile);
-    //do we need to get rid of the corresponding html files too?
-    //would be cleaner
-    var outfile = 'public/app/output/' + filein + '.html';
+    //do we need to get rid of the corresponding data and html files too?
+    //rimraf package manages this
+    rimraf('public/app/data/' + filein, function(err) {
+        if (err) {
+            console.log(err);
+        }
+    });
+/*    var outfile = 'public/app/data/' + filein + '/' + filein + '.html';
     if(fs.existsSync(outfile)) {
          console.log(outfile + ' exists so deleting');
          fs.unlinkSync(outfile); //delete any existing
-    }
-    getDocs();
-    res.redirect('../../app/index.html');
+    }*/
+    corinthia.getDocs();
+    res.redirect('../../app/index.html'); //not needed already on that page.
     res.end();
 });
 
@@ -95,11 +104,10 @@ server.get('/app', function(req, res, next) {
     next(err);
 });
 
-server.post('/process', function(req, res) {
+server.post('/submit', function(req, res) {
     var bb = new Busboy({
         headers : req.headers
     });
-
 
     bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
         console.log("Filename " + filename + " field " + fieldname);
@@ -114,32 +122,16 @@ server.post('/process', function(req, res) {
       });
 
     bb.on('finish', function() {
-            console.log("File steamed to " + odfFile);
-            runcorinthia(filein, res, 'p');
+            console.log("File streamed to " + odfFile);
+            corinthia.get(filein, res, 'submit');
     });
 
     req.pipe(bb);
 });
 
-server.post('/app/edit/*', function(req, res) {
-    var bb = new Busboy({
-        headers : req.headers
-    }); 
-    filein = path.basename(req.url);
-    console.log('so file is ' + filein);
-
-    bb.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
-        console.log('Field [' + fieldname + ']: value: ' + inspect(val));
-        odfFile = path.join('public/input',(val));
-        filein = val;
-      });
-
-    bb.on('finish', function() {
-            console.log("Edit " + odfFile);
-            runcorinthia(filein, res, 'p');
-    });
-
-    req.pipe(bb);
+server.post('/app/edit', function(req, res) {
+    corinthia.get(path.basename(req.body.name), res, 'edit');
+    console.log('Edit post completed');
 });
 
 server.post('/corput', function(req, res) {
@@ -163,7 +155,7 @@ server.post('/corput', function(req, res) {
 
         bb.on('finish', function() {
            console.log('corput done');
-           runcorinthiaPut(res, doc);
+           corinthia.put(res, doc);
         });
 
         req.pipe(bb);
@@ -223,111 +215,5 @@ server.use(function(err, req, res, next) {
     });
 });
 
-
-var runcorinthia = function(filein, res, doc) {
-    var errmsg;
-    console.log('process ' + process.cwd() + ' odfFile ' + odfFile);
-    var outfile = 'public/app/output/' + filein + '.html';
-    fs.exists(outfile, function(exists)  {
-        if(exists) {
-            console.log(outfile + ' exists so deleting');
-            fs.unlinkSync(outfile); //delete any existing
-        }
-        var cmdArgs = ['get'];
-        cmdArgs.push(odfFile);
-        cmdArgs.push(outfile);
-        console.log('Do the Corinthia ' + odfFile + ' to ' + outfile);
-        ls = spawn('../../build/bin/dfconvert', cmdArgs);
-
-        ls.stdout.on('data', function (data) {
-            console.log('stdout: ' + data);
-        });
-
-        ls.stderr.on('data', function (data) {
-            console.log('stderr: ' + data);
-            errmsg = data;
-        });
-
-        ls.on('close', function (code) {
-            console.log('child process exited with code ' + code);
-            if(code == 0) {
-                console.log('redirect to ' + outfile);
-                res.redirect('../../app/output/'+filein+'.html');
-                if(fs.existsSync('abstract.json')) {
-                    fs.renameSync('abstract.json', 'public/app/output/abstract.json');
-                    fs.renameSync('concrete.json', 'public/app/output/concrete.json');
-                } else {
-                    console.log("Unable to find abstract.json\n");
-                }
-                getDocs();
-            } else {
-            res.render('error', {message: 'input/' + filein});
-            }
-            res.end();
-        });
-    });
-}
-
-var runcorinthiaPut = function(res, doc) {
-    console.log('Corinthia Put ');
-    var errmsg;
-
-    //need to take the doc and write it to a file on disk
-    var outfile = 'public/app/output/' + filein + '.html';
-    var fd = fs.openSync(outfile, 'w');
-    fs.writeSync(fd, doc);
-    fs.closeSync(fd);
-
-    var cmdArgs = ['put'];
-    cmdArgs.push(odfFile);
-    cmdArgs.push(outfile);
-    console.log('Do the Corinthia ' + odfFile + ' put ' + outfile);
-//    console.log(cmdArgs);
-    ls = spawn('../../build/bin/dfconvert', cmdArgs);
-
-    ls.stdout.on('data', function (data) {
-        console.log('stdout: ' + data);
-    });
-
-    ls.stderr.on('data', function (data) {
-        console.log('stderr: ' + data);
-        errmsg = data;
-    });
-
-    ls.on('close', function (code) {
-        console.log('child process exited with code ' + code + ' from ' + odfFile);
-        if(code == 0) {
-            res.redirect('../../app/index.html');
-            if(fs.existsSync('abstractPut.json')) {
-                fs.renameSync('abstractPut.json', 'public/app/output/abstractPut.json');
-                fs.renameSync('concretePut.json', 'public/app/output/concretePut.json');
-            } else {
-                console.log("Unable to find abstractPut.json\n");
-            }
-            getDocs();
-        }
-        else {
-            res.render('error', {message: 'input/' + filein});
-        }
-        res.end();
-    });
-}
-
-var getDocs = function() {
-    var filesData = {files:[]}
-    var filesArray = fs.readdirSync("public/input");
-    for(var i=0; i<filesArray.length; i++)
-    {
-        var stat = fs.statSync("public/input/" + filesArray[i]);
-        filesData.files[i] = {};
-        filesData.files[i].name = filesArray[i];
-        var fdate = moment(stat.mtime);
-        filesData.files[i].mtime = fdate.format("YYYY-MM-DD hh:mm:ss");
-    }
-    var filesStr = JSON.stringify(filesData);
-    var fd = fs.openSync("public/app/docs.json", 'w');
-    fs.writeSync(fd, filesStr);
-    fs.closeSync(fd);
-}
 
 module.exports = server;

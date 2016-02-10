@@ -33,8 +33,8 @@ var corControllers = angular.module('corControllers');
 
 
 
-    corControllers.controller('corModeCtrl', ['$scope', '$routeParams', '$http', '$location',
-        function($scope, $routeParams, $http, $location) {
+    corControllers.controller('corModeCtrl', ['$scope', '$routeParams', '$http', '$window',
+        function($scope, $routeParams, $http, $window) {
             $http.get('docs.json').success(function(data) {
                  $scope.dirlist = data;
             });
@@ -44,23 +44,19 @@ var corControllers = angular.module('corControllers');
             $scope.upload = function() {
                 $fileUpload.upload($scope.files);
             };
-            $scope.editMe = function(file) {
-                //alert("Edit " + file);
-                $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-                $http.post('edit/' + file).success(function(data) {
-                    $scope.response = data;
-                }).error(function(data) {
-                    alert("post failed " + data);
-                });
-/*                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        $location.path('app/output/'+file+'.html');  
+            $scope.edit = function(file) {
+                $http({
+                    method: 'POST',
+                    url: 'edit',
+                    data: file
+                }).then(
+                    function onSuccess(response) {
+                        $window.location.href = response.data;
+                    }, 
+                    function onError(response) {
+                        $scope.myWelcome = response.statusText;
                     }
-                }
-                xhttp.open("POST", "edit/", true);
-                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhttp.send("fname="+file);*/
+                );
             }
         }]);
 

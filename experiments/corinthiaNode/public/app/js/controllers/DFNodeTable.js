@@ -35,7 +35,7 @@ corControllers.controller('DFNodePathsCtrl', ['$scope', '$routeParams', '$http',
           function($scope, $routeParams, $http,  d3Service) {
 
             $scope.modeIn = $routeParams.mode;
-            $scope.doc = $routeParams.dfName;
+            $scope.doc = $routeParams.dfName + '/' + $routeParams.jsonName;
             $scope.mode = "To be set";
             $scope.numpaths = "To be set";
             $scope.maxdepth = "To be set";
@@ -66,7 +66,7 @@ corControllers.controller('DFNodePathsCtrl', ['$scope', '$routeParams', '$http',
                             .attr("transform", "translate(40,60)");
 
                 //just hard code for the moment
-                var jsonfile = "output/" + $scope.doc;
+                var jsonfile = "data/" + $scope.doc;
 
                 d3.json(jsonfile, function(json) {
                     json.x0 = 0;

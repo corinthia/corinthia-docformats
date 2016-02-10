@@ -35,7 +35,7 @@ corApp.config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.when('/cor', {
             templateUrl : 'partials/cor-mode.html',
             controller : 'corModeCtrl'
-        }).when('/paths/:dfName', {
+        }).when('/paths/:dfName/:jsonName', {
             templateUrl : 'partials/dfpaths.html',
             controller : 'DFNodePathsCtrl'
         }).when('/input', {

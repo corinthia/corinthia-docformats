@@ -6,7 +6,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-2">
-			<form action="/process" enctype="multipart/form-data" method="post">
+			<form action="/submit" enctype="multipart/form-data" method="post">
 				<div class="panel panel-success">
 					<div class="panel-heading">Selection</div>
 					<div class="panel-body" ng-switch="mode">
@@ -18,7 +18,7 @@
 									accept="application/vnd.oasis.opendocument.text"></input>
 							</div>
 						</div>
-						<input type="submit" name="submit" class="btn btn-danger " value="Submit" ng-enabled="mode=='Aggregations'" >
+						<input type="submit" name="submit" class="btn btn-danger " value="Submit" >
 					</div>
 				</div>
 			</form>

@@ -32,8 +32,8 @@
 var odfeControllers = angular.module('corControllers');
 
 
-corControllers.controller('corInputCtrl', ['$scope', '$routeParams', '$http',
-    function($scope, $routeParams, $http) {
+corControllers.controller('corInputCtrl', ['$scope', '$routeParams', '$http', '$location',
+    function($scope, $routeParams, $http, $location) {
 	$scope.mode = "Singles";
 	$scope.depth = "all";
 	$scope.angFiles = [];
@@ -61,4 +61,5 @@ corControllers.controller('corInputCtrl', ['$scope', '$routeParams', '$http',
       var retval = false;
       return retval;
     };
+
 }]);

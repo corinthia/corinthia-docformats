@@ -40,7 +40,13 @@ corControllers.service('$fileUpload', ['$http', function($http) {
 			formData.append('file_'+i, files[i]);
 		}
 		console.log(formData);
-		$http({method: 'POST', url: '/api/files', data: formData, headers: {'Content-Type': undefined}, transformRequest: angular.identity})
+		$http({
+            method: 'POST', 
+            url: '/api/files', 
+            data: formData, 
+            headers: {'Content-Type': undefined},
+            transformRequest: angular.identity
+        })
 		.success(function(data, status, headers, config) {
 
 		});

@@ -21,17 +21,37 @@
                         <tr>
                                 <th>Document</th>
                                 <th>Last Modified</th>
+                                <th>Orignal</th>
+                                <th>Original HTML</th>
+                                <th>Edited HTML</th>
+                                <th>Edited</th>
                                 <th class= "text-center">Delete</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="file in dirlist.files " >
                                 <td>                        
-                                <a title="Edit" class="btn-xs btn-success" href="../doc/output/{{file.name}}"><span class="glyphicon glyphicon-edit" aria-hidden="false"></span></a>
+                                <a title="Edit" class="btn-xs btn-success" ng-click="edit(file)" href=""><span class="glyphicon glyphicon-edit" aria-hidden="false"></span></a>
                                 <a title="Download" class="btn-xs btn-info" href="../../input/{{file.name}}"><span class="glyphicon glyphicon-download" aria-hidden="false"></span></a>
                                 {{file.name}}
                                 </td>
                                 <td>{{file.mtime}}</td>
+                                <td>
+                                    <a title="Show JSON" class="btn-xs btn-warning" href="data/{{file.name}}/abstract.json" target="_blank">json</a>
+                                    <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{file.name}}/abstract.json" target="_blank">paths</a>
+                                </td>
+                                <td>
+                                    <a title="Show JSON" class="btn-xs btn-warning" href="data/{{file.name}}/concrete.json" target="_blank">json</a>
+                                    <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{file.name}}/concrete.json" target="_blank">paths</a>
+                                </td>
+                                <td>
+                                    <a title="Show JSON" class="btn-xs btn-warning" href="data/{{file.name}}/abstractPut.json" target="_blank">json</span></a>
+                                    <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{file.name}}/abstractPut.json" target="_blank">paths</a>
+                                </td>
+                                <td>
+                                    <a title="Show JSON" class="btn-xs btn-warning" href="data/{{file.name}}/concretePut.json" target="_blank">json</a>
+                                    <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{file.name}}/concretePut.json" target="_blank">paths</a>
+                                </td>
                                 <td class= "text-center">                        
                                 <a title="Delete" class="btn-xs btn-danger" href="../doc/delete/{{file.name}}"><span class="glyphicon glyphicon-remove" aria-hidden="false"></span></a>
                                 </td>
@@ -39,20 +59,6 @@
                         </tbody>
                 </table>
           </div>
-          <div class="row"><h2>Development Helpers</h2></div>
-                <div>
-                    <a title="Show JSON" class="btn-xs btn-warning" href="output/abstract.json" target="_blank">abstract get</a>
-                    <a title="Show JSON" class="btn-xs btn-warning" href="output/concrete.json" target="_blank">concrete get</a>
-                    <a title="Show JSON" class="btn-xs btn-warning" href="output/abstractPut.json" target="_blank">abstract put</span></a>
-                    <a title="Show JSON" class="btn-xs btn-warning" href="output/concretePut.json" target="_blank">concrete get</a>
-                </div>
-                <div>
-                    <a title="Show JSON" class="btn-xs btn-info" href="#paths/abstract.json" target="_blank">abstract get paths</a>
-                    <a title="Show JSON" class="btn-xs btn-info" href="#paths/concrete.json" target="_blank">concrete get paths</a>
-                    <a title="Show JSON" class="btn-xs btn-info" href="#paths/abstractPut.json" target="_blank">abstract put paths</a>
-                    <a title="Show JSON" class="btn-xs btn-info" href="#paths/concretePut.json" target="_blank">concrete put paths</a>
-                </div>
-           </div>
 		</div>
 	</div>
 </div>
