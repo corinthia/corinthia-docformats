@@ -41,6 +41,7 @@ corControllers.controller('DFNodePathsCtrl', ['$scope', '$routeParams', '$http',
             $scope.maxdepth = "To be set";
             $scope.mindepth = "To be set";
             $scope.avgdepth = "To be set";
+            
 
             d3Service.d3().then(function(d3) {
                 var w = 1800, h = 5000, i = 0, barHeight = 30, barWidth = w * .8, duration = 200, root;
@@ -50,6 +51,8 @@ corControllers.controller('DFNodePathsCtrl', ['$scope', '$routeParams', '$http',
                 var mode= null;
                 var hitsOnly = false;
                 var txt = null;
+                
+                var numPaths = 0;
 
                 var tree = d3.layout.tree().size([ h, 40 ]);
 
@@ -72,7 +75,14 @@ corControllers.controller('DFNodePathsCtrl', ['$scope', '$routeParams', '$http',
                     json.x0 = 0;
                     json.y0 = 0;
                     update(root = json);
-                });
+                    $scope.$apply(function() {
+                        $scope.mode = mode;
+                        $scope.numpaths = numPaths;
+                        $scope.maxdepth = root.maxDepth;
+                        $scope.mindepth = root.minDepth;
+                        $scope.avgdepth = root.avgDepth;
+                    });
+               });
 
                 var hitcolours = {
                     'originalCollapsed'    : 'red',
@@ -88,13 +98,6 @@ corControllers.controller('DFNodePathsCtrl', ['$scope', '$routeParams', '$http',
 
                 function update(source) {
                     mode = root.mode;
-                    $scope.$apply(function() {
-                        $scope.mode = mode;
-                        $scope.numpaths = root.numPaths;
-                        $scope.maxdepth = root.maxDepth;
-                        $scope.mindepth = root.minDepth;
-                        $scope.avgdepth = root.avgDepth;
-                    });
                     // Compute the flattened node list. TODO use d3.layout.hierarchy.
                     var nodes = tree.nodes(root);
 
@@ -132,6 +135,9 @@ corControllers.controller('DFNodePathsCtrl', ['$scope', '$routeParams', '$http',
                                     d.attributes.forEach(function(n) {
                                         txt += n.name + "=" + n.value +"\n";
                                     })
+                                }
+                                if(d.children == null) {
+                                    numPaths++;
                                 }
                                 return txt; 
                             });

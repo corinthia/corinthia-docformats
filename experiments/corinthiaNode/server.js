@@ -41,7 +41,7 @@ var routes = require('./routes/index');
 var Busboy = require('busboy');
 var inspect = require('util').inspect;
 var os = require('os');
-var fs = require('fs');
+var fs = require('fs-extra');
 var rimraf = require('rimraf');
 
 
@@ -94,7 +94,7 @@ server.use('/doc/delete/*', function(req, res, next) {
     res.end();
 });
 
-server.get('/', function(req, res, next) {
+server.get('/', function(req, res, next) {odfFile
     console.log("default url");
     res.redirect('/app');
 });
@@ -119,11 +119,23 @@ server.post('/submit', function(req, res) {
     bb.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
         console.log('Field [' + fieldname + ']: value: ' + inspect(val));
 
-      });
+    });
 
     bb.on('finish', function() {
-            console.log("File streamed to " + odfFile);
-            corinthia.get(filein, res, 'submit');
+        console.log("File streamed to " + odfFile);
+        fs.stat(odfFile, function(err, stat) {
+            if(err) {
+                console.log("To be sure to be sure failed: " + err);
+            } else {
+                console.log("have: " + inspect(stat));
+                corinthia.get(filein, res, 'submit');
+            }
+        });
+    });
+
+    bb.on('error', function(err) {
+            console.log("File stream error" + err);
+            //corinthia.get(filein, res, 'submit');
     });
 
     req.pipe(bb);

@@ -31,18 +31,18 @@
                         <tbody>
                         <tr ng-repeat="file in dirlist.files " >
                                 <td>                        
-                                <a title="Edit" class="btn-xs btn-success" ng-click="edit(file)" href=""><span class="glyphicon glyphicon-edit" aria-hidden="false"></span></a>
+                                    <a title="Edit" class="btn-xs btn-success" href="#edit/{{file.name}}"><span class="glyphicon glyphicon-edit" aria-hidden="false"></span></a>
                                 <a title="Download" class="btn-xs btn-info" href="../../input/{{file.name}}"><span class="glyphicon glyphicon-download" aria-hidden="false"></span></a>
                                 {{file.name}}
                                 </td>
                                 <td>{{file.mtime}}</td>
                                 <td>
-                                    <a title="Show JSON" class="btn-xs btn-warning" href="data/{{file.name}}/abstract.json" target="_blank">json</a>
-                                    <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{file.name}}/abstract.json" target="_blank">paths</a>
-                                </td>
-                                <td>
                                     <a title="Show JSON" class="btn-xs btn-warning" href="data/{{file.name}}/concrete.json" target="_blank">json</a>
                                     <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{file.name}}/concrete.json" target="_blank">paths</a>
+                                </td>
+                                <td>
+                                    <a title="Show JSON" class="btn-xs btn-warning" href="data/{{file.name}}/abstract.json" target="_blank">json</a>
+                                    <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{file.name}}/abstract.json" target="_blank">paths</a>
                                 </td>
                                 <td>
                                     <a title="Show JSON" class="btn-xs btn-warning" href="data/{{file.name}}/abstractPut.json" target="_blank">json</span></a>

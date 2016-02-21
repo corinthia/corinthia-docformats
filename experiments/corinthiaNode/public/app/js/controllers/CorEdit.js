@@ -33,16 +33,35 @@ var corControllers = angular.module('corControllers');
 
 
 
-    corControllers.controller('corModeCtrl', ['$scope', '$routeParams', '$http', '$window',
+    corControllers.controller('corEditCtrl', ['$scope', '$routeParams', '$http', '$window',
         function($scope, $routeParams, $http, $window) {
-            $http.get('docs.json').success(function(data) {
-                 $scope.dirlist = data;
-            });
 
             $scope.mode = $routeParams.mode;
-            $scope.notReady = true;
-            $scope.upload = function() {
-                $fileUpload.upload($scope.files);
-            };
+            $scope.docName = $routeParams.file;
+            //$scope.documentUrl = "data/" + $routeParams.file + "/" + $routeParams.file + ".html";
+            $scope.documentUrl = "";
+
+            init($scope.docName);
+
+            //should move this down to a service
+            function init(file) {
+                $http({
+                    method: 'POST',
+                    url: 'edit',
+                    data: {name: file}
+                }).then(
+                    function onSuccess(response) {
+                        $scope.$emit("Corintia.get");
+                    }, 
+                    function onError(response) {
+                        $scope.myWelcome = response.statusText;
+                    }
+                );
+            }
+
+            $scope.$on("Corintia.get", function(){
+                            $scope.documentUrl = "data/" + $routeParams.file + "/" + $routeParams.file + ".html";
+            });
+
         }]);
 
