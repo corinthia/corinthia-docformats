@@ -33,8 +33,8 @@ var corControllers = angular.module('corControllers');
 
 
 
-    corControllers.controller('corEditCtrl', ['$scope', '$routeParams', '$http', '$window',
-        function($scope, $routeParams, $http, $window) {
+    corControllers.controller('corEditCtrl', ['$scope', '$routeParams', '$http', '$document',
+        function($scope, $routeParams, $http, $document) {
 
             $scope.mode = $routeParams.mode;
             $scope.docName = $routeParams.file;
@@ -62,6 +62,32 @@ var corControllers = angular.module('corControllers');
             $scope.$on("Corintia.get", function(){
                             $scope.documentUrl = "data/" + $routeParams.file + "/" + $routeParams.file + ".html";
             });
+
+            $scope.insertX = function() {
+                //need to do this to the document in the iframe...
+
+                function deleteNeighbours(node)
+                {
+                    while (node.previousSibling != null)
+                        w.globalAPI.dom.deleteNode(node.previousSibling);
+                    while (node.nextSibling != null)
+                        w.globalAPI.dom.deleteNode(node.nextSibling);
+                }
+
+                var ef = $document[0].getElementById("editFrame");
+                var w = ef.contentWindow;
+                w.eval(allCode);
+                var d = w.document;
+                w.globalAPI.dom.assignNodeIds(d);
+                var b = d.getElementsByTagName("body")
+
+                var p = d.getElementsByTagName("P")[0];
+                deleteNeighbours(p);
+
+                w.globalAPI.selection.setEmptySelectionAt(b[0],0);
+
+                w.globalAPI.cursor.insertCharacter("X");
+            }
 
         }]);
 

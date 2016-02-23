@@ -1,21 +1,23 @@
 <!doctype html>
 <html lang="en" ng-app="corApp">
 <head>
-  <meta charset="utf-8">
-  <title>Corinthia Node</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/app.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/controllers/CorMode.js"></script>
-  <script src="js/controllers/CorInput.js"></script>
-  <script src="js/controllers/DFNodeTable.js"></script>
-  <script src="js/components/d3/d3.js/d3.controllers.js"></script>
-  <script src="js/components/d3/d3.js/d3-tip.js"></script>
+    <meta charset="utf-8">
+    <title>Corinthia Node</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>
+    <script src="js/editorHarness.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/controllers/CorMode.js"></script>
+    <script src="js/controllers/CorInput.js"></script>
+    <script src="js/controllers/CorEdit.js"></script>
+    <script src="js/controllers/DFNodeTable.js"></script>
+    <script src="js/components/d3/d3.js/d3.controllers.js"></script>
+    <script src="js/components/d3/d3.js/d3-tip.js"></script>
 </head>
-<body>
+<body onload="loadEditorApi()">
   <div ng-view></div>
 
 </body>

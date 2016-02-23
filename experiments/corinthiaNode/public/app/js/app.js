@@ -40,8 +40,11 @@ corApp.config([ '$routeProvider', function($routeProvider) {
             controller : 'DFNodePathsCtrl'
         }).when('/input', {
             templateUrl : 'partials/corinput.html',
-            controller : 'corInputCtrl'})
-            .otherwise({
+            controller : 'corInputCtrl'
+        }).when('/edit/:file', {
+            templateUrl : 'partials/coredit.html',
+            controller : 'corEditCtrl'
+        }).otherwise({
             redirectTo : '/cor'
         });
 } ]);
