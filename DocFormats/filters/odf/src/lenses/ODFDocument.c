@@ -77,7 +77,6 @@ static DFNode *ODFDocumentGet(ODFGetData *get, DFNode *concrete)
     DFNode *ODFBody = DFChildWithTag(concrete,OFFICE_BODY);
     if (ODFBody != NULL) {
         DFNode *htmlBody = ODFBodyLens.get(get,ODFBody);
-        DFSetAttribute(htmlBody, HTML_ONLOAD, "onload()");
         DFAppendChild(html,htmlBody);
     }
     return html;

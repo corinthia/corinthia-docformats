@@ -10,8 +10,9 @@ TAGS
 node_modules/
 bower_components/
 output/
-input/
+#input/
 nodeeditor/
+data/
 
 # Emacs
 *#*

@@ -1,19 +1,21 @@
 <div class="container-fluid">
-	<div class="jumbotron">
-		<h1>Corinthia Edit</h1>
-		<p>Document: {{docName}}</p>
-	</div>
-	<div class="row">
-		<div class="col-md-2">
-			<div>
-				<h2>Commands and stuff to be here </h2>
-                <a href="" ng-click="insertX()" class="btn btn-success" >InsertX</a>
-			</div>
-		</div>
-		<div class="col-md-8">
-			<!--Body content-->
-            <iframe id="editFrame" width="100%" height="600px" ng-src="{{documentUrl}}" ></iframe>
-          </div>
-		</div>
-	</div>
+    <div class="jumbotron">
+        <h1>Corinthia Edit - manual test</h1>
+        <h4>Will create an automated test page real soon now</h4>
+        <p>Document: {{docName}}</p>
+        <a href="" ng-click="saveDoc()" class="btn btn-danger">Save</a>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div>
+                <h2>Commands and stuff to be here </h2>
+                <a href="" ng-click="insertX()" class="btn btn-success">InsertX</a>
+                <a href="" ng-click="deleteX()" class="btn btn-success">DeleteX</a>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <!--Body content-->
+            <iframe id="editFrame" width="100%" height="600px" onload="contentLoaded()" ng-src="{{documentUrl}}"></iframe>
+        </div>
+    </div>
 </div>

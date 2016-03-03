@@ -1,6 +1,7 @@
 <div class="container-fluid">
 	<div class="jumbotron">
-		<h1>Corinthia Node</h1>
+        <h1>Corinthia Edit - manual test</h1>
+        <h4>Will create an automated test page real soon now</h4>
 		<p>Feed me your documents</p>
 	</div>
 	<div class="row">
@@ -30,7 +31,7 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="file in dirlist.files " >
-                                <td>                        
+                                <td>
                                     <a title="Edit" class="btn-xs btn-success" href="#edit/{{file.name}}"><span class="glyphicon glyphicon-edit" aria-hidden="false"></span></a>
                                 <a title="Download" class="btn-xs btn-info" href="../../input/{{file.name}}"><span class="glyphicon glyphicon-download" aria-hidden="false"></span></a>
                                 {{file.name}}
@@ -52,7 +53,7 @@
                                     <a title="Show JSON" class="btn-xs btn-warning" href="data/{{file.name}}/concretePut.json" target="_blank">json</a>
                                     <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{file.name}}/concretePut.json" target="_blank">paths</a>
                                 </td>
-                                <td class= "text-center">                        
+                                <td class= "text-center">
                                 <a title="Delete" class="btn-xs btn-danger" href="../doc/delete/{{file.name}}"><span class="glyphicon glyphicon-remove" aria-hidden="false"></span></a>
                                 </td>
                         </tr>

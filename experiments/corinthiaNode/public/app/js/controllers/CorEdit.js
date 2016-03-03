@@ -38,7 +38,6 @@ var corControllers = angular.module('corControllers');
 
             $scope.mode = $routeParams.mode;
             $scope.docName = $routeParams.file;
-            //$scope.documentUrl = "data/" + $routeParams.file + "/" + $routeParams.file + ".html";
             $scope.documentUrl = "";
 
             init($scope.docName);
@@ -52,7 +51,7 @@ var corControllers = angular.module('corControllers');
                 }).then(
                     function onSuccess(response) {
                         $scope.$emit("Corintia.get");
-                    }, 
+                    },
                     function onError(response) {
                         $scope.myWelcome = response.statusText;
                     }
@@ -60,34 +59,35 @@ var corControllers = angular.module('corControllers');
             }
 
             $scope.$on("Corintia.get", function(){
-                            $scope.documentUrl = "data/" + $routeParams.file + "/" + $routeParams.file + ".html";
+                $scope.documentUrl = "data/" + $routeParams.file + "/" + $routeParams.file + ".html";
             });
 
             $scope.insertX = function() {
-                //need to do this to the document in the iframe...
+                api.cursor.insertCharacter("X");
+            };
 
-                function deleteNeighbours(node)
-                {
-                    while (node.previousSibling != null)
-                        w.globalAPI.dom.deleteNode(node.previousSibling);
-                    while (node.nextSibling != null)
-                        w.globalAPI.dom.deleteNode(node.nextSibling);
-                }
+            $scope.deleteX = function() {
+                api.cursor.deleteCharacter();
+            };
 
+            $scope.saveDoc = function() {
                 var ef = $document[0].getElementById("editFrame");
                 var w = ef.contentWindow;
-                w.eval(allCode);
                 var d = w.document;
-                w.globalAPI.dom.assignNodeIds(d);
-                var b = d.getElementsByTagName("body")
-
-                var p = d.getElementsByTagName("P")[0];
-                deleteNeighbours(p);
-
-                w.globalAPI.selection.setEmptySelectionAt(b[0],0);
-
-                w.globalAPI.cursor.insertCharacter("X");
-            }
+                //var jdoc = JSON.stringify(d.documentElement.outerHTML);
+                //send document d to the server.
+                $http({
+                    method: 'POST',
+                    url: '/corput',
+                    data: {doc: d.documentElement.outerHTML}
+                }).then(
+                    function onSuccess(response) {
+                        $scope.$emit("Corintia.get");
+                    },
+                    function onError(response) {
+                        $scope.myWelcome = response.statusText;
+                    }
+                );
+            };
 
         }]);
-

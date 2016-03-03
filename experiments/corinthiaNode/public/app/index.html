@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" ng-app="corApp">
+
 <head>
     <meta charset="utf-8">
     <title>Corinthia Node</title>
@@ -7,7 +8,6 @@
     <link rel="stylesheet" href="css/app.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>
-    <script src="js/editorHarness.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/controllers/CorMode.js"></script>
@@ -16,9 +16,39 @@
     <script src="js/controllers/DFNodeTable.js"></script>
     <script src="js/components/d3/d3.js/d3.controllers.js"></script>
     <script src="js/components/d3/d3.js/d3-tip.js"></script>
-</head>
-<body onload="loadEditorApi()">
-  <div ng-view></div>
+    <script>
+        "use strict"; //TODO - export to its own js file
 
-</body>
+        var api;
+
+        function start(theAPI) {
+            api = theAPI;
+            console.log("in start");
+            api.main.init(768, 100, null);
+            api.cursor.moveToStartOfDocument();
+        }
+
+        function contentLoaded() {
+            console.log("Content loaded");
+
+            var iframe = document.getElementById("editFrame");
+            var requireScript = iframe.contentDocument.createElement("script");
+            requireScript.src = "require.js";
+            requireScript.setAttribute("src", "../../js/require.js");
+            requireScript.setAttribute("data-main", "../../js/iframe-code");
+            requireScript.addEventListener("load", function() {
+                console.log("require.js loaded in content iframe");
+                iframe.contentWindow.require(["editor/externalapi"], function(api) {
+                    console.log("** here");
+                    start(api);
+                });
+            });
+            iframe.contentDocument.body.appendChild(requireScript);
+        }
+    </script>
+
+    <body>
+        <div ng-view></div>
+    </body>
+
 </html>

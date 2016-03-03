@@ -58,9 +58,6 @@ server.set('view engine', 'jade');
 
 // server.use(favicon());
 server.use(logger('dev'));
-// server.use(bodyParser.json());
-// server.use(bodyParser.urlencoded());
-// server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
 server.use(bodyParser.json());
 
@@ -72,7 +69,7 @@ server.use('/doc/output/*', function(req, res, next) {
 
 server.use('/doc/delete/*', function(req, res, next) {
     // should manage this in the Corinthia file..
-    
+
     filein = path.basename(req.originalUrl);
     odfFile = path.join('public/input', filein);
     console.log("Delete " + filein + " " + odfFile);
@@ -84,17 +81,13 @@ server.use('/doc/delete/*', function(req, res, next) {
             console.log(err);
         }
     });
-/*    var outfile = 'public/app/data/' + filein + '/' + filein + '.html';
-    if(fs.existsSync(outfile)) {
-         console.log(outfile + ' exists so deleting');
-         fs.unlinkSync(outfile); //delete any existing
-    }*/
     corinthia.getDocs();
     res.redirect('../../app/index.html'); //not needed already on that page.
     res.end();
 });
 
-server.get('/', function(req, res, next) {odfFile
+server.get('/', function(req, res, next) {
+    odfFile
     console.log("default url");
     res.redirect('/app');
 });
@@ -106,13 +99,13 @@ server.get('/app', function(req, res, next) {
 
 server.post('/submit', function(req, res) {
     var bb = new Busboy({
-        headers : req.headers
+        headers: req.headers
     });
 
     bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
         console.log("Filename " + filename + " field " + fieldname);
         filein = path.basename(filename);
-        odfFile = path.join('public/input',path.basename(filename));
+        odfFile = path.join('public/input', path.basename(filename));
         file.pipe(fs.createWriteStream(odfFile));
     });
 
@@ -124,7 +117,7 @@ server.post('/submit', function(req, res) {
     bb.on('finish', function() {
         console.log("File streamed to " + odfFile);
         fs.stat(odfFile, function(err, stat) {
-            if(err) {
+            if (err) {
                 console.log("To be sure to be sure failed: " + err);
             } else {
                 console.log("have: " + inspect(stat));
@@ -134,8 +127,8 @@ server.post('/submit', function(req, res) {
     });
 
     bb.on('error', function(err) {
-            console.log("File stream error" + err);
-            //corinthia.get(filein, res, 'submit');
+        console.log("File stream error" + err);
+        //corinthia.get(filein, res, 'submit');
     });
 
     req.pipe(bb);
@@ -147,49 +140,31 @@ server.post('/app/edit', function(req, res) {
 });
 
 server.post('/corput', function(req, res) {
-        console.log("received corput post");
-        var bb = new Busboy({
-                headers : req.headers
-        });
-
-        var doc;
-
-        bb.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
-//          console.log('Field ' + fieldname + ': value: ' + inspect(val));
-
-          switch(fieldname){
-            case 'htmldata':
- //               console.log('corput document ' + val);
-                doc = val;
-            break;
-          };
-        });
-
-        bb.on('finish', function() {
-           console.log('corput done');
-           corinthia.put(res, doc);
-        });
-
-        req.pipe(bb);
+    console.log("received corput post");
+    if (req.body == null) {
+        res.send("No Data");
+    } else {
+        corinthia.put(res, req.body.doc);
+    }
 });
 
 server.post('/help', function(req, res) {
-        console.log("received help post");
-        var bb = new Busboy({
-                headers : req.headers
-        });
+    console.log("received help post");
+    var bb = new Busboy({
+        headers: req.headers
+    });
 
-        var doc = "";
-        var extract = "";
-        bb.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
-          console.log('Field ' + fieldname + ': value: ' + inspect(val));
+    var doc = "";
+    var extract = "";
+    bb.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
+        console.log('Field ' + fieldname + ': value: ' + inspect(val));
 
-        });
+    });
 
-        bb.on('finish', function() {
+    bb.on('finish', function() {
 
-        });
-        req.pipe(bb);
+    });
+    req.pipe(bb);
 });
 
 
@@ -207,25 +182,23 @@ server.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (server.get('env') === 'development') {
-    server.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
+server.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: err
     });
-}
+});
 
 // production error handler
 // no stacktraces leaked to user
-server.use(function(err, req, res, next) {
+/*server.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
         error: {}
     });
-});
+});*/
 
 
 module.exports = server;
