@@ -45,6 +45,39 @@
             });
             iframe.contentDocument.body.appendChild(requireScript);
         }
+
+        function cleanup() {
+            console.log("remove scripts");
+            var iframe = document.getElementById("editFrame");
+            //only one of these but ...
+            var bodyscripts = iframe.contentDocument.body.getElementsByTagName("script");
+            if(bodyscripts.length > 1)
+                console.log("More than one script in the body");
+            else {
+                iframe.contentDocument.body.removeChild(bodyscripts[0])
+            }
+            var headscripts = iframe.contentDocument.head.getElementsByTagName("script");
+            console.log("number of headscripts " + headscripts.length);
+            while(headscripts.length > 0) {
+                iframe.contentDocument.head.removeChild(headscripts[0]);
+            }
+            //We added viewport metadata
+            var metas = iframe.contentDocument.head.getElementsByTagName("meta");
+            var removedCount = 0;
+            var ndx = 0;
+            while(ndx < metas.length && removedCount < 2) {
+                if(metas[ndx].hasAttribute("name")) {
+                    if(metas[ndx].getAttribute("name").toLowerCase() == "viewport") {
+                        iframe.contentDocument.head.removeChild(metas[ndx]);
+                        //don't increment the ndx if removed because length changes
+                    } else {
+                        ndx++;
+                    };
+                } else {
+                    ndx++;
+                }
+            }
+        }
     </script>
 
     <body>

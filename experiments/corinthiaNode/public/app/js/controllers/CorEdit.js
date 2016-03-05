@@ -71,6 +71,7 @@ var corControllers = angular.module('corControllers');
             };
 
             $scope.saveDoc = function() {
+                cleanup();
                 var ef = $document[0].getElementById("editFrame");
                 var w = ef.contentWindow;
                 var d = w.document;
