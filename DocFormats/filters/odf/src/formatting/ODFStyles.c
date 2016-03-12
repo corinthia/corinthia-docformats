@@ -24,7 +24,7 @@
 #include "DFCommon.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "text/color.c"
+#include "text/color.h"
 #include "text/gbg_test.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
