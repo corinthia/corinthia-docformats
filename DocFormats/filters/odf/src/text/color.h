@@ -25,7 +25,6 @@
 #define MAGENTA ""
 #define CYAN    ""
 #define RESET   ""
-#define COLOR_SIZEOF 0
 //
 #else // let's light the X-mas tree!
 //
@@ -36,7 +35,6 @@
 #define MAGENTA "\x1b[35m"
 #define CYAN    "\x1b[36m"
 #define RESET   "\x1b[0m"
-#define COLOR_SIZEOF 8
 #endif // COLOR_ON
 
 

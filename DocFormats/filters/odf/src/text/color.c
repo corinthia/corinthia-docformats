@@ -16,6 +16,8 @@
 // limitations under the License.
 
 #include "color.h"
+#include "DFPlatform.h"
+#include "DFString.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,14 +26,10 @@ char *show_color(char *color, const char* str)
 {
     char *r;
     if (COLOR_ON) {
-        size_t len = strlen (str) + 2 * COLOR_SIZEOF + 1;
-        r = malloc(len);
-        snprintf (r, len, "%s%s%s", color, str, RESET);
+        r = DFFormatString("%s%s%s", color, str, RESET);
     }
     else {
-        size_t len = strlen (str) + 1;
-        r = malloc(len);
-        snprintf (r, len, "%s",  str);
+        r = strdup(str);
     }
 
     return r;
