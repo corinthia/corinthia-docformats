@@ -70,7 +70,7 @@ static void buildListMapFromHTML(WordPutData *put, DFNode *node)
         //Don't know what this CONV_LISTNUM is
         const char *htmlId = DFGetAttribute(node,CONV_LISTNUM);
         if(htmlId != NULL) {
-            printf(CYAN "ID %s\n", htmlId, RESET);
+            printf(CYAN "ID %s %s\n", htmlId, RESET);
             DFNode *conElem = (htmlId != NULL) ? WordConverterGetConcrete(put,node) : NULL;
 /*            DFNode *pPrElem = (conElem != NULL) ? DFChildWithTag(conElem,WORD_PPR) : NULL;
             DFNode *numPrElem = (pPrElem != NULL) ? DFChildWithTag(pPrElem,WORD_NUMPR) : NULL;
@@ -177,7 +177,7 @@ DFNode *ODFConverterGetConcrete(ODFPutData *put, DFNode *abstract)
     }
     trace_node_info(abstract, 0);
     const char *idStr = DFGetAttribute(abstract,HTML_ID);
-    printf(CYAN "HTML id %s\n", idStr, RESET);
+    printf(CYAN "HTML id %s %s\n", idStr, RESET);
     if ((idStr == NULL) || !DFStringHasPrefix(idStr,put->conv->idPrefix)) {
         printf(RED "ID was NULL?\n" RESET);
         return NULL;
@@ -203,7 +203,7 @@ DFNode *ODFConverterGetConcrete(ODFPutData *put, DFNode *abstract)
     while ((pos < idLen) && (idStr[pos] >= '0') && (idStr[pos] <= '9'))
         seqNo = seqNo*10 + (idStr[pos++] - '0');
 
-    printf(CYAN "build seq no %d\n", seqNo, RESET);
+    printf(CYAN "build seq no %d %s\n", seqNo, RESET);
 
     const char *docName = NULL;
     if ((pos < idLen) && (idStr[pos] == '-')) {
@@ -212,7 +212,7 @@ DFNode *ODFConverterGetConcrete(ODFPutData *put, DFNode *abstract)
     }
 
     if(docName != NULL) {
-        printf(CYAN "docName %s\n", docName, RESET);
+        printf(CYAN "docName %s %s\n", docName, RESET);
     } else {
         printf(CYAN "No docName \n" RESET);
     }
