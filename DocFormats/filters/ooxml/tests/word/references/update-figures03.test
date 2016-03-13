@@ -44,7 +44,7 @@ ooxml.word.put
       <w:pPr>
         <w:pStyle w:val="Caption"/>
       </w:pPr>
-      <w:bookmarkStart w:id="0" w:name="uxwrite0"/>
+      <w:bookmarkStart w:id="0" w:name="corinthia0"/>
       <w:r>
         <w:t xml:space="preserve">Figure </w:t>
       </w:r>
@@ -61,7 +61,7 @@ ooxml.word.put
       <w:r>
         <w:t xml:space="preserve">Entire caption: </w:t>
       </w:r>
-      <w:fldSimple w:instr=" REF uxwrite0 \h "/>
+      <w:fldSimple w:instr=" REF corinthia0 \h "/>
     </w:p>
     <w:sectPr>
       <w:pgSz w:h="16840" w:w="11900"/>
@@ -99,7 +99,7 @@ ooxml.word.put
       </figcaption>
     </figure>
     <p class="Normal" id="word41">
-      <span id="word42">Entire caption: </span><a class="uxwrite-ref-text" href="#word3" id="word45"></a>
+      <span id="word42">Entire caption: </span><a class="corinthia-ref-text" href="#word3" id="word45"></a>
     </p>
   </body>
 </html>
@@ -155,7 +155,7 @@ ooxml.word.put
       <w:pPr>
         <w:pStyle w:val="Caption"/>
       </w:pPr>
-      <w:bookmarkStart w:id="0" w:name="uxwrite0"/>
+      <w:bookmarkStart w:id="0" w:name="corinthia0"/>
       <w:r>
         <w:t xml:space="preserve">Figure </w:t>
       </w:r>
@@ -172,7 +172,7 @@ ooxml.word.put
       <w:r>
         <w:t xml:space="preserve">Entire caption: </w:t>
       </w:r>
-      <w:fldSimple w:instr=" REF uxwrite0 \h "/>
+      <w:fldSimple w:instr=" REF corinthia0 \h "/>
     </w:p>
     <w:sectPr>
       <w:pgSz w:h="16840" w:w="11900"/>

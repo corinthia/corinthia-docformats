@@ -6,7 +6,7 @@ core.html.normalize
   <meta charset="utf-8">
 </head>
 <body>
-  <b>one<span class="uxwrite-foo"></span>two</b>
+  <b>one<span class="corinthia-foo"></span>two</b>
 </body>
 </html>
 #item expected
@@ -17,7 +17,7 @@ core.html.normalize
   </head>
   <body>
     <p>
-      <span style="font-weight: bold">one<span class="uxwrite-foo"></span>two</span>
+      <span style="font-weight: bold">one<span class="corinthia-foo"></span>two</span>
     </p>
   </body>
 </html>

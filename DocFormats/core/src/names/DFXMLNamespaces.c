@@ -79,6 +79,6 @@ const NamespaceDecl PredefinedNamespaces[PREDEFINED_NAMESPACE_COUNT] = {
     { "http://schemas.openxmlformats.org/package/2006/content-types", "ct" },
     { "http://www.uxproductivity.com/schemaview", "sv" },
     { "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0", "mf" },
-    { "http://www.uxproductivity.com/uxwrite/conversion", "conv" },
-    { "http://www.uxproductivity.com/uxwrite/LaTeX", "latex" },
+    { "http://www.uxproductivity.com/corinthia/conversion", "conv" },
+    { "http://www.uxproductivity.com/corinthia/LaTeX", "latex" },
 };

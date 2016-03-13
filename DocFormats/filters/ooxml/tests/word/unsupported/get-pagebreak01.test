@@ -45,7 +45,7 @@ ooxml.word.get
       <span id="word4">Before</span>
     </p>
     <p class="Normal" id="word7">
-      <span id="word8"><span class="uxwrite-placeholder" id="word9">[Page break]</span></span>
+      <span id="word8"><span class="corinthia-placeholder" id="word9">[Page break]</span></span>
     </p>
     <p class="Normal" id="word10">
       <span id="word11">After</span>

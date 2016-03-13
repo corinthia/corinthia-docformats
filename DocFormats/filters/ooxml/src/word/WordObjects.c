@@ -160,7 +160,7 @@ struct WordBookmark *WordObjectsAddBookmarkWithId(WordObjects *objects, const ch
 static char *createBookmarkName(WordObjects *objects)
 {
     while (1) {
-        char *nameStr = DFFormatString("uxwrite%d",objects->nextBookmarkNameNum);
+        char *nameStr = DFFormatString("corinthia%d",objects->nextBookmarkNameNum);
         if (DFHashTableLookup(objects->bookmarksByName,nameStr) == NULL)
             return nameStr;
         objects->nextBookmarkNameNum++;

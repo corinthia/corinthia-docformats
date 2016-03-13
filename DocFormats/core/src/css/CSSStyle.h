@@ -88,7 +88,7 @@
  ## Style inheritance
 
  To support working with documents in formats like docx and ODF, which support style inheritance, we
- use the special `-uxwrite-parent` CSS property to record the base selector of the parent style, if
+ use the special `-corinthia-parent` CSS property to record the base selector of the parent style, if
  any. This should not be set directly, however, as some characters in the style name may not be
  valid in CSS values. Instead, the parent value is stored as a quoted string, according to the
  escaping rules defined in the CSS specification. You should always use CSSStyleCopyParent() and
@@ -106,9 +106,9 @@
  typical for heading styles to specify "Normal" as the next style, so when a user types in a heading
  and presses enter, the program adds a normal paragraph, instead of another heading.
 
- As with parent styles, we use a special property to record this, `-uxwrite-next`. The UX Write
+ As with parent styles, we use a special property to record this, `-corinthia-next`. The UX Write
  editing code knows about this property, and uses it to determine what style to associate with
- newly-created paragraphs after enter is pressed. As with the `-uxwrite-parent` property, this
+ newly-created paragraphs after enter is pressed. As with the `-corinthia-parent` property, this
  needs to be quoted, and you should always use CSSStyleCopyNext() and CSSStyleSetNext() to access it.
 
  @see CSSSheet.h

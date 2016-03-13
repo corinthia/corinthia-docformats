@@ -121,30 +121,30 @@ body {
 }
 
 p.Custom1 {
-    -uxwrite-display-name: "Custom1";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Custom1";
+    -corinthia-parent: "p.Normal";
     color: #0000FF;
 }
 
 p.Custom2 {
-    -uxwrite-display-name: "Custom2";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Custom2";
+    -corinthia-parent: "p.Normal";
     color: #FF0000;
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {

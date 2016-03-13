@@ -40,7 +40,7 @@ ooxml.word.get
   </head>
   <body id="word2">
     <p class="Normal" id="word3" style="text-align: justify">
-      <span class="uxwrite-container" id="word6"><span class="uxwrite-container" id="word7"><span id="word8">Ajmer</span></span></span><span id="word11"> Singh Randhawa</span>
+      <span class="corinthia-container" id="word6"><span class="corinthia-container" id="word7"><span id="word8">Ajmer</span></span></span><span id="word11"> Singh Randhawa</span>
     </p>
   </body>
 </html>

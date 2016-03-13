@@ -31,7 +31,7 @@ figcaption::before {
 }
 
 figure {
-    -uxwrite-display-name: "Figure";
+    -corinthia-display-name: "Figure";
     margin-bottom: 12pt;
     margin-left: auto;
     margin-right: auto;
@@ -40,18 +40,18 @@ figure {
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {

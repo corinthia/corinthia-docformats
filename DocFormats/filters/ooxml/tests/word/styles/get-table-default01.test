@@ -318,18 +318,18 @@ body {
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 table.Custom1 {
-    -uxwrite-display-name: "Custom1";
-    -uxwrite-parent: "table.Normal_Table";
+    -corinthia-display-name: "Custom1";
+    -corinthia-parent: "table.Normal_Table";
     border: thin solid #0000FF;
 }
 
@@ -342,8 +342,8 @@ table.Custom1 > * > tr > td {
 }
 
 table.Custom2 {
-    -uxwrite-display-name: "Custom2";
-    -uxwrite-parent: "table.Normal_Table";
+    -corinthia-display-name: "Custom2";
+    -corinthia-parent: "table.Normal_Table";
     border: thin solid #FF0000;
 }
 
@@ -356,8 +356,8 @@ table.Custom2 > * > tr > td {
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {
@@ -368,8 +368,8 @@ table.Normal_Table > * > tr > td {
 }
 
 table.Table_Grid {
-    -uxwrite-display-name: "Table Grid";
-    -uxwrite-parent: "table.Normal_Table";
+    -corinthia-display-name: "Table Grid";
+    -corinthia-parent: "table.Normal_Table";
     border: thin solid black;
 }
 

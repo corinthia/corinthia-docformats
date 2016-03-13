@@ -40,7 +40,7 @@ ooxml.word.put
   </head>
   <body id="word2">
     <p class="Normal" id="word3">
-      <span id="word4">Before<span class="uxwrite-placeholder" id="word8">[Column break]</span></span>
+      <span id="word4">Before<span class="corinthia-placeholder" id="word8">[Column break]</span></span>
     </p>
     <p class="Normal" id="word9">
       <span id="word10">After</span>

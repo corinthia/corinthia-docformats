@@ -11,7 +11,7 @@ ooxml.word.create
   </head>
   <body>
     <p class="Normal">
-      A<span class="uxwrite-tab"></span>B<span class="uxwrite-tab"></span>C<span class="uxwrite-tab"></span>D
+      A<span class="corinthia-tab"></span>B<span class="corinthia-tab"></span>C<span class="corinthia-tab"></span>D
     </p>
   </body>
 </html>

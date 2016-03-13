@@ -50,7 +50,7 @@ ooxml.word.put
       <span id="word4">Embedded equation</span>
     </p>
     <figure id="word7">
-      <span id="word8"><span class="uxwrite-placeholder" id="word11">[Unsupported object: Equation.3]</span></span>
+      <span id="word8"><span class="corinthia-placeholder" id="word11">[Unsupported object: Equation.3]</span></span>
     </figure>
     <p class="Normal" id="word15">
       <br/>

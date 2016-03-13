@@ -280,16 +280,16 @@ body {
 }
 
 h1.First_1 {
-    -uxwrite-display-name: "First 1";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "First 1";
+    -corinthia-parent: "p.Normal";
     color: #FF0000;
     margin-bottom: 0;
     margin-top: 0;
 }
 
 h1.Second_1 {
-    -uxwrite-display-name: "Second 1";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Second 1";
+    -corinthia-parent: "p.Normal";
     color: #FF0000;
     font-weight: bold;
     margin-bottom: 0;
@@ -297,8 +297,8 @@ h1.Second_1 {
 }
 
 h1.Third_1 {
-    -uxwrite-display-name: "Third 1";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Third 1";
+    -corinthia-parent: "p.Normal";
     color: #FF0000;
     font-style: italic;
     margin-bottom: 0;
@@ -306,16 +306,16 @@ h1.Third_1 {
 }
 
 h2.First_2 {
-    -uxwrite-display-name: "First 2";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "First 2";
+    -corinthia-parent: "p.Normal";
     color: #FF00FF;
     margin-bottom: 0;
     margin-top: 0;
 }
 
 h2.Second_2 {
-    -uxwrite-display-name: "Second 2";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Second 2";
+    -corinthia-parent: "p.Normal";
     color: #FF00FF;
     font-weight: bold;
     margin-bottom: 0;
@@ -323,8 +323,8 @@ h2.Second_2 {
 }
 
 h2.Third_2 {
-    -uxwrite-display-name: "Third 2";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Third 2";
+    -corinthia-parent: "p.Normal";
     color: #FF00FF;
     font-style: italic;
     margin-bottom: 0;
@@ -332,16 +332,16 @@ h2.Third_2 {
 }
 
 h3.First_3 {
-    -uxwrite-display-name: "First 3";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "First 3";
+    -corinthia-parent: "p.Normal";
     color: #0000FF;
     margin-bottom: 0;
     margin-top: 0;
 }
 
 h3.Second_3 {
-    -uxwrite-display-name: "Second 3";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Second 3";
+    -corinthia-parent: "p.Normal";
     color: #0000FF;
     font-weight: bold;
     margin-bottom: 0;
@@ -349,8 +349,8 @@ h3.Second_3 {
 }
 
 h3.Third_3 {
-    -uxwrite-display-name: "Third 3";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Third 3";
+    -corinthia-parent: "p.Normal";
     color: #0000FF;
     font-style: italic;
     margin-bottom: 0;
@@ -358,34 +358,34 @@ h3.Third_3 {
 }
 
 p.Document_Map {
-    -uxwrite-display-name: "Document Map";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Document Map";
+    -corinthia-parent: "p.Normal";
     font-family: "Lucida Grande";
     margin-bottom: 0;
     margin-top: 0;
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
     margin-bottom: 0;
     margin-top: 0;
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 span.Document_Map_Char {
-    -uxwrite-display-name: "Document Map Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Document Map Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     font-family: "Lucida Grande";
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {

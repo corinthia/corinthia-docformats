@@ -258,24 +258,24 @@ body {
 }
 
 p.List_Paragraph {
-    -uxwrite-display-name: "List Paragraph";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "List Paragraph";
+    -corinthia-parent: "p.Normal";
     -word-margin-left: 8.674699%;
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {

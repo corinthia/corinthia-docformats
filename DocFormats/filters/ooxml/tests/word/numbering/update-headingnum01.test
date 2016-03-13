@@ -372,9 +372,9 @@ ooxml.word.put
   }
 
   h1.heading_1 {
-    -uxwrite-display-name: "heading 1";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "heading 1";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     color: #345A8A;
     counter-increment: h1;
     counter-reset: h2 h3 h4 h5 h6;
@@ -384,8 +384,8 @@ ooxml.word.put
   }
 
   h1.heading_1Unnumbered {
-    -uxwrite-display-name: "Heading 1 (Unnumbered)";
-    -uxwrite-parent: "h1.heading_1";
+    -corinthia-display-name: "Heading 1 (Unnumbered)";
+    -corinthia-parent: "h1.heading_1";
     counter-increment: h1 0;
     counter-reset: null;
   }
@@ -399,9 +399,9 @@ ooxml.word.put
   }
 
   h2.heading_2 {
-    -uxwrite-display-name: "heading 2";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "heading 2";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     color: #4F81BD;
     counter-increment: h2;
     counter-reset: h3 h4 h5 h6;
@@ -411,8 +411,8 @@ ooxml.word.put
   }
 
   h2.heading_2Unnumbered {
-    -uxwrite-display-name: "Heading 2 (Unnumbered)";
-    -uxwrite-parent: "h2.heading_2";
+    -corinthia-display-name: "Heading 2 (Unnumbered)";
+    -corinthia-parent: "h2.heading_2";
     counter-increment: h2 0;
     counter-reset: null;
   }
@@ -422,9 +422,9 @@ ooxml.word.put
   }
 
   h3.heading_3 {
-    -uxwrite-display-name: "heading 3";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "heading 3";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     color: #4F81BD;
     counter-increment: h3;
     counter-reset: h4 h5 h6;
@@ -433,8 +433,8 @@ ooxml.word.put
   }
 
   h3.heading_3Unnumbered {
-    -uxwrite-display-name: "Heading 3 (Unnumbered)";
-    -uxwrite-parent: "h3.heading_3";
+    -corinthia-display-name: "Heading 3 (Unnumbered)";
+    -corinthia-parent: "h3.heading_3";
     counter-increment: h3 0;
     counter-reset: null;
   }
@@ -444,9 +444,9 @@ ooxml.word.put
   }
 
   h4.heading_4 {
-    -uxwrite-display-name: "heading 4";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "heading 4";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     color: #4F81BD;
     counter-increment: h4;
     counter-reset: h5 h6;
@@ -456,8 +456,8 @@ ooxml.word.put
   }
 
   h4.heading_4Unnumbered {
-    -uxwrite-display-name: "Heading 4 (Unnumbered)";
-    -uxwrite-parent: "h4.heading_4";
+    -corinthia-display-name: "Heading 4 (Unnumbered)";
+    -corinthia-parent: "h4.heading_4";
     counter-increment: h4 0;
     counter-reset: null;
   }
@@ -467,9 +467,9 @@ ooxml.word.put
   }
 
   h5.heading_5 {
-    -uxwrite-display-name: "heading 5";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "heading 5";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     color: #243F60;
     counter-increment: h5;
     counter-reset: h6;
@@ -477,8 +477,8 @@ ooxml.word.put
   }
 
   h5.heading_5Unnumbered {
-    -uxwrite-display-name: "Heading 5 (Unnumbered)";
-    -uxwrite-parent: "h5.heading_5";
+    -corinthia-display-name: "Heading 5 (Unnumbered)";
+    -corinthia-parent: "h5.heading_5";
     counter-increment: h5 0;
     counter-reset: null;
   }
@@ -488,9 +488,9 @@ ooxml.word.put
   }
 
   h6.heading_6 {
-    -uxwrite-display-name: "heading 6";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "heading 6";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     color: #243F60;
     counter-increment: h6;
     font-style: italic;
@@ -498,8 +498,8 @@ ooxml.word.put
   }
 
   h6.heading_6Unnumbered {
-    -uxwrite-display-name: "Heading 6 (Unnumbered)";
-    -uxwrite-parent: "h6.heading_6";
+    -corinthia-display-name: "Heading 6 (Unnumbered)";
+    -corinthia-parent: "h6.heading_6";
     counter-increment: h6 0;
     counter-reset: null;
   }
@@ -509,74 +509,74 @@ ooxml.word.put
   }
 
   p.Document_Map {
-    -uxwrite-display-name: "Document Map";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Document Map";
+    -corinthia-parent: "p.Normal";
     font-family: "Lucida Grande";
   }
 
   p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
   }
 
   span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
   }
 
   span.Document_Map_Char {
-    -uxwrite-display-name: "Document Map Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Document Map Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     font-family: "Lucida Grande";
   }
 
   span.Heading_1_Char {
-    -uxwrite-display-name: "Heading 1 Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Heading 1 Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     color: #345A8A;
     font-size: 16pt;
     font-weight: bold;
   }
 
   span.Heading_2_Char {
-    -uxwrite-display-name: "Heading 2 Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Heading 2 Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     color: #4F81BD;
     font-size: 13pt;
     font-weight: bold;
   }
 
   span.Heading_3_Char {
-    -uxwrite-display-name: "Heading 3 Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Heading 3 Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     color: #4F81BD;
     font-weight: bold;
   }
 
   span.Heading_4_Char {
-    -uxwrite-display-name: "Heading 4 Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Heading 4 Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     color: #4F81BD;
     font-style: italic;
     font-weight: bold;
   }
 
   span.Heading_5_Char {
-    -uxwrite-display-name: "Heading 5 Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Heading 5 Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     color: #243F60;
   }
 
   span.Heading_6_Char {
-    -uxwrite-display-name: "Heading 6 Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Heading 6 Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     color: #243F60;
     font-style: italic;
   }
 
   table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
   }
 
   table.Normal_Table > * > tr > td {

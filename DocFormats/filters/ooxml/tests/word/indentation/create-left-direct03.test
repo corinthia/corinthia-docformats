@@ -19,7 +19,7 @@ body {
 }
 
 p.Normal {
-    -uxwrite-default: true;
+    -corinthia-default: true;
     text-align: justify;
 }
    </style>
