@@ -45,6 +45,8 @@
 #endif // _MSC_VER
 #endif // ATTRIBUTE_FORMAT
 
+#include <stdint.h>
+
 typedef struct DFDirEntryList DFDirEntryList;
 
 struct DFDirEntryList {
@@ -70,12 +72,12 @@ void DFInitOnce(DFOnce *once, DFOnceFunction fun);
 
 // Zip functions
 typedef struct {
-    int   compressedSize;    // File size on disk
-    int   uncompressedSize;  // Real file size
-    int   compressionMethod; // Type of compression
-    long  offset;            // offset in file
-    long  crc32;             // copy from local header
-    char *fileName;          // filename zero terminated
+    uint32_t   compressedSize;   // File size on disk
+    uint32_t   uncompressedSize; // Real file size
+    int   compressionMethod;     // Type of compression
+    uint32_t  offset;            // offset in file
+    uint32_t  crc32;             // copy from local header
+    char *fileName;              // filename zero terminated
 } DFextZipDirEntry;
 typedef DFextZipDirEntry * DFextZipDirEntryP;
 typedef struct {
@@ -91,7 +93,7 @@ DFextZipHandleP DFextZipOpen(const char *zipFilename);
 DFextZipHandleP DFextZipCreate(const char *zipFilename);
 
 unsigned char     *DFextZipReadFile(DFextZipHandleP zipHandle, DFextZipDirEntryP zipEntry);
-DFextZipDirEntryP  DFextZipWriteFile(DFextZipHandleP zipHandle, const char *fileName, const void *buf, const int len);
+DFextZipDirEntryP  DFextZipWriteFile(DFextZipHandleP zipHandle, const char *fileName, const void *buf, const size_t len);
 
 void DFextZipClose(DFextZipHandleP zipHandle);
 
