@@ -49,14 +49,14 @@ static void removeSpecial(TidyDoc doc, TidyNode node)
     if (!tidyNodeIsText(node)) {
         ctmbstr cssClass = getAttrValue(node,TidyAttr_CLASS);
         if (cssClass != NULL) {
-            if (!strcmp(cssClass,"uxwrite-heading-number") ||
-                !strcmp(cssClass,"uxwrite-figure-number") ||
-                !strcmp(cssClass,"uxwrite-table-number") ||
-                !strcmp(cssClass,"uxwrite-autocorrect") ||
-                !strcmp(cssClass,"uxwrite-selection") ||
-                !strcmp(cssClass,"uxwrite-selection-highlight") ||
-                !strcmp(cssClass,"uxwrite-spelling") ||
-                !strcmp(cssClass,"uxwrite-match")) {
+            if (!strcmp(cssClass,"corinthia-heading-number") ||
+                !strcmp(cssClass,"corinthia-figure-number") ||
+                !strcmp(cssClass,"corinthia-table-number") ||
+                !strcmp(cssClass,"corinthia-autocorrect") ||
+                !strcmp(cssClass,"corinthia-selection") ||
+                !strcmp(cssClass,"corinthia-selection-highlight") ||
+                !strcmp(cssClass,"corinthia-spelling") ||
+                !strcmp(cssClass,"corinthia-match")) {
                 tidyDiscardContainer(doc,node);
                 return;
             }

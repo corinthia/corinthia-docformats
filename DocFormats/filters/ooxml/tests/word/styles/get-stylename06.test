@@ -102,24 +102,24 @@ body {
 }
 
 p.\1f61c \1f31f \1f34e {
-    -uxwrite-display-name: "😜🌟🍎";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "😜🌟🍎";
+    -corinthia-parent: "p.Normal";
     color: #0000FF;
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {

@@ -139,10 +139,10 @@ ooxml.word.get
       <span id="word40">Inner four</span>
     </h2>
     <p class="Normal" id="word43">
-      <span id="word44">Text reference to Inner one: </span><a class="uxwrite-ref-text" href="#word9" id="word81"></a>
+      <span id="word44">Text reference to Inner one: </span><a class="corinthia-ref-text" href="#word9" id="word81"></a>
     </p>
     <p class="Normal" id="word59">
-      <span id="word60">Text reference to Outer two: </span><a class="uxwrite-ref-text" href="#word23" id="word82"></a>
+      <span id="word60">Text reference to Outer two: </span><a class="corinthia-ref-text" href="#word23" id="word82"></a>
     </p>
   </body>
 </html>

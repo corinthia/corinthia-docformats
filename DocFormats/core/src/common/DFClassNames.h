@@ -20,17 +20,17 @@
 #define DFTableOfContentsClass  "tableofcontents"
 #define DFListOfFiguresClass    "listoffigures"
 #define DFListOfTablesClass     "listoftables"
-#define DFFieldClass            "uxwrite-field"
-#define DFBookmarkClass         "uxwrite-bookmark"
+#define DFFieldClass            "corinthia-field"
+#define DFBookmarkClass         "corinthia-bookmark"
 
-#define DFRefTextClass          "uxwrite-ref-text"
-#define DFRefLabelNumClass      "uxwrite-ref-label-num"
-#define DFRefCaptionTextClass   "uxwrite-ref-caption-text"
-#define DFRefDirectionClass     "uxwrite-ref-direction"
-#define DFRefNumClass           "uxwrite-ref-num"
+#define DFRefTextClass          "corinthia-ref-text"
+#define DFRefLabelNumClass      "corinthia-ref-label-num"
+#define DFRefCaptionTextClass   "corinthia-ref-caption-text"
+#define DFRefDirectionClass     "corinthia-ref-direction"
+#define DFRefNumClass           "corinthia-ref-num"
 
-#define DFTabClass              "uxwrite-tab"
-#define DFContainerClass        "uxwrite-container"
-#define DFPlaceholderClass      "uxwrite-placeholder"
+#define DFTabClass              "corinthia-tab"
+#define DFContainerClass        "corinthia-container"
+#define DFPlaceholderClass      "corinthia-placeholder"
 
 #define DFNbspChar              160

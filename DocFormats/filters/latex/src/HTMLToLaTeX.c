@@ -241,7 +241,7 @@ static void inlineToLaTeX(LaTeXConverter *conv, DFBuffer *output, DFNode *node)
             if (src != NULL) {
 
                 // Special case for logo image in user guide
-                if (!strcmp(src,"uxwrite-res:///logo.png"))
+                if (!strcmp(src,"corinthia-res:///logo.png"))
                     src = "logo.png";
 
                 // We don't yet have the graphicx package working in TeXKit, so instead we have to use the

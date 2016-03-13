@@ -124,7 +124,7 @@ CSSStyle *CSSSheetFlattenedStyle(CSSSheet *sheet, CSSStyle *orig)
             const char **allNames = CSSPropertiesCopyNames(origProperties);
             for (int nameIndex = 0; allNames[nameIndex]; nameIndex++) {
                 const char *name = allNames[nameIndex];
-                if (!strcmp(name,"-uxwrite-default") && (ancestor != orig))
+                if (!strcmp(name,"-corinthia-default") && (ancestor != orig))
                     continue;
                 if (CSSGet(collapsedProperties,name) == NULL)
                     CSSPut(collapsedProperties,name,CSSGet(origProperties,name));
@@ -378,7 +378,7 @@ static void updateFromRawCSSRules(CSSSheet *sheet, DFHashTable *rules)
         free(allNames);
 
         if (!strcmp(suffix,"")) {
-            const char *defaultVal = CSSGet(properties,"-uxwrite-default");
+            const char *defaultVal = CSSGet(properties,"-corinthia-default");
             if ((defaultVal != NULL) && DFStringEqualsCI(defaultVal,"true"))
                 CSSSheetSetDefaultStyle(sheet,style,StyleFamilyFromHTMLTag(style->tag));
         }

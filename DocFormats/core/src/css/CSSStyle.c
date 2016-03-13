@@ -121,40 +121,40 @@ int CSSStyleIsCustom(CSSStyle *style)
 
 char *CSSStyleCopyParent(CSSStyle *style)
 {
-    const char *quotedValue = CSSGet(CSSStyleRule(style),"-uxwrite-parent");
+    const char *quotedValue = CSSGet(CSSStyleRule(style),"-corinthia-parent");
     return DFUnquote(quotedValue);
 }
 
 void CSSStyleSetParent(CSSStyle *style, const char *newParent)
 {
     char *quotedParent = DFQuote(newParent);
-    CSSPut(CSSStyleRule(style),"-uxwrite-parent",quotedParent);
+    CSSPut(CSSStyleRule(style),"-corinthia-parent",quotedParent);
     free(quotedParent);
 }
 
 char *CSSStyleCopyNext(CSSStyle *style)
 {
-    const char *quotedValue = CSSGet(CSSStyleRule(style),"-uxwrite-next");
+    const char *quotedValue = CSSGet(CSSStyleRule(style),"-corinthia-next");
     return DFUnquote(quotedValue);
 }
 
 void CSSStyleSetNext(CSSStyle *style, const char *newNext)
 {
     char *quotedNext = DFQuote(newNext);
-    CSSPut(CSSStyleRule(style),"-uxwrite-next",quotedNext);
+    CSSPut(CSSStyleRule(style),"-corinthia-next",quotedNext);
     free(quotedNext);
 }
 
 char *CSSStyleCopyDisplayName(CSSStyle *style)
 {
-    const char *quotedValue = CSSGet(CSSStyleRule(style),"-uxwrite-display-name");
+    const char *quotedValue = CSSGet(CSSStyleRule(style),"-corinthia-display-name");
     return DFUnquote(quotedValue);
 }
 
 void CSSStyleSetDisplayName(CSSStyle *style, const char *newDisplayName)
 {
     char *quotedDisplayName = DFQuote(newDisplayName);
-    CSSPut(CSSStyleRule(style),"-uxwrite-display-name",quotedDisplayName);
+    CSSPut(CSSStyleRule(style),"-corinthia-display-name",quotedDisplayName);
     free(quotedDisplayName);
 }
 

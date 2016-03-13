@@ -7,8 +7,8 @@ core.html.normalize
 </head>
 <body>
   <p>
-    <span id="word1"><span class="uxwrite-foo"></span></span>
-    <span id="word2"><span class="uxwrite-foo"></span></span>
+    <span id="word1"><span class="corinthia-foo"></span></span>
+    <span id="word2"><span class="corinthia-foo"></span></span>
   </p>
 </body>
 </html>
@@ -20,7 +20,7 @@ core.html.normalize
   </head>
   <body>
     <p>
-      <span id="word1"><span class="uxwrite-foo"></span> </span><span id="word2"><span class="uxwrite-foo"></span></span>
+      <span id="word1"><span class="corinthia-foo"></span> </span><span id="word2"><span class="corinthia-foo"></span></span>
     </p>
   </body>
 </html>

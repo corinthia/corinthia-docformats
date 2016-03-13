@@ -328,10 +328,10 @@ ooxml.word.get
       </tr>
     </table>
     <p class="Normal" id="word147">
-      <span id="word148">Only caption text reference to first table: </span><a class="uxwrite-ref-caption-text" href="#word3" id="word189"></a>
+      <span id="word148">Only caption text reference to first table: </span><a class="corinthia-ref-caption-text" href="#word3" id="word189"></a>
     </p>
     <p class="Normal" id="word163">
-      <span id="word164">Only caption text reference to second table: </span><a class="uxwrite-ref-caption-text" href="#word54" id="word190"></a>
+      <span id="word164">Only caption text reference to second table: </span><a class="corinthia-ref-caption-text" href="#word54" id="word190"></a>
     </p>
   </body>
 </html>

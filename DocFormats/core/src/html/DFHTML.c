@@ -156,7 +156,7 @@ int HTML_isSpecialSpan(DFNode *node)
 {
     if (node->tag != HTML_SPAN)
         return 0;
-    return DFStringHasPrefix(DFGetAttribute(node,HTML_CLASS),"uxwrite-");
+    return DFStringHasPrefix(DFGetAttribute(node,HTML_CLASS),"corinthia-");
 }
 
 int HTML_isContentNode(DFNode *node)

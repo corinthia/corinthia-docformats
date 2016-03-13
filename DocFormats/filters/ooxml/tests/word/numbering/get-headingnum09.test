@@ -159,8 +159,8 @@ body {
 }
 
 h1.heading_1 {
-    -uxwrite-display-name: "heading 1";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 1";
+    -corinthia-next: "p.Normal";
     counter-increment: h1;
     counter-reset: h2 h3 h4 h5 h6;
     font-size: 24pt;
@@ -172,9 +172,9 @@ h1.heading_1::before, h1.Heading_1_\28 Custom1\29::before {
 }
 
 h1.Heading_1_\28 Custom1\29 {
-    -uxwrite-display-name: "Heading 1 (Custom1)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h1.heading_1";
+    -corinthia-display-name: "Heading 1 (Custom1)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h1.heading_1";
     color: #0000FF;
     counter-increment: h1;
     counter-reset: h2 h3 h4 h5 h6;
@@ -184,9 +184,9 @@ h1.Heading_1_\28 Custom1\29 {
 }
 
 h1.Heading_1_\28 Custom2\29 {
-    -uxwrite-display-name: "Heading 1 (Custom2)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h1.heading_1";
+    -corinthia-display-name: "Heading 1 (Custom2)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h1.heading_1";
     counter-increment: h1 0;
     counter-reset: null;
     font-size: 24pt;
@@ -198,9 +198,9 @@ h1.Heading_1_\28 Custom2\29::before, h1.Heading_1_\28 Custom3\29::before {
 }
 
 h1.Heading_1_\28 Custom3\29 {
-    -uxwrite-display-name: "Heading 1 (Custom3)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h1.heading_1";
+    -corinthia-display-name: "Heading 1 (Custom3)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h1.heading_1";
     color: #0000FF;
     counter-increment: h1 0;
     counter-reset: null;
@@ -210,18 +210,18 @@ h1.Heading_1_\28 Custom3\29 {
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {

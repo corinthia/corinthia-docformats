@@ -44,7 +44,7 @@ ooxml.word.get
       <w:pPr>
         <w:pStyle w:val="Caption"/>
       </w:pPr>
-      <w:bookmarkStart w:id="1" w:name="uxwrite1"/>
+      <w:bookmarkStart w:id="1" w:name="corinthia1"/>
       <w:r>
         <w:t xml:space="preserve">Figure </w:t>
       </w:r>
@@ -52,7 +52,7 @@ ooxml.word.get
       <w:r>
         <w:t xml:space="preserve">: </w:t>
       </w:r>
-      <w:bookmarkStart w:id="0" w:name="uxwrite0"/>
+      <w:bookmarkStart w:id="0" w:name="corinthia0"/>
       <w:r>
         <w:t>Test</w:t>
       </w:r>
@@ -63,13 +63,13 @@ ooxml.word.get
       <w:r>
         <w:t xml:space="preserve">Entire caption: </w:t>
       </w:r>
-      <w:fldSimple w:instr=" REF uxwrite1 \h "/>
+      <w:fldSimple w:instr=" REF corinthia1 \h "/>
     </w:p>
     <w:p>
       <w:r>
         <w:t xml:space="preserve">Caption text: </w:t>
       </w:r>
-      <w:fldSimple w:instr=" REF uxwrite0 \h "/>
+      <w:fldSimple w:instr=" REF corinthia0 \h "/>
     </w:p>
     <w:sectPr>
       <w:pgSz w:h="16840" w:w="11900"/>
@@ -107,10 +107,10 @@ ooxml.word.get
       </figcaption>
     </figure>
     <p class="Normal" id="word43">
-      <span id="word44">Entire caption: </span><a class="uxwrite-ref-text" href="#word3" id="word47"></a>
+      <span id="word44">Entire caption: </span><a class="corinthia-ref-text" href="#word3" id="word47"></a>
     </p>
     <p class="Normal" id="word48">
-      <span id="word49">Caption text: </span><a class="uxwrite-ref-caption-text" href="#word3" id="word52"></a>
+      <span id="word49">Caption text: </span><a class="corinthia-ref-caption-text" href="#word3" id="word52"></a>
     </p>
   </body>
 </html>

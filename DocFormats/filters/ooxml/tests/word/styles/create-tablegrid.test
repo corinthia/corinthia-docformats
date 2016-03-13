@@ -7,8 +7,8 @@ ooxml.word.create
 <style>
 
 table.Table_Grid {
-    -uxwrite-display-name: "Table Grid";
-    -uxwrite-parent: "table.Normal_Table";
+    -corinthia-display-name: "Table Grid";
+    -corinthia-parent: "table.Normal_Table";
     border: thin solid black;
 }
 

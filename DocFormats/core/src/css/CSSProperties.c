@@ -103,7 +103,7 @@ int CSSGetOverline(CSSProperties *properties)
 
 int CSSGetDefault(CSSProperties *properties)
 {
-    return DFStringEquals(CSSGet(properties,"-uxwrite-default"),"true");
+    return DFStringEquals(CSSGet(properties,"-corinthia-default"),"true");
 }
 
 void CSSSetBold(CSSProperties *properties, int value)
@@ -133,7 +133,7 @@ void CSSSetOverline(CSSProperties *properties, int value)
 
 void CSSSetDefault(CSSProperties *properties, int value)
 {
-    CSSPut(properties,"-uxwrite-default",value ? "true" : NULL);
+    CSSPut(properties,"-corinthia-default",value ? "true" : NULL);
 }
 
 void CSSPropertiesPrint(CSSProperties *properties, const char *indent)

@@ -337,10 +337,10 @@ ooxml.word.get
       </tr>
     </table>
     <p class="Normal" id="word141">
-      <span id="word142">Entire caption reference to first table: </span><a class="uxwrite-ref-text" href="#word3" id="word196"></a>
+      <span id="word142">Entire caption reference to first table: </span><a class="corinthia-ref-text" href="#word3" id="word196"></a>
     </p>
     <p class="Normal" id="word165">
-      <span id="word166">Entire caption reference to second table: </span><a class="uxwrite-ref-text" href="#word51" id="word197"></a>
+      <span id="word166">Entire caption reference to second table: </span><a class="corinthia-ref-text" href="#word51" id="word197"></a>
     </p>
   </body>
 </html>

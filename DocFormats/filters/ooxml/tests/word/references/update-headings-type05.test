@@ -161,13 +161,13 @@ ooxml.word.put
       <span id="word41">Inner four</span>
     </h2>
     <p class="Normal" id="word47">
-      <span id="word48">Reference of invalid type to Outer one: </span><a class="uxwrite-invalid" href="#word3" id="word99"></a>
+      <span id="word48">Reference of invalid type to Outer one: </span><a class="corinthia-invalid" href="#word3" id="word99"></a>
     </p>
     <p class="Normal" id="word63">
-      <span id="word64">Reference of invalid type to Inner three: </span><a class="uxwrite-invalid" href="#word29" id="word100"></a>
+      <span id="word64">Reference of invalid type to Inner three: </span><a class="corinthia-invalid" href="#word29" id="word100"></a>
     </p>
     <p class="Normal" id="word79">
-      <span id="word80">Reference of invalid type to Inner four: </span><a class="uxwrite-invalid" href="#word37" id="word101"></a>
+      <span id="word80">Reference of invalid type to Inner four: </span><a class="corinthia-invalid" href="#word37" id="word101"></a>
     </p>
   </body>
 </html>
