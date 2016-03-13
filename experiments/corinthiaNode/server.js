@@ -46,11 +46,14 @@ var rimraf = require('rimraf');
 
 
 var corinthia = require('./corinthiaProcess');
+var testRunner = require('./testRunner');
 
 var server = express();
 
 var odfFile = "";
 var filein = '';
+
+testRunner.getTests();
 
 // view engine setup
 // server.set('views', path.join(__dirname, 'views'));
@@ -199,6 +202,5 @@ server.use(function(err, req, res, next) {
         error: {}
     });
 });*/
-
 
 module.exports = server;

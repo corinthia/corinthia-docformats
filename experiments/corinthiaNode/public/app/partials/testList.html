@@ -1,0 +1,66 @@
+<!-- Main Test List -->
+<!-- User to select individual/goups/all tests to run -->
+<div class="container-fluid" ng-controller="CorinthiaTestCtrl as ct">
+    <div class="jumbotron">
+        <h1>Corinthia Automatic Tests</h1>
+        <a href="index.html" class="btn btn-warning">Manual Tests</a>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div>
+                <h3>Todo</h3>
+                <ul>
+                    <li>Correct links to test data - reorg directory management</li>
+                    <li>Add test checking mechanism</li>
+                    <li>Based on diff report from document trees</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-md-8">
+            <!--Body content-->
+            <div class="row">
+                <h2>Tests</h2></div>
+            <div class="row">
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Seed Doc</th>
+                            <th>Note</th>
+                            <th>Orignal</th>
+                            <th>Original HTML</th>
+                            <th>Edited HTML</th>
+                            <th>Edited</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="test in ct.testList " ng-class="ct.getTestClass(test.result)">
+                            <td>
+                                <a title="Run" class="btn-xs btn-danger" href="#test/{{test.name}}"><span class="glyphicon glyphicon-play" aria-hidden="false"></span></a> {{test.name}}
+                            </td>
+                            <td>{{test.seedDoc}}</td>
+                            <td>{{test.comment}}</td>
+                            <td>
+                                <a title="Show JSON" class="btn-xs btn-warning" href="data/{{test.name}}/concrete.json" target="_blank">json</a>
+                                <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{test.name}}/concrete.json" target="_blank">paths</a>
+                            </td>
+                            <td>
+                                <a title="Show JSON" class="btn-xs btn-warning" href="data/{{test.name}}/abstract.json" target="_blank">json</a>
+                                <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{test.name}}/abstract.json" target="_blank">paths</a>
+                            </td>
+                            <td>
+                                <a title="Show JSON" class="btn-xs btn-warning" href="data/{{test.name}}/abstractPut.json" target="_blank">json</span></a>
+                                <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{test.name}}/abstractPut.json" target="_blank">paths</a>
+                            </td>
+                            <td>
+                                <a title="Show JSON" class="btn-xs btn-warning" href="data/{{test.name}}/concretePut.json" target="_blank">json</a>
+                                <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{test.name}}/concretePut.json" target="_blank">paths</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
