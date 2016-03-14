@@ -32,6 +32,7 @@ set(LIBS )
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     find_library(FOUNDATION_LIBRARY Foundation)
     find_library(IMAGEIO_LIBRARY ImageIO)
+    set(INCLUDE_DIRS /usr/include/libxml2)
     set(LIBS ${LIBS} xml2 z ${FOUNDATION_LIBRARY} ${IMAGEIO_LIBRARY})
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 

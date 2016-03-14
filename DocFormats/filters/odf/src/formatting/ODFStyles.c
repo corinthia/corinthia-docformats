@@ -24,7 +24,7 @@
 #include "DFCommon.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "text/color.c"
+#include "text/color.h"
 #include "text/gbg_test.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,7 +46,7 @@
 static void styleTextPropsGet(DFNode *textProps, CSSSheet *styleSheet)
 {
     const char* styleName = DFGetAttribute(textProps->parent, STYLE_NAME);
-    printf(CYAN "Create CSS Properties for %s\n", styleName, RESET);
+    printf(CYAN "Create CSS Properties for %s %s\n", styleName, RESET);
     //if this is a heading? look for the TEXT_OUTLINE_LEVEL
     const char* outlevel = DFGetAttribute(textProps->parent, STYLE_DEFAULT_OUTLINE_LEVEL);
     CSSStyle* cssStyle = NULL;
@@ -117,7 +117,7 @@ static void styleTextPropsGet(DFNode *textProps, CSSSheet *styleSheet)
                     CSSPut(localproperties,"text-decoration-style", textProps->attrs[i].value);
                 }
                 default: {
-                    printf(RED "Ignored text properties attrbute %s:%s\n", translateXMLEnumName[t], textProps->attrs[i].value, RESET);
+                    printf(RED "Ignored text properties attrbute %s:%s %s\n", translateXMLEnumName[t], textProps->attrs[i].value, RESET);
                     break;
                 }
             }
@@ -143,7 +143,7 @@ static void styleStyleGet(DFNode *styleStyleNode, CSSSheet *styleSheet)
                 break;
             }
             default: {
-                printf(RED "Ignoring Style:Style element %s\n", translateXMLEnumName[styleStylChildNode->tag], RESET);
+                printf(RED "Ignoring Style:Style element %s %s\n", translateXMLEnumName[styleStylChildNode->tag], RESET);
             }
         }
     }
@@ -166,7 +166,7 @@ static void OfficeStylesGet(DFNode *officStyles, CSSSheet *styleSheet)
             }
             default:
             {
-                printf(RED "Ignoring Office:Style element %s\n", translateXMLEnumName[officStylesNode->tag], RESET);
+                printf(RED "Ignoring Office:Style element %s %s\n", translateXMLEnumName[officStylesNode->tag], RESET);
             }
         }
     }

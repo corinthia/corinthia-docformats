@@ -48,6 +48,7 @@
 #include "DFString.h"
 #include "DFCharacterSet.h"
 #include "DFCommon.h"
+#include "ProductionCoverage.h"
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
