@@ -27,7 +27,7 @@ limitations under the License.
 */
 
 var express = require('express');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -90,7 +90,6 @@ server.use('/doc/delete/*', function(req, res, next) {
 });
 
 server.get('/', function(req, res, next) {
-    odfFile
     console.log("default url");
     res.redirect('/app');
 });
@@ -142,9 +141,64 @@ server.post('/app/edit', function(req, res) {
     console.log('Edit post completed');
 });
 
+// Setup the test by getting the seed document
+// and converting it to abstract HTML
+// and return the url of the abstract
+server.post('/app/seedtest', function(req, res) {
+    var seedDoc = req.body.seedDoc;
+    var test = req.body.test;
+
+    var concrete = testRunner.getConcrete(seedDoc, test);
+    var abstract = testRunner.getAbstract(seedDoc, test);
+    console.log('seedtest ' + concrete + ' to ' + abstract);
+    testRunner.setup(seedDoc, concrete, abstract);
+    corinthia.run('get', concrete, abstract)
+        .then(function(result) {
+            console.log(result);
+            testRunner.moveGauges('get', test);
+            res.send(abstract);
+            console.log('Seed test completed');
+        })
+        .catch(function(err) {
+            console.log(err);
+            res.send("Seed Failed");
+        })
+        .done();
+    //res.send("Blah");
+});
+
+// Take the HTML in the post and replace the abstract HTML
+// Update the original document
+// save the gauges etc
+//
+// Leave the test verification to another stage.
+server.post('/app/save', function(req, res) {
+    console.log('save ' + inspect(req.body));
+    var abstractContent = req.body.abstractHTML;
+    var documentName = req.body.documentName;
+    var test = req.body.test;
+
+    var concrete = testRunner.getConcrete(documentName, test);
+    var abstract = testRunner.getAbstract(documentName, test);
+    console.log('save test ' + concrete + ' from ' + abstract);
+
+    testRunner.replaceAbstract(test, abstract, abstractContent);
+    corinthia.run('put', concrete, abstract)
+        .then(function(result) {
+            testRunner.moveGauges('put', test);
+            res.send("Saved");
+            console.log('Saved test document');
+        })
+        .catch(function(err) {
+            console.log(err);
+            res.send("Save Failed");
+        })
+        .done();
+});
+
 server.post('/corput', function(req, res) {
     console.log("received corput post");
-    if (req.body == null) {
+    if (req.body === null) {
         res.send("No Data");
     } else {
         corinthia.put(res, req.body.doc);

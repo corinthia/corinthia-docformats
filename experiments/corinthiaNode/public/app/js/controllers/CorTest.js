@@ -25,9 +25,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict';
 
 (function() {
+    'use strict';
     angular
         .module('corTest')
         .controller('CorinthiaTestCtrl', CorinthiaTestCtrl);
@@ -44,11 +44,13 @@
 
         init();
 
+        ///// functions
+
         function init() {
             return getTests().then(function() {
                 $log.info("Tests Received");
             });
-        };
+        }
 
         function getTests() {
             return testsService.getTests($scope)
@@ -59,8 +61,8 @@
         }
 
         function getTestClass(passed) {
-            if(passed != null) {
-                return passed == true ? "success" : "danger";
+            if(passed !== null) {
+                return passed === true ? "success" : "danger";
             } else {
                 return "info";
             }

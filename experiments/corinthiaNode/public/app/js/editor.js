@@ -29,12 +29,17 @@
 "use strict";
 
 var api;
+var autosave = true;
 
 function start(theAPI) {
     api = theAPI;
     console.log("in start");
     api.main.init(768, 100, null);
-    performTest(api);
+    autoEdit(api);
+    //can we switch on a testcase variable
+    if(autosave) {
+        angular.element(document.getElementById('TestDiv')).scope().autoSaveDoc();
+    }
 }
 
 function contentLoaded() {

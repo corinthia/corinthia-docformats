@@ -1,8 +1,0 @@
-{
-    "name": "giveMeABetterName",
-    "seedDoc": "HelloWorld2P.odt",
-    "expected": "Blah de blah",
-    "comment": "First test case to play with",
-    "result": null,
-    "lastrun": "somedate"
-}

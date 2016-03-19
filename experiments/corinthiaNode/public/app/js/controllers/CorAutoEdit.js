@@ -25,18 +25,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict';
 
-/* Controllers */
+(function() {
+    'use strict';
 
-var testControllers = angular.module('corTest');
+    angular
+        .module('corTest')
+        .controller('CorAutoEditCtrl', CorAutoEditCtrl);
 
-testControllers.controller('corAutoEditCtrl', ['$scope', '$routeParams', '$http', '$document', '$location',
-    function($scope, $routeParams, $http, $document, $location) {
+    CorAutoEditCtrl.$inject = ['$scope', '$routeParams', '$http', '$document', '$location', '$log', 'testsService'];
 
-        $scope.testName = $routeParams.test;
-        $scope.documentUrl = "";
+    /* @ngInject */
+    function CorAutoEditCtrl($scope, $routeParams, $http, $document, $location, $log, testsService) {
+        var vm = this;
+        vm.testName = $routeParams.test;
+        vm.documentUrl = "";
+        vm.testData = {};
 
+        $scope.autoSaveDoc = autoSaveDoc;
+        vm.saveDoc = saveDoc;
 
         // We should/could go get the test definition file and then do the init - or document process thing...
         // Also the directory names may need to be flipped about to put the relevant test data into the test directory
@@ -48,74 +55,58 @@ testControllers.controller('corAutoEditCtrl', ['$scope', '$routeParams', '$http'
         testScript.setAttribute("src", "tests/" + $routeParams.test + "/runtest.js");
         docHead.appendChild(testScript);
 
-        getTest($scope.testName);
+        getTest(vm.testName);
 
-
-        //should move this down to a service
-        function getTest(test) {
-            $http({
-                method: "Get",
-                url: "tests/" + test + "/" + test + ".json",
-            }).then(
-                function onSuccess(response) {
-                    $scope.testData = response.data;
-                    $scope.$emit("Corintia.testData");
-                },
-                function onError(response) {
-                    $scope.myWelcome = response.statusText;
-                }
-            );
-        }
-        //should move this down to a service
-        function init(test, documentName) {
-            $http({
-                method: 'POST',
-                url: 'edit',
-                data: {
-                    name: documentName,
-                    dataDirectory: test
-                }
-            }).then(
-                function onSuccess(response) {
-                    $scope.$emit("Corintia.get");
-                },
-                function onError(response) {
-                    $scope.myWelcome = response.statusText;
-                }
-            );
+        function getTest(testName) {
+            var url = 'tests/' + testName + '/test.json';
+            testsService.getTest(url)
+                .then(function(testData) {
+                    vm.testData = testData;
+                    seed(vm.testName, vm.testData.seedDoc);
+                })
+                .catch(function(err) {
+                    $log.error(err);
+                }); //can we get this?
         }
 
-        $scope.$on("Corintia.testData", function() {
-            init($scope.testName, $scope.testData.seedDoc);
-        });
+        function seed(testName, documentName) {
+            var editdata = {
+                test: testName,
+                seedDoc: documentName
+            };
+            testsService.seed('seedtest', editdata)
+                .then(function(dochtml) {
+                    //set the documentUrl to trigger load
+                    //and cause the test to run
+                    vm.documentUrl = "tests/" + vm.testName + "/" + vm.testData.seedDoc + ".html";
+                })
+                .catch(function(err) {
+                    $log.error(err);
+                });
+        }
 
-        $scope.$on("Corintia.get", function() {
-            $scope.documentUrl = "data/" + $scope.testData.seedDoc + "/" + $scope.testData.seedDoc + ".html";
-        });
+        function autoSaveDoc() {
+            vm.saveDoc(vm.testData.name, vm.testData.seedDoc);
+        }
 
-        $scope.saveDoc = function() {
+        function saveDoc(testName, doc) {
             cleanup();
             var ef = $document[0].getElementById("editFrame");
             var w = ef.contentWindow;
             var d = w.document;
-            //var jdoc = JSON.stringify(d.documentElement.outerHTML);
             //send document d to the server.
-            $http({
-                method: 'POST',
-                url: '/corput',
-                data: {
-                    doc: d.documentElement.outerHTML
-                }
-            }).then(
-                function onSuccess(response) {
-                    $location.url("app/test.html")
-                },
-                function onError(response) {
-                    $scope.myWelcome = response.statusText;
-                }
-            );
+            var data = {
+                abstractHTML: d.documentElement.outerHTML,
+                documentName: doc,
+                test: testName
+            };
+            testsService.saveDoc(data)
+            .then(function(resp){
+                $location.url("app/test.html");
+            })
+            .catch(function(err) {
+                $log.error(err);
+            });
         }
-
-
     }
-]);
+})();

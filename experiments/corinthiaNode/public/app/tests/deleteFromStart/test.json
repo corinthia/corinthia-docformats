@@ -1,0 +1,8 @@
+{
+    "name": "deleteFromStart",
+    "seedDoc": "HelloWorld.odt",
+    "expected": "World",
+    "comment": "Verification later",
+    "result": null,
+    "lastrun": "somedate"
+}

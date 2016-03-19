@@ -26,9 +26,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict';
 
 (function() {
+    'use strict';
     angular
         .module('corTest')
         .config(configure);
@@ -38,13 +38,11 @@
     function configure($routeProvider) {
         $routeProvider.when('/list', {
             templateUrl: 'partials/testList.html',
-            controller: 'CorinthiaTestCtrl'
-                /*        }).when('/test/:test', {
-                            templateUrl: 'partials/testedit.html',
-                            controller : 'corAutoEditCtrl'
-                        }).when('/paths/:dfName/:jsonName', {
-                            templateUrl : 'partials/dfpaths.html',
-                            controller : 'DFNodePathsCtrl' */
+        }).when('/test/:test', {
+            templateUrl: 'partials/testedit.html'
+        }).when('/paths/:dfName/:jsonName', {
+            templateUrl: 'partials/dfpaths.html',
+            controller: 'DFNodePathsCtrl'
         }).otherwise({
             redirectTo: '/list'
         });

@@ -1,0 +1,8 @@
+{
+    "name": "insertAtStart",
+    "seedDoc": "HelloWorld.odt",
+    "expected": "ITSME added",
+    "comment": "Verification later",
+    "result": null,
+    "lastrun": "somedate"
+}

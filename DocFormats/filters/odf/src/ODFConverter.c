@@ -356,8 +356,8 @@ int ODFConverterPut(DFDocument *html, DFStorage *abstractStorage, ODFPackage *pa
     ODFDocumentLens.put(&put,converter->html->root,ODFDocument);
 
     //Let's see what we made at the end
-    writejson(put.contentDoc->root, "concretePut.json");
-    writejson(converter->html->root, "abstractPut.json");
+    writejson(put.contentDoc->root, "concrete.json");
+    writejson(converter->html->root, "abstract.json");
 
     //ODFObjectsExpandBookmarks(converter->objects);
     //ODFRemoveNbsps(converter->package->document);

@@ -11,9 +11,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict';
 
 (function() {
+    'use strict';
     angular
         .module('corTest')
         .factory('testsService', testsService);
@@ -23,12 +23,17 @@
     function testsService($http, $log) {
         var service = {
             testlist: [],
+            currentTest: {},
 
             //functions
-            getTests: getTests
+            getTests: getTests,
+            getTest: getTest,
+            seed: seed,
+            saveDoc: saveDoc
         };
         return service;
 
+        ////////////////
         function getTests($scope) {
             return $http.get('tests.json')
                 .then(listComplete)
@@ -41,6 +46,51 @@
 
         function errHandler(err) {
             $log.error(err);
+        }
+
+        ///////////////////////////
+        function getTest(from) {
+            return $http.get(from)
+                .then(testResponse)
+                .catch(testErr);
+        }
+        //should move this down to a service
+        function testResponse(response) {
+            service.currentTest = response.data;
+            return response.data;
+        }
+
+        function testErr(err) {
+            $log.error(err.statusText);
+        }
+
+        ///////////////////////////
+        function seed(url, data) {
+            return $http.post(url, data)
+                .then(seeded)
+                .catch(seedErr);
+        }
+
+        function seeded(res) {
+            return res.data;
+        }
+
+        function seedErr(err) {
+            $log.error(err);
+        }
+        ////////////////////////////////
+        function saveDoc(data) {
+            return $http.post('save', data)
+                .then(saved)
+                .catch(saveErr);
+        }
+
+        function saved(response) {
+            return response.data;
+        }
+
+        function saveErr(response) {
+            $log.error(response.statusText);
         }
     }
 })();
