@@ -1,8 +1,9 @@
 {
     "name": "deleteFromStart",
     "seedDoc": "HelloWorld.odt",
-    "expected": "World",
+    "expected": "Changed:\nnode: DOM_TEXT\nseq: 18\nfrom: Hello world\nto: world",
     "comment": "Verification later",
     "result": null,
-    "lastrun": "somedate"
+    "lastrun": "Fri Mar 25 2016 21:13:19 GMT+0800 (AWST)",
+    "passed": true
 }

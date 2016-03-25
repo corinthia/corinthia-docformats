@@ -186,6 +186,8 @@ server.post('/app/save', function(req, res) {
     corinthia.run('put', concrete, abstract)
         .then(function(result) {
             testRunner.moveGauges('put', test);
+            testRunner.verify(test, expect);
+            testRunner.getTests();
             res.send("Saved");
             console.log('Saved test document');
         })
@@ -256,5 +258,6 @@ server.use(function(err, req, res, next) {
         error: {}
     });
 });*/
+
 
 module.exports = server;

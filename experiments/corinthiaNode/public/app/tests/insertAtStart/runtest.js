@@ -4,5 +4,5 @@ function autoEdit(api) {
     api.cursor.insertCharacter("S");
     api.cursor.insertCharacter("M");
     api.cursor.insertCharacter("E");
-    api.cursor.insertCharacter(" ");
+    api.cursor.insertCharacter("_");
 }

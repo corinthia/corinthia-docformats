@@ -33,12 +33,13 @@ var autosave = true;
 
 function start(theAPI) {
     api = theAPI;
-    console.log("in start");
+    console.log("test start");
     api.main.init(768, 100, null);
     autoEdit(api);
     //can we switch on a testcase variable
     if(autosave) {
         angular.element(document.getElementById('TestDiv')).scope().autoSaveDoc();
+        console.log("test auto saved");
     }
 }
 

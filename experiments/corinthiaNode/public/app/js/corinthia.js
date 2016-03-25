@@ -1,7 +1,7 @@
 function onload() {
     //alert("Top of the world, ma");
     var heads = document.getElementsByTagName("head");
-    heads[0].innerHTML += '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">'
+    heads[0].innerHTML += '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">';
 
     var bods = document.getElementsByTagName("body");
 

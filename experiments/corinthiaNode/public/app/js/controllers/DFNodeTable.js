@@ -166,8 +166,11 @@
                             }
                             txt += "]";
                         }
-                        if (d.value)
+                        if (d.value) {
                             txt += " " + d.value;
+                        }
+                        if (d.diff)
+                            txt += " -> " + d.diff;
                         return txt;
                     });
 
@@ -265,6 +268,15 @@
             //here we can catch the node and figure out what its colour should be
             function color(d) {
                 var clr = "#3182bd";
+                if (d.state == "ORIGINAL") {
+                    clr = "lightpink";
+                } else if (d.state == "INST") {
+                    clr = "#3182bd";
+                } else if (d.state == "NEW") {
+                    clr = "#1CFF03";
+                } else if (d.state == "DIFF") {
+                    clr = "red";
+                }
                 return clr;
             }
 

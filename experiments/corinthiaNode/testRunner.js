@@ -27,8 +27,9 @@ limitations under the License.
 */
 
 var path = require('path');
-var logger = require('morgan');
-var moment = require('moment');
+var inspect = require('util').inspect;
+
+var differ = require('./differ');
 
 var os = require('os');
 var fse = require('fs-extra');
@@ -106,4 +107,35 @@ exports.getTests = function() {
     var fd = fse.openSync("public/app/tests.json", 'w');
     fse.writeSync(fd, testsStr);
     fse.closeSync(fd);
+};
+
+exports.writeMerged = function(test){
+    //did it pass? What was expected
+};
+
+// Should we round trip the expected or have the test runner get it from the json
+exports.verify = function(test, expected){
+    var mergedTree = differ.merge(TEST_DIR  + test + "/getconcrete.json", TEST_DIR  + test + "/putconcrete.json");
+    // save the tree so we can see it
+    var filesStr =  JSON.stringify(mergedTree);
+    var fd = fse.openSync(TEST_DIR  + test + "/merged.json", 'w');
+    fse.writeSync(fd, filesStr);
+    fse.closeSync(fd);
+
+    var diffreport = differ.reportChanges(mergedTree, TEST_DIR  + test + "/diff.txt");
+
+    var testObj = JSON.parse(fse.readFileSync(TEST_DIR + test + "/test.json", 'utf8'));
+    if(testObj.expected === diffreport) {
+        testObj.passed = true;
+    } else {
+        testObj.passed = false;
+        testObj.report = diffreport;
+    }
+    testObj.lastrun = Date().toString();
+
+    //update test.json
+    var testStr = JSON.stringify(testObj);
+    var testfd = fse.openSync(TEST_DIR + test + "/test.json", 'w');
+    fse.writeSync(testfd, testStr);
+    fse.closeSync(testfd);
 };

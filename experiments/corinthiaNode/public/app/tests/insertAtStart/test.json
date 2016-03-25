@@ -1,8 +1,8 @@
 {
     "name": "insertAtStart",
     "seedDoc": "HelloWorld.odt",
-    "expected": "ITSME added",
+    "expected": "Changed:\nnode: DOM_TEXT\nseq: 18\nfrom: Hello world\nto: ITSME_Hello world",
     "comment": "Verification later",
-    "result": null,
-    "lastrun": "somedate"
+    "passed": true,
+    "lastrun": "Fri Mar 25 2016 21:16:26 GMT+0800 (AWST)",
 }

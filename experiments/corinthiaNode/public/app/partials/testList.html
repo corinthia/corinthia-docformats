@@ -32,10 +32,11 @@
                             <th>Original HTML</th>
                             <th>Edited HTML</th>
                             <th>Edited</th>
+                            <th>Merged</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="test in ct.testList " ng-class="ct.getTestClass(test.result)">
+                        <tr ng-repeat="test in ct.testList " ng-class="ct.getTestClass(test.passed)">
                             <td>
                                 <a title="Run" class="btn-xs btn-danger" href="#test/{{test.name}}"><span class="glyphicon glyphicon-play" aria-hidden="false"></span></a> {{test.name}}
                             </td>
@@ -56,6 +57,10 @@
                             <td>
                                 <a title="Show JSON" class="btn-xs btn-warning" href="tests/{{test.name}}/putconcrete.json" target="_blank">json</a>
                                 <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{test.name}}/putconcrete.json" target="_blank">paths</a>
+                            </td>
+                            <td>
+                                <a title="Show JSON" class="btn-xs btn-warning" href="tests/{{test.name}}/merged.json" target="_blank">json</a>
+                                <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{test.name}}/merged.json" target="_blank">paths</a>
                             </td>
                         </tr>
                     </tbody>
