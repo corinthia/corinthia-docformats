@@ -129,7 +129,7 @@ exports.verify = function(test, expected){
         testObj.passed = true;
     } else {
         testObj.passed = false;
-        testObj.report = diffreport;
+        testObj.reported = diffreport;
     }
     testObj.lastrun = Date().toString();
 
