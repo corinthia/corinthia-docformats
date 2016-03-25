@@ -44,7 +44,7 @@ ooxml.word.put
   </head>
   <body id="word2">
     <p class="Normal" id="word3">
-      <span id="word4">A<span class="uxwrite-tab" id="word8"></span>B<span class="uxwrite-tab" id="word12"></span>C<span class="uxwrite-tab" id="word16"></span>D</span>
+      <span id="word4">A<span class="corinthia-tab" id="word8"></span>B<span class="corinthia-tab" id="word12"></span>C<span class="corinthia-tab" id="word16"></span>D</span>
     </p>
   </body>
 </html>

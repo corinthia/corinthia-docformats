@@ -95,13 +95,13 @@ ooxml.word.put
       <span id="word36">Inner four</span>
     </h2>
     <p>
-      New label reference to Outer one: <a href="#word3" class="uxwrite-ref-text">text</a>
+      New label reference to Outer one: <a href="#word3" class="corinthia-ref-text">text</a>
     </p>
     <p>
-      New label reference to Inner three: <a href="#word27" class="uxwrite-ref-text">text</a>
+      New label reference to Inner three: <a href="#word27" class="corinthia-ref-text">text</a>
     </p>
     <p>
-      New label reference to Inner four: <a href="#word33" class="uxwrite-ref-text">text</a>
+      New label reference to Inner four: <a href="#word33" class="corinthia-ref-text">text</a>
     </p>
   </body>
 </html>
@@ -114,7 +114,7 @@ ooxml.word.put
       <w:pPr>
         <w:pStyle w:val="Heading1"/>
       </w:pPr>
-      <w:bookmarkStart w:id="2" w:name="uxwrite1"/>
+      <w:bookmarkStart w:id="2" w:name="corinthia1"/>
       <w:r>
         <w:t>Outer one</w:t>
       </w:r>
@@ -148,7 +148,7 @@ ooxml.word.put
       <w:pPr>
         <w:pStyle w:val="Heading2"/>
       </w:pPr>
-      <w:bookmarkStart w:id="1" w:name="uxwrite0"/>
+      <w:bookmarkStart w:id="1" w:name="corinthia0"/>
       <w:r>
         <w:t>Inner three</w:t>
       </w:r>
@@ -158,7 +158,7 @@ ooxml.word.put
       <w:pPr>
         <w:pStyle w:val="Heading2"/>
       </w:pPr>
-      <w:bookmarkStart w:id="3" w:name="uxwrite2"/>
+      <w:bookmarkStart w:id="3" w:name="corinthia2"/>
       <w:r>
         <w:t>Inner four</w:t>
       </w:r>
@@ -170,19 +170,19 @@ ooxml.word.put
       <w:r>
         <w:t xml:space="preserve">New label reference to Outer one: </w:t>
       </w:r>
-      <w:fldSimple w:instr=" REF uxwrite1 \h "/>
+      <w:fldSimple w:instr=" REF corinthia1 \h "/>
     </w:p>
     <w:p>
       <w:r>
         <w:t xml:space="preserve">New label reference to Inner three: </w:t>
       </w:r>
-      <w:fldSimple w:instr=" REF uxwrite0 \h "/>
+      <w:fldSimple w:instr=" REF corinthia0 \h "/>
     </w:p>
     <w:p>
       <w:r>
         <w:t xml:space="preserve">New label reference to Inner four: </w:t>
       </w:r>
-      <w:fldSimple w:instr=" REF uxwrite2 \h "/>
+      <w:fldSimple w:instr=" REF corinthia2 \h "/>
     </w:p>
     <w:sectPr>
       <w:pgSz w:h="16840" w:w="11900"/>

@@ -130,10 +130,10 @@ ooxml.word.get
       <span id="word20">Inner two</span>
     </h2>
     <p class="Normal" id="word23">
-      <span id="word24">Above/below reference to Inner one: </span><a class="uxwrite-ref-direction" href="#word9" id="word81"></a>
+      <span id="word24">Above/below reference to Inner one: </span><a class="corinthia-ref-direction" href="#word9" id="word81"></a>
     </p>
     <p class="Normal" id="word39">
-      <span id="word40">Above/below reference to Outer two: </span><a class="uxwrite-ref-direction" href="#word57" id="word82"></a>
+      <span id="word40">Above/below reference to Outer two: </span><a class="corinthia-ref-direction" href="#word57" id="word82"></a>
     </p>
     <h1 class="heading_1" id="word57">
       <span id="word61">Outer two</span>

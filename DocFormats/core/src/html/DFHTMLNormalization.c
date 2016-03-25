@@ -431,7 +431,7 @@ static void normalizeInline(DFNode *source, DFNode *dest, CSSProperties *propert
                     free(*spanId);
                     *spanId = DFStrDup(thisId);
                 }
-                if (DFStringHasPrefix(nodeClass,"uxwrite-") && (container || (node->first == NULL))) {
+                if (DFStringHasPrefix(nodeClass,"corinthia-") && (container || (node->first == NULL))) {
                     normalizeInline(node,node,properties,depth+1,spanId,className);
 
                     if (!CSSPropertiesIsEmpty(properties) || (*spanId != NULL))

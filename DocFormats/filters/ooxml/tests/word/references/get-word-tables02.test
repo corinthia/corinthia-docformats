@@ -334,10 +334,10 @@ ooxml.word.get
       </tr>
     </table>
     <p class="Normal" id="word141">
-      <span id="word142">Only label and number reference to first table: </span><a class="uxwrite-ref-label-num" href="#word3" id="word193"></a>
+      <span id="word142">Only label and number reference to first table: </span><a class="corinthia-ref-label-num" href="#word3" id="word193"></a>
     </p>
     <p class="Normal" id="word162">
-      <span id="word163">Only label and number reference to second table: </span><a class="uxwrite-ref-label-num" href="#word51" id="word194"></a>
+      <span id="word163">Only label and number reference to second table: </span><a class="corinthia-ref-label-num" href="#word51" id="word194"></a>
     </p>
   </body>
 </html>

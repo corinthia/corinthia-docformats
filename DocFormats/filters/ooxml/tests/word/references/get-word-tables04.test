@@ -322,10 +322,10 @@ ooxml.word.get
       </tr>
     </table>
     <p class="Normal" id="word141">
-      <span id="word142">Above/below reference to first table: </span><a class="uxwrite-ref-direction" href="#word3" id="word183"></a>
+      <span id="word142">Above/below reference to first table: </span><a class="corinthia-ref-direction" href="#word3" id="word183"></a>
     </p>
     <p class="Normal" id="word157">
-      <span id="word158">Above/below reference to second table: </span><a class="uxwrite-ref-direction" href="#word51" id="word184"></a>
+      <span id="word158">Above/below reference to second table: </span><a class="corinthia-ref-direction" href="#word51" id="word184"></a>
     </p>
   </body>
 </html>

@@ -11,9 +11,9 @@ body {
 }
 
 caption {
-    -uxwrite-display-name: "caption";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "caption";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     color: #4F81BD;
     font-size: 9pt;
     font-weight: bold;
@@ -29,32 +29,32 @@ figcaption::before {
 }
 
 p.Balloon_Text {
-    -uxwrite-display-name: "Balloon Text";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Balloon Text";
+    -corinthia-parent: "p.Normal";
     font-family: "Lucida Grande";
     font-size: 9pt;
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
 }
 
 span.Balloon_Text_Char {
-    -uxwrite-display-name: "Balloon Text Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Balloon Text Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     font-family: "Lucida Grande";
     font-size: 9pt;
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {

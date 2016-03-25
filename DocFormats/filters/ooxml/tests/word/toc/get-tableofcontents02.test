@@ -709,9 +709,9 @@ body {
 }
 
 h1.heading_1 {
-    -uxwrite-display-name: "heading 1";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "heading 1";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     color: #345A8A;
     font-size: 16pt;
     font-weight: bold;
@@ -719,9 +719,9 @@ h1.heading_1 {
 }
 
 h2.heading_2 {
-    -uxwrite-display-name: "heading 2";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "heading 2";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     color: #4F81BD;
     font-size: 13pt;
     font-weight: bold;
@@ -729,108 +729,108 @@ h2.heading_2 {
 }
 
 p.Document_Map {
-    -uxwrite-display-name: "Document Map";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "Document Map";
+    -corinthia-parent: "p.Normal";
     font-family: "Lucida Grande";
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
 }
 
 p.toc_1 {
-    -uxwrite-display-name: "toc 1";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "toc 1";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
 }
 
 p.toc_2 {
-    -uxwrite-display-name: "toc 2";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "toc 2";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     margin-left: 2.891566%;
 }
 
 p.toc_3 {
-    -uxwrite-display-name: "toc 3";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "toc 3";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     margin-left: 5.783133%;
 }
 
 p.toc_4 {
-    -uxwrite-display-name: "toc 4";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "toc 4";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     margin-left: 8.674699%;
 }
 
 p.toc_5 {
-    -uxwrite-display-name: "toc 5";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "toc 5";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     margin-left: 11.566265%;
 }
 
 p.toc_6 {
-    -uxwrite-display-name: "toc 6";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "toc 6";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     margin-left: 14.457831%;
 }
 
 p.toc_7 {
-    -uxwrite-display-name: "toc 7";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "toc 7";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     margin-left: 17.349398%;
 }
 
 p.toc_8 {
-    -uxwrite-display-name: "toc 8";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "toc 8";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     margin-left: 20.240964%;
 }
 
 p.toc_9 {
-    -uxwrite-display-name: "toc 9";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "toc 9";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     margin-left: 23.13253%;
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 span.Document_Map_Char {
-    -uxwrite-display-name: "Document Map Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Document Map Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     font-family: "Lucida Grande";
 }
 
 span.Heading_1_Char {
-    -uxwrite-display-name: "Heading 1 Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Heading 1 Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     color: #345A8A;
     font-size: 16pt;
     font-weight: bold;
 }
 
 span.Heading_2_Char {
-    -uxwrite-display-name: "Heading 2 Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Heading 2 Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     color: #4F81BD;
     font-size: 13pt;
     font-weight: bold;
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {

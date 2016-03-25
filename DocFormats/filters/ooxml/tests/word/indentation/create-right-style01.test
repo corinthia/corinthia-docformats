@@ -19,18 +19,18 @@ body {
 }
 
 p.Indent {
-    -uxwrite-parent: "p.Normal";
+    -corinthia-parent: "p.Normal";
     margin-right: 10%;
     text-align: justify;
 }
 
 p.Normal {
-    -uxwrite-default: true;
+    -corinthia-default: true;
     text-align: justify;
 }
 
 span.Default_Paragraph_Font, table.Normal_Table {
-    -uxwrite-default: true;
+    -corinthia-default: true;
 }
 
 table.Normal_Table > * > tr > td {

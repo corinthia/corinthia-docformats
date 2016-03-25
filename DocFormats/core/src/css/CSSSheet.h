@@ -147,13 +147,13 @@ CSSStyle *CSSSheetLookupElement(CSSSheet *sheet, const char *elementName, const 
      }
 
      p.Two {
-         -uxwrite-parent: "p.One";
+         -corinthia-parent: "p.One";
          color: red;
          font-size: 14pt;
      }
 
      p.Three {
-         -uxwrite-parent: "p.Two";
+         -corinthia-parent: "p.Two";
          font-size: 18pt;
          font-style: italic;
      }
@@ -163,7 +163,7 @@ CSSStyle *CSSSheetLookupElement(CSSSheet *sheet, const char *elementName, const 
  ancestors):
 
      p.Three {
-         -uxwrite-parent: "p.Two";
+         -corinthia-parent: "p.Two";
          font-weight: bold;        // From p.One
          color: red;               // From p.Two
          font-size: 18pt;          // From p.Three (overriden)
@@ -173,7 +173,7 @@ CSSStyle *CSSSheetLookupElement(CSSSheet *sheet, const char *elementName, const 
  The fact that the properties have been flattened like this mean they will display as expected
  in a web browser (and UX Write itself, since it displays documents in the same way as a web
  browser). Without flattening, we would only have the `font-size` and `font-weight` properties
- defined; browsers don't know about the special `-uxwrite-parent` property and cannot infer that
+ defined; browsers don't know about the special `-corinthia-parent` property and cannot infer that
  the style is inherited.
 
  Unlike all other CSSSheet methods, the CSSStyle object returned by this function is newly
@@ -241,10 +241,10 @@ CSSStyle *CSSSheetGetStyleParent(CSSSheet *sheet, CSSStyle *style);
 /**
  Retrieve the parent of a given style, if it has one.
 
- The CSSStyle object itself records the parent's base selector name in the `-uxwrite-parent`
+ The CSSStyle object itself records the parent's base selector name in the `-corinthia-parent`
  property, but in order to actually retrieve that style, it is necessary to have access to the
  CSSSheet object, since this is the only way to get access to the other CSSStyle objects. This
- function checks to see if `-uxwrite-parent` is set, and it so, looks up that selector in the
+ function checks to see if `-corinthia-parent` is set, and it so, looks up that selector in the
  stylesheet.
 
  If the style does not specify a parent, or it does specify a parent but that parent does not exist,

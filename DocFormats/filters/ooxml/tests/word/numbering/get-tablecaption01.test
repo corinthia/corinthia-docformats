@@ -82,9 +82,9 @@ body {
 }
 
 caption {
-    -uxwrite-display-name: "caption";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "p.Normal";
+    -corinthia-display-name: "caption";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "p.Normal";
     color: #4F81BD;
     counter-increment: table;
     font-size: 9pt;
@@ -97,18 +97,18 @@ caption::before {
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {
@@ -119,8 +119,8 @@ table.Normal_Table > * > tr > td {
 }
 
 table.Table_Grid {
-    -uxwrite-display-name: "Table Grid";
-    -uxwrite-parent: "table.Normal_Table";
+    -corinthia-display-name: "Table Grid";
+    -corinthia-parent: "table.Normal_Table";
     border: thin solid black;
 }
 

@@ -69,7 +69,7 @@ ooxml.word.create
       <w:pPr>
         <w:pStyle w:val="Caption"/>
       </w:pPr>
-      <w:bookmarkStart w:id="0" w:name="uxwrite0"/>
+      <w:bookmarkStart w:id="0" w:name="corinthia0"/>
       <w:r>
         <w:t xml:space="preserve">Figure </w:t>
       </w:r>
@@ -86,7 +86,7 @@ ooxml.word.create
       <w:r>
         <w:t xml:space="preserve">Default type: </w:t>
       </w:r>
-      <w:fldSimple w:instr=" REF uxwrite0 \h "/>
+      <w:fldSimple w:instr=" REF corinthia0 \h "/>
     </w:p>
     <w:sectPr>
       <w:pgSz w:h="16840" w:w="11900"/>

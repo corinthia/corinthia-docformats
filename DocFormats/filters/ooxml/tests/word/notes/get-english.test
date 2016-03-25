@@ -322,32 +322,32 @@ body {
 }
 
 p.Normal {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal";
     margin-bottom: 0;
     margin-top: 0;
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 span.Endnote_Text_Char {
-    -uxwrite-display-name: "Endnote Text Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Endnote Text Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     font-size: 10pt;
 }
 
 span.Footnote_Text_Char {
-    -uxwrite-display-name: "Footnote Text Char";
-    -uxwrite-parent: "span.Default_Paragraph_Font";
+    -corinthia-display-name: "Footnote Text Char";
+    -corinthia-parent: "span.Default_Paragraph_Font";
     font-size: 10pt;
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {

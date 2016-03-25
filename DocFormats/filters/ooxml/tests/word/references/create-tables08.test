@@ -21,8 +21,8 @@ ooxml.word.create
       <td><p><br></p></td>
     </tr>
   </table>
-  <p>Label and number: <a href="#table1" class="uxwrite-ref-label-num"></a></p>
-  <p>Caption text: <a href="#table1" class="uxwrite-ref-caption-text"></a></p>
+  <p>Label and number: <a href="#table1" class="corinthia-ref-label-num"></a></p>
+  <p>Caption text: <a href="#table1" class="corinthia-ref-caption-text"></a></p>
 </body>
 </html>
 #item expected
@@ -72,7 +72,7 @@ ooxml.word.create
       <w:pPr>
         <w:pStyle w:val="Caption"/>
       </w:pPr>
-      <w:bookmarkStart w:id="1" w:name="uxwrite1"/>
+      <w:bookmarkStart w:id="1" w:name="corinthia1"/>
       <w:r>
         <w:t xml:space="preserve">Table </w:t>
       </w:r>
@@ -81,7 +81,7 @@ ooxml.word.create
       <w:r>
         <w:t xml:space="preserve">: </w:t>
       </w:r>
-      <w:bookmarkStart w:id="0" w:name="uxwrite0"/>
+      <w:bookmarkStart w:id="0" w:name="corinthia0"/>
       <w:r>
         <w:t>Test</w:t>
       </w:r>
@@ -91,13 +91,13 @@ ooxml.word.create
       <w:r>
         <w:t xml:space="preserve">Label and number: </w:t>
       </w:r>
-      <w:fldSimple w:instr=" REF uxwrite1 \h "/>
+      <w:fldSimple w:instr=" REF corinthia1 \h "/>
     </w:p>
     <w:p>
       <w:r>
         <w:t xml:space="preserve">Caption text: </w:t>
       </w:r>
-      <w:fldSimple w:instr=" REF uxwrite0 \h "/>
+      <w:fldSimple w:instr=" REF corinthia0 \h "/>
     </w:p>
     <w:sectPr>
       <w:pgSz w:h="16840" w:w="11900"/>

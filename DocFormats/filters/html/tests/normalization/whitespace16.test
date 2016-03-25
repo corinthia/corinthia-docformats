@@ -8,7 +8,7 @@ core.html.normalize
 <body>
   <p>
     <span id="word1">one</span>
-    <span id="word2"><span class="uxwrite-foo"></span>a</span>
+    <span id="word2"><span class="corinthia-foo"></span>a</span>
     <span id="word3">two</span>
   </p>
 </body>
@@ -21,7 +21,7 @@ core.html.normalize
   </head>
   <body>
     <p>
-      <span id="word1">one </span><span id="word2"><span class="uxwrite-foo"></span></span><span id="word3">a two</span>
+      <span id="word1">one </span><span id="word2"><span class="corinthia-foo"></span></span><span id="word3">a two</span>
     </p>
   </body>
 </html>

@@ -107,24 +107,24 @@ body {
 }
 
 p.Indent {
-    -uxwrite-parent: "p.Normal";
+    -corinthia-parent: "p.Normal";
     margin-right: 3.000000%;
     text-align: justify;
 }
 
 p.Normal {
-    -uxwrite-default: true;
+    -corinthia-default: true;
     text-align: justify;
 }
 
 span.Default_Paragraph_Font {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Default Paragraph Font";
+    -corinthia-default: true;
+    -corinthia-display-name: "Default Paragraph Font";
 }
 
 table.Normal_Table {
-    -uxwrite-default: true;
-    -uxwrite-display-name: "Normal Table";
+    -corinthia-default: true;
+    -corinthia-display-name: "Normal Table";
 }
 
 table.Normal_Table > * > tr > td {

@@ -4,8 +4,8 @@
 core.css.setHeadingNumbering(false);
 #item input.css
 h1.heading_1 {
-    -uxwrite-display-name: "heading 1";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 1";
+    -corinthia-next: "p.Normal";
     counter-increment: h1;
     counter-reset: h2 h3 h4 h5 h6;
     font-size: 24pt;
@@ -17,9 +17,9 @@ h1.heading_1::before {
 }
 
 h1.heading_1Unnumbered {
-    -uxwrite-display-name: "Heading 1 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h1.heading_1";
+    -corinthia-display-name: "Heading 1 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h1.heading_1";
     counter-increment: h1 0;
     counter-reset: null;
     font-size: 24pt;
@@ -31,8 +31,8 @@ h1.heading_1Unnumbered::before, h2.heading_2Unnumbered::before, h3.heading_3Unnu
 }
 
 h2.heading_2 {
-    -uxwrite-display-name: "heading 2";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 2";
+    -corinthia-next: "p.Normal";
     counter-increment: h2;
     counter-reset: h3 h4 h5 h6;
     font-size: 18pt;
@@ -44,9 +44,9 @@ h2.heading_2::before {
 }
 
 h2.heading_2Unnumbered {
-    -uxwrite-display-name: "Heading 2 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h2.heading_2";
+    -corinthia-display-name: "Heading 2 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h2.heading_2";
     counter-increment: h2 0;
     counter-reset: null;
     font-size: 18pt;
@@ -54,8 +54,8 @@ h2.heading_2Unnumbered {
 }
 
 h3.heading_3 {
-    -uxwrite-display-name: "heading 3";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 3";
+    -corinthia-next: "p.Normal";
     counter-increment: h3;
     counter-reset: h4 h5 h6;
     font-size: 14pt;
@@ -67,9 +67,9 @@ h3.heading_3::before {
 }
 
 h3.heading_3Unnumbered {
-    -uxwrite-display-name: "Heading 3 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h3.heading_3";
+    -corinthia-display-name: "Heading 3 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h3.heading_3";
     counter-increment: h3 0;
     counter-reset: null;
     font-size: 14pt;
@@ -77,8 +77,8 @@ h3.heading_3Unnumbered {
 }
 
 h4.heading_4 {
-    -uxwrite-display-name: "heading 4";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 4";
+    -corinthia-next: "p.Normal";
     counter-increment: h4;
     counter-reset: h5 h6;
     font-size: 12pt;
@@ -90,9 +90,9 @@ h4.heading_4::before {
 }
 
 h4.heading_4Unnumbered {
-    -uxwrite-display-name: "Heading 4 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h4.heading_4";
+    -corinthia-display-name: "Heading 4 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h4.heading_4";
     counter-increment: h4 0;
     counter-reset: null;
     font-size: 12pt;
@@ -100,8 +100,8 @@ h4.heading_4Unnumbered {
 }
 
 h5.heading_5 {
-    -uxwrite-display-name: "heading 5";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 5";
+    -corinthia-next: "p.Normal";
     counter-increment: h5;
     counter-reset: h6;
     font-size: 10pt;
@@ -113,9 +113,9 @@ h5.heading_5::before {
 }
 
 h5.heading_5Unnumbered {
-    -uxwrite-display-name: "Heading 5 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h5.heading_5";
+    -corinthia-display-name: "Heading 5 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h5.heading_5";
     counter-increment: h5 0;
     counter-reset: null;
     font-size: 10pt;
@@ -123,8 +123,8 @@ h5.heading_5Unnumbered {
 }
 
 h6.heading_6 {
-    -uxwrite-display-name: "heading 6";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 6";
+    -corinthia-next: "p.Normal";
     counter-increment: h6;
     counter-reset: ;
     font-size: 8pt;
@@ -136,9 +136,9 @@ h6.heading_6::before {
 }
 
 h6.heading_6Unnumbered {
-    -uxwrite-display-name: "Heading 6 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h6.heading_6";
+    -corinthia-display-name: "Heading 6 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h6.heading_6";
     counter-increment: h6 0;
     counter-reset: null;
     font-size: 8pt;
@@ -146,91 +146,91 @@ h6.heading_6Unnumbered {
 }
 #item expected
 h1.heading_1 {
-    -uxwrite-display-name: "heading 1";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 1";
+    -corinthia-next: "p.Normal";
     font-size: 24pt;
     font-weight: bold;
 }
 
 h1.heading_1Unnumbered {
-    -uxwrite-display-name: "Heading 1 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h1.heading_1";
+    -corinthia-display-name: "Heading 1 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h1.heading_1";
     font-size: 24pt;
     font-weight: bold;
 }
 
 h2.heading_2 {
-    -uxwrite-display-name: "heading 2";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 2";
+    -corinthia-next: "p.Normal";
     font-size: 18pt;
     font-weight: bold;
 }
 
 h2.heading_2Unnumbered {
-    -uxwrite-display-name: "Heading 2 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h2.heading_2";
+    -corinthia-display-name: "Heading 2 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h2.heading_2";
     font-size: 18pt;
     font-weight: bold;
 }
 
 h3.heading_3 {
-    -uxwrite-display-name: "heading 3";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 3";
+    -corinthia-next: "p.Normal";
     font-size: 14pt;
     font-weight: bold;
 }
 
 h3.heading_3Unnumbered {
-    -uxwrite-display-name: "Heading 3 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h3.heading_3";
+    -corinthia-display-name: "Heading 3 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h3.heading_3";
     font-size: 14pt;
     font-weight: bold;
 }
 
 h4.heading_4 {
-    -uxwrite-display-name: "heading 4";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 4";
+    -corinthia-next: "p.Normal";
     font-size: 12pt;
     font-weight: bold;
 }
 
 h4.heading_4Unnumbered {
-    -uxwrite-display-name: "Heading 4 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h4.heading_4";
+    -corinthia-display-name: "Heading 4 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h4.heading_4";
     font-size: 12pt;
     font-weight: bold;
 }
 
 h5.heading_5 {
-    -uxwrite-display-name: "heading 5";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 5";
+    -corinthia-next: "p.Normal";
     font-size: 10pt;
     font-weight: bold;
 }
 
 h5.heading_5Unnumbered {
-    -uxwrite-display-name: "Heading 5 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h5.heading_5";
+    -corinthia-display-name: "Heading 5 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h5.heading_5";
     font-size: 10pt;
     font-weight: bold;
 }
 
 h6.heading_6 {
-    -uxwrite-display-name: "heading 6";
-    -uxwrite-next: "p.Normal";
+    -corinthia-display-name: "heading 6";
+    -corinthia-next: "p.Normal";
     font-size: 8pt;
     font-weight: bold;
 }
 
 h6.heading_6Unnumbered {
-    -uxwrite-display-name: "Heading 6 (Unnumbered)";
-    -uxwrite-next: "p.Normal";
-    -uxwrite-parent: "h6.heading_6";
+    -corinthia-display-name: "Heading 6 (Unnumbered)";
+    -corinthia-next: "p.Normal";
+    -corinthia-parent: "h6.heading_6";
     font-size: 8pt;
     font-weight: bold;
 }

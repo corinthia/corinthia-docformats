@@ -13,7 +13,7 @@ h1.heading_1::before {
 }
 
 h1.heading_1Unnumbered {
-    -uxwrite-parent: "h1.heading_1";
+    -corinthia-parent: "h1.heading_1";
     counter-increment: h1 0;
     counter-reset: null;
 }
@@ -32,7 +32,7 @@ h2.heading_2::before {
 }
 
 h2.heading_2Unnumbered {
-    -uxwrite-parent: "h2.heading_2";
+    -corinthia-parent: "h2.heading_2";
     counter-increment: h2 0;
     counter-reset: null;
 }
@@ -47,7 +47,7 @@ h3.heading_3::before {
 }
 
 h3.heading_3Unnumbered {
-    -uxwrite-parent: "h3.heading_3";
+    -corinthia-parent: "h3.heading_3";
     counter-increment: h3 0;
     counter-reset: null;
 }
@@ -62,7 +62,7 @@ h4.heading_4::before {
 }
 
 h4.heading_4Unnumbered {
-    -uxwrite-parent: "h4.heading_4";
+    -corinthia-parent: "h4.heading_4";
     counter-increment: h4 0;
     counter-reset: null;
 }
@@ -77,7 +77,7 @@ h5.heading_5::before {
 }
 
 h5.heading_5Unnumbered {
-    -uxwrite-parent: "h5.heading_5";
+    -corinthia-parent: "h5.heading_5";
     counter-increment: h5 0;
     counter-reset: null;
 }
@@ -92,7 +92,7 @@ h6.heading_6::before {
 }
 
 h6.heading_6Unnumbered {
-    -uxwrite-parent: "h6.heading_6";
+    -corinthia-parent: "h6.heading_6";
     counter-increment: h6 0;
     counter-reset: null;
 }
@@ -101,25 +101,25 @@ h1.heading_1, h2.heading_2, h3.heading_3, h4.heading_4, h5.heading_5, h6.heading
 }
 
 h1.heading_1Unnumbered {
-    -uxwrite-parent: "h1.heading_1";
+    -corinthia-parent: "h1.heading_1";
 }
 
 h2.heading_2Unnumbered {
-    -uxwrite-parent: "h2.heading_2";
+    -corinthia-parent: "h2.heading_2";
 }
 
 h3.heading_3Unnumbered {
-    -uxwrite-parent: "h3.heading_3";
+    -corinthia-parent: "h3.heading_3";
 }
 
 h4.heading_4Unnumbered {
-    -uxwrite-parent: "h4.heading_4";
+    -corinthia-parent: "h4.heading_4";
 }
 
 h5.heading_5Unnumbered {
-    -uxwrite-parent: "h5.heading_5";
+    -corinthia-parent: "h5.heading_5";
 }
 
 h6.heading_6Unnumbered {
-    -uxwrite-parent: "h6.heading_6";
+    -corinthia-parent: "h6.heading_6";
 }
