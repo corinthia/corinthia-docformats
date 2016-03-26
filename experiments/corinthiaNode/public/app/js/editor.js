@@ -69,10 +69,10 @@ function cleanup() {
     if (iframe.contentDocument.URL !== "about:blank") {
         //only one of these but ...
         var bodyscripts = iframe.contentDocument.body.getElementsByTagName("script");
-        if (bodyscripts.length > 1)
-            console.log("More than one script in the body");
+        if (bodyscripts.length === 1)
+        iframe.contentDocument.body.removeChild(bodyscripts[0])
         else {
-            iframe.contentDocument.body.removeChild(bodyscripts[0])
+            console.log("Not just one script in the body");
         }
         var headscripts = iframe.contentDocument.head.getElementsByTagName("script");
         while (headscripts.length > 0) {

@@ -8,11 +8,11 @@
     <div class="row">
         <div class="col-md-2">
             <div>
-                <h3>Todo</h3>
+                <h3>Todo/Issues</h3>
                 <ul>
                     <li>Add many more tests - test editor here?</li>
-                    <li>Add test checking mechanism</li>
-                    <li>Based on diff report from document trees</li>
+                    <li>moveToEndOfDocument Error?</li>
+                    <li>Prepend corrupts original text</li>
                 </ul>
 
             </div>
@@ -32,7 +32,8 @@
                             <th>Original HTML</th>
                             <th>Edited HTML</th>
                             <th>Edited</th>
-                            <th>Merged</th>
+                            <th>Conc Merged</th>
+                            <th>Abs Merged</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +62,10 @@
                             <td>
                                 <a title="Show JSON" class="btn-xs btn-warning" href="tests/{{test.name}}/merged.json" target="_blank">json</a>
                                 <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{test.name}}/merged.json" target="_blank">paths</a>
+                            </td>
+                            <td>
+                                <a title="Show JSON" class="btn-xs btn-warning" href="tests/{{test.name}}/absmerged.json" target="_blank">json</a>
+                                <a title="Show JSON" class="btn-xs btn-info" href="#paths/{{test.name}}/absmerged.json" target="_blank">paths</a>
                             </td>
                         </tr>
                     </tbody>

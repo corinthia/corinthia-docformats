@@ -50,12 +50,18 @@ var inputFile = '';
 var dataDirectory = '';
 var targetHTML = '';
 
-exports.merge = function(first, second) {
+//the get abstract has a parent element we want to ignore
+exports.merge = function(first, second, getFromFirstChild) {
     console.log("merge/diff  " + first + " and " + second);
     var beforeObj = JSON.parse(fse.readFileSync(first, 'utf8'));
     var afterObj = JSON.parse(fse.readFileSync(second, 'utf8'));
     initNodes(beforeObj);
-    mergeDoc(beforeObj, afterObj, 0);
+    if(getFromFirstChild) {
+        mergeDoc(beforeObj.children[0], afterObj, 0);
+
+    } else {
+        mergeDoc(beforeObj, afterObj, 0);
+    }
     return beforeObj;
 };
 
@@ -88,7 +94,7 @@ function mergeDoc(root1, root2, level) {
             }
         } else {
             // all of root2 is NEW
-            addNew(root1, root2);
+            addNew(root1, root2.children[r]);
         }
     }
     //if we get here with not iterations then root1 and its children will
@@ -110,9 +116,11 @@ function findMatchingNode(root2Node, root1) {
 }
 
 function addNew(root1, root2Node) {
+    console.log("NEW: " + inspect(root2Node));
     newNode = extend({}, root2Node);
     newNode.state = "NEW";
     propagateState(newNode, "NEW");
+    root1.children.push(newNode);
 }
 
 function addState(node, val) {
@@ -134,7 +142,8 @@ function mergeNode(match, root2Node) {
 function isMatch(root, node) {
 /*    console.log("Compare " + root.type + " " + node.type);
     console.log("Compare " + root.seq + " " + node.seq);*/
-    if (root.type === node.type && root.seq === node.seq) {
+//    if (root.type === node.type && root.seq === node.seq) {
+    if (root.type === node.type) {
         //console.log("MATCH");
         return true;
     }
@@ -164,7 +173,6 @@ exports.reportChanges = function(mergedTree) {
 
 function reportTree(root) {
     var diffString = "";
-    console.log("Report " + diffString + " me ");
     if (root.children) {
         for (var n = 0; n < root.children.length; n++) {
             var node = root.children[n];
@@ -193,7 +201,7 @@ function reportAdded(node) {
 }
 
 function reportDiff(node, diffString) {
-    return "Changed:" + "\nnode: " + node.type + "\nseq: " + node.seq + "\nfrom: " + node.value + "\nto: " + node.diff;
+    return "Changed:" + "\nnode: " + node.type + "\nseq: " + node.seq + "\nfrom: \"" + node.value + "\"\nto: \"" + node.diff +"\"";
 }
 
 function reportDeleted(node, diffString) {

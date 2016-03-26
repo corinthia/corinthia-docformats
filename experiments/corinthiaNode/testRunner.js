@@ -115,6 +115,13 @@ exports.writeMerged = function(test){
 
 // Should we round trip the expected or have the test runner get it from the json
 exports.verify = function(test, expected){
+    var abstractmerg = differ.merge(TEST_DIR  + test + "/getabstract.json", TEST_DIR  + test + "/putabstract.json", true);
+    // save the tree so we can see it
+    var absfilesStr =  JSON.stringify(abstractmerg);
+    var afd = fse.openSync(TEST_DIR  + test + "/absmerged.json", 'w');
+    fse.writeSync(afd, absfilesStr);
+    fse.closeSync(afd);
+
     var mergedTree = differ.merge(TEST_DIR  + test + "/getconcrete.json", TEST_DIR  + test + "/putconcrete.json");
     // save the tree so we can see it
     var filesStr =  JSON.stringify(mergedTree);
@@ -128,6 +135,7 @@ exports.verify = function(test, expected){
     if(testObj.expected === diffreport) {
         testObj.passed = true;
     } else {
+        console.log("\"" + testObj.expected + "\" !== \"" + diffreport + "\"");
         testObj.passed = false;
         testObj.reported = diffreport;
     }
