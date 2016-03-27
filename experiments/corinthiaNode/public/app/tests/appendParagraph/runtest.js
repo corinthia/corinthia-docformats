@@ -1,11 +1,16 @@
-function insertParagraph(str) {
-    for (var i = 0; i < str.length; i++) {
-        api.cursor.insertCharacter(str[i], true);
-    }
-    api.cursor.enterPressed();
-}
-
 function autoEdit(api) {
-    api.cursor.moveToEndOfDocument();
-    insertParagraph("Puff the magic dragon lives by the sea.");
+    //don't like this but it works
+    api.cursor.moveRight();
+    api.cursor.moveRight();
+    api.cursor.moveRight();
+    api.cursor.moveRight();
+    api.cursor.moveRight();
+    api.cursor.moveRight();
+    api.cursor.moveRight();
+    api.cursor.moveRight();
+    api.cursor.moveRight();
+    api.cursor.moveRight();
+    api.cursor.moveRight();
+    api.cursor.enterPressed();
+    api.cursor.insertCharacter("Puff, the magic dragon, lives by the sea.");
 }
