@@ -54,7 +54,7 @@ function contentLoaded() {
         requireScript.setAttribute("data-main", "../../js/iframe-code");
         requireScript.addEventListener("load", function() {
             console.log("require.js loaded in content iframe");
-            iframe.contentWindow.require(["editor/externalapi"], function(api) {
+            iframe.contentWindow.require(["editor/build/src/externalapi"], function(api) {
                 console.log("** here");
                 start(api);
             });
