@@ -67,8 +67,24 @@ static int ODFTextLevelIsVisible(ODFPutData *put, DFNode *concrete)
 static void ODFTextLevelPut(ODFPutData *put, DFNode *abstract, DFNode *concrete)
 {
     switch (concrete->tag) {
-        case TEXT_P:
-            ODFParagraphLens.put(put,abstract,concrete);
+        case TEXT_P: {
+                ODFParagraphLens.put(put,abstract,concrete);
+                //We also need to cater for the case where paragraphs have been added
+                //to the abstract...so they won't have a matching id, seq or anything much
+                // look ahead check
+                if(abstract->next != NULL && abstract->tag == HTML_P) {
+                    //Does it have an attribute?
+                    DFNode* possible = abstract->next;
+                    //Word uses a CONV_LISTNUM attribute lookup
+                    //because of the paragraph movement mapping thing?
+                    // FIXME to clarify that for the moment handle manually
+                    const char *htmlId = DFGetAttribute(possible,HTML_ID);
+                    if(htmlId == NULL) { //added paragraph
+                        printf(RED "Added paragraph\n" RESET);
+                        ODFParagraphLens.put(put,abstract,concrete);
+                    }
+                }
+            }
             break;
         case TEXT_H:
             ODFHeaderLens.put(put,abstract,concrete);
@@ -94,7 +110,23 @@ static void ODFTextLevelRemove(ODFPutData *put, DFNode *concrete)
 
 static DFNode *ODFTextLevelCreate(ODFPutData *put, DFNode *abstract)
 {
+    printf(RED "ODFTextLevelCreate\n" RESET);
     DFNode *concrete = NULL;
+    switch (abstract->tag) {
+        case HTML_H1:
+        case HTML_H2:
+        case HTML_H3:
+        case HTML_H4:
+        case HTML_H5:
+        case HTML_H6:
+        break;
+        case HTML_P:
+            return ODFParagraphLens.create(put, abstract);
+        break;
+        case HTML_FIGURE:
+        case HTML_TABLE:
+            break;
+    }
     return concrete;
 }
 

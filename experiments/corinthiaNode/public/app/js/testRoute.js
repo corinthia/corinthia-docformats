@@ -37,9 +37,11 @@
 
     function configure($routeProvider) {
         $routeProvider.when('/list', {
-            templateUrl: 'partials/testList.html',
+            templateUrl: 'partials/testList.html'
         }).when('/test/:test', {
             templateUrl: 'partials/testedit.html'
+        }).when('/report/:test', {
+            templateUrl: 'partials/report.html'
         }).when('/paths/:dfName/:jsonName', {
             templateUrl: 'partials/dfpaths.html',
             controller: 'DFNodePathsCtrl'

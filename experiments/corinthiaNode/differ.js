@@ -116,7 +116,7 @@ function findMatchingNode(root2Node, root1) {
 }
 
 function addNew(root1, root2Node) {
-    console.log("NEW: " + inspect(root2Node));
+//    console.log("NEW: " + inspect(root2Node));
     newNode = extend({}, root2Node);
     newNode.state = "NEW";
     propagateState(newNode, "NEW");
@@ -197,7 +197,13 @@ function reportTree(root) {
 //These are all the same structure at the moment.
 //May change in future to add more context
 function reportAdded(node) {
-    return "Added: " + inspect(node);
+    var repString = "Added: " + "\nnode: " + node.type;
+    if(node.value){
+        repString += "\nvalue: \"" + node.value + "\"\n";
+    } else {
+        repString += "\n";
+    }
+    return repString;
 }
 
 function reportDiff(node, diffString) {

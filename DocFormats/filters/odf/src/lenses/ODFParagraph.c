@@ -81,6 +81,7 @@ static void ODFParagraphPut(ODFPutData *put, DFNode *abstract, DFNode *concrete)
                 allowText = 0;
                 if(abstract->first != NULL) {
                     ODFParagraphContentLens.put(put, abstract->first, concrete->first);
+
                 } else {
                     // the concrete node should be deleted?
                     // can we do it in here?

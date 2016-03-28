@@ -105,6 +105,8 @@ static void ODFParagraphContentPut(ODFPutData *put, DFNode *abstract, DFNode *co
     if( concrete->tag == DOM_TEXT && abstract->tag == DOM_TEXT) {
 
         DFSetNodeValue(concrete,abstract->value);
+    } else {
+        printf(RED "DOM_TEXT do not match\n" RESET);
     }
 
 /*    //We have at least 4 cases here (more when we take into account the other elements that may be decsendents of a paragraph
@@ -131,6 +133,7 @@ static void ODFParagraphContentRemove(ODFPutData *put, DFNode *concrete)
 
 static DFNode *ODFParagraphContentCreate(ODFPutData *put, DFNode *abstract)
 {
+    printf(RED "ODFParagraphContentCreate\n" RESET);
     return NULL;
 }
 

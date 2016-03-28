@@ -64,7 +64,6 @@ exports.moveGauges = function(prefix, testDirectory) {
     .then (function() {
         qmove('gauges_concrete.json', path.join(to, prefix + 'gauges_concrete.json'));
     })
-    .then(function () { console.log(prefix + " files moved"); })
     .catch(function (err) { console.log(prefix + " files moved failed " + err); })
     .done();
 };
@@ -79,14 +78,12 @@ exports.getConcrete = function(doc, test) {
 
 exports.setup = function(doc, concrete, abstract) {
     var from = SEED_DIR + doc;
-    console.log("Copy " + from + " -> " + abstract);
     fse.copySync(from, concrete);
     //delete previous html
     fse.removeSync(abstract);
 };
 
 exports.replaceAbstract = function(test, abstract, content) {
-    console.log("Replace the abstract");
     var fd = fse.openSync(abstract, 'w');
     fse.writeSync(fd, content);
     fse.closeSync(fd);
@@ -135,7 +132,6 @@ exports.verify = function(test, expected){
     if(testObj.expected === diffreport) {
         testObj.passed = true;
     } else {
-        console.log("\"" + testObj.expected + "\" !== \"" + diffreport + "\"");
         testObj.passed = false;
         testObj.reported = diffreport;
     }

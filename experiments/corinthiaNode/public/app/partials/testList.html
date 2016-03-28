@@ -13,6 +13,7 @@
                     <li>Add many more tests - test editor here?</li>
                     <li>moveToEndOfDocument Error?</li>
                     <li>Prepend corrupts original text</li>
+                    <li>Show diffs for a fail</li>
                 </ul>
 
             </div>
@@ -39,7 +40,9 @@
                     <tbody>
                         <tr ng-repeat="test in ct.testList " ng-class="ct.getTestClass(test.passed)">
                             <td>
-                                <a title="Run" class="btn-xs btn-danger" href="#test/{{test.name}}"><span class="glyphicon glyphicon-play" aria-hidden="false"></span></a> {{test.name}}
+                                <a title="Run" class="btn-xs btn-danger" href="#test/{{test.name}}"><span class="glyphicon glyphicon-play" aria-hidden="false"></span></a>
+                                <a title="Show report" class="btn-xs btn-info" href="#report/{{test.name}}"><span class="glyphicon glyphicon glyphicon-eye-open" aria-hidden="false"></span></a>
+                                {{test.name}}
                             </td>
                             <td>{{test.seedDoc}}</td>
                             <td>{{test.comment}}</td>

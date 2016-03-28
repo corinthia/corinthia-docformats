@@ -150,11 +150,10 @@ server.post('/app/seedtest', function(req, res) {
 
     var concrete = testRunner.getConcrete(seedDoc, test);
     var abstract = testRunner.getAbstract(seedDoc, test);
-    console.log('seedtest ' + concrete + ' to ' + abstract);
+    console.log('Seed test ' + test );
     testRunner.setup(seedDoc, concrete, abstract);
     corinthia.run('get', concrete, abstract)
         .then(function(result) {
-            console.log(result);
             testRunner.moveGauges('get', test);
             res.send(abstract);
             console.log('Seed test completed');
@@ -164,7 +163,6 @@ server.post('/app/seedtest', function(req, res) {
             res.send("Seed Failed");
         })
         .done();
-    //res.send("Blah");
 });
 
 // Take the HTML in the post and replace the abstract HTML
@@ -173,14 +171,12 @@ server.post('/app/seedtest', function(req, res) {
 //
 // Leave the test verification to another stage.
 server.post('/app/save', function(req, res) {
-    console.log('save ' + inspect(req.body));
     var abstractContent = req.body.abstractHTML;
     var documentName = req.body.documentName;
     var test = req.body.test;
 
     var concrete = testRunner.getConcrete(documentName, test);
     var abstract = testRunner.getAbstract(documentName, test);
-    console.log('save test ' + concrete + ' from ' + abstract);
 
     testRunner.replaceAbstract(test, abstract, abstractContent);
     corinthia.run('put', concrete, abstract)

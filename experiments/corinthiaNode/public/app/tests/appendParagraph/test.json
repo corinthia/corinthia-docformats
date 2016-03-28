@@ -1,1 +1,9 @@
-{"name":"appendParagraph","seedDoc":"HelloWorld.odt","expected":"Changed:\nNot sure yet","comment":"Add paragraph at the end - Move to end not working!?","passed":false,"lastrun":"Sat Mar 26 2016 15:15:24 GMT+0800 (AWST)","reported":""}
+{
+    "name": "appendParagraph",
+    "seedDoc": "HelloWorld.odt",
+    "expected": "Added: \nnode: TEXT_P\nAdded: \nnode: DOM_TEXT\nvalue: \"Puff, the magic dragon, lives by the sea.\"\n",
+    "comment": "Add paragraph at the end - Move to end not working!?",
+    "passed": true,
+    "lastrun": "Mon Mar 28 2016 19:25:51 GMT+0800 (AWST)",
+    "reported": "Added: \nnode: TEXT_P\nAdded: \nnode: DOM_TEXT\nvalue: \"Puff, the magic dragon, lives by the sea.\"\n"
+}

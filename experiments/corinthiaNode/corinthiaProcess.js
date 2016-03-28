@@ -68,12 +68,9 @@ function qmove(from, to) {
 }
 
 exports.run = function(direction, concrete, abstract) {
-    console.log('Deferred Corinthia Run ' + direction + ' ' + concrete + ' ' + abstract);
     var deferred = Q.defer();
-    console.log('Promise created');
 
     var cmdArgs = [];
-    console.log('cmdArgs created');
     cmdArgs.push(direction);
     cmdArgs.push(concrete);
     cmdArgs.push(abstract);
@@ -91,28 +88,27 @@ exports.run = function(direction, concrete, abstract) {
     });
 
     ls.on('close', function(code) {
-        console.log('child process exited with code ' + code + ' from ' + inputFile);
         if (code === 0) {
             deferred.resolve("Converted");
         } else {
             deferred.reject(errmsg);
         }
     });
-    console.log('return promise');
-
     return deferred.promise;
 };
 
 
 function moveGetFiles() {
     //assume they are there - something went wrong if they're not
-    Q.all([qmove('abstract.json', path.join(dataDirectory, 'abstract.json')),
-            qmove('concrete.json', path.join(dataDirectory, 'concrete.json')),
-            qmove('gauges_abstract.json', path.join(dataDirectory, 'gauges_abstract.json')),
-            qmove('gauges_concrete.json', path.join(dataDirectory, 'gauges_concrete.json'))
-        ])
-        .then(function() {
-            console.log("Get files moved");
+    qmove('abstract.json', path.join(dataDirectory, 'abstract.json'))
+        .then(function(mv) {
+            qmove('concrete.json', path.join(dataDirectory, 'concrete.json'));
+        })
+        .then(function(mv) {
+            qmove('gauges_abstract.json', path.join(dataDirectory, 'gauges_abstract.json'));
+        })
+        .then(function(mv) {
+            qmove('gauges_concrete.json', path.join(dataDirectory, 'gauges_concrete.json'));
         })
         .catch(function(err) {
             console.log("Get files moved failed " + err);
@@ -122,13 +118,15 @@ function moveGetFiles() {
 
 function movePutFiles() {
     //assume they are there - something went wrong if they're not
-    Q.all([qmove('abstractPut.json', path.join(dataDirectory, 'abstractPut.json')),
-            qmove('concretePut.json', path.join(dataDirectory, 'concretePut.json')),
-            qmove('gauges_abstractPut.json', path.join(dataDirectory, 'gauges_abstractPut.json')),
-            qmove('gauges_concretePut.json', path.join(dataDirectory, 'gauges_concretePut.json'))
-        ])
-        .then(function() {
-            console.log("Put files moved");
+    qmove('abstractPut.json', path.join(dataDirectory, 'abstractPut.json'))
+        .then(function(mv) {
+            qmove('concretePut.json', path.join(dataDirectory, 'concretePut.json'));
+        })
+        .then(function(mv) {
+            qmove('gauges_abstractPut.json', path.join(dataDirectory, 'gauges_abstractPut.json'));
+        })
+        .then(function(mv) {
+            qmove('gauges_concretePut.json', path.join(dataDirectory, 'gauges_concretePut.json'));
         })
         .catch(function(err) {
             console.log("Put files moved failed " + err);
