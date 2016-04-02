@@ -1,0 +1,25 @@
+<div ng-controller="TestReportCtrl as rep">
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>Corinthia Test Report</h1>
+            <p>Test: {{rep.testName}}</p>
+            <p>Last Run: {{rep.testData.lastrun}}</p>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <h3>Test Passed</h3>
+                <p>{{rep.testData.passed}}</p>
+                <h3>Seed Doc</h3>
+                <p>{{rep.testData.seedDoc}}</p>
+                <h3>Comment</h3>
+                <p>{{rep.testData.comment}}</p>
+            </div>
+            <div class="col-md-8">
+                <h3>Expected</h3>
+                <pre>{{rep.testData.expected}}</pre>
+                <h3>Reported</h3>
+                <pre>{{rep.testData.reported}}</pre>
+            </div>
+        </div>
+    </div>
+</div>

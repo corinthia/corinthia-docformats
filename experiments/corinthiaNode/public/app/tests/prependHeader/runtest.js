@@ -1,10 +1,9 @@
-function insertParagraph(str) {
-    for (var i = 0; i < str.length; i++) {
-        api.cursor.insertCharacter(str[i]);
-    }
-    api.cursor.enterPressed();
-}
-
 function autoEdit(api) {
-    insertParagraph("New Shiny Header");
+    var posRef = api.input.documentStartAnchor();
+    api.input.setSelectedTextRange(posRef, posRef);
+    var frmt = api.formatting.getFormatting();
+    api.cursor.enterPressed();
+    api.cursor.moveLeft();
+    api.cursor.insertCharacter("New Shiny Header");
+    api.formatting.applyFormattingChanges(frmt["-corinthia-paragraph-style"],{});
 }

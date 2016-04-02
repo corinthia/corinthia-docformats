@@ -207,9 +207,9 @@ function reportAdded(node) {
 }
 
 function reportDiff(node, diffString) {
-    return "Changed:" + "\nnode: " + node.type + "\nseq: " + node.seq + "\nfrom: \"" + node.value + "\"\nto: \"" + node.diff +"\"";
+    return "Changed:" + "\nnode: " + node.type + "\nseq: " + node.seq + "\nfrom: \"" + node.value + "\"\nto: \"" + node.diff +"\"\n";
 }
 
 function reportDeleted(node, diffString) {
-    return "Deleted: " + inspect(node);
+    return "Deleted: " + inspect(node) + "\n";
 }

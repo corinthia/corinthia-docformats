@@ -1,9 +1,9 @@
 {
     "name": "deleteParagraph",
     "seedDoc": "HelloWorld.odt",
-    "expected": "Changed:\nnode: DOM_TEXT\nseq: 18\nfrom: \"Hello world\"\nto: \"ITSME_Hello world\"",
-    "comment": "Sort of edits... Conrithia does not remove",
-    "passed": false,
-    "lastrun": "Sat Mar 26 2016 15:51:44 GMT+0800 (AWST)",
-    "reported": ""
+    "expected": "Changed:\nnode: DOM_TEXT\nseq: 18\nfrom: \"Hello world\"\nto: \"\"\n",
+    "comment": "Contents deleted not truly removed",
+    "passed": true,
+    "lastrun": "Sat Apr 02 2016 14:15:34 GMT+0800 (AWST)",
+    "reported": "Changed:\nnode: DOM_TEXT\nseq: 18\nfrom: \"Hello world\"\nto: \"\"\n"
 }

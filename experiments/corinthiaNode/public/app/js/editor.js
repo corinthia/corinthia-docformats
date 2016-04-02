@@ -35,6 +35,8 @@ function start(theAPI) {
     api = theAPI;
     console.log("test start");
     api.main.init(768, 100, null);
+    var iframe = document.getElementById("editFrame");
+    removeScripts(iframe.contentDocument.body);
     autoEdit(api);
     //can we switch on a testcase variable
     if(autosave) {
@@ -63,21 +65,20 @@ function contentLoaded() {
     }
 }
 
+function removeScripts(from) {
+    var scripts = from.getElementsByTagName("script");
+    while (scripts.length > 0) {
+        from.removeChild(scripts[0]);
+    }
+}
+
 function cleanup() {
     console.log("remove scripts");
     var iframe = document.getElementById("editFrame");
     if (iframe.contentDocument.URL !== "about:blank") {
         //only one of these but ...
-        var bodyscripts = iframe.contentDocument.body.getElementsByTagName("script");
-        if (bodyscripts.length === 1)
-        iframe.contentDocument.body.removeChild(bodyscripts[0])
-        else {
-            console.log("Not just one script in the body");
-        }
-        var headscripts = iframe.contentDocument.head.getElementsByTagName("script");
-        while (headscripts.length > 0) {
-            iframe.contentDocument.head.removeChild(headscripts[0]);
-        }
+        removeScripts(iframe.contentDocument.body);
+        removeScripts(iframe.contentDocument.head);
         //We added viewport metadata
         var metas = iframe.contentDocument.head.getElementsByTagName("meta");
         var ndx = 0;
