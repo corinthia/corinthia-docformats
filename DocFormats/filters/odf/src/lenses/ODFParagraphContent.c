@@ -103,10 +103,15 @@ static void ODFParagraphContentPut(ODFPutData *put, DFNode *abstract, DFNode *co
     printf("Abs Tag %s\n", translateXMLEnumName[abstract->tag]);
 
     if( concrete->tag == DOM_TEXT && abstract->tag == DOM_TEXT) {
-
         DFSetNodeValue(concrete,abstract->value);
     } else {
         printf(RED "DOM_TEXT do not match\n" RESET);
+        if(abstract->tag == HTML_BR) {
+            //the paragraph contents have been removed.
+            //so ... we really just want to delete this paragraph
+            //or do we just make the contents empty?
+            DFSetNodeValue(concrete,"");
+        }
     }
 
 /*    //We have at least 4 cases here (more when we take into account the other elements that may be decsendents of a paragraph
