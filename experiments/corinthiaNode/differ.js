@@ -52,7 +52,7 @@ var targetHTML = '';
 
 //the get abstract has a parent element we want to ignore
 exports.merge = function(first, second, getFromFirstChild) {
-    console.log("merge/diff  " + first + " and " + second);
+//    console.log("merge/diff  " + first + " and " + second);
     var beforeObj = JSON.parse(fse.readFileSync(first, 'utf8'));
     var afterObj = JSON.parse(fse.readFileSync(second, 'utf8'));
     initNodes(beforeObj);
@@ -77,50 +77,35 @@ function initNodes(root) {
 // or it is NEW
 // add index numbers to track repositioning?
 function mergeDoc(root1, root2, level) {
-    //    console.log("merge1 " + inspect(root1));
-    //    console.log("merge2 " + inspect(root2));
-    for (var r = 0; r < root2.children.length; r++) {
-        //this is going to square the thing...
-        //unless we pop the items matched?
-        if (root1.children) {
-            // need to break out once match for r found
-            var root2Node = root2.children[r];
-            var match = findMatchingNode(root2Node, root1);
-            if (match) {
-                mergeNode(match, root2Node);
-                mergeDoc(match, root2Node, level);
+//        console.log("merge1 " + inspect(root1));
+//        console.log("merge2 " + inspect(root2));
+    var r1 = 0;
+    for (var r2 = 0; r2 < root2.children.length; r2++) {
+        var root2Node = root2.children[r2];
+        if (root1.children && r1 < root1.children.length) {
+            var root1Node = root1.children[r1];
+            if(isMatch(root1Node, root2Node)){
+                mergeNode(root1Node, root2Node);
+                mergeDoc(root1Node, root2Node, level);
             } else {
-                addNew(root1, root2Node); //how do we know where to put it?
+                addNew(root1, r1, root2Node);
             }
+            r1++;
         } else {
             // all of root2 is NEW
-            addNew(root1, root2.children[r]);
+            addNew(root1, r1, root2Node);
         }
     }
-    //if we get here with not iterations then root1 and its children will
+    //if we get here with no iterations then root1 and its children will
     //be left as ORIG
 }
 
-// look through the root2 nodes
-// ignore nodes that have already been used in a match
-function findMatchingNode(root2Node, root1) {
-    for (var n = 0; n < root1.children.length; n++) {
-        var node = root1.children[n];
-        if (node.state == "ORIG") {
-            if (isMatch(root2Node, node)) {
-                return node;
-            }
-        }
-    }
-    return null;
-}
-
-function addNew(root1, root2Node) {
+function addNew(root1, ndx, root2Node) {
 //    console.log("NEW: " + inspect(root2Node));
     newNode = extend({}, root2Node);
     newNode.state = "NEW";
     propagateState(newNode, "NEW");
-    root1.children.push(newNode);
+    root1.children.splice(ndx, 0, newNode);
 }
 
 function addState(node, val) {
@@ -132,17 +117,17 @@ function addState(node, val) {
 // or add new
 function mergeNode(match, root2Node) {
     if (match.value === root2Node.value) {
+//        console.log("INST Compare Merge ");
         match.state = "INST";
     } else {
+//        console.log("DIFF Compare Merge ");
         match.state = "DIFF";
         match.diff = root2Node.value;
     }
 }
 
 function isMatch(root, node) {
-/*    console.log("Compare " + root.type + " " + node.type);
-    console.log("Compare " + root.seq + " " + node.seq);*/
-//    if (root.type === node.type && root.seq === node.seq) {
+//    console.log("Compare Match " + root.type + " " + node.type);
     if (root.type === node.type) {
         //console.log("MATCH");
         return true;

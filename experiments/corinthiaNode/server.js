@@ -154,6 +154,8 @@ server.post('/app/seedtest', function(req, res) {
     testRunner.setup(seedDoc, concrete, abstract);
     corinthia.run('get', concrete, abstract)
         .then(function(result) {
+            //files may not have been fully written to disk?
+            //or so it seems. The OS is still fiddling?
             testRunner.moveGauges('get', test);
             res.send(abstract);
             console.log('Seed test completed');
@@ -181,11 +183,18 @@ server.post('/app/save', function(req, res) {
     testRunner.replaceAbstract(test, abstract, abstractContent);
     corinthia.run('put', concrete, abstract)
         .then(function(result) {
-            testRunner.moveGauges('put', test);
-            testRunner.verify(test);
-            testRunner.getTests();
-            res.send("Saved");
-            console.log('Saved test document');
+            testRunner.moveGauges('put', test)
+            .then(function(retval) {
+                testRunner.verify(test);
+                testRunner.getTests();
+                res.send("Saved");
+                console.log('Saved test document');
+            }).
+            catch(function(err) {
+                res.send(err);
+                console.log('Error moving gauges');
+            })
+            .done();
         })
         .catch(function(err) {
             console.log(err);

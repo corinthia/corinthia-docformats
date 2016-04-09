@@ -49,23 +49,39 @@ var dataDirectory = '';
 var targetHTML = '';
 
 function qmove(from, to) {
-    return Q.nfcall(fse.move, from, to, {clobber: true}) ;
+    var deferred = Q.defer();
+    fse.move(from, to, {
+        clobber: true
+    }, function(err) {
+        if (err) {
+            deferred.reject("move err " + err);
+        } else {
+            deferred.resolve("qmove move" + from);
+        }
+    });
+    return deferred.promise;
 }
 
+//The moves are all independent and so we can use a Q.all
 exports.moveGauges = function(prefix, testDirectory) {
+    var deferred = Q.defer();
     var to = path.join(TEST_DIR, testDirectory);
-    qmove('abstract.json', path.join(to, prefix + 'abstract.json'))
-    .then (function() {
-        qmove('concrete.json', path.join(to, prefix + 'concrete.json'));
+    var concMove = qmove(prefix + 'concrete.json', path.join(to, prefix + 'concrete.json'));
+    var absMove = qmove(prefix + 'abstract.json', path.join(to, prefix + 'abstract.json'));
+    var absGaugeMove = qmove('gauges_' + prefix + 'abstract.json', path.join(to, 'gauges_' + prefix + 'putabstract.json'));
+    var concGaugeMove = qmove('gauges_' + prefix + 'concrete.json', path.join(to, 'gauges_' + prefix + 'concrete.json'));
+
+    Q.all([concMove, absMove, absGaugeMove, concGaugeMove])
+    .then(function(allVals) {
+//    console.log(allVals);
+        deferred.resolve("done");
     })
-    .then (function() {
-        qmove('gauges_abstract.json', path.join(to, prefix + 'gauges_abstract.json'));
+    .catch(function(err) {
+//        console.log("moveGauges err " + err);
+        deferred.reject(err);
     })
-    .then (function() {
-        qmove('gauges_concrete.json', path.join(to, prefix + 'gauges_concrete.json'));
-    })
-    .catch(function (err) { console.log(prefix + " files moved failed " + err); })
     .done();
+    return deferred.promise;
 };
 
 exports.getAbstract = function(doc, test) {
@@ -106,40 +122,53 @@ exports.getTests = function() {
     fse.closeSync(fd);
 };
 
-exports.writeMerged = function(test){
+exports.writeMerged = function(test) {
     //did it pass? What was expected
 };
 
 // Should we round trip the expected or have the test runner get it from the json
-exports.verify = function(test, expected){
-    var abstractmerg = differ.merge(TEST_DIR  + test + "/getabstract.json", TEST_DIR  + test + "/putabstract.json", true);
-    // save the tree so we can see it
-    var absfilesStr =  JSON.stringify(abstractmerg);
-    var afd = fse.openSync(TEST_DIR  + test + "/absmerged.json", 'w');
-    fse.writeSync(afd, absfilesStr);
-    fse.closeSync(afd);
+exports.verify = function(test, expected) {
+    var getabs = TEST_DIR + test + "/getabstract.json";
+    var putabs = TEST_DIR + test + "/putabstract.json";
 
-    var mergedTree = differ.merge(TEST_DIR  + test + "/getconcrete.json", TEST_DIR  + test + "/putconcrete.json");
-    // save the tree so we can see it
-    var filesStr =  JSON.stringify(mergedTree);
-    var fd = fse.openSync(TEST_DIR  + test + "/merged.json", 'w');
-    fse.writeSync(fd, filesStr);
-    fse.closeSync(fd);
+    //the putabs has not always finished by the time we get here
+    //so make sure it is around before doing the business
+    //
+    // maybe try the concrete first?
+    fse.stat(putabs, function(err) {
 
-    var diffreport = differ.reportChanges(mergedTree, TEST_DIR  + test + "/diff.txt");
+        var abstractmerg = differ.merge(getabs, putabs, true);
+        // save the tree so we can see it
+        var absfilesStr = JSON.stringify(abstractmerg);
+        var afd = fse.openSync(TEST_DIR + test + "/absmerged.json", 'w');
+        fse.writeSync(afd, absfilesStr);
+        fse.closeSync(afd);
 
-    var testObj = JSON.parse(fse.readFileSync(TEST_DIR + test + "/test.json", 'utf8'));
-    if(testObj.expected === diffreport) {
-        testObj.passed = true;
-    } else {
-        testObj.passed = false;
-        testObj.reported = diffreport;
-    }
-    testObj.lastrun = Date().toString();
+        var getconc = TEST_DIR + test + "/getconcrete.json";
+        var putconc = TEST_DIR + test + "/putconcrete.json";
 
-    //update test.json
-    var testStr = JSON.stringify(testObj);
-    var testfd = fse.openSync(TEST_DIR + test + "/test.json", 'w');
-    fse.writeSync(testfd, testStr);
-    fse.closeSync(testfd);
+        var mergedTree = differ.merge(getconc, putconc);
+        // save the tree so we can see it
+        var filesStr = JSON.stringify(mergedTree);
+        var fd = fse.openSync(TEST_DIR + test + "/merged.json", 'w');
+        fse.writeSync(fd, filesStr);
+        fse.closeSync(fd);
+
+        var diffreport = differ.reportChanges(mergedTree, TEST_DIR + test + "/diff.txt");
+
+        var testObj = JSON.parse(fse.readFileSync(TEST_DIR + test + "/test.json", 'utf8'));
+        if (testObj.expected === diffreport) {
+            testObj.passed = true;
+        } else {
+            testObj.passed = false;
+            testObj.reported = diffreport;
+        }
+        testObj.lastrun = Date().toString();
+
+        //update test.json
+        var testStr = JSON.stringify(testObj, null, 4);
+        var testfd = fse.openSync(TEST_DIR + test + "/test.json", 'w');
+        fse.writeSync(testfd, testStr);
+        fse.closeSync(testfd);
+    });
 };

@@ -59,7 +59,7 @@ static void ODFConverterFree(ODFConverter *converter)
 }
 
 /*
- * Recursive walk to find the paragrapg elements
+ * Recursive walk to find the paragraph elements
  */
 static void buildListMapFromHTML(WordPutData *put, DFNode *node)
 {
@@ -142,8 +142,8 @@ int ODFConverterGet(DFDocument *html, DFStorage *abstractStorage, ODFPackage *pa
         ok = 0;
     }
 
-    writejson(odfDocument, "concrete.json");
-    writejson(converter->html->docNode, "abstract.json");
+    writejson(odfDocument, "getconcrete.json");
+    writejson(converter->html->docNode, "getabstract.json");
     ODFConverterFree(converter);
     return ok;
 }
@@ -356,8 +356,8 @@ int ODFConverterPut(DFDocument *html, DFStorage *abstractStorage, ODFPackage *pa
     ODFDocumentLens.put(&put,converter->html->root,ODFDocument);
 
     //Let's see what we made at the end
-    writejson(put.contentDoc->root, "concrete.json");
-    writejson(converter->html->root, "abstract.json");
+    writejson(put.contentDoc->root, "putconcrete.json");
+    writejson(converter->html->root, "putabstract.json");
 
     //ODFObjectsExpandBookmarks(converter->objects);
     //ODFRemoveNbsps(converter->package->document);

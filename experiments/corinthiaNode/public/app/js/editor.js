@@ -32,6 +32,7 @@ var api;
 var autosave = true;
 
 function start(theAPI) {
+    autosave = true;
     api = theAPI;
     console.log("test start");
     api.main.init(768, 100, null);
