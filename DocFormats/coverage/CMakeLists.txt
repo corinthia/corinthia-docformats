@@ -31,6 +31,7 @@
 ###
 set(GroupSrcCoverage
     src/ProductionCoverage.c
+    src/ProductionCoverage.h
     )
 
 #set(GroupTests
