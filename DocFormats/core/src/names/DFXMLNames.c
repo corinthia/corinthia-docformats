@@ -25,7 +25,7 @@
 const TagDecl PredefinedTags[PREDEFINED_TAG_COUNT] = {
     { 0, NULL },
     { 0, NULL },
-    { 0, NULL },
+    { 0, "dom-text" },
     { 0, NULL },
     { 0, NULL },
     { 0, NULL },

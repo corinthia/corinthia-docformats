@@ -93,7 +93,7 @@ static void jsonNodeOpen(DFNode *n)
 //    spaces[level*4] = 0;
     if (n->tag) {
         gauges[n->tag]++;
-        fprintf(jsonFile, "{\"type\": \"%s\",\n", translateXMLEnumName[n->tag]);
+        fprintf(jsonFile, "{\"type\": \"%s\",\n", DFTagName(n->doc,n->tag));
         fprintf(jsonFile, " \"seq\": %d,\n ", n->seqNo);
     }
     if(n->attrsCount > 0) {
@@ -103,7 +103,7 @@ static void jsonNodeOpen(DFNode *n)
             char escStr[strlen(n->attrs[i].value)*2]; //just hard code for the moment
             escapeJson(n->attrs[i].value, escStr);
 
-            fprintf(jsonFile, "{  \"%s\": \"%s\"}", translateXMLEnumName[n->attrs[i].tag], escStr);
+            fprintf(jsonFile, "{  \"%s\": \"%s\"}", DFTagName(n->doc, n->attrs[i].tag), escStr);
         }
         fprintf(jsonFile, "\n ],\n");
     }
@@ -162,4 +162,3 @@ void nodes2json(DFNode *odfNode, int level)
     }
     jsonNodeClose(last);
 }
-
