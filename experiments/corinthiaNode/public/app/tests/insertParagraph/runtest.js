@@ -1,19 +1,14 @@
-function insertParagraph(str) {
-    for (var i = 0; i < str.length; i++) {
-        api.cursor.insertCharacter(str[i]);
-    }
-    api.cursor.enterPressed();
-}
-
 function moveRight(num) {
     for (var i = 0; i < num; i++) {
         api.cursor.moveRight();
     }
-    api.cursor.enterPressed();
 }
 
 function autoEdit(api) {
-    moveRight(33);
+    moveRight(14);
+    var frmt = api.formatting.getFormatting();
+    moveRight(21);
     api.cursor.enterPressed();
-    insertParagraph("New Shiny Paragraph");
+    api.cursor.insertCharacter("New Shiny Paragraph");
+    api.formatting.applyFormattingChanges(frmt["-corinthia-paragraph-style"],{});
 }

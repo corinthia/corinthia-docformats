@@ -1,1 +1,9 @@
-{"name":"appendMultipleParagraphs","seedDoc":"HelloWorld.odt","expected":"Added: \nnode: TEXT_P\nvalue: \"undefined\"\nAdded: \nnode: DOM_TEXT\nvalue: \"Puff, the magic dragon, lives by the sea.\"\n","comment":"Add paragraph at the end - Move to end not working!?","passed":false,"lastrun":"Mon Mar 28 2016 18:36:06 GMT+0800 (AWST)","reported":"Added: \nnode: TEXT_P\nvalue: \"undefined\"\nAdded: \nnode: DOM_TEXT\nvalue: \"Puff, the magic dragon, lives by the sea.\"\nAdded: \nnode: TEXT_P\nvalue: \"undefined\"\nAdded: \nnode: DOM_TEXT\nvalue: \"This should be almost at the end.\"\nAdded: \nnode: TEXT_P\nvalue: \"undefined\"\nAdded: \nnode: DOM_TEXT\nvalue: \"This should be at the end.\"\n"}
+{
+    "name": "appendMultipleParagraphs",
+    "seedDoc": "HelloWorld.odt",
+    "expected": "Added: \nnode: TEXT_P\nAdded: \nnode: DOM_TEXT\nvalue: \"Puff, the magic dragon, lives by the sea.\"\nAdded: \nnode: TEXT_P\nAdded: \nnode: DOM_TEXT\nvalue: \"This should be almost at the end.\"\nAdded: \nnode: TEXT_P\nAdded: \nnode: DOM_TEXT\nvalue: \"This should be at the end.\"\n",
+    "comment": "Add paragraph at the end - Move to end not working!?",
+    "passed": false,
+    "lastrun": "Sun Apr 10 2016 18:58:21 GMT+0800 (AWST)",
+    "reported": "Changed:\nnode: dom-text\nseq: 20\nfrom: \"Puff, the magic dragon, lives by the sea.\"\nto: \"This should be almost at the end.\"\nAdded: \nnode: p\nAdded: \nnode: dom-text\nvalue: \"This should be at the end.\"\n"
+}

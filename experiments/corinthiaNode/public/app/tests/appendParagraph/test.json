@@ -1,9 +1,9 @@
 {
     "name": "appendParagraph",
     "seedDoc": "HelloWorld.odt",
-    "expected": "Added: \nnode: TEXT_P\nAdded: \nnode: DOM_TEXT\nvalue: \"Puff, the magic dragon, lives by the sea.\"\n",
+    "expected": "Added: \nnode: p\nAdded: \nnode: dom-text\nvalue: \"Puff, the magic dragon, lives by the sea.\"\n",
     "comment": "Add paragraph at the end - Move to end not working!?",
-    "passed": true,
-    "lastrun": "Mon Mar 28 2016 19:25:51 GMT+0800 (AWST)",
-    "reported": "Added: \nnode: TEXT_P\nAdded: \nnode: DOM_TEXT\nvalue: \"Puff, the magic dragon, lives by the sea.\"\n"
+    "passed": false,
+    "lastrun": "Sat Apr 09 2016 16:05:49 GMT+0800 (AWST)",
+    "reported": "Added: \nnode: p\nAdded: \nnode: dom-text\nvalue: \"Puff, the magic dragon, lives by the sea.\"\n"
 }

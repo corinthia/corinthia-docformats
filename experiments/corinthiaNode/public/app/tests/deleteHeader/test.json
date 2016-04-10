@@ -1,9 +1,9 @@
 {
     "name": "deleteHeader",
-    "seedDoc": "Headers.odt",
-    "expected": "",
-    "comment": "not working yet",
+    "seedDoc": "SimpleHeaders.odt",
+    "expected": "Changed:\nnode: dom-text\nseq: 23\nfrom: \"Headline One\"\nto: \"\"\n",
+    "comment": "The header is not removed just its contents?",
     "passed": false,
-    "lastrun": "Sat Mar 26 2016 15:51:44 GMT+0800 (AWST)",
-    "reported": ""
+    "lastrun": "Sun Apr 10 2016 18:56:12 GMT+0800 (AWST)",
+    "reported": "Changed:\nnode: dom-text\nseq: 23\nfrom: \"Headline One\"\nto: \"\"\n"
 }

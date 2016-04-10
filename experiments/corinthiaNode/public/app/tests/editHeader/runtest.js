@@ -10,5 +10,4 @@ function autoEdit(api) {
     api.cursor.moveRight();
     api.cursor.moveRight();
     api.cursor.insertCharacter(" One And The Only");
-    autosave = false;
 }

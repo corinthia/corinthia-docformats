@@ -1,10 +1,10 @@
 {
     "name": "deleteFromStart",
     "seedDoc": "HelloWorld.odt",
-    "expected": "Changed:\nnode: DOM_TEXT\nseq: 18\nfrom: \"Hello world\"\nto: \"world\"",
+    "expected": "Changed:\nnode: dom-text\nseq: 18\nfrom: \"Hello world\"\nto: \"world\"\n",
     "comment": "Verification later",
     "result": null,
-    "lastrun": "Mon Mar 28 2016 19:27:45 GMT+0800 (AWST)",
-    "passed": true,
-    "reported": "\nChanged:\nnode: DOM_TEXT\nseq: 18\nfrom: \"Hello world\"\nto: \"world\""
+    "lastrun": "Sat Apr 09 2016 16:10:26 GMT+0800 (AWST)",
+    "passed": false,
+    "reported": "Changed:\nnode: dom-text\nseq: 18\nfrom: \"Hello world\"\nto: \"world\"\n"
 }

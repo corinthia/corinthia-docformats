@@ -1,9 +1,9 @@
 {
     "name": "deleteParagraph",
     "seedDoc": "HelloWorld.odt",
-    "expected": "Changed:\nnode: DOM_TEXT\nseq: 18\nfrom: \"Hello world\"\nto: \"\"\n",
+    "expected": "Changed:\nnode: dom-text\nseq: 18\nfrom: \"Hello world\"\nto: \"\"\n",
     "comment": "Contents deleted not truly removed",
-    "passed": true,
-    "lastrun": "Sat Apr 02 2016 14:15:34 GMT+0800 (AWST)",
-    "reported": "Changed:\nnode: DOM_TEXT\nseq: 18\nfrom: \"Hello world\"\nto: \"\"\n"
+    "passed": false,
+    "lastrun": "Sun Apr 10 2016 18:57:29 GMT+0800 (AWST)",
+    "reported": "Changed:\nnode: dom-text\nseq: 18\nfrom: \"Hello world\"\nto: \"\"\n"
 }
