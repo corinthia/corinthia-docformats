@@ -1,0 +1,9 @@
+{
+    "name": "WappendParagraph",
+    "seedDoc": "HelloWorld.docx",
+    "expected": "Added: \nnode: TEXT_P\nAdded: \nnode: DOM_TEXT\nvalue: \"Puff, the magic dragon, lives by the sea.\"\n",
+    "comment": "Add paragraph at the end - Move to end not working!?",
+    "passed": false,
+    "lastrun": "Sun Apr 10 2016 19:13:30 GMT+0800 (AWST)",
+    "reported": "Added: \nnode: bookmarkStart\nAdded: \nnode: bookmarkEnd\nDeleted: { type: 'bookmark',\n  seq: 7,\n  attributes: [ { id: '0' }, { name: '_GoBack' } ],\n  children: [],\n  state: 'ORIG' }\nAdded: \nnode: p\nAdded: \nnode: r\nAdded: \nnode: t\nAdded: \nnode: dom-text\nvalue: \"Puff, the magic dragon, lives by the sea.\"\n"
+}
