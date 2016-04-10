@@ -64,13 +64,24 @@ function cleanTargetHTML(file) {
 }
 
 function qmove(from, to) {
-    return Q.nfcall(fse.rename, from, to);
+    var deferred = Q.defer();
+    Q.nfcall(fse.exists, from)
+        .then(function(retval) {
+            return Q.nfcall(fse.rename, from, to);
+        })
+        .catch(function(err) {
+            console.log(err);
+            deferred.reject(err);
+        })
+        .done();
+    return deferred.promise;
 }
 
 exports.run = function(direction, concrete, abstract) {
     var deferred = Q.defer();
 
     var cmdArgs = [];
+    var errmsg = "";
     cmdArgs.push(direction);
     cmdArgs.push(concrete);
     cmdArgs.push(abstract);

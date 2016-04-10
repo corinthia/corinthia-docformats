@@ -184,9 +184,16 @@ server.post('/app/save', function(req, res) {
     corinthia.run('put', concrete, abstract)
         .then(function(result) {
             testRunner.moveGauges('put', test)
+            .then(function(val) {
+                console.log(val);
+                return testRunner.verify(test);
+            })
+            .then(function(ver){
+                console.log(ver);
+                return testRunner.getTests();
+            })
             .then(function(retval) {
-                testRunner.verify(test);
-                testRunner.getTests();
+                console.log(retval);
                 res.send("Saved");
                 console.log('Saved test document');
             }).
