@@ -94,7 +94,55 @@ static DFNode *ODFHeaderGet(ODFGetData *get, DFNode *concrete)
 static void ODFHeaderPut(ODFPutData *put, DFNode *abstract, DFNode *concrete)
 {
     printf(CYAN "ODFHeaderPut\n" RESET);
-    //ODFContainerPut(put,&ODFParagraphContentLens,abstract,concrete);
+    //the isParagraph will check for a header... but not uniquely
+    if (!HTML_isParagraphTag(abstract->tag) && (abstract->tag != HTML_FIGURE)) {
+        printf(RED "Not a para or figure\n" RESET);
+        return;
+    }
+
+    if (concrete->tag != TEXT_H) {
+        printf(RED "Concrete not an H\n" RESET);
+        return;
+    }
+    //we have an issue here in that there can be many descendents
+    //and they could be straight DOM_TEXT too (which does not go through the BDT module )
+
+    //all abstract text is in the matching abtract DOM Text - so only use the first DOM_TEXT found
+    int allowText = 1;
+    for (DFNode *child = concrete->first; child != NULL; child = child->next) {
+        if (child->tag == DOM_TEXT) {
+            printf("found DOM_TEXT\n" );
+            if( allowText == 1) { //only trigger on the first
+                allowText = 0;
+                if(abstract->first != NULL) {
+                    printf("new DOM_TEXT %s\n", abstract->first->value);
+                    ODFParagraphContentLens.put(put, abstract->first, concrete->first);
+                } else {
+                    // the concrete node should be deleted?
+                    // can we do it in here?
+                    // the case where we have some text a <text:s/> and more text is causing hassle
+                    printf(RED "Remove Concrete node\n" RESET);
+                }
+            } else {
+                printf(RED "Remove Concrete node allowText false\n" RESET);
+                DFRemoveNode(child);
+            }
+        } else if(child->tag == TEXT_S) {
+            printf(RED "Filter Space and remove the node\n" RESET);
+        } else {
+            allowText = 1;
+            ODFContainerPut(put,&ODFParagraphContentLens,abstract,child);
+        }
+    }
+    if (concrete->first == NULL) { //this was an empty paragraph
+        printf(RED "Concrete empty H\n" RESET);
+        if(abstract->first != NULL && abstract->first->tag == DOM_TEXT) {
+            printf(RED "ADD a Concrete DOM_TEXT node\n" RESET);
+            DFAppendChild(concrete,DFCreateTextNode(concrete->doc,abstract->first->value));
+        } else {
+            // the concrete paragraph should be deleted? There is no text
+        }
+    }
 }
 
 static DFNode *ODFHeaderCreate(ODFPutData *put, DFNode *abstract)
