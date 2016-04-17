@@ -88,7 +88,7 @@ static int ODFParagraphContentIsVisible(ODFPutData *put, DFNode *concrete)
     if ((lens != NULL) && (lens->isVisible != NULL))
         return lens->isVisible(put,concrete);
     else
-        return 0;
+        return 1;
 }
 
 static void ODFParagraphContentPut(ODFPutData *put, DFNode *abstract, DFNode *concrete)

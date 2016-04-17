@@ -108,6 +108,11 @@ static void ODFParagraphPut(ODFPutData *put, DFNode *abstract, DFNode *concrete)
             // the concrete paragraph should be deleted? There is no text
         }
     }
+    const char * styleName = DFGetAttribute(abstract,HTML_CLASS);
+    printf("found class %s\n", styleName);
+    if(styleName != NULL) {
+        DFSetAttribute(concrete, TEXT_STYLE_NAME, styleName);
+    }
 }
 
 static DFNode *ODFParagraphCreate(ODFPutData *put, DFNode *abstract)
