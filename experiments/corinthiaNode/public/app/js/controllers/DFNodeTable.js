@@ -161,7 +161,7 @@
                             txt += " [";
                             for (var a = 0; a < d.attributes.length; a++) {
                                 Object.getOwnPropertyNames(d.attributes[a]).forEach(function(val, idx, array) {
-                                    txt += '{' + val + ' -> ' + d.attributes[a][val] + '}';
+                                    txt += '{' + val + ': ' + d.attributes[a][val] + '}';
                                 });
                             }
                             txt += "]";
@@ -171,6 +171,8 @@
                         }
                         if (d.diff)
                             txt += " -> \"" + d.diff + "\"";
+                        if (d.attrdiff)
+                            txt += " -> \"" + d.attrdiff + "\"";
                         return txt;
                     });
 

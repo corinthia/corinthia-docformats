@@ -52,11 +52,11 @@ var targetHTML = '';
 
 //the get abstract has a parent element we want to ignore
 exports.merge = function(first, second, getFromFirstChild) {
-//    console.log("merge/diff  " + first + " and " + second);
+    //    console.log("merge/diff  " + first + " and " + second);
     var beforeObj = JSON.parse(fse.readFileSync(first, 'utf8'));
     var afterObj = JSON.parse(fse.readFileSync(second, 'utf8'));
     initNodes(beforeObj);
-    if(getFromFirstChild) {
+    if (getFromFirstChild) {
         mergeDoc(beforeObj.children[0], afterObj, 0);
 
     } else {
@@ -77,14 +77,14 @@ function initNodes(root) {
 // or it is NEW
 // add index numbers to track repositioning?
 function mergeDoc(root1, root2, level) {
-//        console.log("merge1 " + inspect(root1));
-//        console.log("merge2 " + inspect(root2));
+    //        console.log("merge1 " + inspect(root1));
+    //        console.log("merge2 " + inspect(root2));
     var r1 = 0;
     for (var r2 = 0; r2 < root2.children.length; r2++) {
         var root2Node = root2.children[r2];
         if (root1.children && r1 < root1.children.length) {
             var root1Node = root1.children[r1];
-            if(isMatch(root1Node, root2Node)){
+            if (isMatch(root1Node, root2Node)) {
                 mergeNode(root1Node, root2Node);
                 mergeDoc(root1Node, root2Node, level);
             } else {
@@ -101,7 +101,7 @@ function mergeDoc(root1, root2, level) {
 }
 
 function addNew(root1, ndx, root2Node) {
-//    console.log("NEW: " + inspect(root2Node));
+    //    console.log("NEW: " + inspect(root2Node));
     newNode = extend({}, root2Node);
     newNode.state = "NEW";
     propagateState(newNode, "NEW");
@@ -115,19 +115,46 @@ function addState(node, val) {
 // is node in root?
 // Compare
 // or add new
+// need to consider the attributes too
 function mergeNode(match, root2Node) {
-    if (match.value === root2Node.value) {
-//        console.log("INST Compare Merge ");
+    if (match.value === root2Node.value && attributesMatch(match, root2Node)) {
         match.state = "INST";
     } else {
-//        console.log("DIFF Compare Merge ");
+        //        console.log("DIFF Compare Merge ");
         match.state = "DIFF";
         match.diff = root2Node.value;
     }
 }
 
+function attributesMatch(match, root2Node) {
+    var retval = true;
+    if (match.attributes && root2Node.attributes) {
+        var matchAttrs = match.attributes.length;
+        var root2Attrs = root2Node.attributes.length;
+        if (matchAttrs === root2Attrs) {
+            //they may not be in the same order
+            for (var a = 0; a < matchAttrs; a++) {
+                if (inspect(match.attributes[a]) !== inspect(root2Node.attributes[a])) {
+                    console.log("Mismatch attr value " + inspect(match.attributes[a]) + " " + inspect(root2Node.attributes[a]));
+                    if (match.attrdiff) {
+                        match.attrdiff += inspect(root2Node.attributes[a]) + " ";
+                    } else {
+                        match.attrdiff = inspect(root2Node.attributes[a]) + " ";
+                    }
+                    retval = false;
+                }
+            }
+        } else {
+            match.attrdiff = "Number " + matchAttrs + " -> " + root2Attrs;
+            console.log("Mismatch attrs length " + matchAttrs + " " + root2Attrs);
+            retval = false;
+        }
+    }
+    return retval;
+}
+
 function isMatch(root, node) {
-//    console.log("Compare Match " + root.type + " " + node.type);
+    //    console.log("Compare Match " + root.type + " " + node.type);
     if (root.type === node.type) {
         //console.log("MATCH");
         return true;
@@ -183,8 +210,11 @@ function reportTree(root) {
 //May change in future to add more context
 function reportAdded(node) {
     var repString = "Added: " + "\nnode: " + node.type;
-    if(node.value){
+    if (node.value) {
         repString += "\nvalue: \"" + node.value + "\"\n";
+    }
+    if (node.attributes) {
+        repString += "\nattributes: \"" + inspect(node.attributes) + "\"\n";
     } else {
         repString += "\n";
     }
@@ -192,7 +222,14 @@ function reportAdded(node) {
 }
 
 function reportDiff(node, diffString) {
-    return "Changed:" + "\nnode: " + node.type + "\nseq: " + node.seq + "\nfrom: \"" + node.value + "\"\nto: \"" + node.diff +"\"\n";
+    var rdiffString = "Changed:" + "\nnode: " + node.type + "\nseq: " + node.seq + "\nfrom: \"";
+    if (node.diff) {
+        rdiffString += node.value + "\"\nto: \"" + node.diff + "\"\n";
+    }
+    if (node.attrdiff) {
+        rdiffString += "\"\nattribute(s): \"" + node.attrdiff + "\"\n";
+    }
+    return rdiffString;
 }
 
 function reportDeleted(node, diffString) {
