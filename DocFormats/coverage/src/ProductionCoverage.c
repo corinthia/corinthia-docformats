@@ -35,15 +35,28 @@ static void dumpGauges(char * name)
 {
     printf("Dump gauges to %s \n", name);
     FILE * gaugesFile = fopen(name, "w");
-    fputs("{\n", gaugesFile);
+    fputs("{\"productionCoverage\": [\n", gaugesFile);
     //could/should include some meta data here... doc name - date etc
     if(gaugesFile != NULL) {
         // just iterate the gauges array and get the parallel tag name
+        unsigned int nsID = 999; //make it out of range to start
+        unsigned int closeNeeded = 0;
         for(unsigned int i=0; i<PREDEFINED_TAG_COUNT; i++) {
-            fprintf(gaugesFile, "\"%s\": %d,\n", PredefinedTags[i].localName, gauges[i]);
+            //put each namespace into its own object and array
+            unsigned int tagnsID = PredefinedTags[i].namespaceID;
+            if(tagnsID != nsID) {
+                if(closeNeeded) {
+                    fprintf(gaugesFile, "    {\"End of NS\": -1}\n  ]},\n");
+                }
+                nsID = tagnsID;
+                fprintf(gaugesFile, "  {\"ns\":\"%s\",\n    \"gauges\": [\n", PredefinedNamespaces[nsID]);
+                closeNeeded = 1;
+            }
+            fprintf(gaugesFile, "    {\"name\":\"%s\", \"value\": %d},\n", PredefinedTags[i].localName, gauges[i]);
         }
     }
-    fputs("\"End of the line\": 0\n}\n", gaugesFile);
+    fprintf(gaugesFile, "    {\"End of NS\": -1}\n  ]},\n");
+    fputs("{\"ns\":\"End of the line\",\n    \"gauges\": []}\n]}\n", gaugesFile);
     fclose(gaugesFile);
 }
 
