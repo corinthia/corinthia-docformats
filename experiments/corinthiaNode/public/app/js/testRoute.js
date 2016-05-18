@@ -42,6 +42,8 @@
             templateUrl: 'partials/testedit.html'
         }).when('/report/:test', {
             templateUrl: 'partials/report.html'
+        }).when('/gauges', {
+            templateUrl: 'partials/corgauges.html'
         }).when('/paths/:dfName/:jsonName', {
             templateUrl: 'partials/dfpaths.html',
             controller: 'DFNodePathsCtrl'

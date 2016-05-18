@@ -1,0 +1,60 @@
+<!-- Main Test List -->
+<!-- User to select individual/goups/all tests to run -->
+<div class="container-fluid" ng-controller="CorinthiaGaugesCtrl as ct">
+    <div class="jumbotron">
+        <h1>Corinthia Test Prodution Coverage</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div>
+                <h3>Tests</h3>
+                <div class="row">
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Select</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="test in ct.testList " ng-class="ct.getTestClass(test.passed)">
+                                <td><input type="checkbox" ng-model="test.check" ng-click="ct.addTest(test)"/></td>
+                                <td>{{test.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <!--Body content-->
+            <div class="row">
+                <h3>Gauges</h3>
+                <label>Show All: <input type="checkbox" ng-model="ct.showall"/></label>
+
+                <h3>Namespace Hits</h3>
+                <ul class=list-group ng-repeat="ns in ct.coverage | filter: ct.gaugeFilter" >
+                    <li class=list-group-item>
+                        <span class="badge">{{ns.total}}</span>
+                        <h4 ng-click="show=!show" ng-model="show">{{ns.ns}}<span class="caret"><span></h4>
+                        <table ng-show="show" class="table table-bordered table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Element</th>
+                                    <th>Hits</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="g in ns.gauges | filter: ct.gaugeFilter ">
+                                    <td>{{g.name}}</td>
+                                    <td>{{g.value}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

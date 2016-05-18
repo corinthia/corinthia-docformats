@@ -28,6 +28,7 @@
             //functions
             getTests: getTests,
             getTest: getTest,
+            getCoverage: getCoverage,
             seed: seed,
             saveDoc: saveDoc
         };
@@ -38,6 +39,17 @@
             return $http.get('tests.json')
                 .then(listComplete)
                 .catch(errHandler);
+        }
+
+        // probably should move to a Gauges service
+        function getCoverage(test) {
+            return $http.get('/app/tests/' + test.name +'/gauges_putconcrete.json')
+                .then(putConcrete)
+                .catch(errHandler);
+        }
+
+        function putConcrete(res) {
+            return res.data.productionCoverage;
         }
 
         function listComplete(res) {
