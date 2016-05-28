@@ -14,6 +14,7 @@
         vm.showall = false;
 
         vm.gaugeFilter = gaugeFilter;
+        vm.noGauges = noGauges;
 
         init();
 
@@ -83,6 +84,15 @@
                 }
             }
 
+        }
+
+        //don't like the negative logic but feeding a disabled
+	function noGauges(test) {
+            var retval = true;
+            if(test.gauges && test.gauges != "") {
+                retval = false;
+            }
+            return retval; 
         }
     }
 })();
