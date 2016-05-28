@@ -56,7 +56,8 @@ static void removeSpecial(TidyDoc doc, TidyNode node)
                 !strcmp(cssClass,"corinthia-selection") ||
                 !strcmp(cssClass,"corinthia-selection-highlight") ||
                 !strcmp(cssClass,"corinthia-spelling") ||
-                !strcmp(cssClass,"corinthia-match")) {
+                !strcmp(cssClass,"corinthia-match") ||
+                !strcmp(cssClass,"corinthia-cursor")) {
                 tidyDiscardContainer(doc,node);
                 return;
             }
@@ -144,7 +145,7 @@ int DFHTDocumentParseCString(DFHTDocument *htd, const char *str, DFError **error
     }
 }
 
-void DFHTDocumentRemoveUXWriteSpecial(DFHTDocument *htd)
+void DFHTDocumentRemoveSpecial(DFHTDocument *htd)
 {
     removeSpecial(htd->doc,tidyGetRoot(htd->doc));
 }

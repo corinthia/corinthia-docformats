@@ -38,4 +38,4 @@ struct DFHTDocument {
 DFHTDocument *DFHTDocumentNew();
 void DFHTDocumentFree(DFHTDocument *htd);
 int DFHTDocumentParseCString(DFHTDocument *htd, const char *str, DFError **error);
-void DFHTDocumentRemoveUXWriteSpecial(DFHTDocument *htd);
+void DFHTDocumentRemoveSpecial(DFHTDocument *htd);

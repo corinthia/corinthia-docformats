@@ -77,7 +77,7 @@ static int DFHTMLTidy2(DFBuffer *input, DFBuffer *output, int xHTML, DFError **e
 {
     if (!DFHTDocumentParseData(document,input,error))
         return 0;
-    DFHTDocumentRemoveUXWriteSpecial(document);
+    DFHTDocumentRemoveSpecial(document);
     if (!DFHTDocumentCleanAndRepair(document,error))
         return 0;
     if (!DFHTDocumentRunDiagnostics(document,error))

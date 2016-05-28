@@ -422,7 +422,7 @@ DFDocument *DFParseHTMLString(const char *str, int removeSpecial, DFError **erro
         return NULL;
     }
     if (removeSpecial)
-        DFHTDocumentRemoveUXWriteSpecial(htdoc);;
+        DFHTDocumentRemoveSpecial(htdoc);;
     DFDocument *doc = DFDocumentNew();
     DFNode *root = fromTidyNode(doc,htdoc->doc,tidyGetHtml(htdoc->doc));
     if (root == NULL) {
