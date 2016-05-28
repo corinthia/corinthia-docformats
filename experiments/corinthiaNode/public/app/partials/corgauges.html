@@ -18,7 +18,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="test in ct.testList " ng-class="ct.getTestClass(test.passed)">
-                                <td><input type="checkbox" ng-model="test.check" ng-click="ct.addTest(test)"/></td>
+                                <td><input type="checkbox" ng-disabled="ct.noGauges(test)" ng-model="test.check" ng-click="ct.addTest(test)"/></td>
                                 <td>{{test.name}}</td>
                             </tr>
                         </tbody>
