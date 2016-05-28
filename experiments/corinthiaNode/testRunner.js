@@ -48,6 +48,8 @@ var inputFile = '';
 var dataDirectory = '';
 var targetHTML = '';
 
+var gaugesMoved = "";
+
 function qmove(from, to) {
     var deferred = Q.defer();
     fse.move(from, to, {
@@ -73,6 +75,7 @@ exports.moveGauges = function(prefix, testDirectory) {
 
     Q.all([concMove, absMove, absGaugeMove, concGaugeMove])
         .then(function(allVals) {
+            gaugesMoved = prefix;
             deferred.resolve(allVals);
         })
         .catch(function(err) {
@@ -92,6 +95,7 @@ exports.getConcrete = function(doc, test) {
 };
 
 exports.setup = function(doc, concrete, abstract) {
+    gaugesMoved = "";
     var from = SEED_DIR + doc;
     fse.copySync(from, concrete);
     //delete previous html
@@ -161,6 +165,8 @@ exports.verify = function(test, expected) {
 
 
     var testObj = JSON.parse(fse.readFileSync(TEST_DIR + test + "/test.json", 'utf8'));
+    testObj.gauges = gaugesMoved; //Need to make sure the checked in version does not have true.
+			   //could just use the lastrun date as an indicator too?
     if (testObj.expected === diffreport) {
         testObj.passed = true;
     } else {
