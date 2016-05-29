@@ -46,9 +46,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="g in ns.gauges | filter: ct.gaugeFilter ">
+                                <tr ng-class="ct.gaugeClass(g)" ng-repeat="g in ns.gauges | filter: ct.gaugeFilter ">
                                     <td>{{g.name}}</td>
-                                    <td>{{g.value}}</td>
+                                    <td>{{ct.gaugeStr(g)}}</td>
                                 </tr>
                             </tbody>
                         </table>
