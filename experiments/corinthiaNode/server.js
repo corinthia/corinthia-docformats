@@ -150,7 +150,7 @@ server.post('/app/seedtest', function(req, res) {
 
     var concrete = testRunner.getConcrete(seedDoc, test);
     var abstract = testRunner.getAbstract(seedDoc, test);
-    console.log('Seed test ' + test );
+    console.log('Seed test ' + test);
     testRunner.setup(seedDoc, concrete, abstract);
     corinthia.run('get', concrete, abstract)
         .then(function(result) {
@@ -184,24 +184,24 @@ server.post('/app/save', function(req, res) {
     corinthia.run('put', concrete, abstract)
         .then(function(result) {
             testRunner.moveGauges('put', test)
-            .then(function(val) {
-                console.log(val);
-                return testRunner.verify(test);
-            })
-            .then(function(ver){
-                console.log(ver);
-                return testRunner.getTests();
-            })
-            .then(function(retval) {
-                console.log(retval);
-                res.send("Saved");
-                console.log('Saved test document');
-            }).
+                .then(function(val) {
+                    console.log(val);
+                    return testRunner.verify(test);
+                })
+                .then(function(ver) {
+                    console.log(ver);
+                    return testRunner.getTests();
+                })
+                .then(function(retval) {
+                    console.log(retval);
+                    res.send("Saved");
+                    console.log('Saved test document');
+                }).
             catch(function(err) {
-                res.send(err);
-                console.log('Error moving gauges');
-            })
-            .done();
+                    res.send(err);
+                    console.log('Error ' + err);
+                })
+                .done();
         })
         .catch(function(err) {
             console.log(err);
@@ -217,6 +217,22 @@ server.post('/corput', function(req, res) {
     } else {
         corinthia.put(res, req.body.doc);
     }
+});
+
+server.get('/resetTests', function(req, res) {
+    console.log("received resetTests");
+    testRunner.resetTests()
+        .then(function() {
+            return testRunner.getTests();
+        })
+        .then(function() {
+            res.redirect('/app/test.html');
+        })
+        .catch(function(err) {
+            console.log(err);
+            res.send("Reset Failed");
+        })
+        .done();
 });
 
 server.post('/help', function(req, res) {

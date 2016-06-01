@@ -130,6 +130,25 @@ exports.getTests = function() {
     return deferred.promise;
 };
 
+exports.resetTests = function() {
+    var deferred = Q.defer();
+
+    var filesArray = fse.readdirSync(TEST_DIR);
+    for (var i = 0; i < filesArray.length; i++) {
+        var testName = filesArray[i];
+        var testObj = JSON.parse(fse.readFileSync(TEST_DIR + testName + "/test.json", 'utf8'));
+        testObj.passed = false;
+        testObj.gauges = "";
+        var testStr = JSON.stringify(testObj, null, 4);
+        var fd = fse.openSync(TEST_DIR + testName + "/test.json", 'w');
+        fse.writeSync(fd, testStr);
+        fse.closeSync(fd);
+    }
+    deferred.resolve("built tests.json");
+
+    return deferred.promise;
+};
+
 exports.writeMerged = function(test) {
     //did it pass? What was expected
 };
