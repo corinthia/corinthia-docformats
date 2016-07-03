@@ -21,6 +21,7 @@
 #include "DFHashTable.h"
 #include "DFCommon.h"
 #include "DFPlatform.h"
+#include "DFString.h"
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
@@ -127,8 +128,8 @@ DFNamespaceInfo *DFNamespaceInfoNew(NamespaceID nsId, const char *URI, const cha
     DFNamespaceInfo *info = (DFNamespaceInfo *)xcalloc(1,sizeof(DFNamespaceInfo));
     info->nsId = nsId;
     info->decl = (NamespaceDecl *)xmalloc(sizeof(NamespaceDecl));
-    info->decl->namespaceURI = xstrdup(URI);
-    info->decl->prefix = xstrdup(prefix);
+    info->decl->namespaceURI = DFStrDup(URI);
+    info->decl->prefix = DFStrDup(prefix);
     return info;
 }
 
