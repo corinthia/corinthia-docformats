@@ -373,10 +373,10 @@ static void Word_fixListSingle(WordConverter *conv, DFNode *node)
                     ListStackPopToAboveIlvl(&stack,ilvl+1);
 
                 if ((stack.top == NULL) || (stack.top->numId != numId) || (stack.top->ilvl < ilvl)) {
-                    WordConcreteNum *num = WordNumberingConcreteWithId(conv->numbering,numIdStr);
-                    WordNumLevel *level = (num != NULL) ? WordConcreteNumGetLevel(num,ilvl) : NULL;
+                    WordConcreteNum *num = WordNumberingConcreteWithId(conv->numbering,numIdStr); // may be NULL
+                    WordNumLevel *level = WordConcreteNumGetLevel(num,ilvl); // may be NULL
 
-                    const char *type = WordNumLevelToListStyleType(level);
+                    const char *type = WordNumLevelToListStyleType(level); // may be NULL
                     Tag tag;
                     if (DFStringEquals(type,"disc") ||
                         DFStringEquals(type,"circle") ||
@@ -556,9 +556,8 @@ static void fixWordLists(DFNode *node, WordConverter *conv)
         if (ilvl == NULL)
             ilvl = "0";;
 
-        WordConcreteNum *concreteNum = WordNumberingConcreteWithId(conv->numbering,numId);
-        // FIXME: Crash here if concreteNum is NULL
-        WordNumLevel *numLevel = WordConcreteNumGetLevel(concreteNum,atoi(ilvl));
+        WordConcreteNum *concreteNum = WordNumberingConcreteWithId(conv->numbering,numId); // may be NULL
+        WordNumLevel *numLevel = WordConcreteNumGetLevel(concreteNum,atoi(ilvl)); // may be NULL
 
         const char *levelStart = NULL;
 

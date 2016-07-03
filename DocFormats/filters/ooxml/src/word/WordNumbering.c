@@ -74,6 +74,8 @@ static void WordNumLevelFree(WordNumLevel *level)
 
 const char *WordNumLevelToListStyleType(WordNumLevel *level)
 {
+    if (level == NULL)
+        return NULL;
     if (DFStringEquals(level->numFmt,"bullet")) {
         // UTF-8 encoding of chars U+F0B7 (disc) and U+F0A7 (square)
         const char disc[4] = { 0xEF, 0x82, 0xB7, 0 };
@@ -166,6 +168,8 @@ static void WordConcreteNumFree(WordConcreteNum *num)
 
 WordNumLevel *WordConcreteNumGetLevel(WordConcreteNum *con, int ilvl)
 {
+    if (con == NULL)
+        return NULL;
     return WordAbstractNumGetLevel(con->abstractNum,ilvl);
 }
 

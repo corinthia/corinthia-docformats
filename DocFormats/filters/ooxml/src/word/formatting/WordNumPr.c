@@ -60,7 +60,7 @@ static char *parseLvlText(const char *input, WordConcreteNum *num)
             char *counterName = DFFormatString("h%d",ilvl+1);
 
             WordNumLevel *numLevel = WordConcreteNumGetLevel(num,ilvl);
-            const char *type = (numLevel != NULL) ? WordNumLevelToListStyleType(numLevel) : NULL;
+            const char *type = WordNumLevelToListStyleType(numLevel);
             if ((type != NULL) && !DFStringEquals(type,"decimal"))
                 DFBufferFormat(result,"counter(%s,%s)",counterName,type);
             else
